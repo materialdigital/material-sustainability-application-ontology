@@ -1571,8 +1571,13 @@ jobs:
           cat "src/ontology/components/${LOWER_ID}-axioms-shared.owl" || echo "(file not found)"
           echo ""
           echo "--- Sample component file (first component, first 30 lines) ---"
-          FIRST_COMP=$(ls "src/ontology/components/${LOWER_ID}-"*.owl 2>/dev/null \
-            | grep -v "shared" | grep -v "axioms" | head -1)
+          FIRST_COMP=$(find "src/ontology/components" \
+            -maxdepth 1 \
+            -type f \
+            -name "${LOWER_ID}-*.owl" \
+            ! -name "${LOWER_ID}-shared.owl" \
+            ! -name "${LOWER_ID}-axioms-shared.owl" \
+            | sort | head -1 || true)
           if [ -n "$FIRST_COMP" ]; then
             echo "File: $FIRST_COMP"
             head -30 "$FIRST_COMP"
