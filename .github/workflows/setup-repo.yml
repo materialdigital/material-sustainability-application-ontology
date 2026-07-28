@@ -435,11 +435,12 @@ jobs:
 
           # IMPORTANT: Remove ODK-generated .github directory to preserve our
           # custom workflows — never let ODK overwrite them.
-          echo "Preserving existing .github/ workflows (removing ODK defaults)..."
-          rm -rf "$TARGET_DIR/.github"
 
-          # Copy all generated files to the repo root
-          cp -r "$TARGET_DIR"/. .
+          echo "Preserving existing Git metadata and GitHub workflows..."
+          rm -rf "$TARGET_DIR/.git"
+          rm -rf "$TARGET_DIR/.github"
+          
+          cp -a "$TARGET_DIR"/. .        
 
           # .gitignore is a hidden file; cp with glob may miss it
           if [ -f "$TARGET_DIR/.gitignore" ]; then cp "$TARGET_DIR/.gitignore" .; fi
