@@ -16,7 +16,7 @@
 # - Component files get shared import injected AFTER all ODK operations complete
 # - Proper annotations (title, comment) added to each component file via ROBOT
 # - Validation step ensures all referenced files exist before ontology build
-# - uribase_suffix includes trailing slash for correct directory-style IRIs
+# - uribase_suffix must not contain a trailing slash for correct directory-style IRIs
 # - Workflow chain triggers trigger-qc directly (no redundant import refresh)
 # - Stub import modules created early to prevent ODK seed failures
 # - Catalog patched with rewriteURIs for local import resolution via ROBOT
@@ -104,7 +104,7 @@ jobs:
       #
       # Sub-tasks performed here:
       # 4a. Basic metadata (id, title, edit file path, repo)
-      # 4b. URI structure — CRITICAL: uribase_suffix MUST end with "/" for
+      # 4b. URI structure — CRITICAL: directory-style IRIs are constructed separately using ONTBASE/ for
       #     directory-style IRIs (e.g. https://w3id.org/pmd/autoce/)
       # 4c. Namespaces (for new entity IRI generation)
       # 4d. Clear CI/CD arrays to avoid conflicts
