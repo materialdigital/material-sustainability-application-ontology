@@ -1,0 +1,460 @@
+Prefix(:=<https://w3id.org/pmd/matsus/imports/pmdco_import.owl#>)
+Prefix(dc:=<http://purl.org/dc/terms/>)
+Prefix(obo:=<http://purl.obolibrary.org/obo/>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(foaf:=<http://xmlns.com/foaf/0.1/>)
+Prefix(prov:=<http://www.w3.org/ns/prov#>)
+Prefix(rdfa:=<http://www.w3.org/ns/rdfa#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+Prefix(skos:=<http://www.w3.org/2004/02/skos/core#>)
+Prefix(void:=<http://rdfs.org/ns/void#>)
+Prefix(oboInOwl:=<http://www.geneontology.org/formats/oboInOwl#>)
+
+
+Ontology(<https://w3id.org/pmd/matsus/imports/pmdco_import.owl>
+<https://w3id.org/pmd/matsus/releases/2026-07-28/imports/pmdco_import.owl>
+Annotation(<http://purl.org/dc/elements/1.1/source> <https://w3id.org/pmd/co/3.0.0>)
+Annotation(owl:versionInfo "2026-07-28")
+
+Declaration(Class(obo:BFO_0000001))
+Declaration(Class(obo:BFO_0000002))
+Declaration(Class(obo:BFO_0000004))
+Declaration(Class(obo:BFO_0000016))
+Declaration(Class(obo:BFO_0000017))
+Declaration(Class(obo:BFO_0000019))
+Declaration(Class(obo:BFO_0000020))
+Declaration(Class(obo:BFO_0000023))
+Declaration(Class(obo:BFO_0000031))
+Declaration(Class(obo:BFO_0000034))
+Declaration(Class(obo:BFO_0000145))
+Declaration(Class(obo:IAO_0000030))
+Declaration(Class(obo:OBI_0001930))
+Declaration(Class(obo:OBI_0001933))
+Declaration(Class(<https://w3id.org/pmd/co/PMD_0020023>))
+Declaration(Class(<https://w3id.org/pmd/co/PMD_0020099>))
+Declaration(Class(<https://w3id.org/pmd/co/PMD_0020116>))
+Declaration(Class(<https://w3id.org/pmd/co/PMD_0020216>))
+Declaration(ObjectProperty(obo:IAO_0000136))
+Declaration(ObjectProperty(obo:RO_0000052))
+Declaration(ObjectProperty(obo:RO_0000053))
+Declaration(ObjectProperty(obo:RO_0000079))
+Declaration(ObjectProperty(obo:RO_0000080))
+Declaration(ObjectProperty(obo:RO_0000081))
+Declaration(ObjectProperty(obo:RO_0000085))
+Declaration(ObjectProperty(obo:RO_0000086))
+Declaration(ObjectProperty(obo:RO_0000087))
+Declaration(ObjectProperty(obo:RO_0000091))
+Declaration(ObjectProperty(obo:RO_0000092))
+Declaration(ObjectProperty(<https://w3id.org/pmd/co/PMD_0000004>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020006>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020007>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020008>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020009>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020010>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020011>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020012>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020013>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020014>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020015>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020016>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020017>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020018>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020019>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020027>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020097>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020100>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020107>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020109>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020110>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020111>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020117>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020118>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020119>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020120>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020121>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020122>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020123>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020124>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020125>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020217>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020218>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020219>))
+Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0020242>))
+Declaration(AnnotationProperty(obo:IAO_0000115))
+Declaration(AnnotationProperty(<http://purl.org/dc/elements/1.1/source>))
+Declaration(AnnotationProperty(dc:description))
+Declaration(AnnotationProperty(dc:license))
+Declaration(AnnotationProperty(dc:title))
+############################
+#   Annotation Properties
+############################
+
+# Annotation Property: obo:IAO_0000115 (definition)
+
+AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000115 "The official OBI definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions."@en)
+AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000115 "The official definition, explaining the meaning of a class or property. Shall be Aristotelian, formalized and normalized. Can be augmented with colloquial definitions."@en)
+AnnotationAssertion(rdfs:label obo:IAO_0000115 "definition")
+AnnotationAssertion(rdfs:label obo:IAO_0000115 "definition"@en)
+AnnotationAssertion(rdfs:label obo:IAO_0000115 "textual definition")
+
+# Annotation Property: <http://purl.org/dc/elements/1.1/source> (Source)
+
+AnnotationAssertion(rdfs:label <http://purl.org/dc/elements/1.1/source> "Source")
+AnnotationAssertion(rdfs:label <http://purl.org/dc/elements/1.1/source> "Source"@en-us)
+
+# Annotation Property: dc:license (dcterms:license)
+
+AnnotationAssertion(rdfs:label dc:license "dcterms:license")
+
+
+############################
+#   Object Properties
+############################
+
+# Object Property: obo:IAO_0000136 (is about)
+
+AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000136 "A (currently) primitive relation that relates an information artifact to an entity."@en)
+AnnotationAssertion(rdfs:label obo:IAO_0000136 "is about"@en)
+InverseObjectProperties(obo:IAO_0000136 <https://w3id.org/pmd/co/PMD_0000004>)
+ObjectPropertyDomain(obo:IAO_0000136 obo:IAO_0000030)
+
+# Object Property: obo:RO_0000052 (characteristic of)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0000052 "a relation between a specifically dependent continuant (the characteristic) and any other entity (the bearer), in which the characteristic depends on the bearer for its existence."@en)
+AnnotationAssertion(rdfs:label obo:RO_0000052 "characteristic of"@en)
+InverseObjectProperties(obo:RO_0000052 obo:RO_0000053)
+FunctionalObjectProperty(obo:RO_0000052)
+
+# Object Property: obo:RO_0000053 (has characteristic)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0000053 "Inverse of characteristic_of"@en)
+AnnotationAssertion(rdfs:label obo:RO_0000053 "has characteristic"@en)
+InverseFunctionalObjectProperty(obo:RO_0000053)
+ObjectPropertyRange(obo:RO_0000053 obo:BFO_0000020)
+
+# Object Property: obo:RO_0000079 (function of)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0000079 "a relation between a function and an independent continuant (the bearer), in which the function specifically depends on the bearer for its existence"@en)
+AnnotationAssertion(rdfs:label obo:RO_0000079 "function of"@en)
+SubObjectPropertyOf(obo:RO_0000079 obo:RO_0000052)
+InverseObjectProperties(obo:RO_0000079 obo:RO_0000085)
+ObjectPropertyDomain(obo:RO_0000079 obo:BFO_0000034)
+
+# Object Property: obo:RO_0000080 (quality of)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0000080 "a relation between a quality and an independent continuant (the bearer), in which the quality specifically depends on the bearer for its existence"@en)
+AnnotationAssertion(rdfs:label obo:RO_0000080 "quality of"@en)
+SubObjectPropertyOf(obo:RO_0000080 obo:RO_0000052)
+InverseObjectProperties(obo:RO_0000080 obo:RO_0000086)
+ObjectPropertyDomain(obo:RO_0000080 ObjectIntersectionOf(obo:BFO_0000019 ObjectComplementOf(obo:BFO_0000145)))
+
+# Object Property: obo:RO_0000081 (role of)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0000081 "a relation between a role and an independent continuant (the bearer), in which the role specifically depends on the bearer for its existence"@en)
+AnnotationAssertion(rdfs:label obo:RO_0000081 "role of"@en)
+SubObjectPropertyOf(obo:RO_0000081 obo:RO_0000052)
+InverseObjectProperties(obo:RO_0000081 obo:RO_0000087)
+
+# Object Property: obo:RO_0000085 (has function)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0000085 "a relation between an independent continuant (the bearer) and a function, in which the function specifically depends on the bearer for its existence"@en)
+AnnotationAssertion(rdfs:label obo:RO_0000085 "has function"@en)
+SubObjectPropertyOf(obo:RO_0000085 obo:RO_0000053)
+ObjectPropertyDomain(obo:RO_0000085 obo:BFO_0000004)
+ObjectPropertyRange(obo:RO_0000085 obo:BFO_0000034)
+
+# Object Property: obo:RO_0000086 (has quality)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0000086 "a relation between an independent continuant (the bearer) and a quality, in which the quality specifically depends on the bearer for its existence"@en)
+AnnotationAssertion(rdfs:label obo:RO_0000086 "has quality"@en)
+SubObjectPropertyOf(obo:RO_0000086 obo:RO_0000053)
+ObjectPropertyRange(obo:RO_0000086 obo:BFO_0000019)
+
+# Object Property: obo:RO_0000087 (has role)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0000087 "a relation between an independent continuant (the bearer) and a role, in which the role specifically depends on the bearer for its existence"@en)
+AnnotationAssertion(rdfs:label obo:RO_0000087 "has role"@en)
+SubObjectPropertyOf(obo:RO_0000087 obo:RO_0000053)
+ObjectPropertyDomain(obo:RO_0000087 obo:BFO_0000004)
+ObjectPropertyRange(obo:RO_0000087 obo:BFO_0000023)
+
+# Object Property: obo:RO_0000091 (has disposition)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0000091 "a relation between an independent continuant (the bearer) and a disposition, in which the disposition specifically depends on the bearer for its existence"@en)
+AnnotationAssertion(rdfs:label obo:RO_0000091 "has disposition"@en)
+SubObjectPropertyOf(obo:RO_0000091 obo:RO_0000053)
+InverseObjectProperties(obo:RO_0000091 obo:RO_0000092)
+ObjectPropertyDomain(obo:RO_0000091 obo:BFO_0000004)
+ObjectPropertyRange(obo:RO_0000091 obo:BFO_0000016)
+
+# Object Property: obo:RO_0000092 (disposition of)
+
+AnnotationAssertion(obo:IAO_0000115 obo:RO_0000092 "inverse of has disposition")
+AnnotationAssertion(rdfs:label obo:RO_0000092 "disposition of"@en)
+SubObjectPropertyOf(obo:RO_0000092 obo:RO_0000052)
+
+# Object Property: <https://w3id.org/pmd/co/PMD_0000004> (is subject of)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0000004> "is subject of"@en)
+
+
+
+############################
+#   Classes
+############################
+
+# Class: obo:BFO_0000001 (entity)
+
+AnnotationAssertion(rdfs:label obo:BFO_0000001 "entity"@en)
+
+# Class: obo:BFO_0000002 (continuant)
+
+AnnotationAssertion(rdfs:label obo:BFO_0000002 "continuant"@en)
+SubClassOf(obo:BFO_0000002 obo:BFO_0000001)
+
+# Class: obo:BFO_0000004 (independent continuant)
+
+AnnotationAssertion(rdfs:label obo:BFO_0000004 "independent continuant"@en)
+SubClassOf(obo:BFO_0000004 obo:BFO_0000002)
+DisjointClasses(obo:BFO_0000004 obo:BFO_0000020)
+DisjointClasses(obo:BFO_0000004 obo:BFO_0000031)
+
+# Class: obo:BFO_0000016 (disposition)
+
+AnnotationAssertion(rdfs:label obo:BFO_0000016 "disposition"@en)
+SubClassOf(obo:BFO_0000016 obo:BFO_0000017)
+DisjointClasses(obo:BFO_0000016 obo:BFO_0000023)
+
+# Class: obo:BFO_0000017 (realizable entity)
+
+AnnotationAssertion(rdfs:label obo:BFO_0000017 "realizable entity"@en)
+SubClassOf(obo:BFO_0000017 obo:BFO_0000020)
+DisjointClasses(obo:BFO_0000017 obo:BFO_0000019)
+
+# Class: obo:BFO_0000019 (quality)
+
+AnnotationAssertion(rdfs:label obo:BFO_0000019 "quality"@en)
+SubClassOf(obo:BFO_0000019 obo:BFO_0000020)
+
+# Class: obo:BFO_0000020 (specifically dependent continuant)
+
+AnnotationAssertion(rdfs:label obo:BFO_0000020 "specifically dependent continuant"@en)
+SubClassOf(obo:BFO_0000020 obo:BFO_0000002)
+DisjointClasses(obo:BFO_0000020 obo:BFO_0000031)
+
+# Class: obo:BFO_0000023 (role)
+
+AnnotationAssertion(rdfs:label obo:BFO_0000023 "role"@en)
+SubClassOf(obo:BFO_0000023 obo:BFO_0000017)
+
+# Class: obo:BFO_0000031 (generically dependent continuant)
+
+AnnotationAssertion(rdfs:label obo:BFO_0000031 "generically dependent continuant"@en)
+SubClassOf(obo:BFO_0000031 obo:BFO_0000002)
+
+# Class: obo:BFO_0000034 (function)
+
+AnnotationAssertion(rdfs:label obo:BFO_0000034 "function"@en)
+SubClassOf(obo:BFO_0000034 obo:BFO_0000016)
+
+# Class: obo:BFO_0000145 (relational quality)
+
+AnnotationAssertion(rdfs:label obo:BFO_0000145 "relational quality"@en)
+SubClassOf(obo:BFO_0000145 obo:BFO_0000019)
+
+# Class: obo:IAO_0000030 (information content entity)
+
+AnnotationAssertion(obo:IAO_0000115 obo:IAO_0000030 "A generically dependent continuant that is about some thing."@en)
+AnnotationAssertion(rdfs:label obo:IAO_0000030 "information content entity"@en)
+SubClassOf(obo:IAO_0000030 obo:BFO_0000031)
+SubClassOf(obo:IAO_0000030 ObjectSomeValuesFrom(obo:IAO_0000136 obo:BFO_0000001))
+
+# Class: obo:OBI_0001930 (categorical value specification)
+
+AnnotationAssertion(obo:IAO_0000115 obo:OBI_0001930 "A value specification that is specifies one category out of a fixed number of nominal categories"@en)
+AnnotationAssertion(rdfs:label obo:OBI_0001930 "categorical value specification")
+SubClassOf(obo:OBI_0001930 obo:OBI_0001933)
+
+# Class: obo:OBI_0001933 (value specification)
+
+AnnotationAssertion(obo:IAO_0000115 obo:OBI_0001933 "An information content entity that specifies a value within a classification scheme or on a quantitative scale."@en)
+AnnotationAssertion(rdfs:label obo:OBI_0001933 "value specification")
+SubClassOf(obo:OBI_0001933 obo:IAO_0000030)
+
+# Class: <https://w3id.org/pmd/co/PMD_0020023> (metallic grain structures)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020023> "metallic grain structures"@en)
+EquivalentClasses(<https://w3id.org/pmd/co/PMD_0020023> ObjectOneOf(<https://w3id.org/pmd/co/PMD_0020027> <https://w3id.org/pmd/co/PMD_0020097> <https://w3id.org/pmd/co/PMD_0020100> <https://w3id.org/pmd/co/PMD_0020107> <https://w3id.org/pmd/co/PMD_0020109> <https://w3id.org/pmd/co/PMD_0020110> <https://w3id.org/pmd/co/PMD_0020111>))
+SubClassOf(<https://w3id.org/pmd/co/PMD_0020023> obo:OBI_0001930)
+
+# Class: <https://w3id.org/pmd/co/PMD_0020099> (bravais lattice (3D))
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020099> "bravais lattice (3D)"@en)
+EquivalentClasses(<https://w3id.org/pmd/co/PMD_0020099> ObjectOneOf(<https://w3id.org/pmd/co/PMD_0020006> <https://w3id.org/pmd/co/PMD_0020007> <https://w3id.org/pmd/co/PMD_0020008> <https://w3id.org/pmd/co/PMD_0020009> <https://w3id.org/pmd/co/PMD_0020010> <https://w3id.org/pmd/co/PMD_0020011> <https://w3id.org/pmd/co/PMD_0020012> <https://w3id.org/pmd/co/PMD_0020013> <https://w3id.org/pmd/co/PMD_0020014> <https://w3id.org/pmd/co/PMD_0020015> <https://w3id.org/pmd/co/PMD_0020016> <https://w3id.org/pmd/co/PMD_0020017> <https://w3id.org/pmd/co/PMD_0020018> <https://w3id.org/pmd/co/PMD_0020019>))
+SubClassOf(<https://w3id.org/pmd/co/PMD_0020099> obo:OBI_0001930)
+
+# Class: <https://w3id.org/pmd/co/PMD_0020116> (aggregate state value)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020116> "aggregate state value"@en)
+EquivalentClasses(<https://w3id.org/pmd/co/PMD_0020116> ObjectOneOf(<https://w3id.org/pmd/co/PMD_0020117> <https://w3id.org/pmd/co/PMD_0020118> <https://w3id.org/pmd/co/PMD_0020119> <https://w3id.org/pmd/co/PMD_0020120> <https://w3id.org/pmd/co/PMD_0020121> <https://w3id.org/pmd/co/PMD_0020122> <https://w3id.org/pmd/co/PMD_0020123> <https://w3id.org/pmd/co/PMD_0020124> <https://w3id.org/pmd/co/PMD_0020125>))
+SubClassOf(<https://w3id.org/pmd/co/PMD_0020116> obo:OBI_0001930)
+
+# Class: <https://w3id.org/pmd/co/PMD_0020216> (order scale value)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020216> "order scale value"@en)
+EquivalentClasses(<https://w3id.org/pmd/co/PMD_0020216> ObjectOneOf(<https://w3id.org/pmd/co/PMD_0020217> <https://w3id.org/pmd/co/PMD_0020218> <https://w3id.org/pmd/co/PMD_0020219> <https://w3id.org/pmd/co/PMD_0020242>))
+SubClassOf(<https://w3id.org/pmd/co/PMD_0020216> obo:OBI_0001930)
+
+
+############################
+#   Named Individuals
+############################
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020006> (bravais lattice triclinic primitive)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020006> "bravais lattice triclinic primitive"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020007> (bravais lattice monoclinic primitive)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020007> "bravais lattice monoclinic primitive"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020008> (bravais lattice monoclinic base-centered)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020008> "bravais lattice monoclinic base-centered"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020009> (bravais lattice orthorombic primitive)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020009> "bravais lattice orthorombic primitive"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020010> (bravais lattice orthorhombic base-centered)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020010> "bravais lattice orthorhombic base-centered"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020011> (bravais lattice orthorhombic body-centered)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020011> "bravais lattice orthorhombic body-centered"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020012> (bravais lattice orthorhombic face-centered)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020012> "bravais lattice orthorhombic face-centered"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020013> (bravais lattice tetragonal primitive)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020013> "bravais lattice tetragonal primitive"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020014> (bravais lattice tetragonal body-centered)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020014> "bravais lattice tetragonal body-centered"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020015> (bravais lattice hexagonal rhombohedral primitive)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020015> "bravais lattice hexagonal rhombohedral primitive"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020016> (bravais lattice hexagonal hexagonal primitive)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020016> "bravais lattice hexagonal hexagonal primitive"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020017> (bravais lattice cubic primitive)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020017> "bravais lattice cubic primitive"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020018> (bravais lattice cubic body-centered)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020018> "bravais lattice cubic body-centered"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020019> (bravais lattice cubic face-centered)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020019> "bravais lattice cubic face-centered"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020027> (bainite)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020027> "bainite"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020097> (austenite)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020097> "austenite"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020100> (ferrite)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020100> "ferrite"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020107> (ledeburite)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020107> "ledeburite"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020109> (pearlite)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020109> "pearlite"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020110> (widmanstatten structure)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020110> "widmanstatten structure"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020111> (martensite)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020111> "martensite"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020117> (aggregate state solid)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020117> "aggregate state solid"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020118> (aggregate state liquid)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020118> "aggregate state liquid"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020119> (aggregate state gaseous)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020119> "aggregate state gaseous"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020120> (aggregate state plasma)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020120> "aggregate state plasma"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020121> (aggregate state atom gas)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020121> "aggregate state atom gas"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020122> (aggregate state supercritical fluid)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020122> "aggregate state supercritical fluid"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020123> (aggregate state mesomorphic)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020123> "aggregate state mesomorphic"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020124> (aggregate state suprafluid)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020124> "aggregate state suprafluid"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020125> (aggregate state suprasolid)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020125> "aggregate state suprasolid"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020217> (short range order)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020217> "short range order"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020218> (medium range order)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020218> "medium range order"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020219> (long range order)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020219> "long range order"@en)
+
+# Individual: <https://w3id.org/pmd/co/PMD_0020242> (no range order)
+
+AnnotationAssertion(rdfs:label <https://w3id.org/pmd/co/PMD_0020242> "no range order"@en)
+
+
+DisjointClasses(obo:BFO_0000004 obo:BFO_0000020 obo:BFO_0000031)
+DifferentIndividuals(<https://w3id.org/pmd/co/PMD_0020006> <https://w3id.org/pmd/co/PMD_0020007> <https://w3id.org/pmd/co/PMD_0020008> <https://w3id.org/pmd/co/PMD_0020009> <https://w3id.org/pmd/co/PMD_0020010> <https://w3id.org/pmd/co/PMD_0020011> <https://w3id.org/pmd/co/PMD_0020012> <https://w3id.org/pmd/co/PMD_0020013> <https://w3id.org/pmd/co/PMD_0020014> <https://w3id.org/pmd/co/PMD_0020015> <https://w3id.org/pmd/co/PMD_0020016> <https://w3id.org/pmd/co/PMD_0020017> <https://w3id.org/pmd/co/PMD_0020018> <https://w3id.org/pmd/co/PMD_0020019>)
+DifferentIndividuals(<https://w3id.org/pmd/co/PMD_0020117> <https://w3id.org/pmd/co/PMD_0020118> <https://w3id.org/pmd/co/PMD_0020119> <https://w3id.org/pmd/co/PMD_0020120> <https://w3id.org/pmd/co/PMD_0020121> <https://w3id.org/pmd/co/PMD_0020122> <https://w3id.org/pmd/co/PMD_0020123> <https://w3id.org/pmd/co/PMD_0020124> <https://w3id.org/pmd/co/PMD_0020125>)
+DLSafeRule(Body(ObjectPropertyAtom(obo:RO_0000053 Variable(<urn:swrl:var#e>) Variable(<urn:swrl:var#d>)) ClassAtom(obo:BFO_0000016 Variable(<urn:swrl:var#d>)))Head(ObjectPropertyAtom(obo:RO_0000091 Variable(<urn:swrl:var#e>) Variable(<urn:swrl:var#d>))))
+DLSafeRule(Body(ObjectPropertyAtom(obo:RO_0000053 Variable(<urn:swrl:var#e>) Variable(<urn:swrl:var#d>)) ClassAtom(obo:BFO_0000019 Variable(<urn:swrl:var#d>)))Head(ObjectPropertyAtom(obo:RO_0000086 Variable(<urn:swrl:var#e>) Variable(<urn:swrl:var#d>))))
+DLSafeRule(Body(ObjectPropertyAtom(obo:RO_0000053 Variable(<urn:swrl:var#e>) Variable(<urn:swrl:var#d>)) ClassAtom(obo:BFO_0000023 Variable(<urn:swrl:var#d>)))Head(ObjectPropertyAtom(obo:RO_0000087 Variable(<urn:swrl:var#e>) Variable(<urn:swrl:var#d>))))
+DLSafeRule(Body(ObjectPropertyAtom(obo:RO_0000053 Variable(<urn:swrl:var#e>) Variable(<urn:swrl:var#d>)) ClassAtom(obo:BFO_0000034 Variable(<urn:swrl:var#d>)))Head(ObjectPropertyAtom(obo:RO_0000085 Variable(<urn:swrl:var#e>) Variable(<urn:swrl:var#d>))))
+)

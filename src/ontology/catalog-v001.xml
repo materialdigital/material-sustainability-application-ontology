@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+  <group id="odk-managed-catalog" prefer="public">
+    <uri name="https://w3id.org/pmd/matsus/imports/pmdco_import.owl" uri="imports/pmdco_import.owl" />
+    <uri name="https://w3id.org/pmd/matsus/components/imports-edit.owl" uri="components/imports-edit.owl" />
+    <uri name="https://w3id.org/pmd/matsus/components/matsus-shared.owl" uri="components/matsus-shared.owl" />
+    <uri name="https://w3id.org/pmd/matsus/components/matsus-axioms-shared.owl" uri="components/matsus-axioms-shared.owl" />
+  </group>
+  <rewriteURI uriStartString="https://w3id.org/pmd/matsus/imports/" rewritePrefix="imports/" />
+  <rewriteURI uriStartString="https://w3id.org/pmd/matsus/components/" rewritePrefix="components/" />
+</catalog>

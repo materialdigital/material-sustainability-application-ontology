@@ -14,15 +14,15 @@ bin/
 
 .github/token.txt
 
-/log.owl
-/log.obo
-/log.json
-/log.db
-/log-base.*
-/log-basic.*
-/log-full.*
-/log-simple.*
-/log-simple-non-classified.*
+/matsus.owl
+/matsus.obo
+/matsus.json
+/matsus.db
+/matsus-base.*
+/matsus-basic.*
+/matsus-full.*
+/matsus-simple.*
+/matsus-simple-non-classified.*
 /mappings/
 /patterns/
 /reports/
@@ -32,14 +32,24 @@ src/ontology/mirror
 src/ontology/mirror/*
 src/ontology/reports/*
 !src/ontology/reports/release-diff.md
+src/ontology/matsus.owl
+src/ontology/matsus.obo
+src/ontology/matsus.json
+src/ontology/matsus.db
+src/ontology/matsus-base.*
+src/ontology/matsus-basic.*
+src/ontology/matsus-full.*
+src/ontology/matsus-simple.*
+src/ontology/matsus-simple-non-classified.*
+
 src/ontology/seed.txt
 src/ontology/dosdp-tools.log
 src/ontology/ed_definitions_merged.owl
 src/ontology/ontologyterms.txt
 src/ontology/simple_seed.txt
 src/ontology/patterns
-src/ontology/merged-log-edit.owl
-src/ontology/log-edit.properties
+src/ontology/merged-matsus-edit.owl
+src/ontology/matsus-edit.properties
 
 src/ontology/target/
 src/ontology/tmp/*
@@ -55,10 +65,5 @@ src/patterns/data/**/*.ofn
 src/patterns/data/**/*.txt
 src/patterns/pattern_owl_seed.txt
 src/patterns/all_pattern_terms.txt
-
-
-# patterns: track hand-written files, ignore generated autoshapes
-!/patterns/
-/patterns/autoshape/auto-shapes-*.ttl
 
 # End of ODK-managed rules

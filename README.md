@@ -1,103 +1,75 @@
-# application-ontology-template
+# Material Sustainability Application Ontology (Mat.Sus)
 
-Template repository for starting a [Platform MaterialDigital (PMD)](https://materialdigital.de) application ontology. Preconfigured with GitHub Actions workflows using the [Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit).
+Description: PMD Core application ontology generated via ODK Template.
 
----
 
-## Quick Start
+More information can be found at http://obofoundry.org/ontology/matsus
 
-### 1. Create your repository
+## Versions
 
-Click **Use this template** → **Create a new repository**.
+### Stable release versions
 
-### 2. Configure GitHub settings (one-time)
+The latest version of the ontology can always be found at:
 
-**GitHub Pages** — Settings → Pages → Build and deployment → Source:
-- Set to **Deploy from a branch**
-- Branch: `gh-pages` / `(root)`
+https://w3id.org/pmd/matsus.owl
 
-> This is required for versioned documentation. The docs workflow accumulates version directories on the `gh-pages` branch without overwriting previous releases.
+(note this will not show up until the request has been approved by obofoundry.org)
 
-**Actions permissions** — Settings → Actions → General:
-- Workflow permissions: **Read and write**
-- Enable **Allow GitHub Actions to create and approve pull requests**
+### Editors' version
 
-### 3. Run the Setup workflow
+Editors of this ontology should use the edit version, [src/ontology/matsus-edit.owl](src/ontology/matsus-edit.owl)
 
-Actions → **Setup New Ontology** → Run workflow.
+## Contact
 
-Set `id` and `uribase_suffix` — both are usually the same lowercase acronym (e.g. `myont`). The workflow scaffolds `src/ontology/`, commits everything, and opens a pull request.
+Please use this GitHub repository's [Issue tracker](https://github.com/materialdigital/KhashiYaar/material-sustainability-application-ontology/issues) to request new terms/classes or report errors or specific concerns related to the ontology.
 
-Review and merge that pull request.
+## Acknowledgements
 
-### 4. Build your ontology
+This ontology repository was created using the [Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit).
+## Development
 
-Edit the `*-edit.owl` file in `src/ontology/`. Every push to `main` triggers the CI pipeline: quality checks, import refresh, and documentation rebuild.
+This ontology is developed using OWL and managed with the [Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit).
+To contribute or edit:
 
----
+- Open  in [Protege](https://protege.stanford.edu/) or your preferred OWL editor.
+- Create new entities within the namespace .
+  Example IRI: 
+  (the prefix portion is always uppercase).
+- Use the  for automation:
+  -  : Run quality control (reasoner checks, syntax validation).
+  -  : Update imported ontologies via SLME extraction.
+  -  : Build all release artifacts (TTL, OWL, JSON formats).
+  -  : Sync repo structure after editing .
 
-## Releasing
+## Import Architecture
 
-Two equivalent ways to publish a versioned release:
+The modular import structure used by this ontology:
 
-**Option A — workflow dispatch (recommended):**
-Actions → **Release Ontology** → Run workflow → enter version (e.g. `1.0.0`).
 
-**Option B — git tag:**
-```bash
-git tag v1.0.0 && git push origin v1.0.0
-```
 
-The release workflow:
-1. Builds all serialization artifacts (OWL, TTL, JSON-LD) via ODK
-2. Sets `owl:versionIRI` to `<ontbase>/<version>` (e.g. `https://w3id.org/pmd/myont/1.0.0`)
-3. Commits artifacts to `main` and creates a `v<version>` git tag
-4. Creates a GitHub release with OWL / TTL / JSON-LD attached
-5. Triggers a versioned documentation build
+## Repository Structure
 
-Version format: semver without the `v` prefix — `1.0.0`, `2.1.3`, etc.
+| Path | Description |
+|------|-------------|
+|  | GitHub Actions CI/CD workflows |
+|  | Ontology source files (edit here) |
+|  | Modular OWL component files |
+|  | Extracted import modules (SLME) |
+|  | ROBOT template TSV files for components |
+|  | External ontology imports configuration |
+|  | Creator names for ID range allocation |
 
----
+## Contribution
 
-## Versioned Documentation Structure
+We welcome contributions to the Material Sustainability Application Ontology (Mat.Sus) ontology!
 
-After each release, GitHub Pages serves:
-
-```text
-/                     root index — lists all versions
-/dev/                 latest build from main (updated on every push)
-/dev/doc/             Widoco HTML — development version
-/1.0.0/               semver release (preserved forever)
-/1.0.0/doc/           Widoco HTML for v1.0.0
-/1.0.0/doc/ontology.ttl
-/1.0.0/doc/ontology.owl
-```
-
----
-
-## Permanent URLs via w3id
-
-[w3id.org](https://w3id.org) provides stable, persistent URIs for ontologies. Requests to `https://w3id.org/pmd/<id>` are redirected to your GitHub Pages site via content negotiation.
-
-### Setup steps
-
-1. **Fork** [materialdigital/w3id](https://github.com/materialdigital/w3id).
-2. Create the directory `pmd/<id>/` in your fork.
-3. Copy [`w3id/.htaccess`](w3id/.htaccess) from this repo into that directory.
-4. Replace all `YOUR_ONTOLOGY_ID`, `YOUR_GITHUB_ORG`, and `YOUR_REPO_NAME` placeholders.
-5. Open a pull request against the upstream `materialdigital/w3id` repo.
-
-### Content negotiation
-
-The `.htaccess` handles content negotiation automatically:
-
-| Accept header              | Redirects to                   |
-| -------------------------- | ------------------------------ |
-| `text/html`                | `/index-en.html` (Widoco)      |
-| `application/ld+json`      | `/ontology.jsonld`             |
-| `application/rdf+xml`      | `/ontology.owl`                |
-| `text/turtle`              | `/ontology.ttl`                |
-| `application/n-triples`    | `/ontology.nt`                 |
-| *(default)*                | `/base_ontology.rdf`           |
-
-Versioned IRIs (`https://w3id.org/pmd/<id>/1.0.0`) resolve to the corresponding versioned directory on GitHub Pages.
+- **Issue tracker**: [github.com/KhashiYaar/material-sustainability-application-ontology/issues](https://github.com/KhashiYaar/material-sustainability-application-ontology/issues)
+  Report errors, request new terms, or flag modeling concerns.
+- **Discussion forum**: [github.com/KhashiYaar/material-sustainability-application-ontology/discussions](https://github.com/KhashiYaar/material-sustainability-application-ontology/discussions)
+  Discuss modeling decisions with the community.
+- **Application ontology template**:
+  [application-ontology-template](https://github.com/materialdigital/application-ontology-template/)
+  The framework used here; mirrors pmdco with all its modules.
+- **PMD Playground Meetings**: Every second Friday, 1-2 pm CET.
+  [Register via mailing list](https://www.lists.kit.edu/sympa/subscribe/ontology-playground?previous_action=info)
+- **Contact**: [info@material-digital.de](mailto:info@material-digital.de)

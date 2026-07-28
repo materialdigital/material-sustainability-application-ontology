@@ -1,0 +1,35 @@
+Prefix: rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+Prefix: xsd: <http://www.w3.org/2001/XMLSchema#>
+Prefix: owl: <http://www.w3.org/2002/07/owl#>
+Prefix: rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+Prefix: xml: <http://www.w3.org/XML/1998/namespace>
+Prefix: dce: <http://purl.org/dc/elements/1.1/>
+Prefix: allocatedto: <http://purl.obolibrary.org/obo/IAO_0000597>
+Prefix: idsfor: <http://purl.obolibrary.org/obo/IAO_0000598>
+Prefix: idprefix: <http://purl.obolibrary.org/obo/IAO_0000599>
+Prefix: iddigits: <http://purl.obolibrary.org/obo/IAO_0000596>
+Prefix: idrange: <http://purl.obolibrary.org/obo/ro/idrange/>
+
+Ontology: <https://w3id.org/pmd/matsus/matsus-idranges.owl>
+
+Annotations:
+    idsfor: "MATSUS",
+    idprefix: "https://w3id.org/pmd/matsus/MATSUS_",
+    iddigits: 7
+
+AnnotationProperty: allocatedto:
+
+AnnotationProperty: idsfor:
+
+AnnotationProperty: idprefix:
+
+AnnotationProperty: iddigits:
+
+Datatype: idrange:1
+    Annotations:
+        allocatedto: "Khashayar Razghandi"
+    EquivalentTo:
+        xsd:integer[>= 0 , <= 9999]
+
+Datatype: xsd:integer
+Datatype: rdf:PlainLiteral
