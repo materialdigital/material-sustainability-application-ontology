@@ -158,7 +158,7 @@ jobs:
 
           # ------------------------------------------------------------------
           # 4b. URI STRUCTURE
-          # FIX: uribase_suffix MUST include trailing slash to produce the
+          # FIX: uribase_suffix MUST not include trailing slash to produce the
           # correct directory-style IRI: https://w3id.org/pmd/{lower_id}/
           # Without the trailing slash ODK would generate incorrect file IRIs.
           # ------------------------------------------------------------------
