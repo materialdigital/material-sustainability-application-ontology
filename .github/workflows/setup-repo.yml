@@ -1309,7 +1309,7 @@ jobs:
             # Remove the line containing the root class ID and the "root node" comment
             sed -i "/${PREFIX}_0000000/d" "$EDIT_FILE"
             sed -i '/root node/d' "$EDIT_FILE"
-            echo "Removed auto-generated root class ($PREFIX_0000000) from $EDIT_FILE."
+            echo "Removed auto-generated root class (${PREFIX}_0000000) from $EDIT_FILE."
           else
             echo "WARNING: $EDIT_FILE not found — skipping root class removal."
           fi
