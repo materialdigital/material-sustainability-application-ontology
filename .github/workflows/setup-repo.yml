@@ -163,8 +163,8 @@ jobs:
           # Without the trailing slash ODK would generate incorrect file IRIs.
           # ------------------------------------------------------------------
           yq -i ".uribase = \"https://w3id.org/pmd\""               "$CONFIG"
-          yq -i ".uribase_suffix = \"$LOWER_ID/\""                  "$CONFIG"
-          yq -i ".preferredPrefix = \"$PREFIX\""                     "$CONFIG"
+          yq -i ".uribase_suffix = \"$LOWER_ID\""                   "$CONFIG"
+          yq -i ".preferredPrefix = \"$PREFIX\""                    "$CONFIG"
 
           # ------------------------------------------------------------------
           # 4c. NAMESPACES
