@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-    <uri id="Imports Wizard Entry" name="https://w3id.org/pmd/co/3.0.0" uri="imports/pmdco_import.owl"/>
+    <uri id="Imports Wizard Entry" name="https://w3id.org/pmd/co/3.1.0" uri="imports/pmdco_import.owl"/>
     <group id="odk-managed-catalog" prefer="public">
         <uri name="https://w3id.org/pmd/matsus/imports/pmdco_import.owl" uri="imports/pmdco_import.owl"/>
         <uri name="https://w3id.org/pmd/matsus/components/imports-edit.owl" uri="components/imports-edit.owl"/>
