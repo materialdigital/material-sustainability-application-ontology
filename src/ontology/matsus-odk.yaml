@@ -68,7 +68,7 @@ preferredPrefix: "MATSUS"
 # When you create a new class in Protégé, ODK uses this namespace to generate:
 # https://w3id.org/pmd/co/tryce/TRYCE_0000001
 namespaces:
-  - "https://w3id.org/pmd/co/placeholder_id/"
+  - https://w3id.org/pmd/matsus/
 # ------------------------------------------------------------------------------
 # TEMPLATES (DISABLED)
 # ------------------------------------------------------------------------------
@@ -81,15 +81,15 @@ use_context: true
 # Defines external ontologies to import
 #
 # PMD Core is the upper-level ontology for all PMD application ontologies
-# module_type: slme = Syntactic Locality Module Extractor (extracts only needed terms)
+# module_type: mirror = retain the complete upstream PMDco ontology
 import_group:
   products:
     - id: pmdco
       title: "PMD Core Ontology"
       # Source of PMD Core ontology to import
-      mirror_from: "https://raw.githubusercontent.com/materialdigital/core-ontology/refs/heads/main/pmdco-full.owl"
-      # slme: Extract only terms referenced in your ontology (reduces file size)
-      module_type: slme
+      mirror_from: "https://raw.githubusercontent.com/materialdigital/core-ontology/v3.0.0/pmdco-full.owl"
+      # mirror: retain the complete pinned PMDco release
+      module_type: mirror
       # base_iris: Tells ODK which IRI patterns belong to PMD Core
       # This prevents PMD Core entities from being treated as local entities
       base_iris:
@@ -115,6 +115,12 @@ components:
     - filename: matsus-axioms-shared.owl
       base_iris:
         - https://w3id.org/pmd/matsus/components/matsus-axioms-shared.owl
+    - filename: matsus-log-stageA.ttl
+      base_iris:
+        - https://w3id.org/pmd/matsus/components/matsus-log-stageA.ttl
+    - filename: matsus-dppo.ttl
+      base_iris:
+        - https://w3id.org/pmd/matsus/components/matsus-dppo.ttl
 # ------------------------------------------------------------------------------
 # RELEASES
 # ------------------------------------------------------------------------------
@@ -166,5 +172,3 @@ idranges:
     iddigits: 7
     range_start: 0
     range_end: 9999
-namespaces:
-  - https://w3id.org/pmd/matsus/

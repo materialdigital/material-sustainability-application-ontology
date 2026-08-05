@@ -1,43 +1,207 @@
 Prefix(:=<https://w3id.org/pmd/matsus/>)
-Prefix(dce:=<http://purl.org/dc/elements/1.1/>)
-Prefix(obo:=<http://purl.obolibrary.org/obo/>)
 Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
 Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
 Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
 Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
 Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
-Prefix(dcterms:=<http://purl.org/dc/terms/>)
 
 
 Ontology(<https://w3id.org/pmd/matsus/>
-Import(<https://w3id.org/pmd/matsus/components/imports-edit.owl>)
-Import(<https://w3id.org/pmd/matsus/components/matsus-axioms-shared.owl>)
-Import(<https://w3id.org/pmd/matsus/components/matsus-shared.owl>)
 Import(<https://w3id.org/pmd/matsus/imports/pmdco_import.owl>)
-Annotation(dcterms:description "PMD Core application ontology generated via ODK Template.
+Import(<https://w3id.org/pmd/matsus/components/matsus-shared.owl>)
+Import(<https://w3id.org/pmd/matsus/components/matsus-axioms-shared.owl>)
+Import(<https://w3id.org/pmd/matsus/components/matsus-log-stageA.ttl>)
+Import(<https://w3id.org/pmd/matsus/components/matsus-dppo.ttl>)
+Annotation(<http://purl.org/dc/terms/description> "PMD Core application ontology generated via ODK Template.
 ")
-Annotation(dcterms:license <https://w3id.org/pmd/matsus.owl#CC-BY-4.0>)
-Annotation(dcterms:title "Material Sustainability Application Ontology (Mat.Sus)")
+Annotation(<http://purl.org/dc/terms/license> <https://w3id.org/pmd/matsus.owl#CC-BY-4.0>)
+Annotation(<http://purl.org/dc/terms/title> "Material Sustainability Application Ontology (Mat.Sus)")
 
-Declaration(AnnotationProperty(dcterms:description))
-Declaration(AnnotationProperty(dcterms:license))
-Declaration(AnnotationProperty(dcterms:title))
+Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0000027>))
+Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0000310>))
+Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0020000>))
+Declaration(Class(<http://w3id.org/dppo/ontology/dpp-info/DPPInformation>))
+Declaration(Class(<http://w3id.org/dppo/ontology/dpp-odp/DPP>))
+Declaration(Class(<https://w3id.org/pmd/co/PMD_0060007>))
+Declaration(Class(:BatteryCarbonFootprintInformation))
+Declaration(Class(:BatteryLabelInformation))
+Declaration(Class(:BatteryModelSpecification))
+Declaration(Class(:DPPGranularityDatum))
+Declaration(Class(:DPPStatusDatum))
+Declaration(Class(:DeclarationOfConformity))
+Declaration(Class(:DigitalProductPassportIdentifier))
+Declaration(Class(:EndOfLifeInformation))
+Declaration(Class(:LifecycleStageCarbonFootprintContribution))
+Declaration(Class(:RecycledContentInformation))
+Declaration(Class(:SupplyChainDueDiligenceReport))
+Declaration(Class(:TestReport))
+Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/IAO_0000219>))
+Declaration(AnnotationProperty(<http://purl.org/dc/terms/description>))
+Declaration(AnnotationProperty(<http://purl.org/dc/terms/license>))
+Declaration(AnnotationProperty(<http://purl.org/dc/terms/source>))
+Declaration(AnnotationProperty(<http://purl.org/dc/terms/title>))
+Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#definition>))
+Declaration(AnnotationProperty(<http://www.w3.org/2004/02/skos/core#editorialNote>))
+Declaration(AnnotationProperty(:alignmentRelation))
+Declaration(AnnotationProperty(:integrationBasis))
+Declaration(AnnotationProperty(:integrationMethod))
+Declaration(AnnotationProperty(:integrationNote))
+Declaration(AnnotationProperty(:mappedTo))
 ############################
 #   Annotation Properties
 ############################
 
-# Annotation Property: dcterms:description (description)
+# Annotation Property: <http://purl.org/dc/terms/description> (description)
 
-AnnotationAssertion(rdfs:label dcterms:description "description")
+AnnotationAssertion(rdfs:label <http://purl.org/dc/terms/description> "description")
 
-# Annotation Property: dcterms:license (license)
+# Annotation Property: <http://purl.org/dc/terms/license> (license)
 
-AnnotationAssertion(rdfs:label dcterms:license "license")
+AnnotationAssertion(rdfs:label <http://purl.org/dc/terms/license> "license")
 
-# Annotation Property: dcterms:title (title)
+# Annotation Property: <http://purl.org/dc/terms/title> (title)
 
-AnnotationAssertion(rdfs:label dcterms:title "title")
+AnnotationAssertion(rdfs:label <http://purl.org/dc/terms/title> "title")
 
+# Annotation Property: :alignmentRelation (alignment relation)
+
+AnnotationAssertion(rdfs:label :alignmentRelation "alignment relation")
+
+# Annotation Property: :integrationBasis (integration basis)
+
+AnnotationAssertion(rdfs:label :integrationBasis "integration basis")
+
+# Annotation Property: :integrationMethod (integration method)
+
+AnnotationAssertion(rdfs:label :integrationMethod "integration method")
+
+# Annotation Property: :integrationNote (integration note)
+
+AnnotationAssertion(rdfs:label :integrationNote "integration note")
+
+# Annotation Property: :mappedTo (mapped to)
+
+AnnotationAssertion(rdfs:label :mappedTo "mapped to")
+
+
+
+
+############################
+#   Classes
+############################
+
+# Class: :BatteryCarbonFootprintInformation (battery carbon footprint information)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :BatteryCarbonFootprintInformation <urn:samm:io.BatteryPass.CarbonFootprint:1.2.0#batteryCarbonFootprint>)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :BatteryCarbonFootprintInformation "BatteryPass-ready Data Attribute Long List v1.3, attributes 28-35")
+AnnotationAssertion(rdfs:label :BatteryCarbonFootprintInformation "battery carbon footprint information"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :BatteryCarbonFootprintInformation "A DPP data item that records a calculated greenhouse-gas emissions result for a battery under a specified method, system boundary, and functional unit."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :BatteryCarbonFootprintInformation "This is a calculated indicator/data item, not an intrinsic material quality. Detailed LCA methodology alignment is deferred to the CLEO stage.")
+AnnotationAssertion(:integrationMethod :BatteryCarbonFootprintInformation "new MatSus DPP data-item class based on BatteryPass requirements")
+SubClassOf(:BatteryCarbonFootprintInformation <http://purl.obolibrary.org/obo/IAO_0000027>)
+SubClassOf(:BatteryCarbonFootprintInformation <http://w3id.org/dppo/ontology/dpp-info/DPPInformation>)
+
+# Class: :BatteryLabelInformation (battery label information)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :BatteryLabelInformation <urn:samm:io.BatteryPass.Labels:1.2.0#labels>)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :BatteryLabelInformation "BatteryPass-ready Data Attribute Long List v1.3, attributes 21-25")
+AnnotationAssertion(rdfs:label :BatteryLabelInformation "battery label information"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :BatteryLabelInformation "DPP information about labels, symbols, and their meanings that are attached to or applicable to a battery."@en)
+AnnotationAssertion(:integrationMethod :BatteryLabelInformation "new MatSus DPP information class based on BatteryPass requirements")
+SubClassOf(:BatteryLabelInformation <http://w3id.org/dppo/ontology/dpp-info/DPPInformation>)
+
+# Class: :BatteryModelSpecification (battery model specification)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :BatteryModelSpecification "BatteryPass-ready Data Attribute Long List v1.3, attribute 7")
+AnnotationAssertion(rdfs:label :BatteryModelSpecification "battery model specification"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :BatteryModelSpecification "A material specification that describes a battery model."@en)
+AnnotationAssertion(:integrationMethod :BatteryModelSpecification "new MatSus subclass of PMDco material specification")
+AnnotationAssertion(:integrationNote :BatteryModelSpecification "The model/batch/item distinction is represented through specification, existing lot/batch identifier patterns, identifiers and later SHACL rather than a new product-batch hierarchy.")
+SubClassOf(:BatteryModelSpecification <https://w3id.org/pmd/co/PMD_0060007>)
+
+# Class: :DPPGranularityDatum (DPP granularity datum)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :DPPGranularityDatum "BatteryPass-ready Data Attribute Long List v1.3, attribute 3")
+AnnotationAssertion(rdfs:label :DPPGranularityDatum "DPP granularity datum"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :DPPGranularityDatum "A data item that records whether the product identifier associated with a Digital Product Passport denotes a product model, batch, or individual item."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :DPPGranularityDatum "Granularity values are represented as literals and will be constrained in SHACL. The accepted PMD lot/LOG lot alignment and LOG batch identifier remain authoritative; no new batch class is introduced.")
+AnnotationAssertion(:integrationMethod :DPPGranularityDatum "new MatSus data-item class")
+SubClassOf(:DPPGranularityDatum <http://purl.obolibrary.org/obo/IAO_0000027>)
+
+# Class: :DPPStatusDatum (DPP status datum)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :DPPStatusDatum "BatteryPass-ready Data Attribute Long List v1.3, attribute 2")
+AnnotationAssertion(rdfs:label :DPPStatusDatum "DPP status datum"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :DPPStatusDatum "A data item that records the lifecycle status of a Digital Product Passport as a digital resource."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :DPPStatusDatum "Status values are represented as literals and will be constrained in a later SHACL layer; no OWL or SKOS value vocabulary is introduced here.")
+AnnotationAssertion(:integrationMethod :DPPStatusDatum "new MatSus data-item class")
+SubClassOf(:DPPStatusDatum <http://purl.obolibrary.org/obo/IAO_0000027>)
+
+# Class: :DeclarationOfConformity (declaration of conformity)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :DeclarationOfConformity <urn:samm:io.BatteryPass.Labels:1.2.0#declarationOfConformity>)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :DeclarationOfConformity "BatteryPass-ready Data Attribute Long List v1.3, attribute 26")
+AnnotationAssertion(rdfs:label :DeclarationOfConformity "declaration of conformity"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :DeclarationOfConformity "A document declaring that a product conforms to specified legal or technical requirements."@en)
+AnnotationAssertion(:integrationMethod :DeclarationOfConformity "new MatSus document class based on BatteryPass requirements")
+SubClassOf(:DeclarationOfConformity <http://purl.obolibrary.org/obo/IAO_0000310>)
+
+# Class: :DigitalProductPassportIdentifier (Digital Product Passport identifier)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :DigitalProductPassportIdentifier "BatteryPass-ready Data Attribute Long List v1.3, attribute 5")
+AnnotationAssertion(rdfs:label :DigitalProductPassportIdentifier "Digital Product Passport identifier"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :DigitalProductPassportIdentifier "An identifier that denotes a specific Digital Product Passport or passport version."@en)
+AnnotationAssertion(:integrationMethod :DigitalProductPassportIdentifier "new MatSus class using the accepted IAO identifier pattern")
+SubClassOf(:DigitalProductPassportIdentifier <http://purl.obolibrary.org/obo/IAO_0020000>)
+SubClassOf(:DigitalProductPassportIdentifier ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/IAO_0000219> <http://w3id.org/dppo/ontology/dpp-odp/DPP>))
+
+# Class: :EndOfLifeInformation (end-of-life information)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :EndOfLifeInformation "BatteryPass-ready Data Attribute Long List v1.3, attributes 56-58")
+AnnotationAssertion(rdfs:label :EndOfLifeInformation "end-of-life information"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :EndOfLifeInformation "DPP information about waste prevention, collection, preparation for second life, dismantling, treatment, recycling, or other end-of-life handling of a battery."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :EndOfLifeInformation "Detailed end-of-life processes and circular value-network semantics are deferred to CEON and BONSAI.")
+AnnotationAssertion(:integrationMethod :EndOfLifeInformation "new MatSus DPP information class")
+SubClassOf(:EndOfLifeInformation <http://w3id.org/dppo/ontology/dpp-info/DPPInformation>)
+
+# Class: :LifecycleStageCarbonFootprintContribution (lifecycle-stage carbon-footprint contribution)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :LifecycleStageCarbonFootprintContribution <urn:samm:io.BatteryPass.CarbonFootprint:1.2.0#carbonFootprintPerLifeCycleStage>)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :LifecycleStageCarbonFootprintContribution "BatteryPass-ready Data Attribute Long List v1.3, attributes 29-32")
+AnnotationAssertion(rdfs:label :LifecycleStageCarbonFootprintContribution "lifecycle-stage carbon-footprint contribution"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :LifecycleStageCarbonFootprintContribution "Battery carbon footprint information that records the contribution of a specified lifecycle stage to the total footprint result."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :LifecycleStageCarbonFootprintContribution "Lifecycle-stage identifiers, values, units, functional units and calculation provenance are represented through data/value patterns and later SHACL; a detailed lifecycle model is deferred to CLEO.")
+AnnotationAssertion(:integrationMethod :LifecycleStageCarbonFootprintContribution "new MatSus subclass based on BatteryPass requirements")
+SubClassOf(:LifecycleStageCarbonFootprintContribution :BatteryCarbonFootprintInformation)
+
+# Class: :RecycledContentInformation (recycled content information)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :RecycledContentInformation <urn:samm:io.BatteryPass.Circularity:1.2.0#recycledContent>)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :RecycledContentInformation "BatteryPass-ready Data Attribute Long List v1.3, attributes 48-54")
+AnnotationAssertion(rdfs:label :RecycledContentInformation "recycled content information"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :RecycledContentInformation "A DPP data item that records a calculated share of recycled material content in a battery or constituent material."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :RecycledContentInformation "This is a calculated composition indicator, not an intrinsic quality. Detailed circularity and resource-flow semantics are deferred to CEON/BONSAI.")
+AnnotationAssertion(:integrationMethod :RecycledContentInformation "new MatSus DPP data-item class based on BatteryPass requirements")
+SubClassOf(:RecycledContentInformation <http://purl.obolibrary.org/obo/IAO_0000027>)
+SubClassOf(:RecycledContentInformation <http://w3id.org/dppo/ontology/dpp-info/DPPInformation>)
+
+# Class: :SupplyChainDueDiligenceReport (supply-chain due-diligence report)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :SupplyChainDueDiligenceReport <urn:samm:io.BatteryPass.SupplyChainDueDiligence:1.2.0#supplyChainDueDiligenceReport>)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :SupplyChainDueDiligenceReport "BatteryPass-ready Data Attribute Long List v1.3, attribute 36")
+AnnotationAssertion(rdfs:label :SupplyChainDueDiligenceReport "supply-chain due-diligence report"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :SupplyChainDueDiligenceReport "A document reporting supply-chain due-diligence information for a product or its value chain."@en)
+AnnotationAssertion(:integrationMethod :SupplyChainDueDiligenceReport "new MatSus document class based on BatteryPass requirements")
+SubClassOf(:SupplyChainDueDiligenceReport <http://purl.obolibrary.org/obo/IAO_0000310>)
+
+# Class: :TestReport (test report)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :TestReport <urn:samm:io.BatteryPass.Labels:1.2.0#resultOfTestReport>)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :TestReport "BatteryPass-ready Data Attribute Long List v1.3, attribute 27")
+AnnotationAssertion(rdfs:label :TestReport "test report"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :TestReport "A document reporting the results of tests used to demonstrate compliance or performance."@en)
+AnnotationAssertion(:integrationMethod :TestReport "new MatSus document class based on BatteryPass requirements")
+SubClassOf(:TestReport <http://purl.obolibrary.org/obo/IAO_0000310>)
 
 
 )

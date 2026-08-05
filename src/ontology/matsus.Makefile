@@ -1,4 +1,8 @@
 ## Customize Makefile settings for matsus
-## 
-## If you need to customize your Makefile, make
-## changes here rather than in the main Makefile
+##
+## PMDco is the complete fixed backbone of Mat.Sus.
+## Keep the complete pinned mirror instead of extracting an SLME module.
+
+$(IMPORTDIR)/pmdco_import.owl: $(MIRRORDIR)/pmdco.owl | $(IMPORTDIR)
+	cp $< $@
+

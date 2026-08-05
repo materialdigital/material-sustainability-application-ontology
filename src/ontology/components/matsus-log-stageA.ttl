@@ -1,0 +1,1939 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix log: <https://w3id.org/pmd/log/> .
+@prefix matsus: <https://w3id.org/pmd/matsus/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pmd: <https://w3id.org/pmd/co/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+obo:BFO_0000082 a owl:ObjectProperty .
+obo:BFO_0000196 a owl:ObjectProperty .
+obo:BFO_0000197 a owl:ObjectProperty .
+obo:RO_0002502 a owl:ObjectProperty .
+
+pmd:PMD_0040121 a owl:ObjectProperty ;
+    rdfs:label "specifies role"@en ;
+    dcterms:source "Supplied via LOGao; absent from the PMDco release in use for comparison." ;
+    rdfs:comment "Namespace/version anomaly: this PMDco-namespace object property is supplied through LOGao but is absent from the compared PMDco release used for validation. It is retained for LOGao compatibility only and must not be treated as a stable PMDco backbone property without manual review." ;
+    rdfs:domain obo:IAO_0000030 ;
+    rdfs:range obo:BFO_0000023 ;
+    rdfs:subPropertyOf obo:IAO_0000136 ;
+    owl:inverseOf pmd:PMD_0040122 ;
+    skos:editorialNote "LOG compatibility exception" ;
+    skos:note "needs human review" ;
+    matsus:alignmentRelation "PMDco namespace extension from LOGao" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "direct reuse" ;
+    matsus:integrationNote "LOG supplies this PMDco-namespace object property; added without altering existing PMDco hierarchy or adding new Mat.Sus modelling commitments." .
+
+pmd:PMD_0040129 a owl:Class ;
+    rdfs:label "supply chain objective specification" ;
+    dcterms:source "Supplied via LOGao; absent from the PMDco release in use for comparison." ;
+    rdfs:comment "Namespace/version anomaly: this PMDco-namespace class is present in this combined ontology via LOGao, but is absent from the compared PMDco release used for validation (pmdco-full.ttl). It is retained for LOGao compatibility only, must not be treated as a stable PMDco backbone anchor, and should not be used to justify broader PMDco restructuring without manual review." ;
+    rdfs:subClassOf obo:IAO_0000005 ;
+    skos:definition "objective specification that prescribes what the outcome of a supply chain process should be" ;
+    skos:editorialNote "LOG compatibility exception" ;
+    skos:note "needs human review" ;
+    matsus:alignmentRelation "PMDco namespace extension from LOGao" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "direct reuse" ;
+    matsus:integrationNote "LOG introduces this PMDco-namespace extension class; integrated without altering existing PMDco superclass logic." .
+
+pmd:PMD_0040151 a owl:Class ;
+    rdfs:label "storage function" ;
+    dcterms:source "Supplied via LOGao; absent from the PMDco release in use for comparison." ;
+    rdfs:comment "Namespace/version anomaly: this PMDco-namespace class is present in this combined ontology via LOGao, but is absent from the compared PMDco release used for validation (pmdco-full.ttl). It is retained for LOGao compatibility only, must not be treated as a stable PMDco backbone anchor, and should not be used to justify broader PMDco restructuring without manual review." ;
+    rdfs:subClassOf obo:BFO_0000034 ;
+    skos:definition "function of an material entity to store other material entities" ;
+    skos:editorialNote "LOG compatibility exception" ;
+    skos:note "needs human review" ;
+    matsus:alignmentRelation "PMDco namespace extension from LOGao" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "direct reuse" ;
+    matsus:integrationNote "LOG introduces this PMDco-namespace extension class; integrated without altering existing PMDco superclass logic." .
+
+log:LOG_0000000 a owl:Class ;
+    rdfs:label "industrial inventory" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_0000001 ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_0000001 ],
+        log:LOG_1000030 ;
+    skos:definition "material product, material component, raw material, or material artifact that is ready to be sold or used and is stored in a storage facility or on factory floor" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_0000002 a owl:Class ;
+    rdfs:label "consigning process" ;
+    rdfs:subClassOf log:LOG_1000130 ;
+    skos:definition "business process that results in placing a material entity in the possession of some agent without changing the ownership until the material entity is sold" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_0080000 a owl:Class ;
+    rdfs:label "manufacturer identifier" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:IAO_0000219 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( log:LOG_1000050 [ a owl:Restriction ;
+                                owl:onProperty obo:BFO_0000196 ;
+                                owl:someValuesFrom obo:OBI_0000571 ] ) ] ],
+        log:LOG_1000006 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( obo:IAO_0020000 [ a owl:Restriction ;
+                        owl:onProperty obo:IAO_0000219 ;
+                        owl:someValuesFrom [ a owl:Class ;
+                                owl:intersectionOf ( log:LOG_1000050 [ a owl:Restriction ;
+                                            owl:onProperty obo:BFO_0000196 ;
+                                            owl:someValuesFrom obo:OBI_0000571 ] ) ] ] ) ] ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_0080001 a owl:Class ;
+    rdfs:label "product identifier" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:IAO_0000219 ;
+            owl:someValuesFrom log:LOG_1000029 ],
+        obo:IAO_0020000 ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:onProperty obo:IAO_0000219 ;
+            owl:someValuesFrom log:LOG_1000029 ] ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_0080002 a owl:Class ;
+    rdfs:label "batch identifier" ;
+    rdfs:subClassOf obo:IAO_0020000 ;
+    skos:definition "denotes all material artifact generated by one distinguishable manufacturing process run" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000002 a owl:Class ;
+    rdfs:label "bill of lading" ;
+    rdfs:subClassOf log:LOG_1000001 ;
+    skos:definition "agreement between a shipper and a carrier that prescribes some consigning process" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000004 a owl:Class ;
+    rdfs:label "purchase order" ;
+    rdfs:subClassOf log:LOG_1000000 ;
+    skos:definition "agreement between a buyer and a vendor (supplier) that that contains a set of commitments on the buyer and the vendeor" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000007 a owl:Class ;
+    rdfs:label "part number" ;
+    rdfs:subClassOf obo:IAO_0020000 ;
+    skos:definition "identifier that uniquely identifies an artifact (material artifact) and that is created according to some part numbering system" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000009 a owl:Class ;
+    rdfs:label "global location number" ;
+    rdfs:subClassOf log:LOG_1000008 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( log:LOG_1000008 [ a owl:Class ;
+                        owl:unionOf ( pmd:PMD_0040030 [ a owl:Restriction ;
+                                    owl:onProperty obo:IAO_0000219 ;
+                                    owl:someValuesFrom log:LOG_1000050 ] ) ] [ a owl:Restriction ;
+                        owl:hasValue pmd:PMD_0040128 ;
+                        owl:onProperty pmd:PMD_0000004 ] ) ] ;
+    skos:definition "identifer that uniquely identifies a business organization or a geospatial location and complies with GS1 GLN coding scheme" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000010 a owl:Class ;
+    rdfs:label "location identification scheme" ;
+    rdfs:subClassOf obo:IAO_0000030 ;
+    skos:definition "identification scheme that prescribes how unique identifiers of physical locations are formulated" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_10000105 a owl:Class ;
+    rdfs:label "customer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000058 ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000058 ],
+        log:LOG_1000011 ;
+    skos:definition "person or organization which has a customer role" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000012 a owl:Class ;
+    rdfs:label "buyer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000055 ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000055 ],
+        log:LOG_1000011 ;
+    skos:definition "person or organization which has a buyer role" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000013 a owl:Class ;
+    rdfs:label "consignee" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000056 ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000056 ],
+        log:LOG_1000011 ;
+    skos:definition "person or business organization that receives some shipment" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000014 a owl:Class ;
+    rdfs:label "consignor" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000057 ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000057 ],
+        log:LOG_1000011 ;
+    skos:definition "person or business organization that prepares and sends shipments for transport" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000015 a owl:Class ;
+    rdfs:label "distributor" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000060 ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000060 ],
+        log:LOG_1000011 ;
+    skos:definition "person or business organization when it purchases products from manufacturers and resells them to wholesalers" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000017 a owl:Class ;
+    rdfs:label "manufacturer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom obo:OBI_0000571 ],
+        obo:OBI_0000835,
+        log:LOG_1000011,
+        log:LOG_1000050 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( log:LOG_1000050 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000196 ;
+                        owl:someValuesFrom obo:OBI_0000571 ] ) ] ;
+    skos:definition "organization which has a manufacturer role" ;
+    matsus:alignmentRelation "narrower than or aligned with OBI manufacturer" ;
+    matsus:integrationBasis "d) justified new Mat.Sus integration decision" ;
+    matsus:integrationMethod "subclassing" ;
+    matsus:integrationNote "Named parent adjusted during Stage A integration. LOG manufacturer kept as a class under agent/organization and additionally aligned to OBI manufacturer." .
+
+log:LOG_1000018 a owl:Class ;
+    rdfs:label "retailer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000062 ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000062 ],
+        log:LOG_1000011 ;
+    skos:definition "person or business organization who buys products from wholesalers and manufacturers and resells them to end users" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000024 a owl:Class ;
+    rdfs:label "wholesaler" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000072 ],
+        log:LOG_1000011 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( log:LOG_1000011 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000196 ;
+                        owl:someValuesFrom log:LOG_1000072 ] ) ] ;
+    skos:definition "person or business organization that buys products from distributors and resells them to retailers or other business organizations" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000025 a owl:Class ;
+    rdfs:label "cargo" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000073 ],
+        obo:BFO_0000040 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( obo:BFO_0000040 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000196 ;
+                        owl:someValuesFrom log:LOG_1000073 ] ) ] ;
+    skos:definition "material entity that is transported using a transport equipment by a carrier" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000026 a owl:Class ;
+    rdfs:label "load" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000082 ],
+        obo:BFO_0000040 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( obo:BFO_0000040 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000196 ;
+                        owl:someValuesFrom log:LOG_1000082 ] ) ] ;
+    skos:definition "collection of material entities which share the same transportation and transfer history" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000027 a owl:Class ;
+    rdfs:label "maintainable material item" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000104 ],
+        obo:BFO_0000040 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( obo:BFO_0000040 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000196 ;
+                        owl:someValuesFrom log:LOG_1000104 ] ) ] ;
+    skos:definition "material artifact or engineered system which has the maintainable material item role" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000031 a owl:Class ;
+    rdfs:label "department" ;
+    rdfs:subClassOf obo:BFO_0000027 ;
+    skos:definition "object aggregate that is part of an organisation and consists of persons that are members of the same organisation" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000033 a owl:Class ;
+    rdfs:label "laboratory" ;
+    rdfs:subClassOf log:LOG_1000032 ;
+    skos:definition "A place equipped for experimental study in a science or for testing and analysis." ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000035 a owl:Class ;
+    rdfs:label "distribution center" ;
+    rdfs:subClassOf log:LOG_1000034 ;
+    skos:definition "storage facility designed to store manufactured products that are to be distributed to resellers and wholesalers" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000036 a owl:Class ;
+    rdfs:label "logistic unit" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000083 ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:IAO_0000235 ;
+            owl:someValuesFrom obo:IAO_0020000 ],
+        obo:BFO_0000027 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( obo:BFO_0000027 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000196 ;
+                        owl:someValuesFrom log:LOG_1000083 ] [ a owl:Restriction ;
+                        owl:onProperty obo:IAO_0000235 ;
+                        owl:someValuesFrom obo:IAO_0020000 ] ) ] ;
+    skos:definition "material entities packaged together for transport or storage" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000039 a owl:Class ;
+    rdfs:label "manufacturing supply chain system" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:RO_0000056 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( log:LOG_10001247 [ a owl:Restriction ;
+                                owl:onProperty obo:RO_0002234 ;
+                                owl:someValuesFrom log:LOG_1000029 ] ) ] ],
+        log:LOG_1000038 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( log:LOG_1000038 [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0000056 ;
+                        owl:someValuesFrom [ a owl:Class ;
+                                owl:intersectionOf ( log:LOG_10001247 [ a owl:Restriction ;
+                                            owl:onProperty obo:RO_0002234 ;
+                                            owl:someValuesFrom log:LOG_1000029 ] ) ] ] ) ] ;
+    skos:definition "supply chain system that is formed to manufacture one or more products" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000040 a owl:Class ;
+    rdfs:label "service supply chain system" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:RO_0000056 ;
+            owl:someValuesFrom log:LOG_1000112 ],
+        log:LOG_1000038 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( log:LOG_1000038 [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0000056 ;
+                        owl:someValuesFrom log:LOG_1000112 ] ) ] ;
+    skos:definition "supply chain system that is formed to deliver some commercial services" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000042 a owl:Class ;
+    rdfs:label "container" ;
+    rdfs:subClassOf log:LOG_1000041 ;
+    skos:definition "piece of transport equipment that is designed to contain some material entities" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000043 a owl:Class ;
+    rdfs:label "trailer" ;
+    rdfs:subClassOf log:LOG_1000041 ;
+    skos:definition "piece of transport equipment that is unpowered and is pulled by a powered vehicle" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000044 a owl:Class ;
+    rdfs:label "wagon" ;
+    rdfs:subClassOf log:LOG_1000041 ;
+    skos:definition "piece of transport equipment in a rail transport system used for carrying cargo or passengers" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000046 a owl:Class ;
+    rdfs:label "integrated carrier business organization" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000053 ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000052 ],
+        log:LOG_1000047 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( log:LOG_1000047 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000196 ;
+                        owl:someValuesFrom log:LOG_1000052 ] [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000196 ;
+                        owl:someValuesFrom log:LOG_1000053 ] ) ] ;
+    skos:definition "business organization that is created for the purpose of providing different types of transportation and freight forwarding services" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000059 a owl:Class ;
+    rdfs:label "service consumer role" ;
+    rdfs:subClassOf log:LOG_1000058 ;
+    skos:definition "customer role held by a person or business organization when it receives and consumes a service" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000061 a owl:Class ;
+    rdfs:label "manufacturer role" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000197 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( log:LOG_1000050 [ a owl:Restriction ;
+                                owl:onProperty obo:RO_0000056 ;
+                                owl:someValuesFrom log:LOG_1000123 ] ) ] ],
+        obo:OBI_0000571,
+        log:LOG_1000054 ;
+    skos:definition "agent role held by an organization when it produces material products" ;
+    matsus:alignmentRelation "narrower than or aligned with OBI manufacturer role" ;
+    matsus:integrationBasis "d) justified new Mat.Sus integration decision" ;
+    matsus:integrationMethod "subclassing" ;
+    matsus:integrationNote "Named parent adjusted during Stage A integration. LOG manufacturer role aligned to OBI manufacturer role while preserving LOG agent-role structure." .
+
+log:LOG_1000066 a owl:Class ;
+    rdfs:label "manufacturing service provider role" ;
+    rdfs:subClassOf log:LOG_1000064 ;
+    skos:definition "service provider role that is held by a person or business organization when it provides a manufacturing service" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000068 a owl:Class ;
+    rdfs:label "packaging service provider role" ;
+    rdfs:subClassOf log:LOG_1000065 ;
+    skos:definition "logisitics service provider role held by a business organization or person when it provides a packaging service" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000069 a owl:Class ;
+    rdfs:label "storage service provider role" ;
+    rdfs:subClassOf log:LOG_1000065 ;
+    skos:definition "logisitics service provider role that is held by a person or business organization when it provides a storage service" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000079 a owl:Class ;
+    rdfs:label "raw material role" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:unionOf ( log:LOG_1000123 [ a owl:Class ;
+                                owl:intersectionOf ( log:LOG_1000131 [ a owl:Restriction ;
+                                            owl:onProperty obo:BFO_0000132 ;
+                                            owl:someValuesFrom log:LOG_1000123 ] ) ] ) ] ;
+            owl:onProperty obo:BFO_0000054 ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000197 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( obo:BFO_0000040 [ a owl:Restriction ;
+                                owl:onProperty obo:RO_0000056 ;
+                                owl:someValuesFrom [ a owl:Class ;
+                                        owl:intersectionOf ( log:LOG_1000111 [ a owl:Restriction ;
+                                                    owl:onProperty obo:RO_0000057 ;
+                                                    owl:someValuesFrom [ a owl:Class ;
+                                                            owl:intersectionOf ( log:LOG_1000050 [ a owl:Restriction ;
+                                                                        owl:onProperty obo:BFO_0000196 ;
+                                                                        owl:someValuesFrom log:LOG_1000055 ] ) ] ] ) ] ] ) ] ],
+        obo:BFO_0000023 ;
+    skos:definition "role held by a material entity when it is acquired by an organizational entity with some plan to transform or modify it into intermediate-level components or substances or into a product" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000088 a owl:Class ;
+    rdfs:label "ship from location" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000075 ],
+        pmd:PMD_0040030 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( pmd:PMD_0040029 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000196 ;
+                        owl:someValuesFrom log:LOG_1000075 ] ) ] ;
+    skos:definition "geospatial location at which some dispatch process occurs" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000089 a owl:Class ;
+    rdfs:label "ship to location" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000076 ],
+        pmd:PMD_0040030 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( pmd:PMD_0040029 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000196 ;
+                        owl:someValuesFrom log:LOG_1000076 ] ) ] ;
+    skos:definition "geospatial location in which some receiving process occurs" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000090 a owl:Class ;
+    rdfs:label "supply chain node" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000077 ],
+        pmd:PMD_0040030 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( pmd:PMD_0040029 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000196 ;
+                        owl:someValuesFrom log:LOG_1000077 ] ) ] ;
+    skos:definition "geospatial location that is the site of some supply chain process" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000093 a owl:Class ;
+    rdfs:label "commercial service specification" ;
+    rdfs:subClassOf obo:IAO_0000104 ;
+    skos:definition "plan specification that prescribes a commercial service" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000096 a owl:Class ;
+    rdfs:label "shipment plan specification" ;
+    rdfs:subClassOf obo:IAO_0000104 ;
+    skos:definition "plan specification that prescribes a shipment preparation process and a transportation process" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000099 a owl:Class ;
+    rdfs:label "airway" ;
+    rdfs:subClassOf obo:BFO_0000028 ;
+    skos:definition "three-dimensional spatial region that connects one specified location (navigation point) to another at a specified altitude, along which an aircraft may be flown" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000100 a owl:Class ;
+    rdfs:label "seaway" ;
+    rdfs:subClassOf obo:BFO_0000028 ;
+    skos:definition "three-dimensional spatial region that connects one specified location to another on a body of water along which a watercraft may travel" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000101 a owl:Class ;
+    rdfs:label "shipping route" ;
+    rdfs:subClassOf obo:BFO_0000028 ;
+    skos:definition "way (three-dimensional spatial region) that connects two or more supply chain nodes along which some shipment travels during a transport process" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000102 a owl:Class ;
+    rdfs:label "raw material" ;
+    rdfs:subClassOf obo:BFO_0000040 ;
+    skos:definition "material entity which has the raw material role" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000103 a owl:Class ;
+    rdfs:label "traceable resource unit" ;
+    rdfs:subClassOf obo:BFO_0000040 ;
+    skos:definition "material entity that is uniquely identified and there may be a need to retrieve information about its history, application, or location as it moves through a supply chain" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000115 a owl:Class ;
+    rdfs:label "packaging service" ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( log:LOG_1000113 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000117 ;
+                        owl:someValuesFrom log:LOG_1000121 ] ) ],
+        log:LOG_1000113 ;
+    skos:definition "logistics service that consists of at lest one packaging process" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "d) justified new Mat.Sus integration decision" ;
+    matsus:integrationMethod "subclassing" ;
+    matsus:integrationNote "Named parent adjusted during Stage A integration." .
+
+log:LOG_1000116 a owl:Class ;
+    rdfs:label "storage service" ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( log:LOG_1000113 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000117 ;
+                        owl:someValuesFrom log:LOG_1000144 ] ) ],
+        log:LOG_1000113 ;
+    skos:definition "logistics service that consists of at least one storage process" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "d) justified new Mat.Sus integration decision" ;
+    matsus:integrationMethod "subclassing" ;
+    matsus:integrationNote "Named parent adjusted during Stage A integration." .
+
+log:LOG_1000119 a owl:Class ;
+    rdfs:label "inventory management process" ;
+    rdfs:subClassOf log:LOG_1000130 ;
+    skos:definition "business process that consists of the activities required for controlling, tracking, recording, and planning inventories" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000120 a owl:Class ;
+    rdfs:label "logistics process" ;
+    rdfs:subClassOf log:LOG_1000130 ;
+    skos:definition "business process that consists of a combination of one or more transport, shipment preparation, storage or receiving processes" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000122 a owl:Class ;
+    rdfs:label "procuring business process" ;
+    rdfs:subClassOf log:LOG_1000130 ;
+    skos:definition "business process that consists of buying and ensuring the supply of products or services" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000129 a owl:Class ;
+    rdfs:label "warehousing process" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000117 ;
+            owl:someValuesFrom log:LOG_1000144 ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000066 ;
+            owl:someValuesFrom log:LOG_1000034 ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002233 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( obo:OBI_0000260 [ a owl:Restriction ;
+                                owl:onProperty obo:RO_0000059 ;
+                                owl:someValuesFrom log:LOG_1000098 ] ) ] ],
+        log:LOG_1000130 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( log:LOG_1000130 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000066 ;
+                        owl:someValuesFrom log:LOG_1000034 ] [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000117 ;
+                        owl:someValuesFrom log:LOG_1000144 ] [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0002233 ;
+                        owl:someValuesFrom [ a owl:Class ;
+                                owl:intersectionOf ( obo:OBI_0000260 [ a owl:Restriction ;
+                                            owl:onProperty obo:RO_0000059 ;
+                                            owl:someValuesFrom log:LOG_1000098 ] ) ] ] ) ] ;
+    skos:definition "business process of storing products (material products) in a storage facility for future use" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000132 a owl:Class ;
+    rdfs:label "assembly process" ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0002233 ;
+                        owl:someValuesFrom log:LOG_1000028 ] [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0002234 ;
+                        owl:someValuesFrom [ a owl:Class ;
+                                owl:intersectionOf ( obo:BFO_0000027 [ a owl:Restriction ;
+                                            owl:onProperty obo:RO_0002351 ;
+                                            owl:someValuesFrom [ a owl:Class ;
+                                                    owl:intersectionOf ( log:LOG_1000028 [ a owl:Restriction ;
+                                                                owl:onProperty obo:RO_0002352 ;
+                                                                owl:someValuesFrom log:LOG_1000131 ] ) ] ] ) ] ] ) ],
+        pmd:PMD_0000833,
+        log:LOG_1000131 ;
+    skos:definition "manufacturing process in which a number of material components are physically connected to each other to form an assembly" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000135 a owl:Class ;
+    rdfs:label "appraisal process" ;
+    rdfs:subClassOf log:LOG_1000134 ;
+    skos:definition "measurement process that involves evaluating, assessing, estimating, or judging the nature, value, importance, condition, or quality of some entity" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000141 a owl:Class ;
+    rdfs:label "arrival process" ;
+    rdfs:subClassOf log:LOG_1000140 ;
+    skos:definition "material location change process that consists of the participating entity reaching its destination such that the travel or transport process which it is a part of is completed" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000142 a owl:Class ;
+    rdfs:label "departure process" ;
+    rdfs:subClassOf log:LOG_1000140 ;
+    skos:definition "material location change process that consists of the participating entity leaving its starting location such that the travel or transport process it is a part of is initiated" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000145 a owl:Class ;
+    rdfs:label "travel process" ;
+    rdfs:subClassOf log:LOG_1000140 ;
+    skos:definition "material location change process wherein one or more persons move between geographical locations" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1900002 a owl:ObjectProperty ;
+    rdfs:label "owned by" ;
+    rdfs:comment "relationship from a material entity to a person or business organization when the material entity is held by the person or business organization as legal property" ;
+    rdfs:domain obo:BFO_0000040 ;
+    rdfs:range log:LOG_1000011 ;
+    owl:inverseOf log:LOG_1900003 .
+
+<https://w3id.org/pmd/matsus/components/matsus-log-stageA.ttl> a owl:Ontology ;
+    dcterms:description log:,
+        "Preserves the accepted Mat.Sus Stage A integration of LOG classes, properties, alignments, weakened axioms, compatibility exceptions, definitions, and integration annotations." ;
+    dcterms:title "Accepted Stage A LOG integration component for Mat.Sus" .
+
+pmd:PMD_0040122 a owl:ObjectProperty ;
+    rdfs:label "role specified by"@en ;
+    dcterms:source "Supplied via LOGao; absent from the PMDco release in use for comparison." ;
+    rdfs:comment "Namespace/version anomaly: this PMDco-namespace object property is supplied through LOGao but is absent from the compared PMDco release used for validation. It is retained for LOGao compatibility only and must not be treated as a stable PMDco backbone property without manual review." ;
+    rdfs:domain obo:BFO_0000023 ;
+    rdfs:range obo:IAO_0000030 ;
+    rdfs:subPropertyOf pmd:PMD_0000004 ;
+    skos:editorialNote "LOG compatibility exception" ;
+    skos:note "needs human review" ;
+    matsus:alignmentRelation "PMDco namespace extension from LOGao" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "direct reuse" ;
+    matsus:integrationNote "LOG supplies this PMDco-namespace object property; added without altering existing PMDco hierarchy or adding new Mat.Sus modelling commitments." .
+
+log:LOG_0000003 a owl:Class ;
+    rdfs:label "freight forwarding process" ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( log:LOG_1000130 [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0000057 ;
+                        owl:someValuesFrom log:LOG_1000016 ] ) ],
+        log:LOG_1000130 ;
+    skos:definition "business process of planning and coordinating the transportation of material products on behalf of a shipper" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "d) justified new Mat.Sus integration decision" ;
+    matsus:integrationMethod "subclassing" ;
+    matsus:integrationNote "Named parent adjusted during Stage A integration." .
+
+log:LOG_1000016 a owl:Class ;
+    rdfs:label "freight forwarder" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000067 ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000067 ],
+        log:LOG_1000022 ;
+    skos:definition "person or business organization when it arranges the transportation of shipments on behalf of the shipper (consignor) or consignee" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000019 a owl:Class ;
+    rdfs:label "shipper" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000057 ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000057 ],
+        log:LOG_1000011 ;
+    skos:definition "person or business organization that prepares and sends shipments for transport" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000021 a owl:Class ;
+    rdfs:label "carrier" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000070 ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000070 ],
+        log:LOG_1000022 ;
+    skos:definition "person or business organization who provides transportation services" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000051 a owl:Class ;
+    rdfs:label "shipment" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000081 ],
+        obo:BFO_0000040 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( obo:BFO_0000040 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000196 ;
+                        owl:someValuesFrom log:LOG_1000081 ] ) ] ;
+    skos:definition "collection of material entities delivered to a receiver's location that have undergone the same dispatch and receipt processes" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000095 a owl:Class ;
+    rdfs:label "packaging plan specification" ;
+    rdfs:subClassOf obo:IAO_0000104 ;
+    skos:definition "plan specification that prescribes a packaging process" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000118 a owl:Class ;
+    rdfs:label "manufacturing service" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000117 ;
+            owl:someValuesFrom log:LOG_1000131 ],
+        log:LOG_1000112 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( log:LOG_1000112 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000117 ;
+                        owl:someValuesFrom log:LOG_1000131 ] ) ] ;
+    skos:definition "commercial service that consists of at least one manufacturing process" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000124 a owl:Class ;
+    rdfs:label "receiving process" ;
+    rdfs:subClassOf log:LOG_1000130 ;
+    skos:definition "planned process in which an agent receives some material entity from another agent" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000125 a owl:Class ;
+    rdfs:label "selling business process" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:RO_0000057 ;
+            owl:someValuesFrom log:LOG_1000020 ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:RO_0000057 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( log:LOG_1000001 log:LOG_1000029 ) ] ],
+        log:LOG_1000130 ;
+    skos:definition "business process wherein a product or commercial service is offered by an agent (seller) for another agent (buyer) to acquire ownership via a financial instrument" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000134 a owl:Class ;
+    rdfs:label "measurement process" ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0000057 ;
+                        owl:someValuesFrom log:LOG_1000011 ] [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0002233 ;
+                        owl:someValuesFrom [ a owl:Class ;
+                                owl:intersectionOf ( obo:OBI_0000260 [ a owl:Restriction ;
+                                            owl:onProperty obo:RO_0000059 ;
+                                            owl:someValuesFrom obo:IAO_0000104 ] ) ] ] ) ],
+        obo:BFO_0000015 ;
+    skos:definition "planned process to determine the value of an attribute (specifically dependent continuant or temporal region or process characteristic) of an entity of interest" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000146 a owl:Class ;
+    rdfs:label "physical premises" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000082 ;
+            owl:someValuesFrom pmd:PMD_0040029 ],
+        obo:BFO_0000027 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( obo:BFO_0000027 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000082 ;
+                        owl:someValuesFrom pmd:PMD_0040029 ] ) ] ;
+    skos:definition "object aggregate that has a location at some geospatial site and serves as a physical place of operation for an organization" ;
+    matsus:alignmentRelation "distinct from BFO site; related to organizational site" ;
+    matsus:integrationBasis "d) justified new Mat.Sus integration decision" ;
+    matsus:integrationMethod "subclassing" ;
+    matsus:integrationNote "Named parent adjusted during Stage A integration. Physical premises treated as material facility/object aggregate located at a geospatial site; org:Site kept only as external interpretation, not as superclass." .
+
+log:LOG_1900001 a owl:ObjectProperty ;
+    rdfs:label "acts on behalf of" ;
+    rdfs:comment "relation from a material entity to a person or a group of agents or engineered system that holds when the material entity participates in some planned process in order to fulfill an objective for the person or group of agents or engineered system" ;
+    rdfs:domain obo:BFO_0000040 ;
+    rdfs:range log:LOG_1000011 .
+
+log:LOG_1900003 a owl:ObjectProperty ;
+    rdfs:label "owns" ;
+    rdfs:comment "relationship from a person or business organization to an independent continuant when the agent holds the independent continuant as legal property" ;
+    rdfs:domain log:LOG_1000011 ;
+    rdfs:range obo:BFO_0000004 .
+
+log:LOG_0000001 a owl:Class ;
+    rdfs:label "industrial inventory role" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000197 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( obo:BFO_0000040 [ a owl:Restriction ;
+                                owl:onProperty obo:RO_0000056 ;
+                                owl:someValuesFrom [ a owl:Class ;
+                                        owl:unionOf ( log:LOG_1000123 log:LOG_1000128 ) ] ] ) ] ],
+        log:LOG_1000106 ;
+    skos:definition "role held by some material entity when it is stored by a bussiness organization and it is intended to be supplied to a customer or to be used or consumed in some product production process" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000000 a owl:Class ;
+    rdfs:label "agreement" ;
+    rdfs:subClassOf obo:IAO_0000030 ;
+    skos:definition "understanding between two or more parties that contains a set of commitments on the part of the parties" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000003 a owl:Class ;
+    rdfs:label "transport equipment role" ;
+    rdfs:subClassOf obo:BFO_0000023 ;
+    skos:definition "role held by a material artifact when it is planned to be involved in or is involved in carrying out some part of a planned transportation process and that is not consumed in that planned process" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000006 a owl:Class ;
+    rdfs:label "organization identifier" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:IAO_0000219 ;
+            owl:someValuesFrom log:LOG_1000050 ],
+        obo:IAO_0020000 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( obo:IAO_0020000 [ a owl:Restriction ;
+                        owl:onProperty obo:IAO_0000219 ;
+                        owl:someValuesFrom log:LOG_1000050 ] ) ] ;
+    skos:definition "identifier that identifies an organization" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000008 a owl:Class ;
+    rdfs:label "physical location identifier" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:IAO_0000219 ;
+            owl:someValuesFrom obo:BFO_0000029 ],
+        obo:IAO_0020000 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( obo:IAO_0020000 [ a owl:Restriction ;
+                        owl:onProperty obo:IAO_0000219 ;
+                        owl:someValuesFrom obo:BFO_0000029 ] ) ] ;
+    skos:definition "identifier that identifies a physical location (site)" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000030 a owl:Class ;
+    rdfs:label "material resource" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000106 ],
+        obo:BFO_0000040 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( obo:BFO_0000040 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000196 ;
+                        owl:someValuesFrom log:LOG_1000106 ] ) ] ;
+    skos:definition "material entity which has the material resource role" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000032 a owl:Class ;
+    rdfs:label "facility" ;
+    rdfs:subClassOf log:LOG_1000146 ;
+    skos:definition "engineered system that consists of buildings, structures, roads, machines, and equipment desgined to provide certain capabilities" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000037 a owl:Class ;
+    rdfs:label "lot" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000080 ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:IAO_0000235 ;
+            owl:someValuesFrom log:LOG_1000005 ],
+        pmd:PMD_0020138 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( obo:BFO_0000027 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000196 ;
+                        owl:someValuesFrom log:LOG_1000080 ] [ a owl:Restriction ;
+                        owl:onProperty obo:IAO_0000235 ;
+                        owl:someValuesFrom log:LOG_1000005 ] ) ] ;
+    skos:definition "quantity of material entities produced together and sharing the same production history and specifications" ;
+    matsus:alignmentRelation "narrower than PMDco lot" ;
+    matsus:integrationBasis "d) justified new Mat.Sus integration decision" ;
+    matsus:integrationMethod "subclassing" ;
+    matsus:integrationNote "Named parent adjusted during Stage A integration. LOG lot integrated as a narrower subclass of PMDco lot to avoid unsafe equivalence." .
+
+log:LOG_1000052 a owl:Class ;
+    rdfs:label "freight forwarding business function" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000054 ;
+            owl:someValuesFrom log:LOG_1000114 ],
+        log:LOG_1000091 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( log:LOG_1000091 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000054 ;
+                        owl:someValuesFrom log:LOG_1000114 ] ) ] ;
+    skos:definition "business function that is realized in a freight forwarding service" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000053 a owl:Class ;
+    rdfs:label "transportation business function" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000054 ;
+            owl:someValuesFrom log:LOG_1000117 ],
+        log:LOG_1000091 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( log:LOG_1000091 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000054 ;
+                        owl:someValuesFrom log:LOG_1000117 ] ) ] ;
+    skos:definition "business function that is realized in a transportation service" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000056 a owl:Class ;
+    rdfs:label "consignee role" ;
+    rdfs:subClassOf log:LOG_1000054 ;
+    skos:definition "role held by a person or business organization when it receives a shipment from a carrier and owns the shipment after the receipt" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000060 a owl:Class ;
+    rdfs:label "distributor role" ;
+    rdfs:subClassOf log:LOG_1000054 ;
+    skos:definition "role held by a person or business organization when it buys some material products from a manufacturer and resells them to a wholesaler" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000062 a owl:Class ;
+    rdfs:label "retailer role" ;
+    rdfs:subClassOf log:LOG_1000054 ;
+    skos:definition "role held by a person or business organization when it buys products (material product) from manufacturers or wholesalers and offers them for sale to customers who are the end users of the product" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000067 a owl:Class ;
+    rdfs:label "freight forwarder role" ;
+    rdfs:subClassOf log:LOG_1000065 ;
+    skos:definition "A freight forwarder, or forwarding agent, is a person or company that organizes shipments for individuals or corporations to get goods from the manufacturer or producer to a market, customer or final point of distribution." ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000070 a owl:Class ;
+    rdfs:label "transportation service provider role" ;
+    rdfs:subClassOf log:LOG_1000065 ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000071 a owl:Class ;
+    rdfs:label "supply chain agent role" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000054 ;
+            owl:someValuesFrom log:LOG_10001247 ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000197 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( log:LOG_1000011 [ a owl:Restriction ;
+                                owl:onProperty obo:BFO_0000050 ;
+                                owl:someValuesFrom [ a owl:Class ;
+                                        owl:intersectionOf ( obo:BFO_0000027 [ a owl:Restriction ;
+                                                    owl:allValuesFrom log:LOG_1000020 ;
+                                                    owl:onProperty obo:RO_0002351 ] ) ] ] ) ] ],
+        log:LOG_1000054 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( log:LOG_1000054 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000054 ;
+                        owl:someValuesFrom log:LOG_10001247 ] [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000197 ;
+                        owl:someValuesFrom [ a owl:Class ;
+                                owl:intersectionOf ( log:LOG_1000011 [ a owl:Restriction ;
+                                            owl:onProperty obo:BFO_0000050 ;
+                                            owl:someValuesFrom [ a owl:Class ;
+                                                    owl:intersectionOf ( obo:BFO_0000027 [ a owl:Restriction ;
+                                                                owl:allValuesFrom log:LOG_1000020 ;
+                                                                owl:onProperty obo:RO_0002351 ] ) ] ] ) ] ] ) ] ;
+    skos:definition "role held by an agent that is a part of a supply chain system when it supplies material products or commercial services to other agents in the supply chain system" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000072 a owl:Class ;
+    rdfs:label "wholesaler role" ;
+    rdfs:subClassOf log:LOG_1000054 ;
+    skos:definition "role held by a person or business organization when it buys some product from a distributor and resells them to retailers" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000073 a owl:Class ;
+    rdfs:label "cargo role" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000197 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( obo:BFO_0000040 [ a owl:Restriction ;
+                                owl:onProperty obo:RO_0000056 ;
+                                owl:someValuesFrom [ a owl:Class ;
+                                        owl:intersectionOf ( log:LOG_1000143 [ a owl:Restriction ;
+                                                    owl:onProperty obo:RO_0000057 ;
+                                                    owl:someValuesFrom log:LOG_1000021 ] ) ] ] ) ] ],
+        obo:BFO_0000023 ;
+    skos:definition "role held by a material entity when it is being transported or is planned to be transported by a carrier" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000075 a owl:Class ;
+    rdfs:label "ship from location role" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000197 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( pmd:PMD_0040029 [ a owl:Restriction ;
+                                owl:onProperty obo:BFO_0000183 ;
+                                owl:someValuesFrom log:LOG_1000126 ] ) ] ],
+        log:LOG_1000085 ;
+    skos:definition "location role held by a geospatial site when it is the location at which some dispatch process occures" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000076 a owl:Class ;
+    rdfs:label "ship to location role" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000197 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( pmd:PMD_0040029 [ a owl:Restriction ;
+                                owl:onProperty obo:BFO_0000183 ;
+                                owl:someValuesFrom log:LOG_1000124 ] ) ] ],
+        log:LOG_1000085 ;
+    skos:definition "location role held by a geospatial site when it is the location at which some receiving process occures" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000077 a owl:Class ;
+    rdfs:label "supply chain node role" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000197 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( pmd:PMD_0040029 [ a owl:Restriction ;
+                                owl:onProperty obo:BFO_0000183 ;
+                                owl:someValuesFrom log:LOG_10001247 ] ) ] ],
+        log:LOG_1000085 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( log:LOG_1000085 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000197 ;
+                        owl:someValuesFrom [ a owl:Class ;
+                                owl:intersectionOf ( pmd:PMD_0040029 [ a owl:Restriction ;
+                                            owl:onProperty obo:BFO_0000183 ;
+                                            owl:someValuesFrom log:LOG_10001247 ] ) ] ] ) ] ;
+    skos:definition "location role held by a geospatial site when it is the site some supply chain process" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000078 a owl:Class ;
+    rdfs:label "material product role" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000197 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( obo:BFO_0000040 [ a owl:Restriction ;
+                                owl:onProperty obo:RO_0000056 ;
+                                owl:someValuesFrom [ a owl:Class ;
+                                        owl:unionOf ( log:LOG_1000111 log:LOG_1000125 log:LOG_1000128 ) ] ] ) ] ],
+        obo:BFO_0000023 ;
+    skos:definition "role held by a material entity that is intended to be sold, or has been bought, or has been supplied" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000080 a owl:Class ;
+    rdfs:label "lot role" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000197 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( obo:BFO_0000040 [ a owl:Restriction ;
+                                owl:onProperty obo:IAO_0000235 ;
+                                owl:someValuesFrom log:LOG_1000005 ] [ a owl:Restriction ;
+                                owl:onProperty obo:RO_0000056 ;
+                                owl:someValuesFrom log:LOG_1000131 ] ) ] ],
+        log:LOG_1000084 ;
+    skos:definition "traceable resource unit role held by material entities that have a shared production or transformation history" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000081 a owl:Class ;
+    rdfs:label "shipment role" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000197 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( obo:BFO_0000040 [ a owl:Restriction ;
+                                owl:onProperty obo:RO_0002353 ;
+                                owl:someValuesFrom log:LOG_1000126 ] ) ] ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom log:LOG_1000143 ;
+            owl:onProperty obo:BFO_0000054 ],
+        log:LOG_1000084 ;
+    skos:definition "traceable resource unit role held by material entities when they undergo the same dispatch and receipt processes as prescribed by a bill of lading" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000082 a owl:Class ;
+    rdfs:label "load role" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000197 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( obo:BFO_0000040 [ a owl:Restriction ;
+                                owl:onProperty obo:RO_0000056 ;
+                                owl:someValuesFrom log:LOG_1000140 ] ) ] ],
+        log:LOG_1000084 ;
+    skos:definition "traceable resource unit role held by a number of material entities that have been transferred or transported together" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000083 a owl:Class ;
+    rdfs:label "logistic unit role" ;
+    rdfs:subClassOf log:LOG_1000084 ;
+    skos:definition "traceable resource unit role held by a number of material entities that are packaged together for transport or storage" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000098 a owl:Class ;
+    rdfs:label "warehousing plan specification" ;
+    rdfs:subClassOf obo:IAO_0000104 ;
+    skos:definition "plan specification that prescribes a warehousing process" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000104 a owl:Class ;
+    rdfs:label "maintainable material item role" ;
+    rdfs:subClassOf obo:BFO_0000023 ;
+    skos:definition "role played by an asset (engineered system or material artifact) when there is a maintenance strategy prescribing its maintenance process" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000105 a owl:Class ;
+    rdfs:label "material component role" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000197 ;
+            owl:someValuesFrom obo:BFO_0000040 ],
+        obo:BFO_0000023 ;
+    skos:definition "role held by a material entity when it is a proper part of another material entity or is planned to be a proper part of another material entity" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000111 a owl:Class ;
+    rdfs:label "buying business process" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:RO_0000057 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( log:LOG_1000001 log:LOG_1000029 ) ] ],
+        log:LOG_1000130 ;
+    skos:definition "business process wherein a financial instrument is used by an agent (buyer) to acquire ownership of a product or commercial service from another agent (seller) for the buyer itself or for another agent (customer)" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000114 a owl:Class ;
+    rdfs:label "freight forwarding service" ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( log:LOG_1000113 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000117 ;
+                        owl:someValuesFrom log:LOG_0000003 ] ) ],
+        log:LOG_1000113 ;
+    skos:definition "logistics service that consists of at least one freight forwarding process" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "d) justified new Mat.Sus integration decision" ;
+    matsus:integrationMethod "subclassing" ;
+    matsus:integrationNote "Named parent adjusted during Stage A integration." .
+
+log:LOG_1000117 a owl:Class ;
+    rdfs:label "transportation service" ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( log:LOG_1000113 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000117 ;
+                        owl:someValuesFrom log:LOG_1000143 ] ) ],
+        log:LOG_1000113 ;
+    skos:definition "business process that results in placing a material entity in the possession of some agent without changing the ownership until the material entity is sold",
+        "logistics service that consists of at least one transport process" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "d) justified new Mat.Sus integration decision" ;
+    matsus:integrationMethod "subclassing" ;
+    matsus:integrationNote "Named parent adjusted during Stage A integration." .
+
+log:LOG_1000121 a owl:Class ;
+    rdfs:label "packaging process" ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( log:LOG_1000130 [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0000057 ;
+                        owl:someValuesFrom log:LOG_1000029 ] [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0002233 ;
+                        owl:someValuesFrom [ a owl:Class ;
+                                owl:intersectionOf ( obo:OBI_0000260 [ a owl:Restriction ;
+                                            owl:onProperty obo:RO_0000059 ;
+                                            owl:someValuesFrom log:LOG_1000095 ] ) ] ] ) ],
+        log:LOG_1000130 ;
+    skos:definition "business process of putting some products or some portion of material into a package according to a packaging plan specification" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "d) justified new Mat.Sus integration decision" ;
+    matsus:integrationMethod "subclassing" ;
+    matsus:integrationNote "Named parent adjusted during Stage A integration." .
+
+log:LOG_1000126 a owl:Class ;
+    rdfs:label "shipment preparation process" ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( log:LOG_1000130 [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0000057 ;
+                        owl:someValuesFrom log:LOG_1000019 ] [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0000057 ;
+                        owl:someValuesFrom log:LOG_1000029 ] [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0002234 ;
+                        owl:someValuesFrom log:LOG_1000051 ] ) ],
+        log:LOG_1000130 ;
+    skos:definition "business process in which some material entities are prepared to be transported together to a receiverÃ¢â‚¬â„¢s location" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "d) justified new Mat.Sus integration decision" ;
+    matsus:integrationMethod "subclassing" ;
+    matsus:integrationNote "Named parent adjusted during Stage A integration." .
+
+log:LOG_1000005 a owl:Class ;
+    rdfs:label "lot number" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:IAO_0000219 ;
+            owl:someValuesFrom log:LOG_1000037 ],
+        obo:IAO_0020000 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( obo:IAO_0020000 [ a owl:Restriction ;
+                        owl:onProperty obo:IAO_0000219 ;
+                        owl:someValuesFrom log:LOG_1000037 ] ) ] ;
+    skos:definition "identifier that uniquely denotes a particular quantity of material entities that have shared production or transformation history" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000022 a owl:Class ;
+    rdfs:label "service provider" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000064 ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000064 ],
+        log:LOG_1000020 ;
+    skos:definition "person or organization which has a service provider role" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000028 a owl:Class ;
+    rdfs:label "material component" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000105 ],
+        obo:BFO_0000040 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( obo:BFO_0000040 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000196 ;
+                        owl:someValuesFrom log:LOG_1000105 ] ) ] ;
+    skos:definition "material entity which has the material component role" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000034 a owl:Class ;
+    rdfs:label "storage facility" ;
+    rdfs:subClassOf log:LOG_1000032 ;
+    skos:definition "facility that is designed to store materials or goods" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000041 a owl:Class ;
+    rdfs:label "piece of transport equipment" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000003 ],
+        obo:BFO_0000030 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( obo:BFO_0000030 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000196 ;
+                        owl:someValuesFrom log:LOG_1000003 ] ) ] ;
+    skos:definition "piece of equipment that has the function of holding, protecting, and securing a number of material entites for transportation purposes" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000047 a owl:Class ;
+    rdfs:label "business organization" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000091 ],
+        log:LOG_1000050 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( log:LOG_1000050 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000196 ;
+                        owl:someValuesFrom log:LOG_1000091 ] ) ] ;
+    skos:definition "organization engaging in or planning to engage in any activity of buying and selling goods or services for a profit" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "d) justified new Mat.Sus integration decision" ;
+    matsus:integrationMethod "subclassing" ;
+    matsus:integrationNote "Named parent adjusted during Stage A integration." .
+
+log:LOG_1000055 a owl:Class ;
+    rdfs:label "buyer role" ;
+    rdfs:subClassOf log:LOG_1000054 ;
+    skos:definition "agent role held by a person or organization when it buys a product or a service" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000058 a owl:Class ;
+    rdfs:label "customer role" ;
+    rdfs:subClassOf log:LOG_1000054 ;
+    skos:definition "agent role held by a person or organization when it utilizes the product or receives the service or subscribes to the commercial service agreement" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000063 a owl:Class ;
+    rdfs:label "supplier role" ;
+    rdfs:subClassOf log:LOG_1000054 ;
+    skos:definition "agent role held by a person or organization when it offers to sell or provide products or services" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000106 a owl:Class ;
+    rdfs:label "material resource role" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000197 ;
+            owl:someValuesFrom obo:BFO_0000040 ],
+        obo:BFO_0000023 ;
+    skos:definition "role played by a material entity that consists in it being available to a person or group of agents or engineered system" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000128 a owl:Class ;
+    rdfs:label "supplying business process" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:RO_0000057 ;
+            owl:someValuesFrom log:LOG_1000020 ],
+        [ a owl:Class ;
+            owl:unionOf ( [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000132 ;
+                        owl:someValuesFrom log:LOG_1000112 ] [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0000057 ;
+                        owl:someValuesFrom log:LOG_1000029 ] ) ],
+        log:LOG_1000130 ;
+    skos:definition "business process wherein a product or service is supplied" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000144 a owl:Class ;
+    rdfs:label "storage process" ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0000057 ;
+                        owl:someValuesFrom log:LOG_1000011 ] [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0002233 ;
+                        owl:someValuesFrom [ a owl:Class ;
+                                owl:intersectionOf ( obo:OBI_0000260 [ a owl:Restriction ;
+                                            owl:onProperty obo:RO_0000059 ;
+                                            owl:someValuesFrom obo:IAO_0000104 ] ) ] ] ) ],
+        obo:BFO_0000015 ;
+    skos:definition "planned process of putting and keeping material entities in a specified location for future use" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+pmd:PMD_0040030 a owl:Class ;
+    rdfs:label "geospatial location" ;
+    dcterms:source "Supplied via LOGao; absent from the PMDco release in use for comparison." ;
+    rdfs:comment "Namespace/version anomaly: this PMDco-namespace class is present in this combined ontology via LOGao, but is absent from the compared PMDco release used for validation (pmdco-full.ttl). It is retained for LOGao compatibility only, must not be treated as a stable PMDco backbone anchor, and should not be used to justify broader PMDco restructuring without manual review." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000085 ],
+        pmd:PMD_0040029 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( pmd:PMD_0040029 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000196 ;
+                        owl:someValuesFrom log:LOG_1000085 ] ) ] ;
+    skos:definition "geospatial site that is the location of some material entity at some time or the site of some process" ;
+    skos:editorialNote "LOG compatibility exception" ;
+    skos:note "needs human review" ;
+    matsus:alignmentRelation "PMDco namespace extension from LOGao" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "direct reuse" ;
+    matsus:integrationNote "LOG introduces this PMDco-namespace extension class; integrated without altering existing PMDco superclass logic." .
+
+log:LOG_1000001 a owl:Class ;
+    rdfs:label "commercial service agreement" ;
+    rdfs:subClassOf log:LOG_1000000 ;
+    skos:definition "agreement between a customer and service provider that is about some commercial service to be provided by the service provider in exchange for compensation from the customer" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000023 a owl:Class ;
+    rdfs:label "supply chain agent" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000071 ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000071 ],
+        log:LOG_1000011 ;
+    skos:definition "person or business organization who supplies material products or commercial services to other agents in a supply chain" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000038 a owl:Class ;
+    rdfs:label "supply chain system" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:RO_0000056 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( log:LOG_1000112 log:LOG_1000123 ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:RO_0000056 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( obo:BFO_0000015 [ a owl:Restriction ;
+                                owl:onProperty obo:RO_0002233 ;
+                                owl:someValuesFrom [ a owl:Class ;
+                                        owl:intersectionOf ( obo:OBI_0000260 [ a owl:Restriction ;
+                                                    owl:onProperty obo:RO_0000059 ;
+                                                    owl:someValuesFrom log:LOG_1000097 ] ) ] ] ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002351 ;
+            owl:someValuesFrom log:LOG_1000020 ],
+        obo:BFO_0000027 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( obo:BFO_0000027 [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0000056 ;
+                        owl:someValuesFrom [ a owl:Class ;
+                                owl:intersectionOf ( obo:BFO_0000015 [ a owl:Restriction ;
+                                            owl:onProperty obo:RO_0002233 ;
+                                            owl:someValuesFrom [ a owl:Class ;
+                                                    owl:intersectionOf ( obo:OBI_0000260 [ a owl:Restriction ;
+                                                                owl:onProperty obo:RO_0000059 ;
+                                                                owl:someValuesFrom log:LOG_1000097 ] ) ] ] ) ] ] [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0000056 ;
+                        owl:someValuesFrom [ a owl:Class ;
+                                owl:unionOf ( log:LOG_1000112 log:LOG_1000123 ) ] ] [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0002351 ;
+                        owl:someValuesFrom log:LOG_1000020 ] ) ] ;
+    skos:definition "engineered system composed of agents, facilties, machines, and information systems that is designed to deliver products and services to end customers through an engineered flow of information, material, and cash" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000057 a owl:Class ;
+    rdfs:label "consignor role" ;
+    rdfs:subClassOf log:LOG_1000054 ;
+    skos:definition "role held by a business organization or person when it prepares, initiates, and consigns a shipment it owns" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000064 a owl:Class ;
+    rdfs:label "service provider role" ;
+    rdfs:subClassOf log:LOG_1000063 ;
+    skos:definition "supplier role held by a person or organization when it offers to sell or provide a commercial service" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000065 a owl:Class ;
+    rdfs:label "logistics service provider role" ;
+    rdfs:subClassOf log:LOG_1000064 ;
+    skos:definition "service provider role that is held by a business organization or person when it provides a logistics service" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000084 a owl:Class ;
+    rdfs:label "traceable resource unit role" ;
+    rdfs:subClassOf obo:BFO_0000023 ;
+    skos:definition "role held by a number of uniquely identified material entities when they participate in some supply chain processes or production processes while some agent observes them and collects information about them for future retrieval" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000097 a owl:Class ;
+    rdfs:label "supply chain plan specification" ;
+    rdfs:subClassOf obo:IAO_0000104 ;
+    skos:definition "plan specification that has one or more supply chain objective specifications as parts and that prescribes a supply chain process" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000143 a owl:Class ;
+    rdfs:label "transport process" ;
+    rdfs:subClassOf log:LOG_1000140 ;
+    skos:definition "material location change process involving the movement of material entities by some piece of transport equipment" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000140 a owl:Class ;
+    rdfs:label "material location change process" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:RO_0000057 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( obo:BFO_0000040 [ a owl:Restriction ;
+                                owl:onProperty [ owl:inverseOf obo:RO_0001015 ] ;
+                                owl:someValuesFrom [ a owl:Class ;
+                                        owl:intersectionOf ( obo:BFO_0000004 [ a owl:Restriction ;
+                                                    owl:onProperty obo:BFO_0000108 ;
+                                                    owl:someValuesFrom [ a owl:Class ;
+                                                            owl:intersectionOf ( obo:BFO_0000203 [ a owl:Class ;
+                                                                        owl:intersectionOf ( [ a owl:Restriction ;
+                                                                                    owl:onProperty obo:BFO_0000221 ;
+                                                                                    owl:someValuesFrom obo:BFO_0000008 ] [ a owl:Restriction ;
+                                                                                    owl:onProperty [ owl:inverseOf obo:BFO_0000199 ] ;
+                                                                                    owl:someValuesFrom obo:BFO_0000015 ] ) ] ) ] ] [ a owl:Restriction ;
+                                                    owl:onProperty obo:RO_0001025 ;
+                                                    owl:someValuesFrom obo:BFO_0000029 ] ) ] ] [ a owl:Restriction ;
+                                owl:onProperty [ owl:inverseOf obo:RO_0001015 ] ;
+                                owl:someValuesFrom [ a owl:Class ;
+                                        owl:intersectionOf ( obo:BFO_0000004 [ a owl:Restriction ;
+                                                    owl:onProperty obo:BFO_0000108 ;
+                                                    owl:someValuesFrom [ a owl:Class ;
+                                                            owl:intersectionOf ( obo:BFO_0000203 [ a owl:Restriction ;
+                                                                        owl:onProperty obo:BFO_0000223 ;
+                                                                        owl:someValuesFrom [ a owl:Class ;
+                                                                                owl:intersectionOf ( obo:BFO_0000008 [ a owl:Restriction ;
+                                                                                            owl:onProperty [ owl:inverseOf obo:BFO_0000199 ] ;
+                                                                                            owl:someValuesFrom obo:BFO_0000015 ] ) ] ] ) ] ] [ a owl:Restriction ;
+                                                    owl:onProperty obo:RO_0001025 ;
+                                                    owl:someValuesFrom obo:BFO_0000029 ] ) ] ] ) ] ],
+        obo:BFO_0000015 ;
+    skos:definition "planned process that results in a material entity moving from one physical location to another" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000085 a owl:Class ;
+    rdfs:label "location role" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000197 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( pmd:PMD_0040029 [ a owl:Class ;
+                                owl:unionOf ( [ a owl:Restriction ;
+                                            owl:onProperty obo:BFO_0000183 ;
+                                            owl:someValuesFrom obo:BFO_0000015 ] [ a owl:Restriction ;
+                                            owl:onProperty obo:RO_0001015 ;
+                                            owl:someValuesFrom obo:BFO_0000040 ] ) ] ) ] ],
+        obo:BFO_0000023 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( obo:BFO_0000023 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000197 ;
+                        owl:someValuesFrom [ a owl:Class ;
+                                owl:intersectionOf ( pmd:PMD_0040029 [ a owl:Class ;
+                                            owl:unionOf ( [ a owl:Restriction ;
+                                                        owl:onProperty obo:BFO_0000183 ;
+                                                        owl:someValuesFrom obo:BFO_0000015 ] [ a owl:Restriction ;
+                                                        owl:onProperty obo:RO_0001015 ;
+                                                        owl:someValuesFrom obo:BFO_0000040 ] ) ] ) ] ] ) ] ;
+    skos:definition "role held by a geospatial site when it is the location of some material entity at some time or the site of some process" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000091 a owl:Class ;
+    rdfs:label "business function" ;
+    rdfs:subClassOf obo:BFO_0000034 ;
+    skos:definition "function of an organization to partake in for profit activities as prescribed by the objectives specified by that organization" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000123 a owl:Class ;
+    rdfs:label "product production process" ;
+    rdfs:subClassOf log:LOG_1000130 ;
+    skos:definition "business process that consists of at least one manufacturing process through which raw materials and components are transformed or modified to create a material product" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_10001247 a owl:Class ;
+    rdfs:label "supply chain process" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:RO_0000059 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( log:LOG_1000097 [ a owl:Restriction ;
+                                owl:onProperty obo:RO_0002502 ;
+                                owl:someValuesFrom log:LOG_1000023 ] ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:RO_0000057 ;
+            owl:someValuesFrom log:LOG_1000023 ],
+        log:LOG_1000130 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( log:LOG_1000130 [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0000057 ;
+                        owl:someValuesFrom log:LOG_1000023 ] [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0000059 ;
+                        owl:someValuesFrom [ a owl:Class ;
+                                owl:intersectionOf ( log:LOG_1000097 [ a owl:Restriction ;
+                                            owl:onProperty obo:RO_0002502 ;
+                                            owl:someValuesFrom log:LOG_1000023 ] ) ] ] ) ] ;
+    skos:definition "planned process in which a supply chain plan specification is realized by a number of supply chain agents" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000131 a owl:Class ;
+    rdfs:label "manufacturing process" ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0000057 ;
+                        owl:someValuesFrom log:LOG_1000011 ] [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0002233 ;
+                        owl:someValuesFrom [ a owl:Class ;
+                                owl:intersectionOf ( obo:OBI_0000260 [ a owl:Restriction ;
+                                            owl:onProperty obo:RO_0000059 ;
+                                            owl:someValuesFrom obo:IAO_0000104 ] ) ] ] ) ],
+        [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0002233 ;
+                        owl:someValuesFrom obo:BFO_0000040 ] [ a owl:Restriction ;
+                        owl:onProperty obo:RO_0002234 ;
+                        owl:someValuesFrom [ a owl:Class ;
+                                owl:unionOf ( log:LOG_1000028 log:LOG_1000029 log:LOG_1000030 ) ] ] ) ],
+        obo:BFO_0000015 ;
+    skos:definition "planned process that consists of a structured set of operations through which input material is transformed or modified" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000020 a owl:Class ;
+    rdfs:label "supplier" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000063 ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000063 ],
+        log:LOG_1000011 ;
+    skos:definition "person or organization which has a supplier role" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000112 a owl:Class ;
+    rdfs:label "commercial service" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000117 ;
+            owl:someValuesFrom log:LOG_1000128 ],
+        [ a owl:Restriction ;
+            owl:onProperty pmd:PMD_0000004 ;
+            owl:someValuesFrom log:LOG_1000001 ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:RO_0000057 ;
+            owl:someValuesFrom log:LOG_1000022 ],
+        log:LOG_1000130 ;
+    skos:definition "business process that consists of a service provisioning process and a consumption process" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000113 a owl:Class ;
+    rdfs:label "logistics service" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000117 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:unionOf ( log:LOG_1000118 log:LOG_1000121 log:LOG_1000143 ) ] ],
+        log:LOG_1000112 ;
+    skos:definition "commercial service that consists of at least one transport process, packaging process, freight forwarding, or storage process" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000029 a owl:Class ;
+    rdfs:label "material product" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000078 ],
+        obo:BFO_0000040 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( obo:BFO_0000040 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000196 ;
+                        owl:someValuesFrom log:LOG_1000078 ] ) ] ;
+    skos:definition "material entity which has the material product role" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000050 a owl:Class ;
+    rdfs:label "organization" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:IAO_0000235 ;
+            owl:someValuesFrom log:LOG_1000006 ],
+        obo:OBI_0000245 ;
+    skos:definition "An organization is an immaterial entity that has the organisation role and there exists some sort of legal framework that recognises the entity and its continued existence." ;
+    matsus:alignmentRelation "narrower than OBI organization" ;
+    matsus:integrationBasis "d) justified new Mat.Sus integration decision" ;
+    matsus:integrationMethod "subclassing" ;
+    matsus:integrationNote "Named parent adjusted during Stage A integration. LOG organization kept as a distinct LOG class but placed under OBI organization; external org:FormalOrganization superclass removed." .
+
+pmd:PMD_0040029 a owl:Class ;
+    rdfs:label "geospatial site" ;
+    dcterms:source "Supplied via LOGao; absent from the PMDco release in use for comparison." ;
+    rdfs:comment "Namespace/version anomaly: this PMDco-namespace class is present in this combined ontology via LOGao, but is absent from the compared PMDco release used for validation (pmdco-full.ttl). It is retained for LOGao compatibility only, must not be treated as a stable PMDco backbone anchor, and should not be used to justify broader PMDco restructuring without manual review." ;
+    rdfs:subClassOf obo:BFO_0000029 ;
+    skos:definition "site at or near the surface of the earth" ;
+    skos:editorialNote "LOG compatibility exception" ;
+    skos:note "needs human review" ;
+    matsus:alignmentRelation "PMDco namespace extension from LOGao" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "direct reuse" ;
+    matsus:integrationNote "LOG introduces this PMDco-namespace extension class; integrated without altering existing PMDco superclass logic." .
+
+log:LOG_1000054 a owl:Class ;
+    rdfs:label "agent role" ;
+    rdfs:subClassOf obo:BFO_0000023 ;
+    skos:definition "role that someone or something has when they act on behalf of a person, engineered system or a group of agents" ;
+    matsus:alignmentRelation "narrower than/close to org:Role, authoritative under BFO role" ;
+    matsus:integrationBasis "d) justified new Mat.Sus integration decision" ;
+    matsus:integrationMethod "subclassing" ;
+    matsus:integrationNote "BFO role preserved as authoritative; external org/skos role branch not imported." .
+
+log:LOG_1000130 a owl:Class ;
+    rdfs:label "business process" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:RO_0000057 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( log:LOG_1000011 [ a owl:Restriction ;
+                                owl:onProperty log:LOG_1900001 ;
+                                owl:someValuesFrom log:LOG_1000047 ] ) ] ],
+        [ a owl:Restriction ;
+            owl:onProperty obo:RO_0002233 ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( obo:OBI_0000260 [ a owl:Restriction ;
+                                owl:onProperty obo:RO_0000059 ;
+                                owl:someValuesFrom obo:IAO_0000104 ] ) ] ],
+        obo:BFO_0000015 ;
+    skos:definition "planned process which is prescribed by a plan specification with one or more objectives specified by a business organization" ;
+    matsus:alignmentRelation "related extension" ;
+    matsus:integrationBasis "b) LOGao logic" ;
+    matsus:integrationMethod "subclassing" .
+
+log:LOG_1000011 a owl:Class ;
+    rdfs:label "agent" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:BFO_0000196 ;
+            owl:someValuesFrom log:LOG_1000054 ],
+        obo:BFO_0000040 ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( obo:BFO_0000040 [ a owl:Restriction ;
+                        owl:onProperty obo:BFO_0000196 ;
+                        owl:someValuesFrom log:LOG_1000054 ] ) ] ;
+    matsus:alignmentRelation "distinct but related to imported web-vocabulary agent notions" ;
+    matsus:integrationBasis "d) justified new Mat.Sus integration decision" ;
+    matsus:integrationMethod "subclassing" ;
+    matsus:integrationNote "Single LOG agent branch retained under material entity; external PROV/DC/FOAF agent branches excluded." .
+

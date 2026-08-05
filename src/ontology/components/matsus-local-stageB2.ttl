@@ -1,0 +1,131 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dpp-info: <http://w3id.org/dppo/ontology/dpp-info/> .
+@prefix dpp-odp: <http://w3id.org/dppo/ontology/dpp-odp/> .
+@prefix matsus: <https://w3id.org/pmd/matsus/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pmd: <https://w3id.org/pmd/co/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+matsus:BatteryLabelInformation a owl:Class ;
+    rdfs:label "battery label information"@en ;
+    dcterms:source <urn:samm:io.BatteryPass.Labels:1.2.0#labels>,
+        "BatteryPass-ready Data Attribute Long List v1.3, attributes 21-25" ;
+    rdfs:subClassOf dpp-info:DPPInformation ;
+    skos:definition "DPP information about labels, symbols, and their meanings that are attached to or applicable to a battery."@en ;
+    matsus:integrationMethod "new MatSus DPP information class based on BatteryPass requirements" .
+
+matsus:BatteryModelSpecification a owl:Class ;
+    rdfs:label "battery model specification"@en ;
+    dcterms:source "BatteryPass-ready Data Attribute Long List v1.3, attribute 7" ;
+    rdfs:subClassOf pmd:PMD_0060007 ;
+    skos:definition "A material specification that describes a battery model."@en ;
+    matsus:integrationMethod "new MatSus subclass of PMDco material specification" ;
+    matsus:integrationNote "The model/batch/item distinction is represented through specification, existing lot/batch identifier patterns, identifiers and later SHACL rather than a new product-batch hierarchy." .
+
+matsus:DPPGranularityDatum a owl:Class ;
+    rdfs:label "DPP granularity datum"@en ;
+    dcterms:source "BatteryPass-ready Data Attribute Long List v1.3, attribute 3" ;
+    rdfs:subClassOf obo:IAO_0000027 ;
+    skos:definition "A data item that records whether the product identifier associated with a Digital Product Passport denotes a product model, batch, or individual item."@en ;
+    skos:editorialNote "Granularity values are represented as literals and will be constrained in SHACL. The accepted PMD lot/LOG lot alignment and LOG batch identifier remain authoritative; no new batch class is introduced." ;
+    matsus:integrationMethod "new MatSus data-item class" .
+
+matsus:DPPStatusDatum a owl:Class ;
+    rdfs:label "DPP status datum"@en ;
+    dcterms:source "BatteryPass-ready Data Attribute Long List v1.3, attribute 2" ;
+    rdfs:subClassOf obo:IAO_0000027 ;
+    skos:definition "A data item that records the lifecycle status of a Digital Product Passport as a digital resource."@en ;
+    skos:editorialNote "Status values are represented as literals and will be constrained in a later SHACL layer; no OWL or SKOS value vocabulary is introduced here." ;
+    matsus:integrationMethod "new MatSus data-item class" .
+
+matsus:DeclarationOfConformity a owl:Class ;
+    rdfs:label "declaration of conformity"@en ;
+    dcterms:source <urn:samm:io.BatteryPass.Labels:1.2.0#declarationOfConformity>,
+        "BatteryPass-ready Data Attribute Long List v1.3, attribute 26" ;
+    rdfs:subClassOf obo:IAO_0000310 ;
+    skos:definition "A document declaring that a product conforms to specified legal or technical requirements."@en ;
+    matsus:integrationMethod "new MatSus document class based on BatteryPass requirements" .
+
+matsus:DigitalProductPassportIdentifier a owl:Class ;
+    rdfs:label "Digital Product Passport identifier"@en ;
+    dcterms:source "BatteryPass-ready Data Attribute Long List v1.3, attribute 5" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty obo:IAO_0000219 ;
+            owl:someValuesFrom dpp-odp:DPP ],
+        obo:IAO_0020000 ;
+    skos:definition "An identifier that denotes a specific Digital Product Passport or passport version."@en ;
+    matsus:integrationMethod "new MatSus class using the accepted IAO identifier pattern" .
+
+matsus:EndOfLifeInformation a owl:Class ;
+    rdfs:label "end-of-life information"@en ;
+    dcterms:source "BatteryPass-ready Data Attribute Long List v1.3, attributes 56-58" ;
+    rdfs:subClassOf dpp-info:DPPInformation ;
+    skos:definition "DPP information about waste prevention, collection, preparation for second life, dismantling, treatment, recycling, or other end-of-life handling of a battery."@en ;
+    skos:editorialNote "Detailed end-of-life processes and circular value-network semantics are deferred to CEON and BONSAI." ;
+    matsus:integrationMethod "new MatSus DPP information class" .
+
+matsus:LifecycleStageCarbonFootprintContribution a owl:Class ;
+    rdfs:label "lifecycle-stage carbon-footprint contribution"@en ;
+    dcterms:source <urn:samm:io.BatteryPass.CarbonFootprint:1.2.0#carbonFootprintPerLifeCycleStage>,
+        "BatteryPass-ready Data Attribute Long List v1.3, attributes 29-32" ;
+    rdfs:subClassOf matsus:BatteryCarbonFootprintInformation ;
+    skos:definition "Battery carbon footprint information that records the contribution of a specified lifecycle stage to the total footprint result."@en ;
+    skos:editorialNote "Lifecycle-stage identifiers, values, units, functional units and calculation provenance are represented through data/value patterns and later SHACL; a detailed lifecycle model is deferred to CLEO." ;
+    matsus:integrationMethod "new MatSus subclass based on BatteryPass requirements" .
+
+matsus:RecycledContentInformation a owl:Class ;
+    rdfs:label "recycled content information"@en ;
+    dcterms:source <urn:samm:io.BatteryPass.Circularity:1.2.0#recycledContent>,
+        "BatteryPass-ready Data Attribute Long List v1.3, attributes 48-54" ;
+    rdfs:subClassOf obo:IAO_0000027,
+        dpp-info:DPPInformation ;
+    skos:definition "A DPP data item that records a calculated share of recycled material content in a battery or constituent material."@en ;
+    skos:editorialNote "This is a calculated composition indicator, not an intrinsic quality. Detailed circularity and resource-flow semantics are deferred to CEON/BONSAI." ;
+    matsus:integrationMethod "new MatSus DPP data-item class based on BatteryPass requirements" .
+
+matsus:SupplyChainDueDiligenceReport a owl:Class ;
+    rdfs:label "supply-chain due-diligence report"@en ;
+    dcterms:source <urn:samm:io.BatteryPass.SupplyChainDueDiligence:1.2.0#supplyChainDueDiligenceReport>,
+        "BatteryPass-ready Data Attribute Long List v1.3, attribute 36" ;
+    rdfs:subClassOf obo:IAO_0000310 ;
+    skos:definition "A document reporting supply-chain due-diligence information for a product or its value chain."@en ;
+    matsus:integrationMethod "new MatSus document class based on BatteryPass requirements" .
+
+matsus:TestReport a owl:Class ;
+    rdfs:label "test report"@en ;
+    dcterms:source <urn:samm:io.BatteryPass.Labels:1.2.0#resultOfTestReport>,
+        "BatteryPass-ready Data Attribute Long List v1.3, attribute 27" ;
+    rdfs:subClassOf obo:IAO_0000310 ;
+    skos:definition "A document reporting the results of tests used to demonstrate compliance or performance."@en ;
+    matsus:integrationMethod "new MatSus document class based on BatteryPass requirements" .
+
+matsus:alignmentRelation a owl:AnnotationProperty ;
+    rdfs:label "alignment relation" .
+
+<https://w3id.org/pmd/matsus/components/matsus-local-stageB2.ttl> a owl:Ontology ;
+    dcterms:title "Mat.Sus-owned Stage B2 ontology content" .
+
+matsus:integrationBasis a owl:AnnotationProperty ;
+    rdfs:label "integration basis" .
+
+matsus:integrationMethod a owl:AnnotationProperty ;
+    rdfs:label "integration method" .
+
+matsus:integrationNote a owl:AnnotationProperty ;
+    rdfs:label "integration note" .
+
+matsus:mappedTo a owl:AnnotationProperty ;
+    rdfs:label "mapped to" .
+
+matsus:BatteryCarbonFootprintInformation a owl:Class ;
+    rdfs:label "battery carbon footprint information"@en ;
+    dcterms:source <urn:samm:io.BatteryPass.CarbonFootprint:1.2.0#batteryCarbonFootprint>,
+        "BatteryPass-ready Data Attribute Long List v1.3, attributes 28-35" ;
+    rdfs:subClassOf obo:IAO_0000027,
+        dpp-info:DPPInformation ;
+    skos:definition "A DPP data item that records a calculated greenhouse-gas emissions result for a battery under a specified method, system boundary, and functional unit."@en ;
+    skos:editorialNote "This is a calculated indicator/data item, not an intrinsic material quality. Detailed LCA methodology alignment is deferred to the CLEO stage." ;
+    matsus:integrationMethod "new MatSus DPP data-item class based on BatteryPass requirements" .
+
