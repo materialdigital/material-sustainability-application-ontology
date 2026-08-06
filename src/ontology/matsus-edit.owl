@@ -7,11 +7,12 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 
 
 Ontology(<https://w3id.org/pmd/matsus/>
-Import(<https://w3id.org/pmd/matsus/imports/pmdco_import.owl>)
-Import(<https://w3id.org/pmd/matsus/components/matsus-shared.owl>)
+Import(<https://w3id.org/pmd/matsus/components/imports-edit.owl>)
 Import(<https://w3id.org/pmd/matsus/components/matsus-axioms-shared.owl>)
-Import(<https://w3id.org/pmd/matsus/components/matsus-log-stageA.ttl>)
 Import(<https://w3id.org/pmd/matsus/components/matsus-dppo.ttl>)
+Import(<https://w3id.org/pmd/matsus/components/matsus-log-stageA.ttl>)
+Import(<https://w3id.org/pmd/matsus/components/matsus-shared.owl>)
+Import(<https://w3id.org/pmd/matsus/imports/pmdco_import.owl>)
 Annotation(<http://purl.org/dc/terms/description> "PMD Core application ontology generated via ODK Template.
 ")
 Annotation(<http://purl.org/dc/terms/license> <https://w3id.org/pmd/matsus.owl#CC-BY-4.0>)
@@ -55,7 +56,7 @@ Declaration(AnnotationProperty(:mappedTo))
 
 AnnotationAssertion(rdfs:label <http://purl.org/dc/terms/description> "description")
 
-# Annotation Property: <http://purl.org/dc/terms/license> (license)
+# Annotation Property: <http://purl.org/dc/terms/license> (dcterms:license)
 
 AnnotationAssertion(rdfs:label <http://purl.org/dc/terms/license> "license")
 

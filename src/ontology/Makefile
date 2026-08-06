@@ -10,7 +10,7 @@
 # More information: https://github.com/INCATools/ontology-development-kit/
 
 # Fingerprint of the configuration file when this Makefile was last generated
-CONFIG_HASH=                6c1eff84617ca7310be9a9e56296d47c1481e4af3081fd5b2e9346956a14c62d
+CONFIG_HASH=                eef21b092a890636bafe9932661ea64f50622c698fe8adbe2b7769360f363b7b
 
 
 # ----------------------------------------
@@ -58,7 +58,7 @@ OBODATE ?=                  $(shell date +'%d:%m:%Y %H:%M')
 VERSION=                    $(TODAY)
 ANNOTATE_ONTOLOGY_VERSION = annotate -V $(ONTBASE)/releases/$(VERSION)/$@ --annotation owl:versionInfo $(VERSION)
 ANNOTATE_CONVERT_FILE =     annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) convert -f ofn --output $@.tmp.owl && mv $@.tmp.owl $@
-OTHER_SRC =                 $(COMPONENTSDIR)/imports-edit.owl $(COMPONENTSDIR)/matsus-shared.owl $(COMPONENTSDIR)/matsus-axioms-shared.owl $(COMPONENTSDIR)/matsus-log-stageA.ttl $(COMPONENTSDIR)/matsus-dppo.ttl
+OTHER_SRC =                 $(COMPONENTSDIR)/imports-edit.owl $(COMPONENTSDIR)/matsus-shared.owl $(COMPONENTSDIR)/matsus-axioms-shared.owl $(COMPONENTSDIR)/matsus-log-stageA.ttl $(COMPONENTSDIR)/matsus-dppo.ttl 
 ONTOLOGYTERMS =             $(TMPDIR)/ontologyterms.txt
 EDIT_PREPROCESSED =         $(TMPDIR)/$(ONT)-preprocess.owl
 
@@ -410,6 +410,15 @@ $(IMPORTDIR)/%_import.owl: $(MIRRORDIR)/%.owl $(IMPORTDIR)/%_terms.txt \
 
 .PRECIOUS: $(IMPORTDIR)/%_import.owl
 
+## Module for ontology: pmdco (mirror)
+$(IMPORTDIR)/pmdco_import.owl: $(MIRRORDIR)/pmdco.owl | all_robot_plugins
+	$(ROBOT) annotate --input $< --remove-annotations \
+		 odk:normalize --base-iri https://w3id.org/pmd \
+		               --subset-decls true --synonym-decls true \
+		               --add-source true \
+		 repair --merge-axiom-annotations true \
+		 $(ANNOTATE_CONVERT_FILE)
+
 endif # IMP=true
 
 .PHONY: refresh-imports
@@ -450,6 +459,8 @@ recreate-components:
 	$(MAKE) --assume-new=$(TMPDIR)/stamp-component-imports-edit.owl \
 		--assume-new=$(TMPDIR)/stamp-component-matsus-shared.owl \
 		--assume-new=$(TMPDIR)/stamp-component-matsus-axioms-shared.owl \
+		--assume-new=$(TMPDIR)/stamp-component-matsus-log-stageA.ttl \
+		--assume-new=$(TMPDIR)/stamp-component-matsus-dppo.ttl \
 		COMP=true IMP=false MIR=true PAT=true all_components
 
 .PHONY: no-mirror-recreate-components
@@ -457,6 +468,8 @@ no-mirror-recreate-components:
 	$(MAKE) --assume-new=$(TMPDIR)/stamp-component-imports-edit.owl \
 		--assume-new=$(TMPDIR)/stamp-component-matsus-shared.owl \
 		--assume-new=$(TMPDIR)/stamp-component-matsus-axioms-shared.owl \
+		--assume-new=$(TMPDIR)/stamp-component-matsus-log-stageA.ttl \
+		--assume-new=$(TMPDIR)/stamp-component-matsus-dppo.ttl \
 		COMP=true IMP=false MIR=false PAT=true all_components
 
 .PHONY: recreate-%
