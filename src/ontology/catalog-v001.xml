@@ -1,14 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-    <uri id="Imports Wizard Entry" name="https://w3id.org/pmd/co/3.0.0" uri="imports/pmdco_import.owl"/>
-    <group id="odk-managed-catalog" prefer="public">
-        <uri name="https://w3id.org/pmd/matsus/imports/pmdco_import.owl" uri="imports/pmdco_import.owl"/>
-        <uri name="https://w3id.org/pmd/matsus/components/imports-edit.owl" uri="components/imports-edit.owl"/>
-        <uri name="https://w3id.org/pmd/matsus/components/matsus-shared.owl" uri="components/matsus-shared.owl"/>
-        <uri name="https://w3id.org/pmd/matsus/components/matsus-axioms-shared.owl" uri="components/matsus-axioms-shared.owl"/>
-        <uri name="https://w3id.org/pmd/matsus/components/matsus-log-stageA.ttl" uri="components/matsus-log-stageA.ttl"/>
-        <uri name="https://w3id.org/pmd/matsus/components/matsus-dppo.ttl" uri="components/matsus-dppo.ttl"/>
-</group>
-    <rewriteURI rewritePrefix="imports/" uriStartString="https://w3id.org/pmd/matsus/imports/"/>
-    <rewriteURI rewritePrefix="components/" uriStartString="https://w3id.org/pmd/matsus/components/"/>
+<?xml version='1.0' encoding='UTF-8'?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="public">
+  <group id="odk-managed-catalog" prefer="public">
+    <uri name="https://w3id.org/pmd/matsus/imports/pmdco_import.owl" uri="imports/pmdco_import.owl" />
+    <uri name="https://w3id.org/pmd/matsus/components/imports-edit.owl" uri="components/imports-edit.owl" />
+    <uri name="https://w3id.org/pmd/matsus/components/matsus-shared.owl" uri="components/matsus-shared.owl" />
+    <uri name="https://w3id.org/pmd/matsus/components/matsus-axioms-shared.owl" uri="components/matsus-axioms-shared.owl" />
+    <uri name="https://w3id.org/pmd/matsus/components/matsus-log-stageA.ttl" uri="components/matsus-log-stageA.ttl" />
+    <uri name="https://w3id.org/pmd/matsus/components/matsus-dppo.ttl" uri="components/matsus-dppo.ttl" />
+  </group>
+  <uri id="Imports Wizard Entry" name="https://w3id.org/pmd/co/3.0.0" uri="imports/pmdco_import.owl" />
+  <rewriteURI rewritePrefix="imports/" uriStartString="https://w3id.org/pmd/matsus/imports/" />
+  <rewriteURI rewritePrefix="components/" uriStartString="https://w3id.org/pmd/matsus/components/" />
 </catalog>
