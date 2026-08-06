@@ -8,5 +8,6 @@ Prefix: : <https://w3id.org/pmd/matsus/components/matsus-axioms-shared.owl>
 
 
 Ontology: <https://w3id.org/pmd/matsus/components/matsus-axioms-shared.owl>
-
+    Annotations:
+        rdfs:label "Mat.Sus shared axioms component"@en
 
