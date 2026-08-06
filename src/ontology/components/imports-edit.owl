@@ -9,5 +9,5 @@ Prefix: : <https://w3id.org/pmd/matsus/components/imports-edit.owl>
 
 Ontology: <https://w3id.org/pmd/matsus/components/imports-edit.owl>
 
-Import: <https://w3id.org/pmd/matsus/imports/pmdco_import.owl>
+Import: <https://w3id.org/pmd/co/3.1.0>
 

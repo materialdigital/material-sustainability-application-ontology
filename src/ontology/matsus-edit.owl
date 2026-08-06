@@ -12,7 +12,7 @@ Import(<https://w3id.org/pmd/matsus/components/matsus-axioms-shared.owl>)
 Import(<https://w3id.org/pmd/matsus/components/matsus-dppo.ttl>)
 Import(<https://w3id.org/pmd/matsus/components/matsus-log-stageA.ttl>)
 Import(<https://w3id.org/pmd/matsus/components/matsus-shared.owl>)
-Import(<https://w3id.org/pmd/matsus/imports/pmdco_import.owl>)
+Import(<https://w3id.org/pmd/co/3.1.0>)
 Annotation(<http://purl.org/dc/terms/description> "PMD Core application ontology generated via ODK Template.
 ")
 Annotation(<http://purl.org/dc/terms/license> <https://w3id.org/pmd/matsus.owl#CC-BY-4.0>)
