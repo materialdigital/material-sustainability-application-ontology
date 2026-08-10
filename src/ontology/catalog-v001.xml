@@ -7,6 +7,7 @@
     <uri name="https://w3id.org/pmd/matsus/components/matsus-axioms-shared.owl" uri="components/matsus-axioms-shared.owl" />
     <uri name="https://w3id.org/pmd/matsus/components/matsus-log-stageA.ttl" uri="components/matsus-log-stageA.ttl" />
     <uri name="https://w3id.org/pmd/matsus/components/matsus-dppo.ttl" uri="components/matsus-dppo.ttl" />
+    <uri name="https://w3id.org/pmd/matsus/components/matsus-ceon.ttl" uri="components/matsus-ceon.ttl" />
   </group>
   <uri id="Imports Wizard Entry" name="https://w3id.org/pmd/co/3.1.0" uri="imports/pmdco_import.owl" />
   <rewriteURI rewritePrefix="imports/" uriStartString="https://w3id.org/pmd/matsus/imports/" />

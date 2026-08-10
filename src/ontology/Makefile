@@ -58,7 +58,7 @@ OBODATE ?=                  $(shell date +'%d:%m:%Y %H:%M')
 VERSION=                    $(TODAY)
 ANNOTATE_ONTOLOGY_VERSION = annotate -V $(ONTBASE)/releases/$(VERSION)/$@ --annotation owl:versionInfo $(VERSION)
 ANNOTATE_CONVERT_FILE =     annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) convert -f ofn --output $@.tmp.owl && mv $@.tmp.owl $@
-OTHER_SRC =                 $(COMPONENTSDIR)/imports-edit.owl $(COMPONENTSDIR)/matsus-shared.owl $(COMPONENTSDIR)/matsus-axioms-shared.owl $(COMPONENTSDIR)/matsus-log-stageA.ttl $(COMPONENTSDIR)/matsus-dppo.ttl 
+OTHER_SRC =                 $(COMPONENTSDIR)/imports-edit.owl $(COMPONENTSDIR)/matsus-shared.owl $(COMPONENTSDIR)/matsus-axioms-shared.owl $(COMPONENTSDIR)/matsus-log-stageA.ttl $(COMPONENTSDIR)/matsus-dppo.ttl $(COMPONENTSDIR)/matsus-ceon.ttl
 ONTOLOGYTERMS =             $(TMPDIR)/ontologyterms.txt
 EDIT_PREPROCESSED =         $(TMPDIR)/$(ONT)-preprocess.owl
 
@@ -461,6 +461,7 @@ recreate-components:
 		--assume-new=$(TMPDIR)/stamp-component-matsus-axioms-shared.owl \
 		--assume-new=$(TMPDIR)/stamp-component-matsus-log-stageA.ttl \
 		--assume-new=$(TMPDIR)/stamp-component-matsus-dppo.ttl \
+		--assume-new=$(TMPDIR)/stamp-component-matsus-ceon.ttl \
 		COMP=true IMP=false MIR=true PAT=true all_components
 
 .PHONY: no-mirror-recreate-components
@@ -470,6 +471,7 @@ no-mirror-recreate-components:
 		--assume-new=$(TMPDIR)/stamp-component-matsus-axioms-shared.owl \
 		--assume-new=$(TMPDIR)/stamp-component-matsus-log-stageA.ttl \
 		--assume-new=$(TMPDIR)/stamp-component-matsus-dppo.ttl \
+		--assume-new=$(TMPDIR)/stamp-component-matsus-ceon.ttl \
 		COMP=true IMP=false MIR=false PAT=true all_components
 
 .PHONY: recreate-%

@@ -9,6 +9,7 @@ Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 Ontology(<https://w3id.org/pmd/matsus/>
 Import(<https://w3id.org/pmd/matsus/components/imports-edit.owl>)
 Import(<https://w3id.org/pmd/matsus/components/matsus-axioms-shared.owl>)
+Import(<https://w3id.org/pmd/matsus/components/matsus-ceon.ttl>)
 Import(<https://w3id.org/pmd/matsus/components/matsus-dppo.ttl>)
 Import(<https://w3id.org/pmd/matsus/components/matsus-log-stageA.ttl>)
 Import(<https://w3id.org/pmd/matsus/components/matsus-shared.owl>)
