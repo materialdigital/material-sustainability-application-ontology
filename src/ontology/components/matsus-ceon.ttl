@@ -1,0 +1,159 @@
+@prefix ceon-process: <http://w3id.org/CEON/ontology/process/> .
+@prefix ceon-processODP: <http://w3id.org/CEON/ontology/processODP/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix matsus: <https://w3id.org/pmd/matsus/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pmd: <https://w3id.org/pmd/co/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://w3id.org/pmd/matsus/components/matsus-ceon.ttl> a owl:Ontology ;
+    dcterms:description "A manually curated integration of selected CEON v1.0.0 process terms into the authoritative PMDco 3.1.0 and BFO process backbone used by Mat.Sus."@en ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:source <http://w3id.org/CEON/ontology/process/0.5/> ,
+        <http://w3id.org/CEON/ontology/processODP/0.5/> ,
+        <https://github.com/LiUSemWeb/CEON/releases/tag/v1.0.0> ;
+    dcterms:title "Selected CEON process integration component for Mat.Sus"@en ;
+    owl:versionInfo "CEON v1.0.0, commit 9cdcae1b68f4e9d5a55697c8e3e3f8df788fc937" .
+
+#################################################################
+# A. Axioms reproduced from CEON v1.0.0
+#################################################################
+
+ceon-processODP:hasInput a owl:ObjectProperty ;
+    rdfs:label "has input" ;
+    dcterms:source <http://w3id.org/CEON/ontology/processODP/0.5/> ;
+    rdfs:comment "The inputs to a process or event." ;
+    rdfs:domain ceon-processODP:Process .
+
+ceon-processODP:hasOutput a owl:ObjectProperty ;
+    rdfs:label "has output" ;
+    dcterms:source <http://w3id.org/CEON/ontology/processODP/0.5/> ;
+    rdfs:comment "The output of a process or event." ;
+    rdfs:domain ceon-processODP:Process .
+
+ceon-processODP:hasPart a owl:ObjectProperty ,
+        owl:TransitiveProperty ;
+    rdfs:label "has part" ;
+    dcterms:source <http://w3id.org/CEON/ontology/processODP/0.5/> ;
+    rdfs:comment "A process or event can consist of several parts, which are sub-processes (e.g. steps) or events." .
+
+ceon-processODP:Event a owl:Class ;
+    rdfs:label "Event" ;
+    dcterms:source <http://w3id.org/CEON/ontology/processODP/0.5/> ;
+    rdfs:comment "Something that happens within a given context or (short) timeframe." ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:onProperty ceon-processODP:hasInput ;
+                        owl:someValuesFrom owl:Thing ] [ a owl:Restriction ;
+                        owl:onProperty ceon-processODP:hasOutput ;
+                        owl:someValuesFrom owl:Thing ] ) ] ,
+        [ a owl:Restriction ;
+            owl:allValuesFrom ceon-processODP:Event ;
+            owl:onProperty ceon-processODP:hasPart ] .
+
+ceon-processODP:Process a owl:Class ;
+    rdfs:label "Process" ;
+    dcterms:source <http://w3id.org/CEON/ontology/processODP/0.5/> ;
+    rdfs:comment "Something that takes place over a (longer) period of time and changes some state of affairs."@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:onProperty ceon-processODP:hasInput ;
+                        owl:someValuesFrom owl:Thing ] [ a owl:Restriction ;
+                        owl:onProperty ceon-processODP:hasOutput ;
+                        owl:someValuesFrom owl:Thing ] ) ] ,
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:unionOf ( ceon-processODP:Event ceon-processODP:Process ) ] ;
+            owl:onProperty ceon-processODP:hasPart ] .
+
+ceon-process:TransformationProcess a owl:Class ;
+    rdfs:label "Transformation Process" ;
+    dcterms:source <http://w3id.org/CEON/ontology/process/0.5/> ;
+    rdfs:comment "Set of interrelated or interacting activities that transforms inputs into outputs."@en ;
+    rdfs:isDefinedBy "ISO 59004:2024  - 3.5.5 process" ;
+    rdfs:seeAlso "https://ref.gs1.org/epcis/Transformation" ;
+    rdfs:subClassOf ceon-processODP:Process .
+
+ceon-process:RecycleProcess a owl:Class ;
+    rdfs:label "Recycle Process" ;
+    dcterms:source <http://w3id.org/CEON/ontology/process/0.5/> ;
+    rdfs:comment "A process of recycling." ;
+    rdfs:subClassOf ceon-process:TransformationProcess .
+
+ceon-process:ReuseProcess a owl:Class ;
+    rdfs:label "Reuse Process" ;
+    dcterms:source <http://w3id.org/CEON/ontology/process/0.5/> ;
+    rdfs:comment "A process of reusing." ;
+    rdfs:subClassOf ceon-processODP:Process .
+
+ceon-process:RepairProcess a owl:Class ;
+    rdfs:label "Repair Process" ;
+    dcterms:source <http://w3id.org/CEON/ontology/process/0.5/> ;
+    rdfs:comment "A process of repairing." ;
+    rdfs:subClassOf ceon-process:TransformationProcess .
+
+ceon-process:RefurbishmentProcess a owl:Class ;
+    rdfs:label "Refurbishment Process" ;
+    dcterms:source <http://w3id.org/CEON/ontology/process/0.5/> ;
+    rdfs:comment "A process of refurbishment." ;
+    rdfs:subClassOf ceon-process:TransformationProcess .
+
+ceon-process:TakeBackProcess a owl:Class ;
+    rdfs:label "Take Back Process" ;
+    dcterms:source <http://w3id.org/CEON/ontology/process/0.5/> ;
+    rdfs:comment "A process of taking back." ;
+    rdfs:subClassOf ceon-processODP:Process .
+
+ceon-process:DisassemblingProcess a owl:Class ;
+    rdfs:label "Disassembling Process" ;
+    dcterms:source <http://w3id.org/CEON/ontology/process/0.5/> ;
+    rdfs:comment "A process of disassembling." ;
+    rdfs:subClassOf ceon-process:TransformationProcess .
+
+ceon-process:DismantleProcess a owl:Class ;
+    rdfs:label "Dismantle Process" ;
+    dcterms:source <http://w3id.org/CEON/ontology/process/0.5/> ;
+    rdfs:comment "A process of dismantling." ;
+    rdfs:subClassOf ceon-process:TransformationProcess .
+
+ceon-process:DeconstructionProcess a owl:Class ;
+    rdfs:label "Deconstruction Process" ;
+    dcterms:source <http://w3id.org/CEON/ontology/process/0.5/> ;
+    rdfs:comment "A process of deconstruction." ;
+    rdfs:subClassOf ceon-process:TransformationProcess .
+
+#################################################################
+# B. Mat.Sus-authored grounding, integration, and bridge axioms
+#################################################################
+
+matsus:MATSUS_0000000 a owl:Class ;
+    rdfs:label "product end-of-life management process"@en ;
+    dcterms:source "Mat.Sus CEON Phase 12 approved modelling decision" ;
+    rdfs:subClassOf obo:COB_0000082 ;
+    skos:definition "A process undertaken to manage a product that has reached, or is approaching, the end of its current use or service life, including its collection, separation, recovery, preparation for further use, recycling, or final treatment."@en ;
+    matsus:integrationBasis "Mat.Sus application-level end-of-life process branch grounded under the PMDco-imported planned process hierarchy" ;
+    matsus:integrationMethod "new Mat.Sus class with selected CEON process subclasses" .
+
+ceon-processODP:Process rdfs:subClassOf obo:BFO_0000015 ;
+    matsus:integrationBasis "PMDco 3.1.0 and BFO authoritative process backbone" ;
+    matsus:integrationMethod "Mat.Sus-authored subclass grounding without equivalence" .
+
+ceon-process:TakeBackProcess rdfs:subClassOf matsus:MATSUS_0000000 ;
+    matsus:integrationMethod "Mat.Sus-authored end-of-life subclassing" .
+
+ceon-process:RecycleProcess rdfs:subClassOf matsus:MATSUS_0000000 ;
+    matsus:integrationMethod "Mat.Sus-authored end-of-life subclassing" .
+
+ceon-process:DisassemblingProcess rdfs:subClassOf matsus:MATSUS_0000000 ;
+    matsus:integrationMethod "Mat.Sus-authored provisional end-of-life subclassing pending pre-publication modelling review" .
+
+ceon-process:DismantleProcess rdfs:subClassOf matsus:MATSUS_0000000 ;
+    matsus:integrationMethod "Mat.Sus-authored provisional end-of-life subclassing pending pre-publication modelling review" .
+
+ceon-process:DeconstructionProcess rdfs:subClassOf matsus:MATSUS_0000000 ;
+    matsus:integrationMethod "Mat.Sus-authored provisional end-of-life subclassing pending pre-publication modelling review" .
+
+pmd:PMD_0000612 rdfs:subClassOf matsus:MATSUS_0000000 .

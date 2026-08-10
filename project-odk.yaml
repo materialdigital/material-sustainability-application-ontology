@@ -121,6 +121,9 @@ components:
     - filename: matsus-dppo.ttl
       base_iris:
         - https://w3id.org/pmd/matsus/components/matsus-dppo.ttl
+    - filename: matsus-ceon.ttl
+      base_iris:
+        - https://w3id.org/pmd/matsus/components/matsus-ceon.ttl
 # ------------------------------------------------------------------------------
 # RELEASES
 # ------------------------------------------------------------------------------
