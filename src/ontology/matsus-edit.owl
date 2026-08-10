@@ -13,7 +13,7 @@ Import(<https://w3id.org/pmd/matsus/components/matsus-ceon.ttl>)
 Import(<https://w3id.org/pmd/matsus/components/matsus-dppo.ttl>)
 Import(<https://w3id.org/pmd/matsus/components/matsus-log-stageA.ttl>)
 Import(<https://w3id.org/pmd/matsus/components/matsus-shared.owl>)
-Import(<https://w3id.org/pmd/co/3.1.0>)
+Import(<https://w3id.org/pmd/matsus/imports/pmdco_import.owl>)
 Annotation(<http://purl.org/dc/terms/description> "PMD Core application ontology generated via ODK Template.
 ")
 Annotation(<http://purl.org/dc/terms/license> <https://w3id.org/pmd/matsus.owl#CC-BY-4.0>)
@@ -206,6 +206,7 @@ AnnotationAssertion(rdfs:label :TestReport "test report"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :TestReport "A document reporting the results of tests used to demonstrate compliance or performance."@en)
 AnnotationAssertion(:integrationMethod :TestReport "new MatSus document class based on BatteryPass requirements")
 SubClassOf(:TestReport <http://purl.obolibrary.org/obo/IAO_0000310>)
+
 
 
 )

@@ -10,7 +10,7 @@
 # More information: https://github.com/INCATools/ontology-development-kit/
 
 # Fingerprint of the configuration file when this Makefile was last generated
-CONFIG_HASH=                2edffbae34ba5fdba8448eb0373d83d651b7525b5e7bdace63059475b7b32fd4
+CONFIG_HASH=                96bab51f2b97affc3e7200d50c75b9eefe9a8ce2ecbfe070019689ff12127a5a
 
 
 # ----------------------------------------
@@ -58,7 +58,7 @@ OBODATE ?=                  $(shell date +'%d:%m:%Y %H:%M')
 VERSION=                    $(TODAY)
 ANNOTATE_ONTOLOGY_VERSION = annotate -V $(ONTBASE)/releases/$(VERSION)/$@ --annotation owl:versionInfo $(VERSION)
 ANNOTATE_CONVERT_FILE =     annotate --ontology-iri $(ONTBASE)/$@ $(ANNOTATE_ONTOLOGY_VERSION) convert -f ofn --output $@.tmp.owl && mv $@.tmp.owl $@
-OTHER_SRC =                 $(COMPONENTSDIR)/imports-edit.owl $(COMPONENTSDIR)/matsus-shared.owl $(COMPONENTSDIR)/matsus-axioms-shared.owl $(COMPONENTSDIR)/matsus-log-stageA.ttl $(COMPONENTSDIR)/matsus-dppo.ttl $(COMPONENTSDIR)/matsus-ceon.ttl
+OTHER_SRC =                 $(COMPONENTSDIR)/imports-edit.owl $(COMPONENTSDIR)/matsus-shared.owl $(COMPONENTSDIR)/matsus-axioms-shared.owl $(COMPONENTSDIR)/matsus-log-stageA.ttl $(COMPONENTSDIR)/matsus-dppo.ttl $(COMPONENTSDIR)/matsus-ceon.ttl 
 ONTOLOGYTERMS =             $(TMPDIR)/ontologyterms.txt
 EDIT_PREPROCESSED =         $(TMPDIR)/$(ONT)-preprocess.owl
 
