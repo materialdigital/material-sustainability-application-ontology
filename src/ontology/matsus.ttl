@@ -20,12 +20,12 @@
 @base <https://w3id.org/pmd/matsus.ttl> .
 
 <https://w3id.org/pmd/matsus.ttl> rdf:type owl:Ontology ;
-                                   owl:versionIRI <https://w3id.org/pmd/matsus/releases/2026-08-10/matsus.ttl> ;
+                                   owl:versionIRI <https://w3id.org/pmd/matsus/releases/2026-09-02/matsus.ttl> ;
                                    <http://purl.org/dc/elements/1.1/description> """PMD Core application ontology generated via ODK Template.
 """ ;
                                    <http://purl.org/dc/elements/1.1/license> <https://w3id.org/pmd/matsus.owl#CC-BY-4.0> ;
                                    <http://purl.org/dc/elements/1.1/title> "Material Sustainability Application Ontology (Mat.Sus)" ;
-                                   owl:versionInfo "2026-08-10" .
+                                   owl:versionInfo "2026-09-02" .
 
 #################################################################
 #    Annotation properties
@@ -23780,6 +23780,66 @@ matsus:MATSUS_0000000 rdf:type owl:Class ;
                       skos:definition "A process undertaken to manage a product that has reached, or is approaching, the end of its current use or service life, including its collection, separation, recovery, preparation for further use, recycling, or final treatment."@en ;
                       matsus:integrationBasis "Mat.Sus application-level end-of-life process branch grounded under the PMDco-imported planned process hierarchy" ;
                       matsus:integrationMethod "new Mat.Sus class with selected CEON process subclasses" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000001
+matsus:MATSUS_0000001 rdf:type owl:Class ;
+                      rdfs:subClassOf co:PMD_0000000 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: POST-MKB1-MAT-001 / MKB-000175 supporting anchor" ;
+                      rdfs:label "recovered material"@en ;
+                      skos:definition "A material obtained through a material-recovery process from material that had been discarded, become waste, or left its preceding use, and that is made available for further use."@en ;
+                      skos:editorialNote "Post-gate accepted material anchor. A material can cease to bear a waste role while retaining its recovery provenance. Later: link the material to its recovery process/history. Do not add disjointness or a complement axiom." ;
+                      matsus:integrationMethod "new MatSus subclass of PMDco material" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000002
+matsus:MATSUS_0000002 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000001 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000175" ;
+                      rdfs:label "recycled material"@en ;
+                      skos:definition "A recovered material produced through a recycling process in which waste material is reprocessed into a product, material, or substance for its original or another purpose."@en ;
+                      skos:editorialNote "Post-gate accepted. Recycled material and secondary material are not exclusive categories. Later: link to the recycling process/history. Do not assert disjointness from secondary material." ;
+                      matsus:integrationMethod "new MatSus subclass of recovered material" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000003
+matsus:MATSUS_0000003 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000001 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000223" ;
+                      rdfs:label "secondary material"@en ;
+                      skos:definition "A recovered material suitable for use in manufacturing or material processing instead of or alongside virgin material."@en ;
+                      skos:editorialNote "Post-gate accepted as a positive material category rather than a complement of virgin material. Later: represent suitability or intended use only when a stable relation pattern is selected. Do not assert disjointness from recycled material." ;
+                      matsus:integrationMethod "new MatSus subclass of recovered material" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000004
+matsus:MATSUS_0000004 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:OBI_0000070 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: POST-MKB1-ASS-001 / MKB-000180 supporting anchor" ;
+                      rdfs:label "material sustainability assessment"@en ;
+                      skos:definition "An assay intended to produce information for evaluating one or more sustainability-related aspects of a material, product, process, or material lifecycle system."@en ;
+                      skos:editorialNote "Post-gate accepted provisionally as the parent needed for resource-input reduction assessment. Later: reconcile the assessment umbrella during the later SRC-007/SRC-009/CLEO assessment reconciliation in MKB source Batch 2; add no further logical restrictions now." ;
+                      matsus:integrationMethod "new MatSus subclass of OBI assay" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000005
+matsus:MATSUS_0000005 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000004 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000180-ASS" ;
+                      rdfs:label "resource-input reduction assessment"@en ;
+                      skos:definition "A material sustainability assessment intended to determine or quantify whether, and to what extent, material input has been reduced relative to a stated baseline under specified comparison conditions."@en ;
+                      skos:editorialNote "Post-gate accepted. Keep assessment distinct from the process and its objective specification. Later: model the evaluated process or system, baseline, comparison conditions and output datum." ;
+                      matsus:integrationMethod "new MatSus subclass of material sustainability assessment" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000006
+matsus:MATSUS_0000006 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:IAO_0000005 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000180-OBJ" ;
+                      rdfs:label "resource-input reduction objective specification"@en ;
+                      skos:definition "An objective specification that specifies an intended reduction, relative to a stated baseline and under specified comparison conditions, in the quantity of material input required or used by a specified process or system."@en ;
+                      skos:editorialNote "Example: reduce virgin aluminium input by 20% relative to the 2025 baseline. Later: relate the objective specification to the targeted process or system, baseline, reduction amount and unit. No separate resource-input reduction strategy specification is required." ;
+                      matsus:integrationMethod "new MatSus subclass of IAO objective specification" .
 
 
 ###  https://w3id.org/pmd/matsus/RecycledContentInformation
