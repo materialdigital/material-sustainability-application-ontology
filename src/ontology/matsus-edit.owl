@@ -19,12 +19,21 @@ Annotation(<http://purl.org/dc/terms/description> "PMD Core application ontology
 Annotation(<http://purl.org/dc/terms/license> <https://w3id.org/pmd/matsus.owl#CC-BY-4.0>)
 Annotation(<http://purl.org/dc/terms/title> "Material Sustainability Application Ontology (Mat.Sus)")
 
+Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0000005>))
 Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0000027>))
 Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0000310>))
 Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0020000>))
+Declaration(Class(<http://purl.obolibrary.org/obo/OBI_0000070>))
 Declaration(Class(<http://w3id.org/dppo/ontology/dpp-info/DPPInformation>))
 Declaration(Class(<http://w3id.org/dppo/ontology/dpp-odp/DPP>))
+Declaration(Class(<https://w3id.org/pmd/co/PMD_0000000>))
 Declaration(Class(<https://w3id.org/pmd/co/PMD_0060007>))
+Declaration(Class(:MATSUS_0000001))
+Declaration(Class(:MATSUS_0000002))
+Declaration(Class(:MATSUS_0000003))
+Declaration(Class(:MATSUS_0000004))
+Declaration(Class(:MATSUS_0000005))
+Declaration(Class(:MATSUS_0000006))
 Declaration(Class(:BatteryCarbonFootprintInformation))
 Declaration(Class(:BatteryLabelInformation))
 Declaration(Class(:BatteryModelSpecification))
@@ -93,6 +102,60 @@ AnnotationAssertion(rdfs:label :mappedTo "mapped to")
 ############################
 #   Classes
 ############################
+
+# Class: :MATSUS_0000001 (recovered material)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000001 "MKB1 IR2 Class Review: POST-MKB1-MAT-001 / MKB-000175 supporting anchor")
+AnnotationAssertion(rdfs:label :MATSUS_0000001 "recovered material"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000001 "A material obtained through a material-recovery process from material that had been discarded, become waste, or left its preceding use, and that is made available for further use."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000001 "Post-gate accepted material anchor. A material can cease to bear a waste role while retaining its recovery provenance. Later: link the material to its recovery process/history. Do not add disjointness or a complement axiom.")
+AnnotationAssertion(:integrationMethod :MATSUS_0000001 "new MatSus subclass of PMDco material")
+SubClassOf(:MATSUS_0000001 <https://w3id.org/pmd/co/PMD_0000000>)
+
+# Class: :MATSUS_0000002 (recycled material)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000002 "MKB1 IR2 Class Review: MKB-000175")
+AnnotationAssertion(rdfs:label :MATSUS_0000002 "recycled material"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000002 "A recovered material produced through a recycling process in which waste material is reprocessed into a product, material, or substance for its original or another purpose."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000002 "Post-gate accepted. Recycled material and secondary material are not exclusive categories. Later: link to the recycling process/history. Do not assert disjointness from secondary material.")
+AnnotationAssertion(:integrationMethod :MATSUS_0000002 "new MatSus subclass of recovered material")
+SubClassOf(:MATSUS_0000002 :MATSUS_0000001)
+
+# Class: :MATSUS_0000003 (secondary material)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000003 "MKB1 IR2 Class Review: MKB-000223")
+AnnotationAssertion(rdfs:label :MATSUS_0000003 "secondary material"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000003 "A recovered material suitable for use in manufacturing or material processing instead of or alongside virgin material."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000003 "Post-gate accepted as a positive material category rather than a complement of virgin material. Later: represent suitability or intended use only when a stable relation pattern is selected. Do not assert disjointness from recycled material.")
+AnnotationAssertion(:integrationMethod :MATSUS_0000003 "new MatSus subclass of recovered material")
+SubClassOf(:MATSUS_0000003 :MATSUS_0000001)
+
+# Class: :MATSUS_0000004 (material sustainability assessment)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000004 "MKB1 IR2 Class Review: POST-MKB1-ASS-001 / MKB-000180 supporting anchor")
+AnnotationAssertion(rdfs:label :MATSUS_0000004 "material sustainability assessment"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000004 "An assay intended to produce information for evaluating one or more sustainability-related aspects of a material, product, process, or material lifecycle system."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000004 "Post-gate accepted provisionally as the parent needed for resource-input reduction assessment. Later: reconcile the assessment umbrella during the later SRC-007/SRC-009/CLEO assessment reconciliation in MKB source Batch 2; add no further logical restrictions now.")
+AnnotationAssertion(:integrationMethod :MATSUS_0000004 "new MatSus subclass of OBI assay")
+SubClassOf(:MATSUS_0000004 <http://purl.obolibrary.org/obo/OBI_0000070>)
+
+# Class: :MATSUS_0000005 (resource-input reduction assessment)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000005 "MKB1 IR2 Class Review: MKB-000180-ASS")
+AnnotationAssertion(rdfs:label :MATSUS_0000005 "resource-input reduction assessment"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000005 "A material sustainability assessment intended to determine or quantify whether, and to what extent, material input has been reduced relative to a stated baseline under specified comparison conditions."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000005 "Post-gate accepted. Keep assessment distinct from the process and its objective specification. Later: model the evaluated process or system, baseline, comparison conditions and output datum.")
+AnnotationAssertion(:integrationMethod :MATSUS_0000005 "new MatSus subclass of material sustainability assessment")
+SubClassOf(:MATSUS_0000005 :MATSUS_0000004)
+
+# Class: :MATSUS_0000006 (resource-input reduction objective specification)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000006 "MKB1 IR2 Class Review: MKB-000180-OBJ")
+AnnotationAssertion(rdfs:label :MATSUS_0000006 "resource-input reduction objective specification"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000006 "An objective specification that specifies an intended reduction, relative to a stated baseline and under specified comparison conditions, in the quantity of material input required or used by a specified process or system."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000006 "Example: reduce virgin aluminium input by 20% relative to the 2025 baseline. Later: relate the objective specification to the targeted process or system, baseline, reduction amount and unit. No separate resource-input reduction strategy specification is required.")
+AnnotationAssertion(:integrationMethod :MATSUS_0000006 "new MatSus subclass of IAO objective specification")
+SubClassOf(:MATSUS_0000006 <http://purl.obolibrary.org/obo/IAO_0000005>)
 
 # Class: :BatteryCarbonFootprintInformation (battery carbon footprint information)
 
