@@ -20,12 +20,12 @@
 @base <https://w3id.org/pmd/matsus.ttl> .
 
 <https://w3id.org/pmd/matsus.ttl> rdf:type owl:Ontology ;
-                                   owl:versionIRI <https://w3id.org/pmd/matsus/releases/2026-09-02/matsus.ttl> ;
+                                   owl:versionIRI <https://w3id.org/pmd/matsus/releases/2026-09-04/matsus.ttl> ;
                                    <http://purl.org/dc/elements/1.1/description> """PMD Core application ontology generated via ODK Template.
 """ ;
                                    <http://purl.org/dc/elements/1.1/license> <https://w3id.org/pmd/matsus.owl#CC-BY-4.0> ;
                                    <http://purl.org/dc/elements/1.1/title> "Material Sustainability Application Ontology (Mat.Sus)" ;
-                                   owl:versionInfo "2026-09-02" .
+                                   owl:versionInfo "2026-09-04" .
 
 #################################################################
 #    Annotation properties
@@ -23840,6 +23840,216 @@ matsus:MATSUS_0000006 rdf:type owl:Class ;
                       skos:definition "An objective specification that specifies an intended reduction, relative to a stated baseline and under specified comparison conditions, in the quantity of material input required or used by a specified process or system."@en ;
                       skos:editorialNote "Example: reduce virgin aluminium input by 20% relative to the 2025 baseline. Later: relate the objective specification to the targeted process or system, baseline, reduction amount and unit. No separate resource-input reduction strategy specification is required." ;
                       matsus:integrationMethod "new MatSus subclass of IAO objective specification" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000007
+matsus:MATSUS_0000007 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:BFO_0000023 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: supporting waste anchor; human-gate Closure; PMDco issue #485" ;
+                      rdfs:label "waste role"@en ;
+                      skos:definition "A role borne by a material entity when its holder discards it, intends to discard it, or is required to discard it."@en ;
+                      skos:editorialNote "Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. Waste status is contextual and role-based, not an intrinsic material kind. Later: decide realization and context relations and the future PMDco mapping. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization." ;
+                      matsus:integrationMethod "new MatSus subclass of BFO role" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000008
+matsus:MATSUS_0000008 rdf:type owl:Class ;
+                      rdfs:subClassOf co:PMD_0000000 ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty obo:RO_0000087 ;
+                                        owl:someValuesFrom matsus:MATSUS_0000007
+                                      ] ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: supporting waste anchor; human-gate Closure; PMDco issue #485" ;
+                      rdfs:label "waste material"@en ;
+                      skos:altLabel "waste"@en ;
+                      skos:definition "A material that bears a waste role."@en ;
+                      skos:editorialNote "Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. Waste is an alternative label. The has role restriction is necessary only; do not assert equivalence. Do not make recovered material a subclass of waste material. Later: select a temporal or contextual model for acquiring and losing the role. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization." ;
+                      matsus:integrationMethod "new MatSus subclass of PMDco material with a necessary waste-role restriction" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000009
+matsus:MATSUS_0000009 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000008 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000063; SRC-001 Circular Berlin; Master Analysis row 52" ;
+                      rdfs:label "construction and demolition waste"@en ;
+                      skos:definition "A waste material that arises from construction or demolition activities."@en ;
+                      skos:editorialNote "Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. Retain this local subtype after any upstream anchor migration. Later: add source or provenance criteria only if required by data integration. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization." ;
+                      matsus:integrationMethod "new MatSus subclass of waste material" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000010
+matsus:MATSUS_0000010 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000008 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000144; SRC-003 European Environment Agency; Master Analysis row 69" ;
+                      rdfs:label "mineral waste"@en ;
+                      skos:definition "A waste material composed predominantly of mineral matter."@en ;
+                      skos:editorialNote "Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. Predominantly is intentionally not assigned an OWL cutoff. Later: represent thresholds through data or a classification specification. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization." ;
+                      matsus:integrationMethod "new MatSus subclass of waste material" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000011
+matsus:MATSUS_0000011 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000008 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000148; SRC-003 European Environment Agency; Master Analysis row 71" ;
+                      rdfs:label "municipal waste"@en ;
+                      skos:altLabel "municipal solid waste"@en ;
+                      skos:definition "A waste material collected from households or a waste material from another source that is similar in nature and composition to household waste."@en ;
+                      skos:editorialNote "Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. Municipal solid waste is an alternative label, not an equivalent class. Later: assert equivalence only if the scopes are confirmed identical. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization." ;
+                      matsus:integrationMethod "new MatSus subclass of waste material" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000012
+matsus:MATSUS_0000012 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000008 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000155; SRC-003 European Environment Agency; Master Analysis row 74; TransformON exact-label evidence insufficient for reuse" ;
+                      rdfs:label "packaging waste"@en ;
+                      skos:definition "A waste material that was packaging or packaging material before it acquired a waste role."@en ;
+                      skos:editorialNote "Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. The selected source scope excludes production residues. Later: represent former packaging status and the exclusion only with a validated pattern. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization." ;
+                      matsus:integrationMethod "new MatSus subclass of waste material" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000013
+matsus:MATSUS_0000013 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000008 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000249; SRC-001 Circular Berlin; Master Analysis row 111" ;
+                      rdfs:label "textile waste"@en ;
+                      skos:definition "A waste material composed predominantly of textile material or discarded textile products."@en ;
+                      skos:editorialNote "Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. This is intentionally a broad provisional subtype. Later: add fibre, composition, or product-type refinements only from concrete use cases. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization." ;
+                      matsus:integrationMethod "new MatSus subclass of waste material" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000014
+matsus:MATSUS_0000014 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:BFO_0000027 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000059" ;
+                      rdfs:label "collection system"@en ;
+                      skos:definition "An object aggregate whose members are organized to enable one or more collection processes."@en ;
+                      skos:editorialNote "Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. The object-aggregate parent is provisional. Later: model members or components, enabling function, responsible agent, and collection processes when those queries become central. Do not introduce a universal generic system class. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization." ;
+                      matsus:integrationMethod "new MatSus subclass of BFO object aggregate" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000015
+matsus:MATSUS_0000015 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:COB_0000082 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: supporting waste process; human-gate Closure related-terms decision" ;
+                      rdfs:label "waste collection process"@en ;
+                      skos:definition "A planned process in which waste material is gathered from one or more holders or locations for transport, storage, sorting, recovery, treatment, or disposal."@en ;
+                      skos:editorialNote "Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. This is a supporting process with no standalone MKB ID. Later: add waste participant, origin, destination, and responsible-agent relations. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization." ;
+                      matsus:integrationMethod "new MatSus subclass of COB planned process" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000016
+matsus:MATSUS_0000016 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:COB_0000082 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000231; SRC-001 Circular Berlin; Master Analysis row 106" ;
+                      rdfs:label "sorting process"@en ;
+                      skos:definition "A planned process in which material entities are assigned to different groups or streams according to specified criteria."@en ;
+                      skos:editorialNote "Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. No acceptable maintained equivalent was found. Later: connect criteria or method specifications and sorted inputs and outputs. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization." ;
+                      matsus:integrationMethod "new MatSus subclass of COB planned process" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000017
+matsus:MATSUS_0000017 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:IAO_0000104 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000231; SRC-001 Circular Berlin; Master Analysis row 106" ;
+                      rdfs:label "sorting method specification"@en ;
+                      skos:definition "A plan specification that prescribes how a sorting process is to be carried out."@en ;
+                      skos:editorialNote "Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. This is an information content entity and is not a subclass of sorting process. Later: relate the method specification to the sorting process it prescribes. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization." ;
+                      matsus:integrationMethod "new MatSus subclass of IAO plan specification" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000018
+matsus:MATSUS_0000018 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000016 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: supporting waste process; human-gate Closure related-terms decision" ;
+                      rdfs:label "waste separation process"@en ;
+                      skos:definition "A sorting process in which waste material is assigned to different groups or streams according to specified criteria."@en ;
+                      skos:editorialNote "Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. This is a supporting process with no standalone MKB ID. Later: add waste input and separated-stream output restrictions after example testing. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization." ;
+                      matsus:integrationMethod "new MatSus subclass of sorting process" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000019
+matsus:MATSUS_0000019 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:BFO_0000015 ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty obo:RO_0002234 ;
+                                        owl:someValuesFrom matsus:MATSUS_0000008
+                                      ] ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000263; SRC-003 European Environment Agency; Master Analysis row 115" ;
+                      rdfs:label "waste generation process"@en ;
+                      skos:definition "A process that has as output a material entity that bears a waste role."@en ;
+                      skos:editorialNote "Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. Waste generation is not assumed to be planned production or synthesis. Later: distinguish planned and unplanned generation through context unless required otherwise. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization." ;
+                      matsus:integrationMethod "new MatSus subclass of BFO process with a necessary waste-material output restriction" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000020
+matsus:MATSUS_0000020 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:COB_0000082 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000264; SRC-001 Circular Berlin; SRC-003 European Environment Agency; Master Analysis row 116" ;
+                      rdfs:label "waste prevention process"@en ;
+                      skos:definition "A planned process that is intended to reduce the quantity or harmfulness of waste generated, or the adverse impacts of generated waste on the environment and human health."@en ;
+                      skos:editorialNote "Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. Keep the performed process distinct from its measure specification. Later: relate the process to targeted streams and prevention outcomes. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization." ;
+                      matsus:integrationMethod "new MatSus subclass of COB planned process" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000021
+matsus:MATSUS_0000021 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:IAO_0000104 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000264; SRC-001 Circular Berlin; SRC-003 European Environment Agency; Master Analysis row 116" ;
+                      rdfs:label "waste prevention measure specification"@en ;
+                      skos:definition "A plan specification that prescribes actions intended to realize a waste prevention process."@en ;
+                      skos:editorialNote "Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. This is an information artifact, not a process. Later: connect it to the prescribed process. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization." ;
+                      matsus:integrationMethod "new MatSus subclass of IAO plan specification" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000022
+matsus:MATSUS_0000022 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:IAO_0000005 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000266; SRC-001 Circular Berlin; Master Analysis row 117" ;
+                      rdfs:label "zero-waste objective specification"@en ;
+                      skos:definition "An objective specification that describes an intended endpoint in which waste generation and disposal are prevented or minimized through responsible production, consumption, reuse, and recovery."@en ;
+                      skos:editorialNote "Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. Zero waste is normative information content, not a material or process. Later: represent scope, baseline, and tolerated residual waste if needed. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization." ;
+                      matsus:integrationMethod "new MatSus subclass of IAO objective specification" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000023
+matsus:MATSUS_0000023 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:IAO_0000104 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000266; SRC-001 Circular Berlin; Master Analysis row 117" ;
+                      rdfs:label "zero-waste strategy specification"@en ;
+                      skos:definition "A plan specification that prescribes actions intended to achieve a zero-waste objective."@en ;
+                      skos:editorialNote "Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. Keep the strategy distinct from its objective. Later: relate it to the objective and prescribed prevention, reuse, and recovery processes. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization." ;
+                      matsus:integrationMethod "new MatSus subclass of IAO plan specification" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000024
+matsus:MATSUS_0000024 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:IAO_0000005 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000085; SRC-002 Ellen MacArthur Foundation; Master Analysis row 56" ;
+                      rdfs:label "waste elimination objective specification"@en ;
+                      skos:definition "An objective specification that specifies the intended absence of a specified waste output within a stated scope."@en ;
+                      skos:editorialNote "Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. MKB-000085 is retained as provenance. Do not create an undefined generic elimination process. Later: link to a scoped waste target and boundary. Pollution-elimination modelling is deferred until a suitable pollution target pattern is established. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization." ;
+                      matsus:integrationMethod "new MatSus subclass of IAO objective specification" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000025
+matsus:MATSUS_0000025 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:OBI_0000070 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000236; SRC-001 Circular Berlin; Master Analysis row 107" ;
+                      rdfs:label "waste analysis"@en ;
+                      skos:definition "An assay intended to produce information about waste material, a waste-generating process, or a waste stream."@en ;
+                      skos:editorialNote "Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. Analysis is an assay, not the information output itself. Later: add evaluant, method, and output-datum relations using a concrete example. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization." ;
+                      matsus:integrationMethod "new MatSus subclass of OBI assay" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000026
+matsus:MATSUS_0000026 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000025 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000236; SRC-001 Circular Berlin; Master Analysis row 107" ;
+                      rdfs:label "structural waste analysis"@en ;
+                      skos:definition "A waste analysis intended to produce information about the composition, organization, or distribution of material constituents within a waste material or waste stream."@en ;
+                      skos:editorialNote "Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. Recurring-generation-pattern analysis is outside this definition. Later: consider recurring-source analysis as a sibling class. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization." ;
+                      matsus:integrationMethod "new MatSus subclass of waste analysis" .
 
 
 ###  https://w3id.org/pmd/matsus/RecycledContentInformation
