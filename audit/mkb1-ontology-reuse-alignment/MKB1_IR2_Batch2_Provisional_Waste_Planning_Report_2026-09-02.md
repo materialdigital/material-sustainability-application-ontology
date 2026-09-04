@@ -1,15 +1,16 @@
 # MKB1 IR2 Implementation Batch 2 — Provisional Waste Cluster
 
 **Report date:** 2026-09-02
-**Scope:** Read-only implementation planning; not MKB source-mining Batch 2
-**Numeric IDs:** Not allocated
+**Scope:** Corrected implementation plan for MKB1 IR2 Batch 2; not MKB source-mining Batch 2
+**Corrected:** 2026-09-04
+**Numeric IDs:** Allocated as `MATSUS_0000007`–`MATSUS_0000026` in the implementation order below
 **PMDco dependency:** Issue #485 — `ISSUE_SUBMITTED`
 
 ## Executive conclusion
 
-The recommended bounded Batch 2 contains 18 provisional local MatSus classes. The batch uses a contextual waste-role pattern, retains the five human-approved waste types, and includes only the accepted processes, specifications, and analyses needed by the human-gate closure.
+The corrected bounded Batch 2 contains 20 provisional local MatSus classes. The batch uses a contextual waste-role pattern, retains the five human-approved waste types, adds the human-approved collection-system and sorting-method-specification records, and includes only the accepted processes, specifications, and analyses needed by the human-gate closure.
 
-All 18 proposed classes are absent from the current `matsus-edit.owl` and its active local import closure. Every external parent and object property required for the minimal axioms is already present through `pmdco_import.owl`.
+Before this implementation, all 20 proposed classes were absent from `matsus-edit.owl` and its active local import closure. Every external parent and object property required for the minimal axioms is already present through `pmdco_import.owl`.
 
 The human-gate migration rule is authoritative: later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions; it does not trigger deletion of MatSus specializations.
 
@@ -23,7 +24,7 @@ The human-gate migration rule is authoritative: later PMDco acceptance triggers 
 
 ## Tracker-state caveat
 
-IR2 Tracker rows 5 and 21–30 contain `IMPLEMENTED_IN_MATSUS_EDIT` in the draft-status column but `NO - DRAFT ONLY` in the current-source column. Direct inspection confirms that the proposed classes are not in the current ontology. The current-source column and Class Review status `DRAFT EXISTS; NOT IN CURRENT SOURCE` reflect the actual repository state.
+Before Batch 2 implementation, IR2 Tracker rows 2, 5, and 21–30 contained `IMPLEMENTED_IN_MATSUS_EDIT` in the draft-status column but `NO - DRAFT ONLY` in the current-source column. Direct inspection confirmed that the proposed classes were absent at that point. The implementation run must replace these contradictory draft/current-source statuses with the verified Batch 2 state.
 
 ## Batch membership
 
@@ -32,10 +33,11 @@ IR2 Tracker rows 5 and 21–30 contain `IMPLEMENTED_IN_MATSUS_EDIT` in the draft
 | Tracker location | MKB ID | Concepts |
 |---|---|---|
 | Class Review rows 2–3 | Supporting anchors | waste role; waste material |
-| IR2 Tracker row 5 / Class Review row 10 | MKB-000231 | sorting process only |
+| IR2 Tracker row 2 / Class Review row 37 | MKB-000059 | collection system |
+| IR2 Tracker row 5 / Class Review rows 10 and 20 | MKB-000231 | sorting process; sorting method specification |
 | Class Review rows 9 and 11 | Supporting processes | waste collection process; waste separation process |
 | IR2 Tracker row 21 | MKB-000063 | construction and demolition waste |
-| IR2 Tracker row 22 | MKB-000085 | waste-or-pollution elimination objective specification |
+| IR2 Tracker row 22 / Class Review row 25 | MKB-000085 | waste elimination objective specification |
 | IR2 Tracker row 23 | MKB-000144 | mineral waste |
 | IR2 Tracker row 24 | MKB-000148 | municipal waste |
 | IR2 Tracker row 25 | MKB-000155 | packaging waste |
@@ -59,8 +61,9 @@ Do not import these terms in Batch 2. Their complete dependency closures, licenc
 
 - IR2 Tracker row 33, MKB-000307: end-user guidance about separate collection.
 - IR2 Tracker row 36, MKB-000308: end-user guidance about waste prevention.
-- `SortingMethodSpecification`, the second half of MKB-000231; it is not required to establish waste separation.
 - A generic pollution class or target pattern for MKB-000085.
+- Pollution-elimination modelling until a suitable pollution target pattern is established.
+- Possible recurring-source analysis as a sibling of structural waste analysis.
 - Detailed temporal, participant, provenance, threshold, baseline, method, and outcome restrictions.
 
 ### Human decisions remaining after this batch
@@ -69,7 +72,7 @@ No unresolved question blocks provisional implementation. Later human decisions 
 
 - necessary-only versus equivalent-class treatment of `WasteMaterial`;
 - time-indexing or contextualization of acquiring and losing a waste role;
-- whether recurring-source analysis should be separated from structural/compositional waste analysis;
+- the final scope and name of a possible recurring-source-analysis sibling;
 - placement of the packaging-waste production-residue exclusion;
 - mapping between local `WasteMaterial`, ENVO waste material, and any future PMDco class.
 
@@ -79,7 +82,7 @@ No unresolved question blocks provisional implementation. Later human decisions 
 |---|---|---|
 | BFO role | `http://purl.obolibrary.org/obo/BFO_0000023` | Imported |
 | PMDco material | `https://w3id.org/pmd/co/PMD_0000000` | Imported and locally declared |
-| bearer of | `http://purl.obolibrary.org/obo/RO_0000087` | Imported |
+| has role | `http://purl.obolibrary.org/obo/RO_0000087` | Imported |
 | BFO process | `http://purl.obolibrary.org/obo/BFO_0000015` | Imported |
 | has output | `http://purl.obolibrary.org/obo/RO_0002234` | Imported |
 | COB planned process | `http://purl.obolibrary.org/obo/COB_0000082` | Imported |
@@ -87,7 +90,30 @@ No unresolved question blocks provisional implementation. Later human decisions 
 | IAO objective specification | `http://purl.obolibrary.org/obo/IAO_0000005` | Imported and locally declared |
 | OBI assay | `http://purl.obolibrary.org/obo/OBI_0000070` | Imported and locally declared |
 
-All readable MatSus IRIs below are provisional planning handles from the tracker. Final numeric MatSus IRIs must be allocated only during an authorized implementation run.
+The tracker’s readable IRIs remain historical planning handles. The authorized implementation allocated the following collision-free numeric IRIs from the repository’s assigned seven-digit range:
+
+| Final IRI | Class |
+|---|---|
+| `MATSUS_0000007` | WasteRole |
+| `MATSUS_0000008` | WasteMaterial |
+| `MATSUS_0000009` | ConstructionAndDemolitionWaste |
+| `MATSUS_0000010` | MineralWaste |
+| `MATSUS_0000011` | MunicipalWaste |
+| `MATSUS_0000012` | PackagingWaste |
+| `MATSUS_0000013` | TextileWaste |
+| `MATSUS_0000014` | CollectionSystem |
+| `MATSUS_0000015` | WasteCollectionProcess |
+| `MATSUS_0000016` | SortingProcess |
+| `MATSUS_0000017` | SortingMethodSpecification |
+| `MATSUS_0000018` | WasteSeparationProcess |
+| `MATSUS_0000019` | WasteGenerationProcess |
+| `MATSUS_0000020` | WastePreventionProcess |
+| `MATSUS_0000021` | WastePreventionMeasureSpecification |
+| `MATSUS_0000022` | ZeroWasteObjectiveSpecification |
+| `MATSUS_0000023` | ZeroWasteStrategySpecification |
+| `MATSUS_0000024` | WasteEliminationObjectiveSpecification |
+| `MATSUS_0000025` | WasteAnalysis |
+| `MATSUS_0000026` | StructuralWasteAnalysis |
 
 ## Common editorial note
 
@@ -100,7 +126,7 @@ Apply the following policy to every Batch 2 class, with the class-specific adden
 ### 1. Waste role
 
 - **MKB ID:** Supporting waste anchor
-- **Provisional IRI:** `https://w3id.org/pmd/matsus/WasteRole`
+- **Final IRI:** `https://w3id.org/pmd/matsus/MATSUS_0000007`
 - **Definition:** A role borne by a material entity when its holder discards it, intends to discard it, or is required to discard it.
 - **Parent:** `http://purl.obolibrary.org/obo/BFO_0000023`
 - **Confirmed axiom:** `WasteRole SubClassOf BFO_0000023`
@@ -112,7 +138,7 @@ Apply the following policy to every Batch 2 class, with the class-specific adden
 ### 2. Waste material
 
 - **MKB ID:** Supporting waste anchor
-- **Provisional IRI:** `https://w3id.org/pmd/matsus/WasteMaterial`
+- **Final IRI:** `https://w3id.org/pmd/matsus/MATSUS_0000008`
 - **Definition:** A material that bears a waste role.
 - **Parent:** `https://w3id.org/pmd/co/PMD_0000000`
 - **Confirmed axioms:** `WasteMaterial SubClassOf PMD_0000000`; `WasteMaterial SubClassOf RO_0000087 some WasteRole`.
@@ -124,7 +150,7 @@ Apply the following policy to every Batch 2 class, with the class-specific adden
 ### 3. Construction and demolition waste
 
 - **MKB ID:** MKB-000063
-- **Provisional IRI:** `https://w3id.org/pmd/matsus/ConstructionAndDemolitionWaste`
+- **Final IRI:** `https://w3id.org/pmd/matsus/MATSUS_0000009`
 - **Definition:** A waste material that arises from construction or demolition activities.
 - **Parent/axiom:** `ConstructionAndDemolitionWaste SubClassOf WasteMaterial`.
 - **Provenance:** SRC-001 Circular Berlin; Master Analysis row 52.
@@ -135,7 +161,7 @@ Apply the following policy to every Batch 2 class, with the class-specific adden
 ### 4. Mineral waste
 
 - **MKB ID:** MKB-000144
-- **Provisional IRI:** `https://w3id.org/pmd/matsus/MineralWaste`
+- **Final IRI:** `https://w3id.org/pmd/matsus/MATSUS_0000010`
 - **Definition:** A waste material composed predominantly of mineral matter.
 - **Parent/axiom:** `MineralWaste SubClassOf WasteMaterial`.
 - **Provenance:** SRC-003 European Environment Agency; Master Analysis row 69.
@@ -146,7 +172,7 @@ Apply the following policy to every Batch 2 class, with the class-specific adden
 ### 5. Municipal waste
 
 - **MKB ID:** MKB-000148
-- **Provisional IRI:** `https://w3id.org/pmd/matsus/MunicipalWaste`
+- **Final IRI:** `https://w3id.org/pmd/matsus/MATSUS_0000011`
 - **Definition:** A waste material collected from households or a waste material from another source that is similar in nature and composition to household waste.
 - **Parent/axiom:** `MunicipalWaste SubClassOf WasteMaterial`.
 - **Provenance:** SRC-003 European Environment Agency; Master Analysis row 71.
@@ -157,7 +183,7 @@ Apply the following policy to every Batch 2 class, with the class-specific adden
 ### 6. Packaging waste
 
 - **MKB ID:** MKB-000155
-- **Provisional IRI:** `https://w3id.org/pmd/matsus/PackagingWaste`
+- **Final IRI:** `https://w3id.org/pmd/matsus/MATSUS_0000012`
 - **Definition:** A waste material that was packaging or packaging material before it acquired a waste role.
 - **Parent/axiom:** `PackagingWaste SubClassOf WasteMaterial`.
 - **Provenance:** SRC-003 European Environment Agency; Master Analysis row 74. TransformON exact-label evidence was insufficient for reuse.
@@ -168,7 +194,7 @@ Apply the following policy to every Batch 2 class, with the class-specific adden
 ### 7. Textile waste
 
 - **MKB ID:** MKB-000249
-- **Provisional IRI:** `https://w3id.org/pmd/matsus/TextileWaste`
+- **Final IRI:** `https://w3id.org/pmd/matsus/MATSUS_0000013`
 - **Definition:** A waste material composed predominantly of textile material or discarded textile products.
 - **Parent/axiom:** `TextileWaste SubClassOf WasteMaterial`.
 - **Provenance:** SRC-001 Circular Berlin; Master Analysis row 111.
@@ -176,10 +202,22 @@ Apply the following policy to every Batch 2 class, with the class-specific adden
 - **Later constraint:** Add fibre, composition, or product-type refinements only from concrete use cases.
 - **Dependencies/confidence:** WasteMaterial; **MEDIUM**.
 
-### 8. Waste collection process
+### 8. Collection system
+
+- **MKB ID:** MKB-000059
+- **Final IRI:** `https://w3id.org/pmd/matsus/MATSUS_0000014`
+- **Definition:** An object aggregate whose members are organized to enable one or more collection processes.
+- **Parent:** `http://purl.obolibrary.org/obo/BFO_0000027`
+- **Confirmed axiom:** `CollectionSystem SubClassOf BFO_0000027`.
+- **Provenance:** IR2 Tracker row 2; Class Review row 37.
+- **Editorial addendum:** The object-aggregate parent is provisional. Do not introduce a universal generic `System` class.
+- **Later constraint:** Model members/components, enabling function, responsible agent, and collection processes when those queries become central.
+- **Dependencies/confidence:** BFO object aggregate; **MEDIUM**.
+
+### 9. Waste collection process
 
 - **MKB ID:** Supporting waste process
-- **Provisional IRI:** `https://w3id.org/pmd/matsus/WasteCollectionProcess`
+- **Final IRI:** `https://w3id.org/pmd/matsus/MATSUS_0000015`
 - **Definition:** A planned process in which waste material is gathered from one or more holders or locations for transport, storage, sorting, recovery, treatment, or disposal.
 - **Parent:** `http://purl.obolibrary.org/obo/COB_0000082`
 - **Confirmed axiom:** `WasteCollectionProcess SubClassOf COB_0000082`.
@@ -188,10 +226,10 @@ Apply the following policy to every Batch 2 class, with the class-specific adden
 - **Later constraint:** Add waste participant, origin, destination, and responsible-agent relations.
 - **Dependencies/confidence:** COB planned process; WasteMaterial semantically; **HIGH**.
 
-### 9. Sorting process
+### 10. Sorting process
 
 - **MKB ID:** MKB-000231 supporting class
-- **Provisional IRI:** `https://w3id.org/pmd/matsus/SortingProcess`
+- **Final IRI:** `https://w3id.org/pmd/matsus/MATSUS_0000016`
 - **Definition:** A planned process in which material entities are assigned to different groups or streams according to specified criteria.
 - **Parent:** `http://purl.obolibrary.org/obo/COB_0000082`
 - **Confirmed axiom:** `SortingProcess SubClassOf COB_0000082`.
@@ -200,10 +238,22 @@ Apply the following policy to every Batch 2 class, with the class-specific adden
 - **Later constraint:** Connect criteria/method specifications and sorted inputs/outputs.
 - **Dependencies/confidence:** COB planned process; **HIGH**.
 
-### 10. Waste separation process
+### 11. Sorting method specification
+
+- **MKB ID:** MKB-000231
+- **Final IRI:** `https://w3id.org/pmd/matsus/MATSUS_0000017`
+- **Definition:** A plan specification that prescribes how a sorting process is to be carried out.
+- **Parent:** `http://purl.obolibrary.org/obo/IAO_0000104`
+- **Confirmed axiom:** `SortingMethodSpecification SubClassOf IAO_0000104`. It is not a subclass of `SortingProcess`.
+- **Provenance:** SRC-001 Circular Berlin; Master Analysis row 106; IR2 Tracker row 5; Class Review row 20.
+- **Editorial addendum:** This is an information content entity, not a process.
+- **Later constraint:** Relate the method specification to the sorting process it prescribes.
+- **Dependencies/confidence:** IAO plan specification; SortingProcess semantically; **HIGH**.
+
+### 12. Waste separation process
 
 - **MKB ID:** Supporting waste process
-- **Provisional IRI:** `https://w3id.org/pmd/matsus/WasteSeparationProcess`
+- **Final IRI:** `https://w3id.org/pmd/matsus/MATSUS_0000018`
 - **Definition:** A sorting process in which waste material is assigned to different groups or streams according to specified criteria.
 - **Parent/axiom:** `WasteSeparationProcess SubClassOf SortingProcess`.
 - **Provenance:** Class Review row 11; human-gate Closure related-terms decision.
@@ -211,10 +261,10 @@ Apply the following policy to every Batch 2 class, with the class-specific adden
 - **Later constraint:** Add waste input and separated-stream output restrictions after example testing.
 - **Dependencies/confidence:** SortingProcess; WasteMaterial semantically; **HIGH**.
 
-### 11. Waste generation process
+### 13. Waste generation process
 
 - **MKB ID:** MKB-000263
-- **Provisional IRI:** `https://w3id.org/pmd/matsus/WasteGenerationProcess`
+- **Final IRI:** `https://w3id.org/pmd/matsus/MATSUS_0000019`
 - **Definition:** A process that has as output a material entity that bears a waste role.
 - **Parent:** `http://purl.obolibrary.org/obo/BFO_0000015`
 - **Confirmed axioms:** `WasteGenerationProcess SubClassOf BFO_0000015`; `WasteGenerationProcess SubClassOf RO_0002234 some WasteMaterial`.
@@ -223,10 +273,10 @@ Apply the following policy to every Batch 2 class, with the class-specific adden
 - **Later constraint:** Distinguish planned and unplanned generation through context unless required otherwise.
 - **Dependencies/confidence:** WasteMaterial, BFO process, `RO_0002234`; **HIGH**.
 
-### 12. Waste prevention process
+### 14. Waste prevention process
 
 - **MKB ID:** MKB-000264
-- **Provisional IRI:** `https://w3id.org/pmd/matsus/WastePreventionProcess`
+- **Final IRI:** `https://w3id.org/pmd/matsus/MATSUS_0000020`
 - **Definition:** A planned process that is intended to reduce the quantity or harmfulness of waste generated, or the adverse impacts of generated waste on the environment and human health.
 - **Parent:** `http://purl.obolibrary.org/obo/COB_0000082`
 - **Confirmed axiom:** `WastePreventionProcess SubClassOf COB_0000082`.
@@ -235,10 +285,10 @@ Apply the following policy to every Batch 2 class, with the class-specific adden
 - **Later constraint:** Relate the process to targeted streams and prevention outcomes.
 - **Dependencies/confidence:** COB planned process; **HIGH**.
 
-### 13. Waste prevention measure specification
+### 15. Waste prevention measure specification
 
 - **MKB ID:** MKB-000264
-- **Provisional IRI:** `https://w3id.org/pmd/matsus/WastePreventionMeasureSpecification`
+- **Final IRI:** `https://w3id.org/pmd/matsus/MATSUS_0000021`
 - **Definition:** A plan specification that prescribes actions intended to realize a waste prevention process.
 - **Parent:** `http://purl.obolibrary.org/obo/IAO_0000104`
 - **Confirmed axiom:** `WastePreventionMeasureSpecification SubClassOf IAO_0000104`.
@@ -247,10 +297,10 @@ Apply the following policy to every Batch 2 class, with the class-specific adden
 - **Later constraint:** Connect it to the prescribed process.
 - **Dependencies/confidence:** IAO plan specification; WastePreventionProcess semantically; **HIGH**.
 
-### 14. Zero-waste objective specification
+### 16. Zero-waste objective specification
 
 - **MKB ID:** MKB-000266
-- **Provisional IRI:** `https://w3id.org/pmd/matsus/ZeroWasteObjectiveSpecification`
+- **Final IRI:** `https://w3id.org/pmd/matsus/MATSUS_0000022`
 - **Definition:** An objective specification that describes an intended endpoint in which waste generation and disposal are prevented or minimized through responsible production, consumption, reuse, and recovery.
 - **Parent:** `http://purl.obolibrary.org/obo/IAO_0000005`
 - **Confirmed axiom:** `ZeroWasteObjectiveSpecification SubClassOf IAO_0000005`.
@@ -259,10 +309,10 @@ Apply the following policy to every Batch 2 class, with the class-specific adden
 - **Later constraint:** Represent scope, baseline, and tolerated residual waste if needed.
 - **Dependencies/confidence:** IAO objective specification; **HIGH**.
 
-### 15. Zero-waste strategy specification
+### 17. Zero-waste strategy specification
 
 - **MKB ID:** MKB-000266
-- **Provisional IRI:** `https://w3id.org/pmd/matsus/ZeroWasteStrategySpecification`
+- **Final IRI:** `https://w3id.org/pmd/matsus/MATSUS_0000023`
 - **Definition:** A plan specification that prescribes actions intended to achieve a zero-waste objective.
 - **Parent:** `http://purl.obolibrary.org/obo/IAO_0000104`
 - **Confirmed axiom:** `ZeroWasteStrategySpecification SubClassOf IAO_0000104`.
@@ -271,22 +321,22 @@ Apply the following policy to every Batch 2 class, with the class-specific adden
 - **Later constraint:** Relate it to the objective and prescribed prevention, reuse, and recovery processes.
 - **Dependencies/confidence:** IAO plan specification; ZeroWasteObjectiveSpecification semantically; **HIGH**.
 
-### 16. Waste-or-pollution elimination objective specification
+### 18. Waste elimination objective specification
 
 - **MKB ID:** MKB-000085
-- **Provisional IRI:** `https://w3id.org/pmd/matsus/WasteOrPollutionEliminationObjectiveSpecification`
-- **Definition:** An objective specification that describes an intended endpoint in which a specified waste or pollution output is absent.
+- **Final IRI:** `https://w3id.org/pmd/matsus/MATSUS_0000024`
+- **Definition:** An objective specification that specifies the intended absence of a specified waste output within a stated scope.
 - **Parent:** `http://purl.obolibrary.org/obo/IAO_0000005`
-- **Confirmed axiom:** `WasteOrPollutionEliminationObjectiveSpecification SubClassOf IAO_0000005`.
+- **Confirmed axiom:** `WasteEliminationObjectiveSpecification SubClassOf IAO_0000005`.
 - **Provenance:** SRC-002 Ellen MacArthur Foundation; Master Analysis row 56.
-- **Editorial addendum:** Do not create an undefined generic elimination process.
-- **Later constraint:** Link to a scoped target and boundary after the pollution pattern is resolved.
-- **Dependencies/confidence:** IAO objective specification; pollution target deferred; **MEDIUM**.
+- **Editorial addendum:** MKB-000085 is retained as provenance. Do not create an undefined generic elimination process.
+- **Later constraint:** Link to a scoped waste target and boundary. Defer pollution-elimination modelling until a suitable pollution target pattern is established.
+- **Dependencies/confidence:** IAO objective specification; pollution modelling deferred; **MEDIUM**.
 
-### 17. Waste analysis
+### 19. Waste analysis
 
 - **MKB ID:** MKB-000236
-- **Provisional IRI:** `https://w3id.org/pmd/matsus/WasteAnalysis`
+- **Final IRI:** `https://w3id.org/pmd/matsus/MATSUS_0000025`
 - **Definition:** An assay intended to produce information about waste material, a waste-generating process, or a waste stream.
 - **Parent:** `http://purl.obolibrary.org/obo/OBI_0000070`
 - **Confirmed axiom:** `WasteAnalysis SubClassOf OBI_0000070`.
@@ -295,15 +345,15 @@ Apply the following policy to every Batch 2 class, with the class-specific adden
 - **Later constraint:** Add evaluant, method, and output-datum relations using a concrete example.
 - **Dependencies/confidence:** OBI assay; **HIGH**.
 
-### 18. Structural waste analysis
+### 20. Structural waste analysis
 
 - **MKB ID:** MKB-000236
-- **Provisional IRI:** `https://w3id.org/pmd/matsus/StructuralWasteAnalysis`
-- **Definition:** A waste analysis intended to produce information about the composition, organization, distribution, or recurring generation patterns of a waste stream or waste-generating system.
+- **Final IRI:** `https://w3id.org/pmd/matsus/MATSUS_0000026`
+- **Definition:** A waste analysis intended to produce information about the composition, organization, or distribution of material constituents within a waste material or waste stream.
 - **Parent/axiom:** `StructuralWasteAnalysis SubClassOf WasteAnalysis`.
 - **Provenance:** Same MKB-000236 source and decision.
-- **Editorial addendum:** Broad provisional scope retained under the authoritative implementation decision.
-- **Later constraint:** Decide whether recurring-source analysis should become a sibling of structural/compositional analysis.
+- **Editorial addendum:** Recurring-generation-pattern analysis is intentionally excluded from this definition.
+- **Later constraint:** Consider recurring-source analysis as a deferred sibling class.
 - **Dependencies/confidence:** WasteAnalysis; **MEDIUM**.
 
 ## Ontological coherence of the role/material pattern
@@ -314,7 +364,7 @@ The pattern is coherent when implemented with necessary axioms only:
 WasteRole SubClassOf BFO role
 
 WasteMaterial SubClassOf PMDco material
-WasteMaterial SubClassOf bearer_of some WasteRole
+WasteMaterial SubClassOf has role some WasteRole
 ```
 
 This does not assert that every material is waste or that waste status is intrinsic. Only instances classified under `WasteMaterial` inherit the requirement to bear a `WasteRole`.
@@ -337,10 +387,10 @@ This remains consistent with Batch 1: recovery provenance can remain true after 
 3. Implement `WasteRole`.
 4. Implement `WasteMaterial` and its necessary role restriction.
 5. Implement the five waste-material subtypes.
-6. Implement `SortingProcess`.
-7. Implement collection, separation, generation, and prevention processes.
-8. Implement prevention-measure, zero-waste, and elimination-objective specifications.
-9. Implement `WasteAnalysis`, then `StructuralWasteAnalysis`.
+6. Implement `CollectionSystem`.
+7. Implement collection, sorting, sorting-method, separation, generation, and prevention records with process/specification distinctions preserved.
+8. Implement prevention-measure, zero-waste, and waste-elimination-objective specifications.
+9. Implement `WasteAnalysis`, then the narrowed `StructuralWasteAnalysis`.
 10. Update only the corresponding tracker and Class Review records.
 11. Run syntax, reasoner/build, profile, duplicate-IRI, IRI-range, import-resolution, and diff checks before staging.
 
@@ -366,7 +416,7 @@ Human decisions:
 - Do not make recovered material a subclass of waste material.
 - Do not add disjointness, complements, or equivalence axioms.
 
-Implement exactly these 18 classes:
+Implement exactly these 20 classes:
 1. waste role
 2. waste material
 3. construction and demolition waste
@@ -374,27 +424,31 @@ Implement exactly these 18 classes:
 5. municipal waste
 6. packaging waste
 7. textile waste
-8. waste collection process
-9. sorting process
-10. waste separation process
-11. waste generation process
-12. waste prevention process
-13. waste prevention measure specification
-14. zero-waste objective specification
-15. zero-waste strategy specification
-16. waste-or-pollution elimination objective specification
-17. waste analysis
-18. structural waste analysis
+8. collection system
+9. waste collection process
+10. sorting process
+11. sorting method specification
+12. waste separation process
+13. waste generation process
+14. waste prevention process
+15. waste prevention measure specification
+16. zero-waste objective specification
+17. zero-waste strategy specification
+18. waste elimination objective specification
+19. waste analysis
+20. structural waste analysis
 
 Use the exact definitions, sources, parents, confidence assessments,
 editorial constraints, and confirmed axioms in the tracker Class Review:
 - rows 2–18 for anchors, types, processes, specifications, and analyses;
-- row 25 for waste-or-pollution elimination objective specification.
+- row 20 for sorting method specification;
+- row 25 for waste elimination objective specification;
+- row 37 for collection system.
 
 Use these exact imported entities:
 - BFO role: http://purl.obolibrary.org/obo/BFO_0000023
 - PMDco material: https://w3id.org/pmd/co/PMD_0000000
-- bearer of: http://purl.obolibrary.org/obo/RO_0000087
+- has role: http://purl.obolibrary.org/obo/RO_0000087
 - BFO process: http://purl.obolibrary.org/obo/BFO_0000015
 - has output: http://purl.obolibrary.org/obo/RO_0002234
 - COB planned process: http://purl.obolibrary.org/obo/COB_0000082
@@ -403,11 +457,12 @@ Use these exact imported entities:
 - OBI assay: http://purl.obolibrary.org/obo/OBI_0000070
 
 Required non-parent restrictions:
-- WasteMaterial bearer_of some WasteRole.
+- WasteMaterial has role some WasteRole.
 - WasteGenerationProcess has_output some WasteMaterial.
 
 Allocate final numeric IDs only after checking repository policy and current
-IDs. Treat readable tracker IRIs as provisional planning handles.
+IDs. The verified allocation for this batch is MATSUS_0000007 through
+MATSUS_0000026 in the class order above.
 
 Do not import or duplicate in this batch:
 - MKB-000084 MeSH Electronic Waste;
@@ -417,12 +472,13 @@ Do not import or duplicate in this batch:
 Keep deferred:
 - MKB-000307;
 - MKB-000308;
-- SortingMethodSpecification;
 - a generic pollution class/pattern;
+- pollution-elimination modelling until a suitable pollution target pattern exists;
+- recurring-source analysis as a possible sibling of structural waste analysis;
 - detailed temporal, threshold, participant, baseline, method, provenance,
   and outcome axioms.
 
-Update only affected tracker records: IR2 Tracker rows 5 and 21–30 and the
+Update only affected tracker records: IR2 Tracker rows 2, 5, and 21–30 and the
 corresponding Class Review records. Verify actual ontology state rather than
 carrying forward the stale IMPLEMENTED_IN_MATSUS_EDIT draft-status value.
 
