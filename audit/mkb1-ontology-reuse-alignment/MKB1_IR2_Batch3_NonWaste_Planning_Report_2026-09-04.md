@@ -4,7 +4,7 @@
 **Branch:** mkb1-ir2-batch3-nonwaste
 **Starting main:** 5e56b8c0c8c079451f7a153d89f52e16cb712f67
 **Purpose:** MKB1 IR2 implementation planning
-**Implementation state:** Planning only; no ontology class, tracker, or FINAL-workbook change
+**Implementation state:** Approved 13-class scope implemented and validated in the working tree on 2026-09-07; pre-commit review pending
 
 This is MKB1 IR2 implementation planning, not MKB source-mining Batch 2.
 
@@ -39,7 +39,7 @@ Four reviewed candidate families are outside the bounded implementation scope:
 
 ProductSpecification, DesignSpecification, and ReverseLogisticsProcess remain external handoffs. No MatSus duplicates should be minted.
 
-The proposed numeric IRIs MATSUS_0000027 through MATSUS_0000039 are tentative planning allocations only. They are not allocated in the ontology and must be rechecked against the repository ID policy immediately before any implementation.
+The numeric IRIs MATSUS_0000027 through MATSUS_0000039 were tentative planning allocations at this decision point. They were rechecked against the repository ID policy and implemented on 2026-09-07 as recorded below.
 
 ## Repository gate
 
@@ -121,7 +121,7 @@ The table above preserves the original review of 16 consolidated candidate famil
 
 ## Proposed bounded 13-class implementation
 
-All IRIs in this section are provisional. Each proposed logical axiom is a necessary asserted parent only.
+The IRIs in this section were provisional during planning and became the implemented Batch 3 allocations on 2026-09-07. Each listed logical axiom remains a necessary asserted parent only.
 
 ### 1. MetricSpecification
 
@@ -395,6 +395,8 @@ Add the following item to a later audit backlog. It is not part of Batch 3 imple
 
 ## Human-review gates
 
+These gates are retained as decision history. The user approved the revised 13-class scope on 2026-09-07 before ontology implementation began.
+
 Before any ontology implementation:
 
 1. Approve or revise the 13-class bounded scope.
@@ -407,10 +409,24 @@ Before any ontology implementation:
 
 If approved, the implementation phase should update the ontology, working tracker, this planning report, and a new pre-commit handoff as separately authorized. The FINAL workbook must remain read-only.
 
-## Planning-scope confirmation
+## Implementation record — 2026-09-07
+
+The approved 13-class scope was implemented in src/ontology/matsus-edit.owl with final numeric IRIs MATSUS_0000027 through MATSUS_0000039. Each class has exactly one declaration, one English rdfs:label, one English skos:definition, one dcterms:source, one skos:editorialNote, one integrationMethod, and one asserted subclass axiom. MATSUS_0000039 additionally has the approved English rdfs:comment.
+
+The logical delta is exactly the 13 asserted parent axioms listed in this report. No existential or universal restriction, equivalence, disjointness, complement, cardinality, property-chain, closure, import, or logical relation between RefusalProcess and RefusalStrategySpecification was added.
+
+The working tracker records all 13 implemented classes and final IDs. Twelve Class Review records represent the original consolidated candidate families; RefusalStrategySpecification is recorded separately as a human-gate modelling refinement rather than a seventeenth original candidate. The duplicate RefillProcess and DecouplingDatum source rows remain consolidated. FeedstockRole and CircularDesignSpecification remain external-issue-dependent, while MaterialFlowProcess and TextileMaterialFlowProcess remain deferred and unimplemented.
+
+Validation used Java 17.0.19, ROBOT 1.9.10, RDFLib 7.6.0, and openpyxl 3.1.5. Functional Syntax parsing, local and catalog-merged OWL 2 DL validation, catalog-driven import resolution, ELK consistency, the ODK-compatible merge/reason/relax/reduce/annotate pipeline, ID policy, exact declarations, parents, annotations and logical-axiom checks, workbook ZIP/openpyxl integrity, and all five repository SPARQL checks passed. Catalog-merged graphs contain zero remaining owl:imports axioms.
+
+ROBOT report comparison produced 58 warnings for Batch 3 and 45 for main, with no errors. The +13 delta is exactly one missing_definition warning per new class because the default report rule does not recognize the required English skos:definition; the one annotation_whitespace warning is unchanged from main.
+
+The protected FINAL workbook remained read-only with SHA-256 8A48C3A5F03337041C89A5CB3D4FCB7BC9BFB9303C67AC4031DAD02A5844BF67. The Event, Quantity value, and Unit hierarchy concern remains a deferred pre-public-migration audit; no speculative bridge axiom was added.
+
+## Original planning-scope confirmation
 
 This planning task creates only:
 
 audit/mkb1-ontology-reuse-alignment/MKB1_IR2_Batch3_NonWaste_Planning_Report_2026-09-04.md
 
-No ontology class was implemented. The working tracker and FINAL workbook were not modified. Nothing was staged, committed, pushed, cleaned, deleted, renamed, merged, or rebased.
+At the original planning checkpoint, no ontology class had been implemented, the working tracker and FINAL workbook had not been modified, and nothing had been staged or committed. That historical checkpoint is superseded by the 2026-09-07 implementation record above; the FINAL workbook and unrelated files remain untouched.
