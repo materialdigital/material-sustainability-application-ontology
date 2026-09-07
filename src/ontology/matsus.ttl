@@ -20,12 +20,12 @@
 @base <https://w3id.org/pmd/matsus.ttl> .
 
 <https://w3id.org/pmd/matsus.ttl> rdf:type owl:Ontology ;
-                                   owl:versionIRI <https://w3id.org/pmd/matsus/releases/2026-09-04/matsus.ttl> ;
+                                   owl:versionIRI <https://w3id.org/pmd/matsus/releases/2026-09-07/matsus.ttl> ;
                                    <http://purl.org/dc/elements/1.1/description> """PMD Core application ontology generated via ODK Template.
 """ ;
                                    <http://purl.org/dc/elements/1.1/license> <https://w3id.org/pmd/matsus.owl#CC-BY-4.0> ;
                                    <http://purl.org/dc/elements/1.1/title> "Material Sustainability Application Ontology (Mat.Sus)" ;
-                                   owl:versionInfo "2026-09-04" .
+                                   owl:versionInfo "2026-09-07" .
 
 #################################################################
 #    Annotation properties
@@ -24050,6 +24050,137 @@ matsus:MATSUS_0000026 rdf:type owl:Class ;
                       skos:definition "A waste analysis intended to produce information about the composition, organization, or distribution of material constituents within a waste material or waste stream."@en ;
                       skos:editorialNote "Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. Recurring-generation-pattern analysis is outside this definition. Later: consider recurring-source analysis as a sibling class. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization." ;
                       matsus:integrationMethod "new MatSus subclass of waste analysis" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000027
+matsus:MATSUS_0000027 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:IAO_0000033 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: ADD-SCO-012; SCO" ;
+                      rdfs:label "metric specification"@en ;
+                      skos:definition "A directive information entity that prescribes the quantities, calculation method, units, boundary, and interpretation used to produce a quantitative indicator datum."@en ;
+                      skos:editorialNote "Human-gate-authorized MKB1 IR2 Batch 3 implementation. Metric specifications prescribe methods; resulting metric values remain data items. Later: relate prescribed quantities, calculation method, units, boundary, interpretation, and resulting datum. No further logical restrictions are asserted in this batch." ;
+                      matsus:integrationMethod "new MatSus subclass of IAO directive information entity" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000028
+matsus:MATSUS_0000028 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:IAO_0000027 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000205; SRC-001 Circular Berlin; UNEP domain meaning" ;
+                      rdfs:label "resource efficiency datum"@en ;
+                      skos:definition "A data item that records the useful output, service, or value obtained per stated quantity of resource input under a specified method, boundary, and time interval."@en ;
+                      skos:editorialNote "Human-gate-authorized MKB1 IR2 Batch 3 implementation. This is a calculated result datum, not an intrinsic efficiency quality. Later: model numerator or output, resource input, method, boundary, unit, time interval, and calculation relations." ;
+                      matsus:integrationMethod "new MatSus subclass of IAO data item" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000029
+matsus:MATSUS_0000029 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000028 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000137; SRC-003 European Environment Agency" ;
+                      rdfs:label "material resource efficiency datum"@en ;
+                      skos:definition "A resource efficiency datum whose stated resource input is a quantity of material."@en ;
+                      skos:editorialNote "Human-gate-authorized MKB1 IR2 Batch 3 implementation. This is the material-input specialization of resource efficiency datum. Later: constrain the stated resource input to a material quantity and add method, unit, or boundary relations only through an approved pattern." ;
+                      matsus:integrationMethod "new MatSus subclass of resource efficiency datum" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000030
+matsus:MATSUS_0000030 rdf:type owl:Class ;
+                      rdfs:subClassOf co:PMD_0000000 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000150; SRC-002 Ellen MacArthur Foundation; ISO 21067-2:2015 terminology as reproduced in the ISO/DIS 15270-1 plastics-recovery draft" ;
+                      rdfs:label "virgin material"@en ;
+                      skos:definition "A material that has never been processed into any form of an end-use product."@en ;
+                      skos:editorialNote "Human-gate-authorized MKB1 IR2 Batch 3 implementation. Use the existing positive secondary material class MATSUS_0000003. Do not create NonVirginMaterial or model non-virgin material as the complement of virgin material. Later: add recovered-content, composition, and proportion axioms only from an approved competency query." ;
+                      matsus:integrationMethod "new MatSus subclass of PMDco material" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000031
+matsus:MATSUS_0000031 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:COB_0000082 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000202; SRC-001 Circular Berlin" ;
+                      rdfs:label "repurposing process"@en ;
+                      skos:definition "A planned process in which a product, component, or material is prepared or modified so that it can fulfil a purpose different from its preceding intended purpose."@en ;
+                      skos:editorialNote "Human-gate-authorized MKB1 IR2 Batch 3 implementation. No maintained compatible repurposing-process class was verified in the reviewed sources. Later: represent prior purpose, new purpose, participants, inputs, and outputs." ;
+                      matsus:integrationMethod "new MatSus subclass of COB planned process" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000032
+matsus:MATSUS_0000032 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000031 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000009; SRC-002 Ellen MacArthur Foundation" ;
+                      rdfs:label "battery repurposing process"@en ;
+                      skos:definition "A repurposing process whose primary participant is a battery or battery component."@en ;
+                      skos:editorialNote "Human-gate-authorized MKB1 IR2 Batch 3 implementation. Later: add battery-participant and second-life or new-purpose relations from an approved use case." ;
+                      matsus:integrationMethod "new MatSus subclass of repurposing process" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000033
+matsus:MATSUS_0000033 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:COB_0000082 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000180; SRC-001 Circular Berlin" ;
+                      rdfs:label "resource-input reduction process"@en ;
+                      skos:definition "A planned process intended to reduce the amount of material input used by a specified process or system."@en ;
+                      skos:editorialNote "Human-gate-authorized MKB1 IR2 Batch 3 implementation. Keep this process distinct from resource-input reduction assessment MATSUS_0000005 and resource-input reduction objective specification MATSUS_0000006. Later: model the affected process or system, material input, stated baseline, comparison conditions, and comparable output or function." ;
+                      matsus:integrationMethod "new MatSus subclass of COB planned process" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000034
+matsus:MATSUS_0000034 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:COB_0000082 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000181 and MKB-000182; SRC-002 Ellen MacArthur Foundation" ;
+                      rdfs:label "refill process"@en ;
+                      skos:definition "A planned process in which a product container or dispensing device is supplied again with a material product for further use without first becoming waste."@en ;
+                      skos:editorialNote "Human-gate-authorized MKB1 IR2 Batch 3 implementation. MKB-000181 and MKB-000182 are consolidated into this one generic process; at-home and on-the-go are source contexts, not subclasses. Later: model container or device, refilled material, location, agent, and context relations." ;
+                      matsus:integrationMethod "new MatSus subclass of COB planned process" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000035
+matsus:MATSUS_0000035 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:COB_0000082 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000184; SRC-001 Circular Berlin" ;
+                      rdfs:label "refusal process"@en ;
+                      skos:definition "A planned process in which an agent intentionally declines to acquire, accept, or use a specified product, material, or service in order to avoid its associated resource use or waste generation."@en ;
+                      skos:editorialNote "Human-gate-authorized MKB1 IR2 Batch 3 implementation. Refusal process represents the actual intentional refusal occurrence. It does not represent the strategy specification or objective specification that motivates, enables, or encourages that occurrence. Later: add agent, refused entity or service, and avoidance-objective relations." ;
+                      matsus:integrationMethod "new MatSus subclass of COB planned process" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000036
+matsus:MATSUS_0000036 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:COB_0000082 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000189; SRC-003 European Environment Agency" ;
+                      rdfs:label "remanufacturing process"@en ;
+                      skos:definition "A planned process in which a used product or component is restored to a specified performance and quality state through inspection and one or more restorative operations."@en ;
+                      skos:editorialNote "Human-gate-authorized MKB1 IR2 Batch 3 implementation. The remanufacturing process remains distinct from the separate AutomatCE remanufacturability disposition candidate. Later: model used input, retained identity or components, restorative operations, and specified output state." ;
+                      matsus:integrationMethod "new MatSus subclass of COB planned process" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000037
+matsus:MATSUS_0000037 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:IAO_0000027 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000002, SRC-003 European Environment Agency; MKB-000069, SRC-002 Ellen MacArthur Foundation" ;
+                      rdfs:label "decoupling datum"@en ;
+                      skos:definition "A data item that records a comparison over a stated time interval in which the rate of change of a resource input or environmental pressure is lower than the rate of change of a specified economic or service output."@en ;
+                      skos:editorialNote "Human-gate-authorized MKB1 IR2 Batch 3 implementation. This records the established sustainability and resource-efficiency meaning of decoupling, not dismantling, disassembly, or another physical separation process. Later: model absolute and relative classifications, baseline and comparison interval, resource-input or environmental-pressure indicator, economic or service-output indicator, calculation method, ratio, and temporal relations." ;
+                      matsus:integrationMethod "new MatSus subclass of IAO data item" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000038
+matsus:MATSUS_0000038 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:BFO_0000019 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 Class Review: MKB-000146; SRC-002 Ellen MacArthur Foundation" ;
+                      rdfs:label "modularity"@en ;
+                      skos:definition "A quality of an entity that reflects the degree to which its parts are organized into separable, replaceable, or recombinable modules."@en ;
+                      skos:editorialNote "Human-gate-authorized MKB1 IR2 Batch 3 implementation. Modularity is a dependent quality of a bearer, not an object aggregate. Later: model the bearer, measurement datum, degree, method, and any device- or design-specific subclasses." ;
+                      matsus:integrationMethod "new MatSus subclass of BFO quality" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000039
+matsus:MATSUS_0000039 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:IAO_0000104 ;
+                      <http://purl.org/dc/elements/1.1/source> "MKB1 IR2 human-gate modelling refinement derived from MKB-000184 and the 2026-09-04 Batch 3 review" ;
+                      rdfs:comment "Examples include optional packaging, opt-out disposable accessories, and service provision that avoids supplying a material product. This class denotes the strategy specification; the actual refusal occurrence is represented by refusal process."@en ;
+                      rdfs:label "refusal strategy specification"@en ;
+                      skos:definition "A plan specification that prescribes product, packaging, or service features intended to enable or encourage a refusal process and thereby avoid material use or waste generation."@en ;
+                      skos:editorialNote "Human-gate-authorized MKB1 IR2 Batch 3 addition derived from the MKB-000184 RefusalProcess review and the 2026-09-04 Batch 3 review. Relations to refusal processes, resource-input-reduction objectives, design specifications, affected product features, and realization remain deferred. Do not assert that every refusal process realizes a refusal strategy specification or add another logical relation between these classes in this batch." ;
+                      matsus:integrationMethod "new MatSus subclass of IAO plan specification" .
 
 
 ###  https://w3id.org/pmd/matsus/RecycledContentInformation
