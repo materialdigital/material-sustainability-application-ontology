@@ -9,22 +9,26 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:doap="http://usefulinc.com/ns/doap#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:prov="http://www.w3.org/ns/prov#"
+     xmlns:rdfa="http://www.w3.org/ns/rdfa#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:void="http://rdfs.org/ns/void#"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
-     xmlns:terms="http://purl.org/dc/terms/"
      xmlns:matsus="https://w3id.org/pmd/matsus/"
+     xmlns:dcterms="http://purl.org/dc/terms/"
      xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#">
     <owl:Ontology rdf:about="https://w3id.org/pmd/matsus/">
         <owl:versionIRI rdf:resource="https://w3id.org/pmd/matsus/dev/"/>
-        <terms:contributor rdf:resource="https://github.com/materialdigital"/>
-        <terms:creator>Khashayar Razghandi</terms:creator>
-        <terms:description>An application ontology for representing material sustainability concepts and their relations to the Platform MaterialDigital Core Ontology.</terms:description>
-        <terms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
-        <terms:publisher rdf:resource="https://materialdigital.de/"/>
-        <terms:source rdf:resource="https://github.com/materialdigital/material-sustainability-application-ontology"/>
-        <terms:title>Material Sustainability Application Ontology (Mat.Sus)</terms:title>
+        <dcterms:contributor rdf:resource="https://github.com/materialdigital"/>
+        <dcterms:creator>Khashayar Razghandi</dcterms:creator>
+        <dcterms:description>An application ontology for representing material sustainability concepts and their relations to the Platform MaterialDigital Core Ontology.</dcterms:description>
+        <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+        <dcterms:publisher rdf:resource="https://materialdigital.de/"/>
+        <dcterms:source rdf:resource="https://github.com/materialdigital/material-sustainability-application-ontology"/>
+        <dcterms:title>Material Sustainability Application Ontology (Mat.Sus)</dcterms:title>
         <owl:versionInfo>2026-09-11</owl:versionInfo>
     </owl:Ontology>
     
@@ -296,8 +300,8 @@ We also have the outstanding issue of how to aim different definitions to differ
         <obo:IAO_0000112>disease characteristic (MONDO:0021125) has cross-reference (http://www.geneontology.org/formats/oboInOwl#hasDbXref) &quot;NCIT:C41009&quot;^^xsd:string</obo:IAO_0000112>
         <obo:IAO_0000115>An annotation property that links an ontology entity or a statement to a prefixed identifier or URI.</obo:IAO_0000115>
         <obo:IAO_0000233 rdf:resource="https://github.com/information-artifact-ontology/ontology-metadata/issues/123"/>
-        <terms:contributor rdf:resource="https://orcid.org/0000-0002-7356-1779"/>
-        <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-03-18</terms:created>
+        <dcterms:contributor rdf:resource="https://orcid.org/0000-0002-7356-1779"/>
+        <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-03-18</dcterms:created>
         <rdfs:label>has cross-reference</rdfs:label>
     </owl:AnnotationProperty>
     
@@ -1740,7 +1744,7 @@ derivative === (&apos;has differential numerator&apos; only entity) and (&apos;h
     <owl:ObjectProperty rdf:about="http://qudt.org/schema/qudt/hasUnit">
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
         <rdfs:range rdf:resource="http://qudt.org/schema/qudt/Unit"/>
-        <terms:description xml:lang="en">This property relates a system of units with a unit of measure that is either a) defined by the system, or b) accepted for use by the system and is convertible to a unit of equivalent dimension that is defined by the system. Systems of units may distinguish between base and derived units. Base units are the units which measure the base quantities for the corresponding system of quantities. The base units are used to define units for all other quantities as products of powers of the base units. Such units are called derived units for the system.</terms:description>
+        <dcterms:description xml:lang="en">This property relates a system of units with a unit of measure that is either a) defined by the system, or b) accepted for use by the system and is convertible to a unit of equivalent dimension that is defined by the system. Systems of units may distinguish between base and derived units. Base units are the units which measure the base quantities for the corresponding system of quantities. The base units are used to define units for all other quantities as products of powers of the base units. Such units are called derived units for the system.</dcterms:description>
         <rdfs:isDefinedBy rdf:resource="http://qudt.org/2.1/schema/qudt"/>
         <rdfs:label>has unit</rdfs:label>
     </owl:ObjectProperty>
@@ -1751,7 +1755,7 @@ derivative === (&apos;has differential numerator&apos; only entity) and (&apos;h
 
     <owl:ObjectProperty rdf:about="http://w3id.org/CEON/ontology/processODP/hasInput">
         <rdfs:domain rdf:resource="http://w3id.org/CEON/ontology/processODP/Process"/>
-        <terms:source rdf:resource="http://w3id.org/CEON/ontology/processODP/0.5/"/>
+        <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/processODP/0.5/"/>
         <rdfs:comment>The inputs to a process or event.</rdfs:comment>
         <rdfs:label>has input</rdfs:label>
     </owl:ObjectProperty>
@@ -1762,7 +1766,7 @@ derivative === (&apos;has differential numerator&apos; only entity) and (&apos;h
 
     <owl:ObjectProperty rdf:about="http://w3id.org/CEON/ontology/processODP/hasOutput">
         <rdfs:domain rdf:resource="http://w3id.org/CEON/ontology/processODP/Process"/>
-        <terms:source rdf:resource="http://w3id.org/CEON/ontology/processODP/0.5/"/>
+        <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/processODP/0.5/"/>
         <rdfs:comment>The output of a process or event.</rdfs:comment>
         <rdfs:label>has output</rdfs:label>
     </owl:ObjectProperty>
@@ -1773,7 +1777,7 @@ derivative === (&apos;has differential numerator&apos; only entity) and (&apos;h
 
     <owl:ObjectProperty rdf:about="http://w3id.org/CEON/ontology/processODP/hasPart">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <terms:source rdf:resource="http://w3id.org/CEON/ontology/processODP/0.5/"/>
+        <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/processODP/0.5/"/>
         <rdfs:comment>A process or event can consist of several parts, which are sub-processes (e.g. steps) or events.</rdfs:comment>
         <rdfs:label>has part</rdfs:label>
     </owl:ObjectProperty>
@@ -1786,7 +1790,7 @@ derivative === (&apos;has differential numerator&apos; only entity) and (&apos;h
         <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000136"/>
         <rdfs:domain rdf:resource="http://w3id.org/dppo/ontology/dpp-info/CompositionInformation"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-comp/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-comp/"/>
         <rdfs:comment xml:lang="en">Relates composition information to a material entity that is a constituent or component part of the described whole.</rdfs:comment>
         <rdfs:label xml:lang="en">about part</rdfs:label>
         <integrationMethod>selective reuse with corrected unversioned dpp-info reference</integrationMethod>
@@ -1801,7 +1805,7 @@ derivative === (&apos;has differential numerator&apos; only entity) and (&apos;h
         <owl:inverseOf rdf:resource="http://w3id.org/dppo/ontology/dpp-info/hasCompositionInformation"/>
         <rdfs:domain rdf:resource="http://w3id.org/dppo/ontology/dpp-info/CompositionInformation"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-comp/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-comp/"/>
         <rdfs:comment xml:lang="en">Relates composition information to the material entity whose composition is described.</rdfs:comment>
         <rdfs:label xml:lang="en">about whole</rdfs:label>
         <integrationMethod>selective reuse with corrected unversioned dpp-info reference</integrationMethod>
@@ -1815,7 +1819,7 @@ derivative === (&apos;has differential numerator&apos; only entity) and (&apos;h
         <rdfs:subPropertyOf rdf:resource="http://w3id.org/dppo/ontology/dpp-info/externalDocument"/>
         <rdfs:domain rdf:resource="http://w3id.org/dppo/ontology/dpp-info/CertificateInformation"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/IAO_0000310"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
         <rdfs:comment xml:lang="en">Relates certificate information to a document representing the certificate.</rdfs:comment>
         <rdfs:label xml:lang="en">certificate document</rdfs:label>
     </owl:ObjectProperty>
@@ -1827,7 +1831,7 @@ derivative === (&apos;has differential numerator&apos; only entity) and (&apos;h
     <owl:ObjectProperty rdf:about="http://w3id.org/dppo/ontology/dpp-info/containsInformation">
         <rdfs:domain rdf:resource="http://w3id.org/dppo/ontology/dpp-odp/DPP"/>
         <rdfs:range rdf:resource="http://w3id.org/dppo/ontology/dpp-info/DPPInformation"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
         <rdfs:comment xml:lang="en">Relates a Digital Product Passport to a DPP information item it contains.</rdfs:comment>
         <rdfs:label xml:lang="en">contains information</rdfs:label>
         <integrationMethod>selective direct reuse</integrationMethod>
@@ -1842,7 +1846,7 @@ derivative === (&apos;has differential numerator&apos; only entity) and (&apos;h
         <owl:inverseOf rdf:resource="http://w3id.org/dppo/ontology/dpp-info/directlySupersedes"/>
         <rdfs:domain rdf:resource="http://w3id.org/dppo/ontology/dpp-info/DPPInformation"/>
         <rdfs:range rdf:resource="http://w3id.org/dppo/ontology/dpp-info/DPPInformation"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
         <rdfs:comment xml:lang="en">Relates a DPP information item to the information item that directly supersedes it.</rdfs:comment>
         <rdfs:label xml:lang="en">directly superseded by</rdfs:label>
     </owl:ObjectProperty>
@@ -1854,7 +1858,7 @@ derivative === (&apos;has differential numerator&apos; only entity) and (&apos;h
     <owl:ObjectProperty rdf:about="http://w3id.org/dppo/ontology/dpp-info/directlySupersedes">
         <rdfs:domain rdf:resource="http://w3id.org/dppo/ontology/dpp-info/DPPInformation"/>
         <rdfs:range rdf:resource="http://w3id.org/dppo/ontology/dpp-info/DPPInformation"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
         <rdfs:comment xml:lang="en">Relates a DPP information item to the earlier information item that it directly replaces.</rdfs:comment>
         <rdfs:label xml:lang="en">directly supersedes</rdfs:label>
     </owl:ObjectProperty>
@@ -1867,7 +1871,7 @@ derivative === (&apos;has differential numerator&apos; only entity) and (&apos;h
         <rdfs:subPropertyOf rdf:resource="http://w3id.org/dppo/ontology/dpp-info/externalDocument"/>
         <rdfs:domain rdf:resource="http://w3id.org/dppo/ontology/dpp-info/DisassemblyInformation"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/IAO_0000310"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
         <rdfs:comment xml:lang="en">Relates disassembly information to a document containing disassembly instructions.</rdfs:comment>
         <rdfs:label xml:lang="en">disassembly instructions document</rdfs:label>
     </owl:ObjectProperty>
@@ -1878,7 +1882,7 @@ derivative === (&apos;has differential numerator&apos; only entity) and (&apos;h
 
     <owl:ObjectProperty rdf:about="http://w3id.org/dppo/ontology/dpp-info/externalDocument">
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/IAO_0000310"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
         <rdfs:comment xml:lang="en">Relates DPP information to an external document containing related instructions, evidence, certificates, or further information.</rdfs:comment>
         <rdfs:label xml:lang="en">external document</rdfs:label>
         <integrationMethod>selective direct reuse with IAO-aligned range</integrationMethod>
@@ -1890,7 +1894,7 @@ derivative === (&apos;has differential numerator&apos; only entity) and (&apos;h
 
     <owl:ObjectProperty rdf:about="http://w3id.org/dppo/ontology/dpp-info/hasCompositionInformation">
         <rdfs:range rdf:resource="http://w3id.org/dppo/ontology/dpp-info/CompositionInformation"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
         <rdfs:comment xml:lang="en">Relates a material entity to DPP information describing its composition.</rdfs:comment>
         <rdfs:label xml:lang="en">has composition information</rdfs:label>
         <skos:editorialNote>The source dpp-comp versioned reference dpp-info/0.1/hasCompositionInformation is mapped to this unversioned IRI.</skos:editorialNote>
@@ -1905,7 +1909,7 @@ derivative === (&apos;has differential numerator&apos; only entity) and (&apos;h
         <rdfs:subPropertyOf rdf:resource="http://w3id.org/dppo/ontology/dpp-info/externalDocument"/>
         <rdfs:domain rdf:resource="http://w3id.org/dppo/ontology/dpp-info/RepairInstruction"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/IAO_0000310"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
         <rdfs:comment xml:lang="en">Relates repair instruction information to a document containing repair instructions.</rdfs:comment>
         <rdfs:label xml:lang="en">repair instructions document</rdfs:label>
         <skos:altLabel xml:lang="en">repair instrucitons document</skos:altLabel>
@@ -1920,7 +1924,7 @@ derivative === (&apos;has differential numerator&apos; only entity) and (&apos;h
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="http://w3id.org/dppo/ontology/dpp-info/DPPInformation"/>
         <rdfs:range rdf:resource="http://w3id.org/dppo/ontology/dpp-info/DPPInformation"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
         <rdfs:comment xml:lang="en">Relates a DPP information item to an information item that supersedes it.</rdfs:comment>
         <rdfs:label xml:lang="en">superseded by</rdfs:label>
     </owl:ObjectProperty>
@@ -1931,7 +1935,7 @@ derivative === (&apos;has differential numerator&apos; only entity) and (&apos;h
 
     <owl:ObjectProperty rdf:about="http://w3id.org/dppo/ontology/dpp-prov/actor">
         <rdfs:range rdf:resource="http://w3id.org/dppo/ontology/dpp-prov/Actor"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-prov/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-prov/"/>
         <rdfs:comment xml:lang="en">Relates a DPP or DPP information item to an actor responsible for it.</rdfs:comment>
         <rdfs:label xml:lang="en">DPP actor</rdfs:label>
     </owl:ObjectProperty>
@@ -1944,7 +1948,7 @@ derivative === (&apos;has differential numerator&apos; only entity) and (&apos;h
         <rdfs:subPropertyOf rdf:resource="http://w3id.org/dppo/ontology/dpp-prov/actor"/>
         <rdfs:domain rdf:resource="http://w3id.org/dppo/ontology/dpp-odp/DPP"/>
         <rdfs:range rdf:resource="http://w3id.org/dppo/ontology/dpp-prov/Actor"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-prov/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-prov/"/>
         <rdfs:comment xml:lang="en">Relates a DPP to the actor responsible for issuing it.</rdfs:comment>
         <rdfs:label xml:lang="en">DPP owner</rdfs:label>
         <skos:editorialNote>The source term is retained, but the integration interprets it operationally as issuer responsibility and does not assert equivalence to legal ownership.</skos:editorialNote>
@@ -1958,7 +1962,7 @@ derivative === (&apos;has differential numerator&apos; only entity) and (&apos;h
         <rdfs:subPropertyOf rdf:resource="http://w3id.org/dppo/ontology/dpp-prov/actor"/>
         <rdfs:domain rdf:resource="http://w3id.org/dppo/ontology/dpp-info/DPPInformation"/>
         <rdfs:range rdf:resource="http://w3id.org/dppo/ontology/dpp-prov/Actor"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-prov/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-prov/"/>
         <rdfs:comment xml:lang="en">Relates a DPP information item to the actor responsible for stating it.</rdfs:comment>
         <rdfs:label xml:lang="en">responsible actor</rdfs:label>
     </owl:ObjectProperty>
@@ -2338,7 +2342,7 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
         <owl:inverseOf rdf:resource="https://w3id.org/pmd/co/PMD_0040122"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000023"/>
-        <terms:source>Supplied via LOGao; absent from the PMDco release in use for comparison.</terms:source>
+        <dcterms:source>Supplied via LOGao; absent from the PMDco release in use for comparison.</dcterms:source>
         <rdfs:comment>Namespace/version anomaly: this PMDco-namespace object property is supplied through LOGao but is absent from the compared PMDco release used for validation. It is retained for LOGao compatibility only and must not be treated as a stable PMDco backbone property without manual review.</rdfs:comment>
         <rdfs:label xml:lang="en">specifies role</rdfs:label>
         <skos:editorialNote>LOG compatibility exception</skos:editorialNote>
@@ -2357,7 +2361,7 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
         <rdfs:subPropertyOf rdf:resource="https://w3id.org/pmd/co/PMD_0000004"/>
         <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000023"/>
         <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <terms:source>Supplied via LOGao; absent from the PMDco release in use for comparison.</terms:source>
+        <dcterms:source>Supplied via LOGao; absent from the PMDco release in use for comparison.</dcterms:source>
         <rdfs:comment>Namespace/version anomaly: this PMDco-namespace object property is supplied through LOGao but is absent from the compared PMDco release used for validation. It is retained for LOGao compatibility only and must not be treated as a stable PMDco backbone property without manual review.</rdfs:comment>
         <rdfs:label xml:lang="en">role specified by</rdfs:label>
         <skos:editorialNote>LOG compatibility exception</skos:editorialNote>
@@ -2493,7 +2497,7 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
     <owl:DatatypeProperty rdf:about="http://w3id.org/dppo/ontology/dpp-info/endTime">
         <rdfs:domain rdf:resource="http://w3id.org/dppo/ontology/dpp-info/LegalGuarantee"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
         <rdfs:comment xml:lang="en">The end of the validity interval of a legal guarantee.</rdfs:comment>
         <rdfs:label xml:lang="en">end time</rdfs:label>
     </owl:DatatypeProperty>
@@ -2505,7 +2509,7 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
     <owl:DatatypeProperty rdf:about="http://w3id.org/dppo/ontology/dpp-info/startTime">
         <rdfs:domain rdf:resource="http://w3id.org/dppo/ontology/dpp-info/LegalGuarantee"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
         <rdfs:comment xml:lang="en">The start of the validity interval of a legal guarantee.</rdfs:comment>
         <rdfs:label xml:lang="en">start time</rdfs:label>
     </owl:DatatypeProperty>
@@ -2525,7 +2529,7 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
             </owl:Class>
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-prov/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-prov/"/>
         <rdfs:comment xml:lang="en">The time at which a DPP or DPP information item became valid or available.</rdfs:comment>
         <rdfs:label xml:lang="en">creation time stamp</rdfs:label>
     </owl:DatatypeProperty>
@@ -2545,7 +2549,7 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
             </owl:Class>
         </rdfs:domain>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-prov/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-prov/"/>
         <rdfs:comment xml:lang="en">The time at which a DPP or DPP information item ceased to be valid.</rdfs:comment>
         <rdfs:label xml:lang="en">invalid at time stamp</rdfs:label>
     </owl:DatatypeProperty>
@@ -2556,7 +2560,7 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
 
     <owl:DatatypeProperty rdf:about="http://w3id.org/dppo/ontology/dpp-prov/timeStamp">
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-prov/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-prov/"/>
         <rdfs:comment xml:lang="en">A timestamp associated with a Digital Product Passport or DPP information item.</rdfs:comment>
         <rdfs:label xml:lang="en">time stamp</rdfs:label>
     </owl:DatatypeProperty>
@@ -5541,7 +5545,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
     <owl:Class rdf:about="http://w3id.org/CEON/ontology/process/DeconstructionProcess">
         <rdfs:subClassOf rdf:resource="http://w3id.org/CEON/ontology/process/TransformationProcess"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000000"/>
-        <terms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
+        <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
         <rdfs:comment>A process of deconstruction.</rdfs:comment>
         <rdfs:label>Deconstruction Process</rdfs:label>
         <integrationMethod>Mat.Sus-authored provisional end-of-life subclassing pending pre-publication modelling review</integrationMethod>
@@ -5554,7 +5558,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
     <owl:Class rdf:about="http://w3id.org/CEON/ontology/process/DisassemblingProcess">
         <rdfs:subClassOf rdf:resource="http://w3id.org/CEON/ontology/process/TransformationProcess"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000000"/>
-        <terms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
+        <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
         <rdfs:comment>A process of disassembling.</rdfs:comment>
         <rdfs:label>Disassembling Process</rdfs:label>
         <integrationMethod>Mat.Sus-authored provisional end-of-life subclassing pending pre-publication modelling review</integrationMethod>
@@ -5567,7 +5571,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
     <owl:Class rdf:about="http://w3id.org/CEON/ontology/process/DismantleProcess">
         <rdfs:subClassOf rdf:resource="http://w3id.org/CEON/ontology/process/TransformationProcess"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000000"/>
-        <terms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
+        <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
         <rdfs:comment>A process of dismantling.</rdfs:comment>
         <rdfs:label>Dismantle Process</rdfs:label>
         <integrationMethod>Mat.Sus-authored provisional end-of-life subclassing pending pre-publication modelling review</integrationMethod>
@@ -5580,7 +5584,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
     <owl:Class rdf:about="http://w3id.org/CEON/ontology/process/RecycleProcess">
         <rdfs:subClassOf rdf:resource="http://w3id.org/CEON/ontology/process/TransformationProcess"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000000"/>
-        <terms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
+        <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
         <rdfs:comment>A process of recycling.</rdfs:comment>
         <rdfs:label>Recycle Process</rdfs:label>
         <integrationMethod>Mat.Sus-authored end-of-life subclassing</integrationMethod>
@@ -5592,7 +5596,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
 
     <owl:Class rdf:about="http://w3id.org/CEON/ontology/process/RefurbishmentProcess">
         <rdfs:subClassOf rdf:resource="http://w3id.org/CEON/ontology/process/TransformationProcess"/>
-        <terms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
+        <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
         <rdfs:comment>A process of refurbishment.</rdfs:comment>
         <rdfs:label>Refurbishment Process</rdfs:label>
     </owl:Class>
@@ -5603,7 +5607,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
 
     <owl:Class rdf:about="http://w3id.org/CEON/ontology/process/RepairProcess">
         <rdfs:subClassOf rdf:resource="http://w3id.org/CEON/ontology/process/TransformationProcess"/>
-        <terms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
+        <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
         <rdfs:comment>A process of repairing.</rdfs:comment>
         <rdfs:label>Repair Process</rdfs:label>
     </owl:Class>
@@ -5614,7 +5618,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
 
     <owl:Class rdf:about="http://w3id.org/CEON/ontology/process/ReuseProcess">
         <rdfs:subClassOf rdf:resource="http://w3id.org/CEON/ontology/processODP/Process"/>
-        <terms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
+        <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
         <rdfs:comment>A process of reusing.</rdfs:comment>
         <rdfs:label>Reuse Process</rdfs:label>
     </owl:Class>
@@ -5626,7 +5630,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
     <owl:Class rdf:about="http://w3id.org/CEON/ontology/process/TakeBackProcess">
         <rdfs:subClassOf rdf:resource="http://w3id.org/CEON/ontology/processODP/Process"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000000"/>
-        <terms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
+        <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
         <rdfs:comment>A process of taking back.</rdfs:comment>
         <rdfs:label>Take Back Process</rdfs:label>
         <integrationMethod>Mat.Sus-authored end-of-life subclassing</integrationMethod>
@@ -5638,7 +5642,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
 
     <owl:Class rdf:about="http://w3id.org/CEON/ontology/process/TransformationProcess">
         <rdfs:subClassOf rdf:resource="http://w3id.org/CEON/ontology/processODP/Process"/>
-        <terms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
+        <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
         <rdfs:comment xml:lang="en">Set of interrelated or interacting activities that transforms inputs into outputs.</rdfs:comment>
         <rdfs:isDefinedBy>ISO 59004:2024  - 3.5.5 process</rdfs:isDefinedBy>
         <rdfs:label>Transformation Process</rdfs:label>
@@ -5650,27 +5654,14 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
     <!-- http://w3id.org/CEON/ontology/processODP/Event -->
 
     <owl:Class rdf:about="http://w3id.org/CEON/ontology/processODP/Event">
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://w3id.org/CEON/ontology/processODP/hasInput"/>
-                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://w3id.org/CEON/ontology/processODP/hasOutput"/>
-                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
+        <rdfs:subClassOf rdf:resource="http://w3id.org/CEON/ontology/processODP/Process"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://w3id.org/CEON/ontology/processODP/hasPart"/>
                 <owl:allValuesFrom rdf:resource="http://w3id.org/CEON/ontology/processODP/Event"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <terms:source rdf:resource="http://w3id.org/CEON/ontology/processODP/0.5/"/>
+        <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/processODP/0.5/"/>
         <rdfs:comment>Something that happens within a given context or (short) timeframe.</rdfs:comment>
         <rdfs:label>Event</rdfs:label>
     </owl:Class>
@@ -5708,7 +5699,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
                 </owl:allValuesFrom>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <terms:source rdf:resource="http://w3id.org/CEON/ontology/processODP/0.5/"/>
+        <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/processODP/0.5/"/>
         <rdfs:comment xml:lang="en">Something that takes place over a (longer) period of time and changes some state of affairs.</rdfs:comment>
         <rdfs:label>Process</rdfs:label>
         <integrationBasis>PMDco 3.1.0 and BFO authoritative process backbone</integrationBasis>
@@ -5727,7 +5718,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000028"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-core/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-core/"/>
         <rdfs:comment xml:lang="en">A DPP that is about a component.</rdfs:comment>
         <rdfs:label xml:lang="en">Component DPP</rdfs:label>
         <alignmentRelation>narrow DPP subtype linked by IAO is about; no class equivalence</alignmentRelation>
@@ -5747,7 +5738,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000029"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-core/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-core/"/>
         <rdfs:comment xml:lang="en">A DPP that is about a consumer product.</rdfs:comment>
         <rdfs:label xml:lang="en">Consumer Product DPP</rdfs:label>
         <skos:altLabel xml:lang="en">Comsumer Product DPP</skos:altLabel>
@@ -5769,7 +5760,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/co/PMD_0000000"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-core/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-core/"/>
         <rdfs:comment xml:lang="en">A DPP that is about a material.</rdfs:comment>
         <rdfs:label xml:lang="en">Material DPP</rdfs:label>
         <alignmentRelation>DPP subtype linked to authoritative PMDco Material by IAO is about; no class equivalence</alignmentRelation>
@@ -5789,7 +5780,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
                 <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/CHEBI_59999"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-core/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-core/"/>
         <rdfs:comment xml:lang="en">A DPP that is about a chemical substance.</rdfs:comment>
         <rdfs:label xml:lang="en">Substance DPP</rdfs:label>
         <alignmentRelation>DPP subtype linked cautiously to the PMDco-imported chemical substance anchor; no class equivalence</alignmentRelation>
@@ -5803,7 +5794,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
 
     <owl:Class rdf:about="http://w3id.org/dppo/ontology/dpp-info/CertificateInformation">
         <rdfs:subClassOf rdf:resource="http://w3id.org/dppo/ontology/dpp-info/DPPInformation"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
         <rdfs:comment xml:lang="en">A piece of DPP information about a certificate concerning a product.</rdfs:comment>
         <rdfs:label xml:lang="en">Certificate information</rdfs:label>
         <integrationMethod>selective direct reuse</integrationMethod>
@@ -5816,7 +5807,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
 
     <owl:Class rdf:about="http://w3id.org/dppo/ontology/dpp-info/CompositionInformation">
         <rdfs:subClassOf rdf:resource="http://w3id.org/dppo/ontology/dpp-info/DPPInformation"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
         <rdfs:comment xml:lang="en">A piece of DPP information about the composition of a product, including relations between a whole and its material or component parts.</rdfs:comment>
         <rdfs:label xml:lang="en">Composition information</rdfs:label>
         <skos:editorialNote>The unversioned IRI defined in dpp-info is authoritative in this materialization; versioned dpp-info/0.1 references in dpp-comp are mapped to it.</skos:editorialNote>
@@ -5829,7 +5820,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
 
     <owl:Class rdf:about="http://w3id.org/dppo/ontology/dpp-info/DPPInformation">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
         <rdfs:comment xml:lang="en">A piece of information contained in a Digital Product Passport.</rdfs:comment>
         <rdfs:label xml:lang="en">DPP information</rdfs:label>
         <integrationMethod>selective direct reuse</integrationMethod>
@@ -5842,7 +5833,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
 
     <owl:Class rdf:about="http://w3id.org/dppo/ontology/dpp-info/DisassemblyInformation">
         <rdfs:subClassOf rdf:resource="http://w3id.org/dppo/ontology/dpp-info/DPPInformation"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
         <rdfs:comment xml:lang="en">A piece of DPP information about how to disassemble a product, including links to disassembly instructions.</rdfs:comment>
         <rdfs:label xml:lang="en">Disassembly information</rdfs:label>
         <integrationMethod>selective direct reuse</integrationMethod>
@@ -5854,7 +5845,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
 
     <owl:Class rdf:about="http://w3id.org/dppo/ontology/dpp-info/LegalGuarantee">
         <rdfs:subClassOf rdf:resource="http://w3id.org/dppo/ontology/dpp-info/DPPInformation"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
         <rdfs:comment xml:lang="en">A piece of DPP information describing the legal guarantee of a product and its period of validity.</rdfs:comment>
         <rdfs:label xml:lang="en">Legal guarantee</rdfs:label>
         <integrationMethod>selective direct reuse</integrationMethod>
@@ -5866,7 +5857,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
 
     <owl:Class rdf:about="http://w3id.org/dppo/ontology/dpp-info/ProductCharacteristic">
         <rdfs:subClassOf rdf:resource="http://w3id.org/dppo/ontology/dpp-info/DPPInformation"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
         <rdfs:comment xml:lang="en">A piece of DPP information describing a characteristic of a product.</rdfs:comment>
         <rdfs:label xml:lang="en">Product characteristic</rdfs:label>
         <integrationMethod>selective direct reuse</integrationMethod>
@@ -5879,7 +5870,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
 
     <owl:Class rdf:about="http://w3id.org/dppo/ontology/dpp-info/ProductQuality">
         <rdfs:subClassOf rdf:resource="http://w3id.org/dppo/ontology/dpp-info/DPPInformation"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
         <rdfs:comment xml:lang="en">A piece of DPP information about a quality of a product.</rdfs:comment>
         <rdfs:label xml:lang="en">Product quality</rdfs:label>
         <integrationMethod>selective direct reuse</integrationMethod>
@@ -5892,7 +5883,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
 
     <owl:Class rdf:about="http://w3id.org/dppo/ontology/dpp-info/RepairInstruction">
         <rdfs:subClassOf rdf:resource="http://w3id.org/dppo/ontology/dpp-info/DPPInformation"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-info/"/>
         <rdfs:comment xml:lang="en">A piece of DPP information about how to repair a product.</rdfs:comment>
         <rdfs:label xml:lang="en">Repair instruction</rdfs:label>
         <integrationMethod>selective direct reuse</integrationMethod>
@@ -5905,7 +5896,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
 
     <owl:Class rdf:about="http://w3id.org/dppo/ontology/dpp-odp/DPP">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-odp/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-odp/"/>
         <rdfs:comment xml:lang="en">A Digital Product Passport containing information about a product and potentially containing subordinate DPP information.</rdfs:comment>
         <rdfs:label xml:lang="en">Digital Product Passport</rdfs:label>
         <integrationBasis>DPPO ontology-level semantic source aligned to the PMDco/IAO backbone</integrationBasis>
@@ -5919,7 +5910,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
 
     <owl:Class rdf:about="http://w3id.org/dppo/ontology/dpp-prov/Actor">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000011"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-prov/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-prov/"/>
         <rdfs:comment xml:lang="en">An agent responsible for a Digital Product Passport or for information contained in it.</rdfs:comment>
         <rdfs:label xml:lang="en">DPP actor</rdfs:label>
         <skos:altLabel xml:lang="en">Actor</skos:altLabel>
@@ -5934,7 +5925,7 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
 
     <owl:Class rdf:about="http://w3id.org/dppo/ontology/dpp-prov/ValueChainActor">
         <rdfs:subClassOf rdf:resource="http://w3id.org/dppo/ontology/dpp-prov/Actor"/>
-        <terms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-prov/"/>
+        <dcterms:source rdf:resource="http://w3id.org/dppo/ontology/dpp-prov/"/>
         <rdfs:comment xml:lang="en">A DPP actor that actively participates in a product value chain, such as a manufacturer, supplier, or recycler.</rdfs:comment>
         <rdfs:label xml:lang="en">Value chain actor</rdfs:label>
         <integrationMethod>selective direct reuse aligned through DPPO Actor to LOG agent</integrationMethod>
@@ -6042,7 +6033,7 @@ granularity. At these coarser levels, the individual molecules cannot be differe
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000005">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020353"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0023004"/>
-        <rdfs:subClassOf rdf:nodeID="genid204"/>
+        <rdfs:subClassOf rdf:nodeID="genid199"/>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
         <obo:IAO_0000117>PERSON: Joerg Waitelonis</obo:IAO_0000117>
         <rdfs:comment xml:lang="en">A property is a material trait in terms of the kind and magnitude of response to a specific imposed stimulus. Generally, definitions of properties are made independent of material shape and size.
@@ -6058,7 +6049,7 @@ Extensive properties that depend on the object being tested rather than on the p
         <skos:definition xml:lang="en">a disposition of a portion of matter that is realized in a compatible process and whose realization is grounded in the portions intensive qualities</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
-    <owl:Restriction rdf:nodeID="genid204">
+    <owl:Restriction rdf:nodeID="genid199">
         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
         <owl:someValuesFrom>
             <owl:Class>
@@ -6075,7 +6066,7 @@ Extensive properties that depend on the object being tested rather than on the p
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0000005"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid204"/>
+        <owl:annotatedTarget rdf:nodeID="genid199"/>
         <rdfs:comment xml:lang="en">Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom.</rdfs:comment>
     </owl:Axiom>
     
@@ -9169,7 +9160,7 @@ process and (&apos;has participant&apos; some
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000647">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000646"/>
         <obo:IAO_0000119 xml:lang="en">Official definition can be found in: DIN 8586</obo:IAO_0000119>
-        <terms:source xml:lang="de">Offizielle Definition findet man in: DIN 8586</terms:source>
+        <dcterms:source xml:lang="de">Offizielle Definition findet man in: DIN 8586</dcterms:source>
         <rdfs:label xml:lang="de">Biegeumformen</rdfs:label>
         <rdfs:label xml:lang="en">forming by bending</rdfs:label>
         <skos:definition xml:lang="en">A forming process that involves bending materials, typically used in manipulating sheets, tubes, or profiles into curved shapes or angles, common in metalworking and fabrication industries.</skos:definition>
@@ -9198,7 +9189,7 @@ process and (&apos;has participant&apos; some
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000649">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000646"/>
         <obo:IAO_0000119 xml:lang="en">Official definition can be found in: DIN 8584-1</obo:IAO_0000119>
-        <terms:source xml:lang="de">Offizielle Definition findet man in: DIN 8584-1</terms:source>
+        <dcterms:source xml:lang="de">Offizielle Definition findet man in: DIN 8584-1</dcterms:source>
         <rdfs:label xml:lang="de">Zugdruckumformen</rdfs:label>
         <rdfs:label xml:lang="en">forming under compressive and tensile conditions</rdfs:label>
         <skos:definition xml:lang="en">A forming process that involves applying both tensile and compressive forces to a material.</skos:definition>
@@ -9213,7 +9204,7 @@ process and (&apos;has participant&apos; some
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000650">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000646"/>
         <obo:IAO_0000119 xml:lang="en">Official definition can be found in: DIN 8583-1</obo:IAO_0000119>
-        <terms:source xml:lang="de">Offizielle Definition findet man in: DIN 8583-1</terms:source>
+        <dcterms:source xml:lang="de">Offizielle Definition findet man in: DIN 8583-1</dcterms:source>
         <rdfs:label xml:lang="de">Druckumformen</rdfs:label>
         <rdfs:label xml:lang="en">forming under compressive conditions</rdfs:label>
         <skos:definition xml:lang="en">A forming process that involves deforming materials under compressive forces, commonly used in techniques like rolling and die forming where metal is shaped by applying pressure.</skos:definition>
@@ -9228,7 +9219,7 @@ process and (&apos;has participant&apos; some
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000651">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000646"/>
         <obo:IAO_0000119 xml:lang="en">Official definition can be found in: DIN 8587</obo:IAO_0000119>
-        <terms:source xml:lang="de">Offizielle Definition findet man in: DIN 8587</terms:source>
+        <dcterms:source xml:lang="de">Offizielle Definition findet man in: DIN 8587</dcterms:source>
         <rdfs:label xml:lang="de">Schubumformen</rdfs:label>
         <rdfs:label xml:lang="en">forming under shearing conditions</rdfs:label>
         <skos:definition xml:lang="en">A forming process that involves displacement or twisting materials to achieve deformation, often used in operations where materials are shaped by applying torsional forces.</skos:definition>
@@ -21191,7 +21182,9 @@ In future versions we may provide equivalent class axioms.</obo:IAO_0000116>
     <!-- https://w3id.org/pmd/co/PMD_0027003 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0027003">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020335"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0023007"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0023036"/>
         <rdfs:subClassOf>
             <owl:Class>
@@ -21329,7 +21322,7 @@ In future versions we may provide equivalent class axioms.</obo:IAO_0000116>
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0040029">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000029"/>
-        <terms:source>Supplied via LOGao; absent from the PMDco release in use for comparison.</terms:source>
+        <dcterms:source>Supplied via LOGao; absent from the PMDco release in use for comparison.</dcterms:source>
         <rdfs:comment>Namespace/version anomaly: this PMDco-namespace class is present in this combined ontology via LOGao, but is absent from the compared PMDco release used for validation (pmdco-full.ttl). It is retained for LOGao compatibility only, must not be treated as a stable PMDco backbone anchor, and should not be used to justify broader PMDco restructuring without manual review.</rdfs:comment>
         <rdfs:label>geospatial site</rdfs:label>
         <skos:definition>site at or near the surface of the earth</skos:definition>
@@ -21364,7 +21357,7 @@ In future versions we may provide equivalent class axioms.</obo:IAO_0000116>
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/log/LOG_1000085"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <terms:source>Supplied via LOGao; absent from the PMDco release in use for comparison.</terms:source>
+        <dcterms:source>Supplied via LOGao; absent from the PMDco release in use for comparison.</dcterms:source>
         <rdfs:comment>Namespace/version anomaly: this PMDco-namespace class is present in this combined ontology via LOGao, but is absent from the compared PMDco release used for validation (pmdco-full.ttl). It is retained for LOGao compatibility only, must not be treated as a stable PMDco backbone anchor, and should not be used to justify broader PMDco restructuring without manual review.</rdfs:comment>
         <rdfs:label>geospatial location</rdfs:label>
         <skos:definition>geospatial site that is the location of some material entity at some time or the site of some process</skos:definition>
@@ -21382,7 +21375,7 @@ In future versions we may provide equivalent class axioms.</obo:IAO_0000116>
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0040129">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000005"/>
-        <terms:source>Supplied via LOGao; absent from the PMDco release in use for comparison.</terms:source>
+        <dcterms:source>Supplied via LOGao; absent from the PMDco release in use for comparison.</dcterms:source>
         <rdfs:comment>Namespace/version anomaly: this PMDco-namespace class is present in this combined ontology via LOGao, but is absent from the compared PMDco release used for validation (pmdco-full.ttl). It is retained for LOGao compatibility only, must not be treated as a stable PMDco backbone anchor, and should not be used to justify broader PMDco restructuring without manual review.</rdfs:comment>
         <rdfs:label>supply chain objective specification</rdfs:label>
         <skos:definition>objective specification that prescribes what the outcome of a supply chain process should be</skos:definition>
@@ -21400,7 +21393,7 @@ In future versions we may provide equivalent class axioms.</obo:IAO_0000116>
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0040151">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000034"/>
-        <terms:source>Supplied via LOGao; absent from the PMDco release in use for comparison.</terms:source>
+        <dcterms:source>Supplied via LOGao; absent from the PMDco release in use for comparison.</dcterms:source>
         <rdfs:comment>Namespace/version anomaly: this PMDco-namespace class is present in this combined ontology via LOGao, but is absent from the compared PMDco release used for validation (pmdco-full.ttl). It is retained for LOGao compatibility only, must not be treated as a stable PMDco backbone anchor, and should not be used to justify broader PMDco restructuring without manual review.</rdfs:comment>
         <rdfs:label>storage function</rdfs:label>
         <skos:definition>function of an material entity to store other material entities</skos:definition>
@@ -25550,8 +25543,8 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0080108">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020311"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0023004"/>
-        <rdfs:subClassOf rdf:nodeID="genid2152"/>
-        <rdfs:subClassOf rdf:nodeID="genid2158"/>
+        <rdfs:subClassOf rdf:nodeID="genid2147"/>
+        <rdfs:subClassOf rdf:nodeID="genid2153"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
@@ -25565,7 +25558,7 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
         <skos:example xml:lang="en">A cross-section of a loaded steel column bears a compressive stress of 150 MPa</skos:example>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
-    <owl:Class rdf:nodeID="genid2152">
+    <owl:Class rdf:nodeID="genid2147">
         <owl:intersectionOf rdf:parseType="Collection">
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
@@ -25577,7 +25570,7 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
             </owl:Restriction>
         </owl:intersectionOf>
     </owl:Class>
-    <owl:Class rdf:nodeID="genid2158">
+    <owl:Class rdf:nodeID="genid2153">
         <owl:intersectionOf rdf:parseType="Collection">
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
@@ -25592,13 +25585,13 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0080108"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid2152"/>
+        <owl:annotatedTarget rdf:nodeID="genid2147"/>
         <rdfs:comment xml:lang="en">Mechanical view on stress</rdfs:comment>
     </owl:Axiom>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0080108"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid2158"/>
+        <owl:annotatedTarget rdf:nodeID="genid2153"/>
         <rdfs:comment xml:lang="en">Thermodynamic view on stress</rdfs:comment>
     </owl:Axiom>
     
@@ -25653,14 +25646,14 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
     <!-- https://w3id.org/pmd/co/PMD_0080111 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0080111">
-        <rdfs:subClassOf rdf:nodeID="genid2167"/>
+        <rdfs:subClassOf rdf:nodeID="genid2162"/>
         <obo:IAO_0000117>PERSON: Thomas Hanke</obo:IAO_0000117>
         <rdfs:label xml:lang="de">Kriechspannung</rdfs:label>
         <rdfs:label xml:lang="en">creep stress</rdfs:label>
         <skos:definition xml:lang="en">Creep stress is characterized by strain occurring with time when a constant force is applied to a physical body</skos:definition>
         <skos:example xml:lang="en">A polymer gasket under a creep stress of 5 MPa at 60 C relaxes significantly over 1000 hours</skos:example>
     </owl:Class>
-    <owl:Class rdf:nodeID="genid2167">
+    <owl:Class rdf:nodeID="genid2162">
         <owl:intersectionOf rdf:parseType="Collection">
             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0080108"/>
             <owl:Restriction>
@@ -25682,7 +25675,7 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0080111"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid2167"/>
+        <owl:annotatedTarget rdf:nodeID="genid2162"/>
         <rdfs:comment xml:lang="en">strictly speaking this is just stress sustained over time.</rdfs:comment>
     </owl:Axiom>
     
@@ -25771,14 +25764,14 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0080116">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
-        <rdfs:subClassOf rdf:nodeID="genid2177"/>
+        <rdfs:subClassOf rdf:nodeID="genid2172"/>
         <obo:IAO_0000117>Philipp von Hartrott</obo:IAO_0000117>
         <rdfs:comment xml:lang="en">Every potential in physics is the same mathematical object — a partial derivative of energy with respect to its conjugate extensive quantity. The differences are only in which extensive quality you&apos;re considering.</rdfs:comment>
         <rdfs:label xml:lang="en">potential</rdfs:label>
         <skos:definition xml:lang="en">a partial derivative of energy with respect to its conjugate extensive quantity</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
-    <owl:Class rdf:nodeID="genid2177">
+    <owl:Class rdf:nodeID="genid2172">
         <owl:intersectionOf rdf:parseType="Collection">
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
@@ -25793,7 +25786,7 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0080116"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid2177"/>
+        <owl:annotatedTarget rdf:nodeID="genid2172"/>
         <rdfs:comment xml:lang="en">In field theories (e.g., gravity, electrostatics), the potential becomes a field ϕ(r⃗), and the force is recovered via:
 F=−∇ϕ(r⃗)F
 This is the spatial analogue: instead of asking &quot;how does energy change per unit carrier added?&quot;, you ask &quot;how does energy change per unit carrier moved in space?&quot;</rdfs:comment>
@@ -26133,7 +26126,7 @@ This is the spatial analogue: instead of asking &quot;how does energy change per
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0080137">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0023004"/>
-        <rdfs:subClassOf rdf:nodeID="genid2192"/>
+        <rdfs:subClassOf rdf:nodeID="genid2187"/>
         <obo:IAO_0000117>PERSON: Thomas Hanke</obo:IAO_0000117>
         <rdfs:label xml:lang="de">Poissonzahl</rdfs:label>
         <rdfs:label xml:lang="en">poisson&apos;s ratio</rdfs:label>
@@ -26141,7 +26134,7 @@ This is the spatial analogue: instead of asking &quot;how does energy change per
         <skos:example xml:lang="en">Rubber has a Poisson&apos;s ratio close to 0.5, indicating nearly incompressible behavior under loading</skos:example>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
-    <owl:Class rdf:nodeID="genid2192">
+    <owl:Class rdf:nodeID="genid2187">
         <owl:intersectionOf rdf:parseType="Collection">
             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020311"/>
             <owl:Restriction>
@@ -26157,7 +26150,7 @@ This is the spatial analogue: instead of asking &quot;how does energy change per
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0080137"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid2192"/>
+        <owl:annotatedTarget rdf:nodeID="genid2187"/>
         <rdfs:comment xml:lang="en">The two strains should be perpendicular to each other</rdfs:comment>
     </owl:Axiom>
     
@@ -28016,7 +28009,6 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
     <!-- https://w3id.org/pmd/log/LOG_0000003 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_0000003">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000130"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -30565,7 +30557,6 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
     <!-- https://w3id.org/pmd/log/LOG_1000114 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000114">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000113"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -30590,7 +30581,6 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
     <!-- https://w3id.org/pmd/log/LOG_1000115 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000115">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000113"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -30615,7 +30605,6 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
     <!-- https://w3id.org/pmd/log/LOG_1000116 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000116">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000113"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -30640,7 +30629,6 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
     <!-- https://w3id.org/pmd/log/LOG_1000117 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000117">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000113"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -30722,7 +30710,6 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
     <!-- https://w3id.org/pmd/log/LOG_1000121 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000121">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000130"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -30892,7 +30879,6 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
     <!-- https://w3id.org/pmd/log/LOG_1000126 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/log/LOG_1000126">
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000130"/>
         <rdfs:subClassOf>
             <owl:Class>
                 <owl:intersectionOf rdf:parseType="Collection">
@@ -31467,8 +31453,8 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/BatteryCarbonFootprintInformation">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
         <rdfs:subClassOf rdf:resource="http://w3id.org/dppo/ontology/dpp-info/DPPInformation"/>
-        <terms:source rdf:resource="urn:samm:io.BatteryPass.CarbonFootprint:1.2.0#batteryCarbonFootprint"/>
-        <terms:source>BatteryPass-ready Data Attribute Long List v1.3, attributes 28-35</terms:source>
+        <dcterms:source rdf:resource="urn:samm:io.BatteryPass.CarbonFootprint:1.2.0#batteryCarbonFootprint"/>
+        <dcterms:source>BatteryPass-ready Data Attribute Long List v1.3, attributes 28-35</dcterms:source>
         <rdfs:label xml:lang="en">battery carbon footprint information</rdfs:label>
         <skos:definition xml:lang="en">A DPP data item that records a calculated greenhouse-gas emissions result for a battery under a specified method, system boundary, and functional unit.</skos:definition>
         <skos:editorialNote>This is a calculated indicator/data item, not an intrinsic material quality. Detailed LCA methodology alignment is deferred to the CLEO stage.</skos:editorialNote>
@@ -31481,8 +31467,8 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/BatteryLabelInformation">
         <rdfs:subClassOf rdf:resource="http://w3id.org/dppo/ontology/dpp-info/DPPInformation"/>
-        <terms:source rdf:resource="urn:samm:io.BatteryPass.Labels:1.2.0#labels"/>
-        <terms:source>BatteryPass-ready Data Attribute Long List v1.3, attributes 21-25</terms:source>
+        <dcterms:source rdf:resource="urn:samm:io.BatteryPass.Labels:1.2.0#labels"/>
+        <dcterms:source>BatteryPass-ready Data Attribute Long List v1.3, attributes 21-25</dcterms:source>
         <rdfs:label xml:lang="en">battery label information</rdfs:label>
         <skos:definition xml:lang="en">DPP information about labels, symbols, and their meanings that are attached to or applicable to a battery.</skos:definition>
         <integrationMethod>new MatSus DPP information class based on BatteryPass requirements</integrationMethod>
@@ -31494,7 +31480,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/BatteryModelSpecification">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0060007"/>
-        <terms:source>BatteryPass-ready Data Attribute Long List v1.3, attribute 7</terms:source>
+        <dcterms:source>BatteryPass-ready Data Attribute Long List v1.3, attribute 7</dcterms:source>
         <rdfs:label xml:lang="en">battery model specification</rdfs:label>
         <skos:definition xml:lang="en">A material specification that describes a battery model.</skos:definition>
         <integrationMethod>new MatSus subclass of PMDco material specification</integrationMethod>
@@ -31507,7 +31493,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/DPPGranularityDatum">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
-        <terms:source>BatteryPass-ready Data Attribute Long List v1.3, attribute 3</terms:source>
+        <dcterms:source>BatteryPass-ready Data Attribute Long List v1.3, attribute 3</dcterms:source>
         <rdfs:label xml:lang="en">DPP granularity datum</rdfs:label>
         <skos:definition xml:lang="en">A data item that records whether the product identifier associated with a Digital Product Passport denotes a product model, batch, or individual item.</skos:definition>
         <skos:editorialNote>Granularity values are represented as literals and will be constrained in SHACL. The accepted PMD lot/LOG lot alignment and LOG batch identifier remain authoritative; no new batch class is introduced.</skos:editorialNote>
@@ -31520,7 +31506,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/DPPStatusDatum">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
-        <terms:source>BatteryPass-ready Data Attribute Long List v1.3, attribute 2</terms:source>
+        <dcterms:source>BatteryPass-ready Data Attribute Long List v1.3, attribute 2</dcterms:source>
         <rdfs:label xml:lang="en">DPP status datum</rdfs:label>
         <skos:definition xml:lang="en">A data item that records the lifecycle status of a Digital Product Passport as a digital resource.</skos:definition>
         <skos:editorialNote>Status values are represented as literals and will be constrained in a later SHACL layer; no OWL or SKOS value vocabulary is introduced here.</skos:editorialNote>
@@ -31533,8 +31519,8 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/DeclarationOfConformity">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000310"/>
-        <terms:source rdf:resource="urn:samm:io.BatteryPass.Labels:1.2.0#declarationOfConformity"/>
-        <terms:source>BatteryPass-ready Data Attribute Long List v1.3, attribute 26</terms:source>
+        <dcterms:source rdf:resource="urn:samm:io.BatteryPass.Labels:1.2.0#declarationOfConformity"/>
+        <dcterms:source>BatteryPass-ready Data Attribute Long List v1.3, attribute 26</dcterms:source>
         <rdfs:label xml:lang="en">declaration of conformity</rdfs:label>
         <skos:definition xml:lang="en">A document declaring that a product conforms to specified legal or technical requirements.</skos:definition>
         <integrationMethod>new MatSus document class based on BatteryPass requirements</integrationMethod>
@@ -31552,7 +31538,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <owl:someValuesFrom rdf:resource="http://w3id.org/dppo/ontology/dpp-odp/DPP"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <terms:source>BatteryPass-ready Data Attribute Long List v1.3, attribute 5</terms:source>
+        <dcterms:source>BatteryPass-ready Data Attribute Long List v1.3, attribute 5</dcterms:source>
         <rdfs:label xml:lang="en">Digital Product Passport identifier</rdfs:label>
         <skos:definition xml:lang="en">An identifier that denotes a specific Digital Product Passport or passport version.</skos:definition>
         <integrationMethod>new MatSus class using the accepted IAO identifier pattern</integrationMethod>
@@ -31564,7 +31550,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/EndOfLifeInformation">
         <rdfs:subClassOf rdf:resource="http://w3id.org/dppo/ontology/dpp-info/DPPInformation"/>
-        <terms:source>BatteryPass-ready Data Attribute Long List v1.3, attributes 56-58</terms:source>
+        <dcterms:source>BatteryPass-ready Data Attribute Long List v1.3, attributes 56-58</dcterms:source>
         <rdfs:label xml:lang="en">end-of-life information</rdfs:label>
         <skos:definition xml:lang="en">DPP information about waste prevention, collection, preparation for second life, dismantling, treatment, recycling, or other end-of-life handling of a battery.</skos:definition>
         <skos:editorialNote>Detailed end-of-life processes and circular value-network semantics are deferred to CEON and BONSAI.</skos:editorialNote>
@@ -31577,8 +31563,8 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/LifecycleStageCarbonFootprintContribution">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/BatteryCarbonFootprintInformation"/>
-        <terms:source rdf:resource="urn:samm:io.BatteryPass.CarbonFootprint:1.2.0#carbonFootprintPerLifeCycleStage"/>
-        <terms:source>BatteryPass-ready Data Attribute Long List v1.3, attributes 29-32</terms:source>
+        <dcterms:source rdf:resource="urn:samm:io.BatteryPass.CarbonFootprint:1.2.0#carbonFootprintPerLifeCycleStage"/>
+        <dcterms:source>BatteryPass-ready Data Attribute Long List v1.3, attributes 29-32</dcterms:source>
         <rdfs:label xml:lang="en">lifecycle-stage carbon-footprint contribution</rdfs:label>
         <skos:definition xml:lang="en">Battery carbon footprint information that records the contribution of a specified lifecycle stage to the total footprint result.</skos:definition>
         <skos:editorialNote>Lifecycle-stage identifiers, values, units, functional units and calculation provenance are represented through data/value patterns and later SHACL; a detailed lifecycle model is deferred to CLEO.</skos:editorialNote>
@@ -31591,7 +31577,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000000">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/COB_0000082"/>
-        <terms:source>Mat.Sus CEON Phase 12 approved modelling decision</terms:source>
+        <dcterms:source>Mat.Sus CEON Phase 12 approved modelling decision</dcterms:source>
         <rdfs:label xml:lang="en">product end-of-life management process</rdfs:label>
         <skos:definition xml:lang="en">A process undertaken to manage a product that has reached, or is approaching, the end of its current use or service life, including its collection, separation, recovery, preparation for further use, recycling, or final treatment.</skos:definition>
         <integrationBasis>Mat.Sus application-level end-of-life process branch grounded under the PMDco-imported planned process hierarchy</integrationBasis>
@@ -31604,7 +31590,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000001">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000000"/>
-        <terms:source>MKB1 IR2 Class Review: POST-MKB1-MAT-001 / MKB-000175 supporting anchor</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: POST-MKB1-MAT-001 / MKB-000175 supporting anchor</dcterms:source>
         <rdfs:label xml:lang="en">recovered material</rdfs:label>
         <skos:definition xml:lang="en">A material obtained through a material-recovery process from material that had been discarded, become waste, or left its preceding use, and that is made available for further use.</skos:definition>
         <skos:editorialNote>Post-gate accepted material anchor. A material can cease to bear a waste role while retaining its recovery provenance. Later: link the material to its recovery process/history. Do not add disjointness or a complement axiom.</skos:editorialNote>
@@ -31617,7 +31603,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000002">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000001"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000175</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000175</dcterms:source>
         <rdfs:label xml:lang="en">recycled material</rdfs:label>
         <skos:definition xml:lang="en">A recovered material produced through a recycling process in which waste material is reprocessed into a product, material, or substance for its original or another purpose.</skos:definition>
         <skos:editorialNote>Post-gate accepted. Recycled material and secondary material are not exclusive categories. Later: link to the recycling process/history. Do not assert disjointness from secondary material.</skos:editorialNote>
@@ -31630,7 +31616,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000003">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000001"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000223</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000223</dcterms:source>
         <rdfs:label xml:lang="en">secondary material</rdfs:label>
         <skos:definition xml:lang="en">A recovered material suitable for use in manufacturing or material processing instead of or alongside virgin material.</skos:definition>
         <skos:editorialNote>Post-gate accepted as a positive material category rather than a complement of virgin material. Later: represent suitability or intended use only when a stable relation pattern is selected. Do not assert disjointness from recycled material.</skos:editorialNote>
@@ -31643,7 +31629,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000004">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000070"/>
-        <terms:source>MKB1 IR2 Class Review: POST-MKB1-ASS-001 / MKB-000180 supporting anchor</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: POST-MKB1-ASS-001 / MKB-000180 supporting anchor</dcterms:source>
         <rdfs:label xml:lang="en">material sustainability assessment</rdfs:label>
         <skos:definition xml:lang="en">An assay intended to produce information for evaluating one or more sustainability-related aspects of a material, product, process, or material lifecycle system.</skos:definition>
         <skos:editorialNote>Post-gate accepted provisionally as the parent needed for resource-input reduction assessment. Later: reconcile the assessment umbrella during the later SRC-007/SRC-009/CLEO assessment reconciliation in MKB source Batch 2; add no further logical restrictions now.</skos:editorialNote>
@@ -31656,7 +31642,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000005">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000004"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000180-ASS</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000180-ASS</dcterms:source>
         <rdfs:label xml:lang="en">resource-input reduction assessment</rdfs:label>
         <skos:definition xml:lang="en">A material sustainability assessment intended to determine or quantify whether, and to what extent, material input has been reduced relative to a stated baseline under specified comparison conditions.</skos:definition>
         <skos:editorialNote>Post-gate accepted. Keep assessment distinct from the process and its objective specification. Later: model the evaluated process or system, baseline, comparison conditions and output datum.</skos:editorialNote>
@@ -31669,7 +31655,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000006">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000005"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000180-OBJ</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000180-OBJ</dcterms:source>
         <rdfs:label xml:lang="en">resource-input reduction objective specification</rdfs:label>
         <skos:definition xml:lang="en">An objective specification that specifies an intended reduction, relative to a stated baseline and under specified comparison conditions, in the quantity of material input required or used by a specified process or system.</skos:definition>
         <skos:editorialNote>Example: reduce virgin aluminium input by 20% relative to the 2025 baseline. Later: relate the objective specification to the targeted process or system, baseline, reduction amount and unit. No separate resource-input reduction strategy specification is required.</skos:editorialNote>
@@ -31682,7 +31668,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000007">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000023"/>
-        <terms:source>MKB1 IR2 Class Review: supporting waste anchor; human-gate Closure; PMDco issue #485</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: supporting waste anchor; human-gate Closure; PMDco issue #485</dcterms:source>
         <rdfs:label xml:lang="en">waste role</rdfs:label>
         <skos:definition xml:lang="en">A role borne by a material entity when its holder discards it, intends to discard it, or is required to discard it.</skos:definition>
         <skos:editorialNote>Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. Waste status is contextual and role-based, not an intrinsic material kind. Later: decide realization and context relations and the future PMDco mapping. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization.</skos:editorialNote>
@@ -31701,7 +31687,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000007"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <terms:source>MKB1 IR2 Class Review: supporting waste anchor; human-gate Closure; PMDco issue #485</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: supporting waste anchor; human-gate Closure; PMDco issue #485</dcterms:source>
         <rdfs:label xml:lang="en">waste material</rdfs:label>
         <skos:altLabel xml:lang="en">waste</skos:altLabel>
         <skos:definition xml:lang="en">A material that bears a waste role.</skos:definition>
@@ -31715,7 +31701,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000009">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000008"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000063; SRC-001 Circular Berlin; Master Analysis row 52</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000063; SRC-001 Circular Berlin; Master Analysis row 52</dcterms:source>
         <rdfs:label xml:lang="en">construction and demolition waste</rdfs:label>
         <skos:definition xml:lang="en">A waste material that arises from construction or demolition activities.</skos:definition>
         <skos:editorialNote>Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. Retain this local subtype after any upstream anchor migration. Later: add source or provenance criteria only if required by data integration. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization.</skos:editorialNote>
@@ -31728,7 +31714,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000010">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000008"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000144; SRC-003 European Environment Agency; Master Analysis row 69</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000144; SRC-003 European Environment Agency; Master Analysis row 69</dcterms:source>
         <rdfs:label xml:lang="en">mineral waste</rdfs:label>
         <skos:definition xml:lang="en">A waste material composed predominantly of mineral matter.</skos:definition>
         <skos:editorialNote>Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. Predominantly is intentionally not assigned an OWL cutoff. Later: represent thresholds through data or a classification specification. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization.</skos:editorialNote>
@@ -31741,7 +31727,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000011">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000008"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000148; SRC-003 European Environment Agency; Master Analysis row 71</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000148; SRC-003 European Environment Agency; Master Analysis row 71</dcterms:source>
         <rdfs:label xml:lang="en">municipal waste</rdfs:label>
         <skos:altLabel xml:lang="en">municipal solid waste</skos:altLabel>
         <skos:definition xml:lang="en">A waste material collected from households or a waste material from another source that is similar in nature and composition to household waste.</skos:definition>
@@ -31755,7 +31741,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000012">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000008"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000155; SRC-003 European Environment Agency; Master Analysis row 74; TransformON exact-label evidence insufficient for reuse</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000155; SRC-003 European Environment Agency; Master Analysis row 74; TransformON exact-label evidence insufficient for reuse</dcterms:source>
         <rdfs:label xml:lang="en">packaging waste</rdfs:label>
         <skos:definition xml:lang="en">A waste material that was packaging or packaging material before it acquired a waste role.</skos:definition>
         <skos:editorialNote>Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. The selected source scope excludes production residues. Later: represent former packaging status and the exclusion only with a validated pattern. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization.</skos:editorialNote>
@@ -31768,7 +31754,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000013">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000008"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000249; SRC-001 Circular Berlin; Master Analysis row 111</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000249; SRC-001 Circular Berlin; Master Analysis row 111</dcterms:source>
         <rdfs:label xml:lang="en">textile waste</rdfs:label>
         <skos:definition xml:lang="en">A waste material composed predominantly of textile material or discarded textile products.</skos:definition>
         <skos:editorialNote>Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. This is intentionally a broad provisional subtype. Later: add fibre, composition, or product-type refinements only from concrete use cases. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization.</skos:editorialNote>
@@ -31781,7 +31767,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000014">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000027"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000059</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000059</dcterms:source>
         <rdfs:label xml:lang="en">collection system</rdfs:label>
         <skos:definition xml:lang="en">An object aggregate whose members are organized to enable one or more collection processes.</skos:definition>
         <skos:editorialNote>Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. The object-aggregate parent is provisional. Later: model members or components, enabling function, responsible agent, and collection processes when those queries become central. Do not introduce a universal generic system class. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization.</skos:editorialNote>
@@ -31794,7 +31780,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000015">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/COB_0000082"/>
-        <terms:source>MKB1 IR2 Class Review: supporting waste process; human-gate Closure related-terms decision</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: supporting waste process; human-gate Closure related-terms decision</dcterms:source>
         <rdfs:label xml:lang="en">waste collection process</rdfs:label>
         <skos:definition xml:lang="en">A planned process in which waste material is gathered from one or more holders or locations for transport, storage, sorting, recovery, treatment, or disposal.</skos:definition>
         <skos:editorialNote>Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. This is a supporting process with no standalone MKB ID. Later: add waste participant, origin, destination, and responsible-agent relations. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization.</skos:editorialNote>
@@ -31807,7 +31793,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000016">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/COB_0000082"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000231; SRC-001 Circular Berlin; Master Analysis row 106</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000231; SRC-001 Circular Berlin; Master Analysis row 106</dcterms:source>
         <rdfs:label xml:lang="en">sorting process</rdfs:label>
         <skos:definition xml:lang="en">A planned process in which material entities are assigned to different groups or streams according to specified criteria.</skos:definition>
         <skos:editorialNote>Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. No acceptable maintained equivalent was found. Later: connect criteria or method specifications and sorted inputs and outputs. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization.</skos:editorialNote>
@@ -31820,7 +31806,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000017">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000231; SRC-001 Circular Berlin; Master Analysis row 106</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000231; SRC-001 Circular Berlin; Master Analysis row 106</dcterms:source>
         <rdfs:label xml:lang="en">sorting method specification</rdfs:label>
         <skos:definition xml:lang="en">A plan specification that prescribes how a sorting process is to be carried out.</skos:definition>
         <skos:editorialNote>Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. This is an information content entity and is not a subclass of sorting process. Later: relate the method specification to the sorting process it prescribes. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization.</skos:editorialNote>
@@ -31833,7 +31819,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000018">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000016"/>
-        <terms:source>MKB1 IR2 Class Review: supporting waste process; human-gate Closure related-terms decision</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: supporting waste process; human-gate Closure related-terms decision</dcterms:source>
         <rdfs:label xml:lang="en">waste separation process</rdfs:label>
         <skos:definition xml:lang="en">A sorting process in which waste material is assigned to different groups or streams according to specified criteria.</skos:definition>
         <skos:editorialNote>Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. This is a supporting process with no standalone MKB ID. Later: add waste input and separated-stream output restrictions after example testing. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization.</skos:editorialNote>
@@ -31852,7 +31838,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000008"/>
             </owl:Restriction>
         </rdfs:subClassOf>
-        <terms:source>MKB1 IR2 Class Review: MKB-000263; SRC-003 European Environment Agency; Master Analysis row 115</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000263; SRC-003 European Environment Agency; Master Analysis row 115</dcterms:source>
         <rdfs:label xml:lang="en">waste generation process</rdfs:label>
         <skos:definition xml:lang="en">A process that has as output a material entity that bears a waste role.</skos:definition>
         <skos:editorialNote>Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. Waste generation is not assumed to be planned production or synthesis. Later: distinguish planned and unplanned generation through context unless required otherwise. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization.</skos:editorialNote>
@@ -31865,7 +31851,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000020">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/COB_0000082"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000264; SRC-001 Circular Berlin; SRC-003 European Environment Agency; Master Analysis row 116</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000264; SRC-001 Circular Berlin; SRC-003 European Environment Agency; Master Analysis row 116</dcterms:source>
         <rdfs:label xml:lang="en">waste prevention process</rdfs:label>
         <skos:definition xml:lang="en">A planned process that is intended to reduce the quantity or harmfulness of waste generated, or the adverse impacts of generated waste on the environment and human health.</skos:definition>
         <skos:editorialNote>Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. Keep the performed process distinct from its measure specification. Later: relate the process to targeted streams and prevention outcomes. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization.</skos:editorialNote>
@@ -31878,7 +31864,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000021">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000264; SRC-001 Circular Berlin; SRC-003 European Environment Agency; Master Analysis row 116</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000264; SRC-001 Circular Berlin; SRC-003 European Environment Agency; Master Analysis row 116</dcterms:source>
         <rdfs:label xml:lang="en">waste prevention measure specification</rdfs:label>
         <skos:definition xml:lang="en">A plan specification that prescribes actions intended to realize a waste prevention process.</skos:definition>
         <skos:editorialNote>Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. This is an information artifact, not a process. Later: connect it to the prescribed process. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization.</skos:editorialNote>
@@ -31891,7 +31877,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000022">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000005"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000266; SRC-001 Circular Berlin; Master Analysis row 117</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000266; SRC-001 Circular Berlin; Master Analysis row 117</dcterms:source>
         <rdfs:label xml:lang="en">zero-waste objective specification</rdfs:label>
         <skos:definition xml:lang="en">An objective specification that describes an intended endpoint in which waste generation and disposal are prevented or minimized through responsible production, consumption, reuse, and recovery.</skos:definition>
         <skos:editorialNote>Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. Zero waste is normative information content, not a material or process. Later: represent scope, baseline, and tolerated residual waste if needed. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization.</skos:editorialNote>
@@ -31904,7 +31890,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000023">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000266; SRC-001 Circular Berlin; Master Analysis row 117</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000266; SRC-001 Circular Berlin; Master Analysis row 117</dcterms:source>
         <rdfs:label xml:lang="en">zero-waste strategy specification</rdfs:label>
         <skos:definition xml:lang="en">A plan specification that prescribes actions intended to achieve a zero-waste objective.</skos:definition>
         <skos:editorialNote>Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. Keep the strategy distinct from its objective. Later: relate it to the objective and prescribed prevention, reuse, and recovery processes. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization.</skos:editorialNote>
@@ -31917,7 +31903,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000024">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000005"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000085; SRC-002 Ellen MacArthur Foundation; Master Analysis row 56</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000085; SRC-002 Ellen MacArthur Foundation; Master Analysis row 56</dcterms:source>
         <rdfs:label xml:lang="en">waste elimination objective specification</rdfs:label>
         <skos:definition xml:lang="en">An objective specification that specifies the intended absence of a specified waste output within a stated scope.</skos:definition>
         <skos:editorialNote>Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. MKB-000085 is retained as provenance. Do not create an undefined generic elimination process. Later: link to a scoped waste target and boundary. Pollution-elimination modelling is deferred until a suitable pollution target pattern is established. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization.</skos:editorialNote>
@@ -31930,7 +31916,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000025">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0000070"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000236; SRC-001 Circular Berlin; Master Analysis row 107</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000236; SRC-001 Circular Berlin; Master Analysis row 107</dcterms:source>
         <rdfs:label xml:lang="en">waste analysis</rdfs:label>
         <skos:definition xml:lang="en">An assay intended to produce information about waste material, a waste-generating process, or a waste stream.</skos:definition>
         <skos:editorialNote>Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. Analysis is an assay, not the information output itself. Later: add evaluant, method, and output-datum relations using a concrete example. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization.</skos:editorialNote>
@@ -31943,7 +31929,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000026">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000025"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000236; SRC-001 Circular Berlin; Master Analysis row 107</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000236; SRC-001 Circular Berlin; Master Analysis row 107</dcterms:source>
         <rdfs:label xml:lang="en">structural waste analysis</rdfs:label>
         <skos:definition xml:lang="en">A waste analysis intended to produce information about the composition, organization, or distribution of material constituents within a waste material or waste stream.</skos:definition>
         <skos:editorialNote>Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. Recurring-generation-pattern analysis is outside this definition. Later: consider recurring-source analysis as a sibling class. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization.</skos:editorialNote>
@@ -31956,7 +31942,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000027">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000033"/>
-        <terms:source>MKB1 IR2 Class Review: ADD-SCO-012; SCO</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: ADD-SCO-012; SCO</dcterms:source>
         <rdfs:label xml:lang="en">metric specification</rdfs:label>
         <skos:definition xml:lang="en">A directive information entity that prescribes the quantities, calculation method, units, boundary, and interpretation used to produce a quantitative indicator datum.</skos:definition>
         <skos:editorialNote>Human-gate-authorized MKB1 IR2 Batch 3 implementation. Metric specifications prescribe methods; resulting metric values remain data items. Later: relate prescribed quantities, calculation method, units, boundary, interpretation, and resulting datum. No further logical restrictions are asserted in this batch.</skos:editorialNote>
@@ -31969,7 +31955,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000028">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000205; SRC-001 Circular Berlin; UNEP domain meaning</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000205; SRC-001 Circular Berlin; UNEP domain meaning</dcterms:source>
         <rdfs:label xml:lang="en">resource efficiency datum</rdfs:label>
         <skos:definition xml:lang="en">A data item that records the useful output, service, or value obtained per stated quantity of resource input under a specified method, boundary, and time interval.</skos:definition>
         <skos:editorialNote>Human-gate-authorized MKB1 IR2 Batch 3 implementation. This is a calculated result datum, not an intrinsic efficiency quality. Later: model numerator or output, resource input, method, boundary, unit, time interval, and calculation relations.</skos:editorialNote>
@@ -31982,7 +31968,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000029">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000028"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000137; SRC-003 European Environment Agency</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000137; SRC-003 European Environment Agency</dcterms:source>
         <rdfs:label xml:lang="en">material resource efficiency datum</rdfs:label>
         <skos:definition xml:lang="en">A resource efficiency datum whose stated resource input is a quantity of material.</skos:definition>
         <skos:editorialNote>Human-gate-authorized MKB1 IR2 Batch 3 implementation. This is the material-input specialization of resource efficiency datum. Later: constrain the stated resource input to a material quantity and add method, unit, or boundary relations only through an approved pattern.</skos:editorialNote>
@@ -31995,7 +31981,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000030">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000000"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000261; SRC-002 Ellen MacArthur Foundation; SRC-003 European Environment Agency</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000261; SRC-002 Ellen MacArthur Foundation; SRC-003 European Environment Agency</dcterms:source>
         <rdfs:comment xml:lang="en">Virgin material emphasizes the absence of recovery or recycling in the material&apos;s provenance. Primary material emphasizes production from natural-resource inputs. These usages may overlap, but their exact relationship is not yet formalized in MatSus.</rdfs:comment>
         <rdfs:label xml:lang="en">virgin material</rdfs:label>
         <skos:definition xml:lang="en">A material that is obtained from primary resources and has not undergone a recovery or recycling process.</skos:definition>
@@ -32009,7 +31995,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000031">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/COB_0000082"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000202; SRC-001 Circular Berlin</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000202; SRC-001 Circular Berlin</dcterms:source>
         <rdfs:label xml:lang="en">repurposing process</rdfs:label>
         <skos:definition xml:lang="en">A planned process in which a product, component, or material is prepared or modified so that it can fulfil a purpose different from its preceding intended purpose.</skos:definition>
         <skos:editorialNote>Human-gate-authorized MKB1 IR2 Batch 3 implementation. No maintained compatible repurposing-process class was verified in the reviewed sources. Later: represent prior purpose, new purpose, participants, inputs, and outputs.</skos:editorialNote>
@@ -32022,7 +32008,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000032">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000031"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000009; SRC-002 Ellen MacArthur Foundation</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000009; SRC-002 Ellen MacArthur Foundation</dcterms:source>
         <rdfs:label xml:lang="en">battery repurposing process</rdfs:label>
         <skos:definition xml:lang="en">A repurposing process whose primary participant is a battery or battery component.</skos:definition>
         <skos:editorialNote>Human-gate-authorized MKB1 IR2 Batch 3 implementation. Later: add battery-participant and second-life or new-purpose relations from an approved use case.</skos:editorialNote>
@@ -32035,7 +32021,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000033">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/COB_0000082"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000180; SRC-001 Circular Berlin</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000180; SRC-001 Circular Berlin</dcterms:source>
         <rdfs:label xml:lang="en">resource-input reduction process</rdfs:label>
         <skos:definition xml:lang="en">A planned process intended to reduce the amount of material input used by a specified process or system.</skos:definition>
         <skos:editorialNote>Human-gate-authorized MKB1 IR2 Batch 3 implementation. Keep this process distinct from resource-input reduction assessment MATSUS_0000005 and resource-input reduction objective specification MATSUS_0000006. Later: model the affected process or system, material input, stated baseline, comparison conditions, and comparable output or function.</skos:editorialNote>
@@ -32048,7 +32034,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000034">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/COB_0000082"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000181 and MKB-000182; SRC-002 Ellen MacArthur Foundation</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000181 and MKB-000182; SRC-002 Ellen MacArthur Foundation</dcterms:source>
         <rdfs:label xml:lang="en">refill process</rdfs:label>
         <skos:definition xml:lang="en">A planned process in which a product container or dispensing device is supplied again with a material product for further use without first becoming waste.</skos:definition>
         <skos:editorialNote>Human-gate-authorized MKB1 IR2 Batch 3 implementation. MKB-000181 and MKB-000182 are consolidated into this one generic process; at-home and on-the-go are source contexts, not subclasses. Later: model container or device, refilled material, location, agent, and context relations.</skos:editorialNote>
@@ -32061,7 +32047,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000035">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/COB_0000082"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000184; SRC-001 Circular Berlin</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000184; SRC-001 Circular Berlin</dcterms:source>
         <rdfs:label xml:lang="en">refusal process</rdfs:label>
         <skos:definition xml:lang="en">A planned process in which an agent intentionally declines to acquire, accept, or use a specified product, material, or service in order to avoid its associated resource use or waste generation.</skos:definition>
         <skos:editorialNote>Human-gate-authorized MKB1 IR2 Batch 3 implementation. Refusal process represents the actual intentional refusal occurrence. It does not represent the strategy specification or objective specification that motivates, enables, or encourages that occurrence. Later: add agent, refused entity or service, and avoidance-objective relations.</skos:editorialNote>
@@ -32074,7 +32060,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000036">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/COB_0000082"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000189; SRC-003 European Environment Agency</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000189; SRC-003 European Environment Agency</dcterms:source>
         <rdfs:label xml:lang="en">remanufacturing process</rdfs:label>
         <skos:definition xml:lang="en">A planned process in which a used product or component is restored to a specified performance and quality state through inspection and one or more restorative operations.</skos:definition>
         <skos:editorialNote>Human-gate-authorized MKB1 IR2 Batch 3 implementation. The remanufacturing process remains distinct from the separate AutomatCE remanufacturability disposition candidate. Later: model used input, retained identity or components, restorative operations, and specified output state.</skos:editorialNote>
@@ -32087,7 +32073,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000037">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000002, SRC-003 European Environment Agency; MKB-000069, SRC-002 Ellen MacArthur Foundation</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000002, SRC-003 European Environment Agency; MKB-000069, SRC-002 Ellen MacArthur Foundation</dcterms:source>
         <rdfs:label xml:lang="en">decoupling datum</rdfs:label>
         <skos:definition xml:lang="en">A data item that records a comparison over a stated time interval in which the rate of change of a resource input or environmental pressure is lower than the rate of change of a specified economic or service output.</skos:definition>
         <skos:editorialNote>Human-gate-authorized MKB1 IR2 Batch 3 implementation. This records the established sustainability and resource-efficiency meaning of decoupling, not dismantling, disassembly, or another physical separation process. Later: model absolute and relative classifications, baseline and comparison interval, resource-input or environmental-pressure indicator, economic or service-output indicator, calculation method, ratio, and temporal relations.</skos:editorialNote>
@@ -32100,7 +32086,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000038">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000146; SRC-002 Ellen MacArthur Foundation</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000146; SRC-002 Ellen MacArthur Foundation</dcterms:source>
         <rdfs:label xml:lang="en">modularity</rdfs:label>
         <skos:definition xml:lang="en">A quality of an entity that reflects the degree to which its parts are organized into separable, replaceable, or recombinable modules.</skos:definition>
         <skos:editorialNote>Human-gate-authorized MKB1 IR2 Batch 3 implementation. Modularity is a dependent quality of a bearer, not an object aggregate. Later: model the bearer, measurement datum, degree, method, and any device- or design-specific subclasses.</skos:editorialNote>
@@ -32113,7 +32099,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000039">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000104"/>
-        <terms:source>MKB1 IR2 human-gate modelling refinement derived from MKB-000184 and the 2026-09-04 Batch 3 review</terms:source>
+        <dcterms:source>MKB1 IR2 human-gate modelling refinement derived from MKB-000184 and the 2026-09-04 Batch 3 review</dcterms:source>
         <rdfs:comment xml:lang="en">Examples include optional packaging, opt-out disposable accessories, and service provision that avoids supplying a material product. This class denotes the strategy specification; the actual refusal occurrence is represented by refusal process.</rdfs:comment>
         <rdfs:label xml:lang="en">refusal strategy specification</rdfs:label>
         <skos:definition xml:lang="en">A plan specification that prescribes product, packaging, or service features intended to enable or encourage a refusal process and thereby avoid material use or waste generation.</skos:definition>
@@ -32127,7 +32113,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000040">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000000"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000163; SRC-003 European Environment Agency</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000163; SRC-003 European Environment Agency</dcterms:source>
         <rdfs:comment xml:lang="en">Primary material includes material obtained through extraction or harvesting and any subsequent processing of natural-resource inputs. In circular-economy usage, it is contrasted with material originating from recovery or recycling.</rdfs:comment>
         <rdfs:label xml:lang="en">primary material</rdfs:label>
         <skos:definition xml:lang="en">A material produced from natural resources without recovered material as its material source.</skos:definition>
@@ -32142,7 +32128,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000041">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000102"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000040"/>
-        <terms:source>MatSus derived modelling decision based on the primary material distinction</terms:source>
+        <dcterms:source>MatSus derived modelling decision based on the primary material distinction</dcterms:source>
         <rdfs:comment xml:lang="en">Primary raw material combines primary material provenance with the context of being used or intended as an input to production. A primary material need not be a primary raw material when it does not bear the raw material role.</rdfs:comment>
         <rdfs:label xml:lang="en">primary raw material</rdfs:label>
         <skos:definition xml:lang="en">A primary material that has a raw material role.</skos:definition>
@@ -32157,7 +32143,7 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000042">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/log/LOG_1000102"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000003"/>
-        <terms:source>MKB1 IR2 Class Review: MKB-000224; SRC-002 Ellen MacArthur Foundation</terms:source>
+        <dcterms:source>MKB1 IR2 Class Review: MKB-000224; SRC-002 Ellen MacArthur Foundation</dcterms:source>
         <rdfs:comment xml:lang="en">Secondary raw material combines recovery-derived material provenance with the context of being used or intended as an input to production. A secondary material need not be a secondary raw material when it does not bear the raw material role.</rdfs:comment>
         <rdfs:label xml:lang="en">secondary raw material</rdfs:label>
         <skos:definition xml:lang="en">A secondary material that has a raw material role.</skos:definition>
@@ -32172,8 +32158,8 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/RecycledContentInformation">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000027"/>
         <rdfs:subClassOf rdf:resource="http://w3id.org/dppo/ontology/dpp-info/DPPInformation"/>
-        <terms:source rdf:resource="urn:samm:io.BatteryPass.Circularity:1.2.0#recycledContent"/>
-        <terms:source>BatteryPass-ready Data Attribute Long List v1.3, attributes 48-54</terms:source>
+        <dcterms:source rdf:resource="urn:samm:io.BatteryPass.Circularity:1.2.0#recycledContent"/>
+        <dcterms:source>BatteryPass-ready Data Attribute Long List v1.3, attributes 48-54</dcterms:source>
         <rdfs:label xml:lang="en">recycled content information</rdfs:label>
         <skos:definition xml:lang="en">A DPP data item that records a calculated share of recycled material content in a battery or constituent material.</skos:definition>
         <skos:editorialNote>This is a calculated composition indicator, not an intrinsic quality. Detailed circularity and resource-flow semantics are deferred to CEON/BONSAI.</skos:editorialNote>
@@ -32186,8 +32172,8 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/SupplyChainDueDiligenceReport">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000310"/>
-        <terms:source rdf:resource="urn:samm:io.BatteryPass.SupplyChainDueDiligence:1.2.0#supplyChainDueDiligenceReport"/>
-        <terms:source>BatteryPass-ready Data Attribute Long List v1.3, attribute 36</terms:source>
+        <dcterms:source rdf:resource="urn:samm:io.BatteryPass.SupplyChainDueDiligence:1.2.0#supplyChainDueDiligenceReport"/>
+        <dcterms:source>BatteryPass-ready Data Attribute Long List v1.3, attribute 36</dcterms:source>
         <rdfs:label xml:lang="en">supply-chain due-diligence report</rdfs:label>
         <skos:definition xml:lang="en">A document reporting supply-chain due-diligence information for a product or its value chain.</skos:definition>
         <integrationMethod>new MatSus document class based on BatteryPass requirements</integrationMethod>
@@ -32199,8 +32185,8 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/TestReport">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000310"/>
-        <terms:source rdf:resource="urn:samm:io.BatteryPass.Labels:1.2.0#resultOfTestReport"/>
-        <terms:source>BatteryPass-ready Data Attribute Long List v1.3, attribute 27</terms:source>
+        <dcterms:source rdf:resource="urn:samm:io.BatteryPass.Labels:1.2.0#resultOfTestReport"/>
+        <dcterms:source>BatteryPass-ready Data Attribute Long List v1.3, attribute 27</dcterms:source>
         <rdfs:label xml:lang="en">test report</rdfs:label>
         <skos:definition xml:lang="en">A document reporting the results of tests used to demonstrate compliance or performance.</skos:definition>
         <integrationMethod>new MatSus document class based on BatteryPass requirements</integrationMethod>
@@ -33088,10 +33074,10 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <rdf:Description rdf:about="urn:swrl:var#e">
+    <rdf:Description rdf:about="urn:swrl:var#d">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
-    <rdf:Description rdf:about="urn:swrl:var#d">
+    <rdf:Description rdf:about="urn:swrl:var#e">
         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
     </rdf:Description>
     <rdf:Description>
@@ -33101,10 +33087,9 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
                 <rdf:first>
                     <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000053"/>
-                        <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
-                        <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000016"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -33112,9 +33097,10 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
                         <rdf:first>
                             <rdf:Description>
-                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
-                                <swrl:classPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000016"/>
-                                <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000053"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -33144,10 +33130,9 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
                 <rdf:first>
                     <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000053"/>
-                        <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
-                        <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -33155,9 +33140,10 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
                         <rdf:first>
                             <rdf:Description>
-                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
-                                <swrl:classPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
-                                <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000053"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -33187,10 +33173,9 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
                 <rdf:first>
                     <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000053"/>
-                        <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
-                        <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000023"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -33198,9 +33183,10 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
                         <rdf:first>
                             <rdf:Description>
-                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
-                                <swrl:classPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000023"/>
-                                <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000053"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -33230,10 +33216,9 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
                 <rdf:first>
                     <rdf:Description>
-                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000053"/>
-                        <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
-                        <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000034"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
                     </rdf:Description>
                 </rdf:first>
                 <rdf:rest>
@@ -33241,9 +33226,10 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
                         <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
                         <rdf:first>
                             <rdf:Description>
-                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
-                                <swrl:classPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000034"/>
-                                <swrl:argument1 rdf:resource="urn:swrl:var#d"/>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/RO_0000053"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#e"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#d"/>
                             </rdf:Description>
                         </rdf:first>
                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
@@ -33270,5 +33256,5 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
 
 
-<!-- Generated by the OWL API (version 4.5.24) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.29) https://github.com/owlcs/owlapi -->
 
