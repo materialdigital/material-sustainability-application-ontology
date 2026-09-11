@@ -189,7 +189,22 @@ dpp-prov:responsibleActor a owl:ObjectProperty ;
     rdfs:subPropertyOf dpp-prov:actor .
 
 <https://w3id.org/pmd/matsus/components/matsus-dppo.ttl> a owl:Ontology ;
-    dcterms:title "Selected DPPO integration component for Mat.Sus" .
+    dcterms:contributor "Eva Blomqvist",
+        "Huanyu Li",
+        "Robin Keskisärkkä" ;
+    dcterms:creator "Maike Jansen" ;
+    dcterms:description "Mat.Sus selected and modified/adapted content from five DPPO 0.1 modules. Existing DPPO entity IRIs are retained; local integration annotations and selected axioms document the Mat.Sus adaptation." ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:modified "2026-08-05"^^xsd:date ;
+    dcterms:rights "DPPO 0.1 content is reused under CC BY 4.0. Mat.Sus selected and modified/adapted that content and identifies the changes through integration annotations." ;
+    dcterms:source <https://github.com/LiUSemWeb/DPPO/tree/dd39101cdf2bde6d1749123b6fb250c13644ddbd/ontology/dpp-comp/0.1>,
+        <https://github.com/LiUSemWeb/DPPO/tree/dd39101cdf2bde6d1749123b6fb250c13644ddbd/ontology/dpp-core/0.1>,
+        <https://github.com/LiUSemWeb/DPPO/tree/dd39101cdf2bde6d1749123b6fb250c13644ddbd/ontology/dpp-info/0.1>,
+        <https://github.com/LiUSemWeb/DPPO/tree/dd39101cdf2bde6d1749123b6fb250c13644ddbd/ontology/dpp-odp/0.1>,
+        <https://github.com/LiUSemWeb/DPPO/tree/dd39101cdf2bde6d1749123b6fb250c13644ddbd/ontology/dpp-prov/0.1> ;
+    dcterms:title "Selected DPPO integration component for Mat.Sus" ;
+    rdfs:seeAlso <https://github.com/LiUSemWeb/DPPO> ;
+    owl:versionInfo "Mat.Sus adaptation of DPPO 0.1 at commit dd39101cdf2bde6d1749123b6fb250c13644ddbd" .
 
 dpp-comp:aboutWhole a owl:ObjectProperty ;
     rdfs:label "about whole"@en ;

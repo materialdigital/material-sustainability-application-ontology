@@ -1,27 +1,28 @@
-# PURL configuration for http://purl.obolibrary.org/obo/matsus
+# Legacy ODK metadata. The canonical MatSus PURL is https://w3id.org/pmd/matsus/.
 
 idspace: MATSUS
 base_url: /obo/matsus
 
 products:
-- matsus.owl: https://raw.githubusercontent.com/materialdigital/KhashiYaar/material-sustainability-application-ontology/main/matsus.owl
-- matsus.obo: https://raw.githubusercontent.com/materialdigital/KhashiYaar/material-sustainability-application-ontology/main/matsus.obo
+- matsus.owl: https://raw.githubusercontent.com/materialdigital/material-sustainability-application-ontology/main/matsus.owl
+- matsus.ttl: https://raw.githubusercontent.com/materialdigital/material-sustainability-application-ontology/main/matsus.ttl
+- matsus.json: https://raw.githubusercontent.com/materialdigital/material-sustainability-application-ontology/main/matsus.json
 
 term_browser: ontobee
 example_terms:
-- MATSUS_0000000
+- MATSUS_0000001
 
 entries:
 
 - prefix: /releases/
-  replacement: https://raw.githubusercontent.com/materialdigital/KhashiYaar/material-sustainability-application-ontology/v
+  replacement: https://raw.githubusercontent.com/materialdigital/material-sustainability-application-ontology/v
 
 - prefix: /tracker/
-  replacement: https://github.com/materialdigital/KhashiYaar/material-sustainability-application-ontology/issues
+  replacement: https://github.com/materialdigital/material-sustainability-application-ontology/issues
 
 - prefix: /about/
   replacement: http://www.ontobee.org/ontology/MATSUS?iri=http://purl.obolibrary.org/obo/
 
 ## generic fall-through, serve direct from github by default
 - prefix: /
-  replacement: https://raw.githubusercontent.com/materialdigital/KhashiYaar/material-sustainability-application-ontology/main/
+  replacement: https://raw.githubusercontent.com/materialdigital/material-sustainability-application-ontology/main/

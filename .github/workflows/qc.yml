@@ -310,7 +310,8 @@ jobs:
 
       # ── Full ODK build ─────────────────────────────────────────────────────
       # refresh-imports: re-download upstream ontologies and extract SLME modules
-      # all_assets:      generate OWL/TTL/JSON release files + QC reports
+      # all_assets:         generate OWL/TTL/JSON release files + QC reports
+      # copy_release_files: synchronize the public root artifacts
       #
       # Memory: ROBOT_JAVA_ARGS=-Xmx6G is sufficient for most ontologies.
       # Increase to -Xmx8G / -Xmx12G if you hit OutOfMemory errors.
@@ -321,18 +322,18 @@ jobs:
         run: |
           cd src/ontology
           make refresh-imports all_assets
+          make copy_release_files
 
       # ── Commit release artifacts ───────────────────────────────────────────
-      # git add each glob separately so a missing pattern (e.g. no *.json) does
-      # not abort the entire staging step.
+      # Stage only the public primary artifacts, the tracked source-side Turtle
+      # product, and configured imports. Never stage the editor source here.
       - name: Stage release artifacts
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
-          git add src/ontology/*.owl       || true
-          git add src/ontology/*.ttl       || true
-          git add src/ontology/*.json      || true
+          git add -- matsus.owl matsus.ttl matsus.json
+          git add -- src/ontology/matsus.ttl
           git add src/ontology/imports/*.owl || true
 
       - name: Commit ontology release assets
