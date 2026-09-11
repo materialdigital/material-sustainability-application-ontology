@@ -129,8 +129,6 @@ VOLUME_BIND=$PWD/../../:/work$ODK_SSH_BIND
 WORK_DIR=/work/src/ontology
 
 # Support for OAK cache sharing
-ODK_SINGULARITY_PYSTOW_ENV=
-ODK_DOCKER_PYSTOW_ENV=
 if [ -n "$ODK_SHARE_OAK_CACHE" ]; then
     case "$ODK_SHARE_OAK_CACHE" in
     user)
@@ -142,12 +140,7 @@ if [ -n "$ODK_SHARE_OAK_CACHE" ]; then
         ODK_SHARE_OAK_CACHE="$PWD/tmp/oaklib"
         ;;
     esac
-    # Keep the cache destination independent of the container account layout.
-    # OAK uses PYSTOW_HOME, so the mounted oaklib directory remains discoverable.
-    ODK_PYSTOW_HOME=/work/.odk-cache
-    OAK_DEST=$ODK_PYSTOW_HOME/oaklib
-    ODK_SINGULARITY_PYSTOW_ENV=",PYSTOW_HOME=$ODK_PYSTOW_HOME"
-    ODK_DOCKER_PYSTOW_ENV="-e PYSTOW_HOME=$ODK_PYSTOW_HOME"
+    [ $ODK_USER_ID -eq 0 ] && OAK_DEST=/root/.data/oaklib || OAK_DEST=/home/odkuser/.data/oaklib
     VOLUME_BIND="$VOLUME_BIND,$ODK_SHARE_OAK_CACHE:$OAK_DEST"
 fi
 
@@ -158,14 +151,14 @@ fi
 if [ -n "$USE_SINGULARITY" ]; then
     
     singularity exec --cleanenv $ODK_SINGULARITY_OPTIONS \
-        --env "ROBOT_JAVA_ARGS=$ODK_JAVA_OPTS,JAVA_OPTS=$ODK_JAVA_OPTS,SSH_AUTH_SOCK=/run/host-services/ssh-auth.sock,ODK_USER_ID=$ODK_USER_ID,ODK_GROUP_ID=$ODK_GROUP_ID,ODK_DEBUG=$ODK_DEBUG$ODK_SINGULARITY_PYSTOW_ENV" \
+        --env "ROBOT_JAVA_ARGS=$ODK_JAVA_OPTS,JAVA_OPTS=$ODK_JAVA_OPTS,SSH_AUTH_SOCK=/run/host-services/ssh-auth.sock,ODK_USER_ID=$ODK_USER_ID,ODK_GROUP_ID=$ODK_GROUP_ID,ODK_DEBUG=$ODK_DEBUG" \
         --bind $VOLUME_BIND \
         -W $WORK_DIR \
         docker://obolibrary/$ODK_IMAGE:$ODK_TAG $TIMECMD "$@"
 else
     BIND_OPTIONS="-v $(echo $VOLUME_BIND | sed 's/,/ -v /g')"
     docker run $ODK_DOCKER_OPTIONS $BIND_OPTIONS -w $WORK_DIR \
-        -e ROBOT_JAVA_ARGS="$ODK_JAVA_OPTS" -e JAVA_OPTS="$ODK_JAVA_OPTS" -e SSH_AUTH_SOCK=/run/host-services/ssh-auth.sock -e ODK_USER_ID=$ODK_USER_ID -e ODK_GROUP_ID=$ODK_GROUP_ID -e ODK_DEBUG=$ODK_DEBUG $ODK_DOCKER_PYSTOW_ENV \
+        -e ROBOT_JAVA_ARGS="$ODK_JAVA_OPTS" -e JAVA_OPTS="$ODK_JAVA_OPTS" -e SSH_AUTH_SOCK=/run/host-services/ssh-auth.sock -e ODK_USER_ID=$ODK_USER_ID -e ODK_GROUP_ID=$ODK_GROUP_ID -e ODK_DEBUG=$ODK_DEBUG \
         --rm -ti obolibrary/$ODK_IMAGE:$ODK_TAG $TIMECMD "$@"
 fi
 
