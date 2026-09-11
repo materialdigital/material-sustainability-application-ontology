@@ -8,13 +8,13 @@
 # │  What this workflow does                                            │
 # │  ─────────────────────────────────────────────────────────────────  │
 # │  1. Validates semver tag format (replaces enforce-tags.yml)        │
-# │  2. Stamps owl:versionIRI and owl:versionInfo into all artifacts   │
-# │     using ROBOT annotate — no ODK rebuild (qc.yml owns that)      │
-# │       versionIRI: <ontbase>/<version>  (PMDco convention)         │
-# │       e.g.  https://w3id.org/pmd/log/1.0.0                        │
+# │  2. Rebuilds through ODK and stamps version metadata into         │
+# │     OWL, Turtle, and JSON artifacts                               │
+# │       versionIRI: <ontbase>/<version>/  (PMD convention)         │
+# │       e.g.  https://w3id.org/pmd/matsus/1.0.0/                   │
 # │  3. Commits stamped artifacts back to main                         │
 # │  4. Creates a git tag v<version> pointing to that commit           │
-# │  5. Creates a GitHub release with OWL / TTL attached               │
+# │  5. Creates a GitHub release with OWL / TTL / JSON attached        │
 # │  6. Dispatches trigger-docs so docs.yml rebuilds versioned docs    │
 # └─────────────────────────────────────────────────────────────────────┘
 #
@@ -88,10 +88,17 @@ jobs:
           fi
 
       # ── Stamp versionIRI into all release artifacts ───────────────────────
-      # qc.yml owns the full ODK rebuild on push to main.
-      # The release workflow only stamps the correct semver versionIRI
-      # onto the already-built committed artifacts using ROBOT annotate.
+      # Rebuild first so release artifacts are derived from the authoritative
+      # editor source and imports, then stamp the requested semver version.
       # ──────────────────────────────────────────────────────────────────────
+      - name: Build and synchronize release artifacts
+        env:
+          ROBOT_ENV: ROBOT_JAVA_ARGS=-Xmx6G
+        run: |
+          cd src/ontology
+          make refresh-imports all_assets
+          make copy_release_files
+
       - name: Stamp version into artifacts
         run: |
           VERSION="${{ steps.version.outputs.version }}"
@@ -103,16 +110,24 @@ jobs:
                      ! -name "*-edit.owl" ! -name "*-idranges.owl"); do
             robot annotate \
               --input "$f" \
-              --version-iri "${ONTBASE}/${VERSION}" \
+              --version-iri "${ONTBASE}/${VERSION}/" \
               --annotation owl:versionInfo "${VERSION}" \
               --output "$f"
             TTL="${f%.owl}.ttl"
             [ -f "$TTL" ] && robot annotate \
               --input "$TTL" \
-              --version-iri "${ONTBASE}/${VERSION}" \
+              --version-iri "${ONTBASE}/${VERSION}/" \
               --annotation owl:versionInfo "${VERSION}" \
               --output "$TTL"
+            JSON="${f%.owl}.json"
+            [ -f "$JSON" ] && robot convert \
+              --input "$f" \
+              --check false \
+              --format json \
+              --output "$JSON"
           done
+          cd src/ontology
+          make copy_release_files
 
       # ── Commit stamped artifacts ──────────────────────────────────────────
       - name: Commit release artifacts
@@ -120,7 +135,7 @@ jobs:
         with:
           message: Release v${{ steps.version.outputs.version }}
           cwd: .
-          add: src/ontology/*.owl src/ontology/*.ttl
+          add: matsus.owl matsus.ttl matsus.json src/ontology/matsus.ttl src/ontology/imports/*.owl
           default_author: github_actions
           push: true
 
@@ -141,7 +156,7 @@ jobs:
           VERSION="${{ steps.version.outputs.version }}"
           NOTES="${{ inputs.release_notes }}"
 
-          ASSETS=$(find src/ontology -maxdepth 1 \( -name "*.owl" -o -name "*.ttl" \) \
+          ASSETS=$(find src/ontology -maxdepth 1 \( -name "*.owl" -o -name "*.ttl" -o -name "*.json" \) \
                    ! -name "*-edit.owl" | tr '\n' ' ')
 
           if [ -z "$ASSETS" ]; then

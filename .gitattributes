@@ -1,0 +1,6 @@
+# ROBOT preserves meaningful whitespace inside multiline RDF literals.
+# Do not treat those generated physical line endings as patch whitespace errors.
+/matsus.owl whitespace=-blank-at-eol,-blank-at-eof
+/matsus.ttl whitespace=-blank-at-eol,-blank-at-eof
+/matsus.json whitespace=-blank-at-eol,-blank-at-eof
+/src/ontology/matsus.ttl whitespace=-blank-at-eol,-blank-at-eof

@@ -25,3 +25,11 @@ sh run.sh make update_repo
 run.bat make update_repo
 ```
 (Windows)
+
+## Optional shared OAK cache
+
+Set ODK_SHARE_OAK_CACHE to user, repo, or an explicit host directory before
+invoking run.sh. The wrapper mounts that directory at the
+repository-independent container location /work/.odk-cache/oaklib and sets
+PYSTOW_HOME=/work/.odk-cache; it does not depend on a particular container
+username or home directory.
