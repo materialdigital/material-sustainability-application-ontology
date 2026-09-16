@@ -25,7 +25,7 @@
         "val" : "Material Sustainability Application Ontology (Mat.Sus)"
       }, {
         "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
-        "val" : "2026-09-11"
+        "val" : "2026-09-16"
       } ],
       "version" : "https://w3id.org/pmd/matsus/dev/"
     },
@@ -26055,6 +26055,9 @@
           "pred" : "http://purl.org/dc/terms/source",
           "val" : "BatteryPass-ready Data Attribute Long List v1.3, attributes 28-35"
         }, {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 approved legacy indicator-result bridge, 2026-09-16"
+        }, {
           "pred" : "http://www.w3.org/2004/02/skos/core#definition",
           "val" : "A DPP data item that records a calculated greenhouse-gas emissions result for a battery under a specified method, system boundary, and functional unit."
         }, {
@@ -26302,14 +26305,26 @@
           "pred" : "http://purl.org/dc/terms/source",
           "val" : "MKB1 IR2 Class Review: POST-MKB1-ASS-001 / MKB-000180 supporting anchor"
         }, {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 final human decision 3, 2026-09-16"
+        }, {
           "pred" : "http://www.w3.org/2004/02/skos/core#definition",
-          "val" : "An assay intended to produce information for evaluating one or more sustainability-related aspects of a material, product, process, or material lifecycle system."
+          "val" : "A sustainability assessment that evaluates one or more sustainability-related aspects of a material, product, process, or material lifecycle system."
         }, {
           "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
-          "val" : "Post-gate accepted provisionally as the parent needed for resource-input reduction assessment. Later: reconcile the assessment umbrella during the later SRC-007/SRC-009/CLEO assessment reconciliation in MKB source Batch 2; add no further logical restrictions now."
+          "val" : "MKB2 SRC-005/SRC-006 final decision: this class denotes a broader sustainability-assessment process rather than an OBI assay. PMDco/OBI assays may be subprocesses or supply evidence in particular assessments, but are not universal parents. Material subject scope may overlap environmental, economic, or social aspect classifications. Resource-input reduction assessment remains its child."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/alignmentRelation",
+          "val" : "relatedMatch; annotation-only; non-entailing"
         }, {
           "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
-          "val" : "new MatSus subclass of OBI assay"
+          "val" : "Existing MKB1 MatSus class reclassified under MatSus sustainability assessment during MKB2 SRC-005/SRC-006 consolidation"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationNote",
+          "val" : "The SSbD mapping is conceptual only; MatSus adds material, product, process, or lifecycle-system subject scope and inherits no SSbD restrictions."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "https://w3id.org/ssbd/SustainabilityAssessment"
         } ]
       }
     }, {
@@ -26745,14 +26760,26 @@
           "pred" : "http://purl.org/dc/terms/source",
           "val" : "MKB1 IR2 Class Review: ADD-SCO-012; SCO"
         }, {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 final human decision 9, 2026-09-16"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#altLabel",
+          "val" : "indicator specification"
+        }, {
           "pred" : "http://www.w3.org/2004/02/skos/core#definition",
           "val" : "A directive information entity that prescribes the quantities, calculation method, units, boundary, and interpretation used to produce a quantitative indicator datum."
         }, {
           "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
           "val" : "Human-gate-authorized MKB1 IR2 Batch 3 implementation. Metric specifications prescribe methods; resulting metric values remain data items. Later: relate prescribed quantities, calculation method, units, boundary, interpretation, and resulting datum. No further logical restrictions are asserted in this batch."
         }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "In the MKB2 assessment architecture, metric specification is the governing indicator specification linked to an indicator result by has indicator specification. It remains distinct from the result and from any OBI value specification that carries the result's value."
+        }, {
           "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
           "val" : "new MatSus subclass of IAO directive information entity"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationNote",
+          "val" : "No mappedTo annotation is asserted: SSbD Indicator and CLEO lifecycle model datum are not metric specifications."
         } ]
       }
     }, {
@@ -26763,6 +26790,9 @@
         "basicPropertyValues" : [ {
           "pred" : "http://purl.org/dc/terms/source",
           "val" : "MKB1 IR2 Class Review: MKB-000205; SRC-001 Circular Berlin; UNEP domain meaning"
+        }, {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 approved legacy indicator-result bridge, 2026-09-16"
         }, {
           "pred" : "http://www.w3.org/2004/02/skos/core#definition",
           "val" : "A data item that records the useful output, service, or value obtained per stated quantity of resource input under a specified method, boundary, and time interval."
@@ -27046,6 +27076,545 @@
         } ]
       }
     }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000043",
+      "lbl" : "assessment process",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "A planned process that evaluates an entity, characteristic, performance, impact, or condition in order to produce information relevant to a stated objective."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "This class covers ongoing, completed, and incompletely described assessments. It has no universal specification, evaluand, input, or output existential."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/alignmentRelation",
+          "val" : "relatedMatch; annotation-only; non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "SRC-005 SSbD Core 0.0.1 Assessment and SpecifiedAssessment at commit a96b121df9fd16c00797f61f93e3e61360b6ced1; September MKB1 assessment-architecture carryover; final human decision 2."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationNote",
+          "val" : "MatSus uses the BFO/COB planned-process category and does not inherit SSbD output, assesses, PROV, or mereology axioms."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "https://w3id.org/ssbd/Assessment"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "https://w3id.org/ssbd/SpecifiedAssessment"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000044",
+      "lbl" : "safety assessment",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "An assessment process that evaluates hazards, exposures, risks, or other safety-relevant conditions."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "This class is an umbrella: it does not assert regulatory compliance and does not require all three child kinds."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/alignmentRelation",
+          "val" : "close conceptual correspondence; annotation-only; non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "SRC-005 SSbD Core 0.0.1 SafetyAssessment; final human decisions 2 and 10."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationNote",
+          "val" : "No SSbD restriction is inherited."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "https://w3id.org/ssbd/SafetyAssessment"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000045",
+      "lbl" : "hazard assessment",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "A safety assessment that identifies or characterizes the potential of an entity or condition to cause harm."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "This local umbrella is broader than SSbD's environment-, human-health-, and intrinsic-chemical-hazard leaves. Hazard is not modelled here as an assessment result or disposition."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/alignmentRelation",
+          "val" : "broader local umbrella over several SSbD leaves; annotation-only; non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "SRC-005 SSbD hazard-assessment leaves; MatSus broader umbrella approved by final human decision 2."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationNote",
+          "val" : "There is no generic SSbD HazardAssessment IRI."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "https://w3id.org/ssbd/HazardAssessmentEnvironment"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "https://w3id.org/ssbd/HazardAssessmentHumanHealth"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "https://w3id.org/ssbd/IntrinsicChemicalHazardAssessment"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000046",
+      "lbl" : "exposure assessment",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "A safety assessment that evaluates the magnitude, frequency, duration, route, or circumstances of contact between an agent and an entity of concern."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "SSbD output-like wording is not inherited. No exposure-estimate information-content class is introduced in this increment."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/alignmentRelation",
+          "val" : "broader local umbrella; annotation-only; non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "SRC-005 SSbD environmental and human-health exposure-assessment leaves; MatSus broader process approved by final human decision 2."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationNote",
+          "val" : "The SSbD result-like textual wording is not inherited."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "https://w3id.org/ssbd/ExposureAssessmentEnvironment"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "https://w3id.org/ssbd/ExposureAssessmentHumanHealth"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000047",
+      "lbl" : "risk assessment",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "A safety assessment that evaluates the likelihood and severity of harm under specified hazard, exposure, and contextual conditions."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "Risk assessment is a process; risk estimate is information resulting from such an assessment."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/alignmentRelation",
+          "val" : "broader local process correspondence; annotation-only; non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "SRC-005 SSbD environmental and human-health risk-assessment leaves; process/result distinction approved by final human decisions 2 and 5."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationNote",
+          "val" : "SSbD EnvironmentalRiskAssessment has estimate-like wording; MatSus retains a process category."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "https://w3id.org/ssbd/EnvironmentalRiskAssessment"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "https://w3id.org/ssbd/HumanHealthRiskAssessment"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000048",
+      "lbl" : "sustainability assessment",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "An assessment process that evaluates one or more environmental, economic, or social sustainability aspects of an entity or process."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "This class does not require all three dimensions, and its aspect branches are neither disjoint nor exhaustive."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/alignmentRelation",
+          "val" : "close conceptual correspondence; annotation-only; non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "SRC-005 SSbD SustainabilityAssessment; September MKB1 Material Sustainability Assessment carryover; final human decisions 2 and 3."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationNote",
+          "val" : "SSbD dimension restrictions are not inherited."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "https://w3id.org/ssbd/SustainabilityAssessment"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000049",
+      "lbl" : "environmental sustainability assessment",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "A sustainability assessment that evaluates environmental sustainability aspects of an entity or process."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "Impact categories, environmental effects, and indicator results are not subclasses of this process. Detailed life-cycle-assessment modelling is deferred."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/alignmentRelation",
+          "val" : "close conceptual correspondence; annotation-only; non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "SRC-005 SSbD EnvironmentalSustainabilityAssessment; LCA content excluded by final human decision 12."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationNote",
+          "val" : "No SSbD impact-category descendants are imported or reproduced."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "https://w3id.org/ssbd/EnvironmentalSustainabilityAssessment"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000050",
+      "lbl" : "economic sustainability assessment",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "A sustainability assessment that evaluates economic sustainability aspects of an entity or process."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "This is a thin interoperability anchor. No method, criterion, child, or specialized-result axioms are added in this increment."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/alignmentRelation",
+          "val" : "thin-anchor correspondence; annotation-only; non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "SRC-005 SSbD EconomicSustainabilityAssessment; thin-anchor scope fixed by final human decision 10."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationNote",
+          "val" : "Only the superclass and annotation-level SSbD correspondence are asserted."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "https://w3id.org/ssbd/EconomicSustainabilityAssessment"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000051",
+      "lbl" : "social sustainability assessment",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "A sustainability assessment that evaluates social sustainability aspects of an entity or process."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "This is a thin interoperability anchor. No method, criterion, child, or specialized-result axioms are added in this increment."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/alignmentRelation",
+          "val" : "thin-anchor correspondence; annotation-only; non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "SRC-005 SSbD SocialSustainabilityAssessment; thin-anchor scope fixed by final human decision 10."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationNote",
+          "val" : "Only the superclass and annotation-level SSbD correspondence are asserted."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "https://w3id.org/ssbd/SocialSustainabilityAssessment"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000052",
+      "lbl" : "sustainability-relevant functionality assessment",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "An assessment process that evaluates whether or how well an entity or process fulfils a stated function or performance requirement in a sustainability or SSbD decision context."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "Ordinary material-characterization assays are not subclasses merely because they measure functional properties. PMDco assays and their results may be subprocesses or evidence when a concrete assessment uses them."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/alignmentRelation",
+          "val" : "narrower MatSus correspondence; annotation-only; non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "SRC-005 SSbD FunctionalityAssessment and pinned PMDco assay comparison; sustainability-context narrowing fixed by final human decision 4."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationNote",
+          "val" : "MatSus requires a sustainability or SSbD decision context; ordinary characterization is not included automatically."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "https://w3id.org/ssbd/FunctionalityAssessment"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000053",
+      "lbl" : "assessment specification",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "A plan specification that prescribes how an assessment process is to be conducted in order to achieve a stated assessment objective."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "This is directive information, not a report, result, material input, or process. It inherits the plan-specification requirements for objective- and action-specification parts. A merely retrospective description is not thereby an assessment specification."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/alignmentRelation",
+          "val" : "partial relatedMatch; annotation-only; non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "MKB1 assessment-method/specification carryover; imported IAO plan-specification axioms; CLEO lifecycle calculation request reviewed as partial evidence; final human decision 6."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationNote",
+          "val" : "CLEO lifecycle calculation request is a parameter specification, not a general assessment specification. No mapping to SSbD SpecifiedAssessment is asserted because that class denotes a process."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "http://purl.obolibrary.org/obo/CLEO_0000007"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000054",
+      "lbl" : "assessment output information",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "An information content entity that is produced or compiled as an informational output concerning an assessment process."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "This is the broad common category for informational outputs of an assessment. It includes actual findings and documents but is not limited to either, and it does not imply specified-output provenance without an explicit process assertion."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/alignmentRelation",
+          "val" : "loose information-level correspondence; annotation-only; non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "SRC-005 information-output requirement and MKB1 process/specification/output distinction; final human decision 5."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationNote",
+          "val" : "SSbD Sign/Data categories are not aligned to BFO/IAO."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "https://w3id.org/ssbd/Information"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000055",
+      "lbl" : "assessment result information",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "Assessment output information that represents an actual finding or outcome obtained through an assessment process."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "This is the common parent for quantitative and qualitative findings. A plan, method, or report is not an individual result merely because it discusses one."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/alignmentRelation",
+          "val" : "loose result-information correspondence; annotation-only; non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "SRC-005 findings architecture and MKB1 result-information carryover; final human decision 5."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationNote",
+          "val" : "SSbD Property is a semiotic Sign, not a BFO quality or MatSus result class."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "https://w3id.org/ssbd/Description"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "https://w3id.org/ssbd/Property"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000056",
+      "lbl" : "assessment result datum",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "A data item that is assessment result information and records an actual finding or outcome obtained through an assessment process."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "This class inherits IAO's truth-intended and reliable-method semantics. It is not the process, specification, or report that generated or communicates it."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/alignmentRelation",
+          "val" : "broader MatSus result-datum correspondence; annotation-only; non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "Imported IAO data-item semantics, SSbD Datum, and CLEO lifecycle-analysis result datum reviewed; final human decision 5."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationNote",
+          "val" : "CLEO is lifecycle-specific and SSbD uses a different upper category."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "http://purl.obolibrary.org/obo/CLEO_0000002"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "https://w3id.org/ssbd/Datum"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000057",
+      "lbl" : "indicator result",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "An assessment result datum that records a quantitative indicator value determined according to a metric specification."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "This class is distinct from metric specification and from the OBI value specification carrying its numeric or structured value. SSbD Indicator has a different input/property meaning."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/alignmentRelation",
+          "val" : "relatedMatch only; annotation-only; non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "MKB1 ADD-SCO-011 indicator-value carryover, existing MATSUS_0000027, SSbD Indicator mismatch, and CLEO result example reviewed; final human decisions 5 and 9."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationNote",
+          "val" : "SSbD Indicator is an input/property; CLEO's mapped class is climate-specific and carries the rejected carbon-dioxide-equivalent-disposition restriction."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "http://purl.obolibrary.org/obo/CLEO_0000010"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "https://w3id.org/ssbd/Indicator"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000058",
+      "lbl" : "risk estimate",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "Assessment result information that estimates the likelihood, severity, or level of harm under stated conditions."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "Qualitative estimates are allowed. A quantitative risk estimate may additionally be typed as assessment result datum or indicator result when warranted; no disjointness is asserted."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "SRC-005 risk branch and process/result distinction; final human decision 5."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local class using the pinned PMDco/IAO/OBI backbone; no exact external class mapping was found"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationNote",
+          "val" : "SSbD risk-assessment candidates denote processes, not this result; the absence of a mappedTo annotation is deliberate."
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000059",
+      "lbl" : "assessment report",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "A document that organizes or communicates assessment result information concerning one or more assessment processes."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "An assessment report is not identical to an individual result. It may have result information as actual content or be about an external result; those cases require different assertions."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "MKB1 assessment-report carryover, imported IAO document, and current MatSus report review; final human decisions 5 and 11."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local class using the pinned PMDco/IAO/OBI backbone; no exact external class mapping was found"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationNote",
+          "val" : "Neither inspected ontology provides an assessment-report class matching this meaning; the absence of a mappedTo annotation is deliberate."
+        } ]
+      }
+    }, {
       "id" : "https://w3id.org/pmd/matsus/RecycledContentInformation",
       "lbl" : "recycled content information",
       "type" : "CLASS",
@@ -27056,6 +27625,9 @@
         }, {
           "pred" : "http://purl.org/dc/terms/source",
           "val" : "BatteryPass-ready Data Attribute Long List v1.3, attributes 48-54"
+        }, {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 approved legacy indicator-result bridge, 2026-09-16"
         }, {
           "pred" : "http://www.w3.org/2004/02/skos/core#definition",
           "val" : "A DPP data item that records a calculated share of recycled material content in a battery or constituent material."
@@ -29247,6 +29819,64 @@
       "propertyType" : "OBJECT",
       "meta" : {
         "comments" : [ "relationship from a person or business organization to an independent continuant when the agent holds the independent continuant as legal property" ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000060",
+      "lbl" : "evaluates",
+      "type" : "PROPERTY",
+      "propertyType" : "OBJECT",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "A relation between an assessment process and an entity such that the process determines or estimates a characteristic, performance, impact, condition, or outcome concerning that entity for an assessment objective."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "The evaluand may be a material, product, process, or represented lifecycle system. This relation does not make the evaluand a participant, input, material evaluant, or information-content subject. The relation is optional on assessment instances. No inverse is introduced in this increment."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/alignmentRelation",
+          "val" : "related property correspondence; annotation-only; non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "Complete pinned PMDco/IAO/OBI relation inventory and SSbD assesses comparison; final human decision 8."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local object property using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationNote",
+          "val" : "SSbD assesses is not reused: its proper-overlap and PROV domain/range semantics are not inherited."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/mappedTo",
+          "val" : "https://w3id.org/ssbd/assesses"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000061",
+      "lbl" : "has indicator specification",
+      "type" : "PROPERTY",
+      "propertyType" : "OBJECT",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "A relation between an indicator result and a metric specification such that the specification prescribes the quantities, calculation or measurement method, units, boundary, or interpretation by which the result is determined."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "This relation expresses methodological governance, not aboutness, parthood, or a value-specification link. No inverse is introduced because no approved competency question requires one."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "Complete pinned PMDco/IAO/OBI relation inventory, existing MATSUS_0000027, and SSbD/CLEO indicator-pattern comparison; final human decision 9."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local object property using the pinned PMDco/IAO/OBI backbone; no exact external relation was found"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationNote",
+          "val" : "No SSbD or CLEO property denotes this relation; the absence of a mappedTo annotation is deliberate after inventory."
+        } ]
       }
     }, {
       "id" : "http://purl.obolibrary.org/obo/OBI_0001937",
@@ -38523,11 +39153,11 @@
     }, {
       "sub" : "https://w3id.org/pmd/matsus/BatteryCarbonFootprintInformation",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/IAO_0000027"
+      "obj" : "http://w3id.org/dppo/ontology/dpp-info/DPPInformation"
     }, {
       "sub" : "https://w3id.org/pmd/matsus/BatteryCarbonFootprintInformation",
       "pred" : "is_a",
-      "obj" : "http://w3id.org/dppo/ontology/dpp-info/DPPInformation"
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000057"
     }, {
       "sub" : "https://w3id.org/pmd/matsus/BatteryLabelInformation",
       "pred" : "is_a",
@@ -38583,7 +39213,7 @@
     }, {
       "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000004",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/OBI_0000070"
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000048"
     }, {
       "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000005",
       "pred" : "is_a",
@@ -38687,7 +39317,7 @@
     }, {
       "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000028",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/IAO_0000027"
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000057"
     }, {
       "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000029",
       "pred" : "is_a",
@@ -38753,13 +39383,97 @@
       "pred" : "is_a",
       "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000003"
     }, {
-      "sub" : "https://w3id.org/pmd/matsus/RecycledContentInformation",
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000043",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/COB_0000082"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000044",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000043"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000045",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000044"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000046",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000044"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000047",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000044"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000048",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000043"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000049",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000048"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000050",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000048"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000051",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000048"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000052",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000043"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000053",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/IAO_0000104"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000054",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/IAO_0000030"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000055",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000054"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000056",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/IAO_0000027"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000056",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000055"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000057",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000056"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000057",
+      "pred" : "https://w3id.org/pmd/matsus/MATSUS_0000061",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000027"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000058",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000055"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000059",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/IAO_0000310"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000059",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000054"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000059",
+      "pred" : "http://purl.obolibrary.org/obo/IAO_0000136",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000043"
     }, {
       "sub" : "https://w3id.org/pmd/matsus/RecycledContentInformation",
       "pred" : "is_a",
       "obj" : "http://w3id.org/dppo/ontology/dpp-info/DPPInformation"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/RecycledContentInformation",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000057"
     }, {
       "sub" : "https://w3id.org/pmd/matsus/SupplyChainDueDiligenceReport",
       "pred" : "is_a",
@@ -40122,6 +40836,14 @@
       "predicateId" : "https://w3id.org/pmd/log/LOG_1900003",
       "domainClassIds" : [ "https://w3id.org/pmd/log/LOG_1000011" ],
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000004" ]
+    }, {
+      "predicateId" : "https://w3id.org/pmd/matsus/MATSUS_0000060",
+      "domainClassIds" : [ "https://w3id.org/pmd/matsus/MATSUS_0000043" ],
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000001" ]
+    }, {
+      "predicateId" : "https://w3id.org/pmd/matsus/MATSUS_0000061",
+      "domainClassIds" : [ "https://w3id.org/pmd/matsus/MATSUS_0000057" ],
+      "rangeClassIds" : [ "https://w3id.org/pmd/matsus/MATSUS_0000027" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/BFO_0000199",
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000008" ]
