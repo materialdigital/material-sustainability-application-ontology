@@ -29,7 +29,7 @@
                                 dcterms:publisher <https://materialdigital.de/> ;
                                 dcterms:source <https://github.com/materialdigital/material-sustainability-application-ontology> ;
                                 dcterms:title "Material Sustainability Application Ontology (Mat.Sus)" ;
-                                owl:versionInfo "2026-09-11" .
+                                owl:versionInfo "2026-09-16" .
 
 #################################################################
 #    Annotation properties
@@ -1865,6 +1865,34 @@ co:PMD_0060002 rdf:type owl:ObjectProperty ;
                                        rdfs:range obo:BFO_0000004 ;
                                        rdfs:comment "relationship from a person or business organization to an independent continuant when the agent holds the independent continuant as legal property" ;
                                        rdfs:label "owns" .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000060
+matsus:MATSUS_0000060 rdf:type owl:ObjectProperty ;
+                      rdfs:domain matsus:MATSUS_0000043 ;
+                      rdfs:range obo:BFO_0000001 ;
+                      dcterms:source "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16" ;
+                      rdfs:label "evaluates"@en ;
+                      skos:definition "A relation between an assessment process and an entity such that the process determines or estimates a characteristic, performance, impact, condition, or outcome concerning that entity for an assessment objective."@en ;
+                      skos:editorialNote "The evaluand may be a material, product, process, or represented lifecycle system. This relation does not make the evaluand a participant, input, material evaluant, or information-content subject. The relation is optional on assessment instances. No inverse is introduced in this increment."@en ;
+                      matsus:alignmentRelation "related property correspondence; annotation-only; non-entailing" ;
+                      matsus:integrationBasis "Complete pinned PMDco/IAO/OBI relation inventory and SSbD assesses comparison; final human decision 8." ;
+                      matsus:integrationMethod "MatSus-local object property using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing" ;
+                      matsus:integrationNote "SSbD assesses is not reused: its proper-overlap and PROV domain/range semantics are not inherited." ;
+                      matsus:mappedTo <https://w3id.org/ssbd/assesses> .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000061
+matsus:MATSUS_0000061 rdf:type owl:ObjectProperty ;
+                      rdfs:domain matsus:MATSUS_0000057 ;
+                      rdfs:range matsus:MATSUS_0000027 ;
+                      dcterms:source "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16" ;
+                      rdfs:label "has indicator specification"@en ;
+                      skos:definition "A relation between an indicator result and a metric specification such that the specification prescribes the quantities, calculation or measurement method, units, boundary, or interpretation by which the result is determined."@en ;
+                      skos:editorialNote "This relation expresses methodological governance, not aboutness, parthood, or a value-specification link. No inverse is introduced because no approved competency question requires one."@en ;
+                      matsus:integrationBasis "Complete pinned PMDco/IAO/OBI relation inventory, existing MATSUS_0000027, and SSbD/CLEO indicator-pattern comparison; final human decision 9." ;
+                      matsus:integrationMethod "MatSus-local object property using the pinned PMDco/IAO/OBI backbone; no exact external relation was found" ;
+                      matsus:integrationNote "No SSbD or CLEO property denotes this relation; the absence of a mappedTo annotation is deliberate after inventory." .
 
 
 #################################################################
@@ -23673,10 +23701,11 @@ co:PMD_0200008 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/matsus/BatteryCarbonFootprintInformation
 matsus:BatteryCarbonFootprintInformation rdf:type owl:Class ;
-                                         rdfs:subClassOf obo:IAO_0000027 ,
-                                                         <http://w3id.org/dppo/ontology/dpp-info/DPPInformation> ;
+                                         rdfs:subClassOf <http://w3id.org/dppo/ontology/dpp-info/DPPInformation> ,
+                                                         matsus:MATSUS_0000057 ;
                                          dcterms:source <urn:samm:io.BatteryPass.CarbonFootprint:1.2.0#batteryCarbonFootprint> ,
-                                                        "BatteryPass-ready Data Attribute Long List v1.3, attributes 28-35" ;
+                                                        "BatteryPass-ready Data Attribute Long List v1.3, attributes 28-35" ,
+                                                        "MKB2 SRC-005/SRC-006 approved legacy indicator-result bridge, 2026-09-16" ;
                                          rdfs:label "battery carbon footprint information"@en ;
                                          skos:definition "A DPP data item that records a calculated greenhouse-gas emissions result for a battery under a specified method, system boundary, and functional unit."@en ;
                                          skos:editorialNote "This is a calculated indicator/data item, not an intrinsic material quality. Detailed LCA methodology alignment is deferred to the CLEO stage." ;
@@ -23809,12 +23838,16 @@ matsus:MATSUS_0000003 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/matsus/MATSUS_0000004
 matsus:MATSUS_0000004 rdf:type owl:Class ;
-                      rdfs:subClassOf obo:OBI_0000070 ;
-                      dcterms:source "MKB1 IR2 Class Review: POST-MKB1-ASS-001 / MKB-000180 supporting anchor" ;
+                      rdfs:subClassOf matsus:MATSUS_0000048 ;
+                      dcterms:source "MKB1 IR2 Class Review: POST-MKB1-ASS-001 / MKB-000180 supporting anchor" ,
+                                     "MKB2 SRC-005/SRC-006 final human decision 3, 2026-09-16" ;
                       rdfs:label "material sustainability assessment"@en ;
-                      skos:definition "An assay intended to produce information for evaluating one or more sustainability-related aspects of a material, product, process, or material lifecycle system."@en ;
-                      skos:editorialNote "Post-gate accepted provisionally as the parent needed for resource-input reduction assessment. Later: reconcile the assessment umbrella during the later SRC-007/SRC-009/CLEO assessment reconciliation in MKB source Batch 2; add no further logical restrictions now." ;
-                      matsus:integrationMethod "new MatSus subclass of OBI assay" .
+                      skos:definition "A sustainability assessment that evaluates one or more sustainability-related aspects of a material, product, process, or material lifecycle system."@en ;
+                      skos:editorialNote "MKB2 SRC-005/SRC-006 final decision: this class denotes a broader sustainability-assessment process rather than an OBI assay. PMDco/OBI assays may be subprocesses or supply evidence in particular assessments, but are not universal parents. Material subject scope may overlap environmental, economic, or social aspect classifications. Resource-input reduction assessment remains its child."@en ;
+                      matsus:alignmentRelation "relatedMatch; annotation-only; non-entailing" ;
+                      matsus:integrationMethod "Existing MKB1 MatSus class reclassified under MatSus sustainability assessment during MKB2 SRC-005/SRC-006 consolidation" ;
+                      matsus:integrationNote "The SSbD mapping is conceptual only; MatSus adds material, product, process, or lifecycle-system subject scope and inherits no SSbD restrictions." ;
+                      matsus:mappedTo <https://w3id.org/ssbd/SustainabilityAssessment> .
 
 
 ###  https://w3id.org/pmd/matsus/MATSUS_0000005
@@ -24050,17 +24083,22 @@ matsus:MATSUS_0000026 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/matsus/MATSUS_0000027
 matsus:MATSUS_0000027 rdf:type owl:Class ;
                       rdfs:subClassOf obo:IAO_0000033 ;
-                      dcterms:source "MKB1 IR2 Class Review: ADD-SCO-012; SCO" ;
+                      dcterms:source "MKB1 IR2 Class Review: ADD-SCO-012; SCO" ,
+                                     "MKB2 SRC-005/SRC-006 final human decision 9, 2026-09-16" ;
                       rdfs:label "metric specification"@en ;
+                      skos:altLabel "indicator specification"@en ;
                       skos:definition "A directive information entity that prescribes the quantities, calculation method, units, boundary, and interpretation used to produce a quantitative indicator datum."@en ;
-                      skos:editorialNote "Human-gate-authorized MKB1 IR2 Batch 3 implementation. Metric specifications prescribe methods; resulting metric values remain data items. Later: relate prescribed quantities, calculation method, units, boundary, interpretation, and resulting datum. No further logical restrictions are asserted in this batch." ;
-                      matsus:integrationMethod "new MatSus subclass of IAO directive information entity" .
+                      skos:editorialNote "Human-gate-authorized MKB1 IR2 Batch 3 implementation. Metric specifications prescribe methods; resulting metric values remain data items. Later: relate prescribed quantities, calculation method, units, boundary, interpretation, and resulting datum. No further logical restrictions are asserted in this batch." ,
+                                         "In the MKB2 assessment architecture, metric specification is the governing indicator specification linked to an indicator result by has indicator specification. It remains distinct from the result and from any OBI value specification that carries the result's value."@en ;
+                      matsus:integrationMethod "new MatSus subclass of IAO directive information entity" ;
+                      matsus:integrationNote "No mappedTo annotation is asserted: SSbD Indicator and CLEO lifecycle model datum are not metric specifications." .
 
 
 ###  https://w3id.org/pmd/matsus/MATSUS_0000028
 matsus:MATSUS_0000028 rdf:type owl:Class ;
-                      rdfs:subClassOf obo:IAO_0000027 ;
-                      dcterms:source "MKB1 IR2 Class Review: MKB-000205; SRC-001 Circular Berlin; UNEP domain meaning" ;
+                      rdfs:subClassOf matsus:MATSUS_0000057 ;
+                      dcterms:source "MKB1 IR2 Class Review: MKB-000205; SRC-001 Circular Berlin; UNEP domain meaning" ,
+                                     "MKB2 SRC-005/SRC-006 approved legacy indicator-result bridge, 2026-09-16" ;
                       rdfs:label "resource efficiency datum"@en ;
                       skos:definition "A data item that records the useful output, service, or value obtained per stated quantity of resource input under a specified method, boundary, and time interval."@en ;
                       skos:editorialNote "Human-gate-authorized MKB1 IR2 Batch 3 implementation. This is a calculated result datum, not an intrinsic efficiency quality. Later: model numerator or output, resource input, method, boundary, unit, time interval, and calculation relations." ;
@@ -24214,12 +24252,265 @@ matsus:MATSUS_0000042 rdf:type owl:Class ;
                       matsus:integrationMethod "new MatSus subclass of LOG raw material" .
 
 
+###  https://w3id.org/pmd/matsus/MATSUS_0000043
+matsus:MATSUS_0000043 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:COB_0000082 ;
+                      dcterms:source "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16" ;
+                      rdfs:label "assessment process"@en ;
+                      skos:definition "A planned process that evaluates an entity, characteristic, performance, impact, or condition in order to produce information relevant to a stated objective."@en ;
+                      skos:editorialNote "This class covers ongoing, completed, and incompletely described assessments. It has no universal specification, evaluand, input, or output existential."@en ;
+                      matsus:alignmentRelation "relatedMatch; annotation-only; non-entailing" ;
+                      matsus:integrationBasis "SRC-005 SSbD Core 0.0.1 Assessment and SpecifiedAssessment at commit a96b121df9fd16c00797f61f93e3e61360b6ced1; September MKB1 assessment-architecture carryover; final human decision 2." ;
+                      matsus:integrationMethod "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing" ;
+                      matsus:integrationNote "MatSus uses the BFO/COB planned-process category and does not inherit SSbD output, assesses, PROV, or mereology axioms." ;
+                      matsus:mappedTo <https://w3id.org/ssbd/Assessment> ,
+                                      <https://w3id.org/ssbd/SpecifiedAssessment> .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000044
+matsus:MATSUS_0000044 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000043 ;
+                      dcterms:source "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16" ;
+                      rdfs:label "safety assessment"@en ;
+                      skos:definition "An assessment process that evaluates hazards, exposures, risks, or other safety-relevant conditions."@en ;
+                      skos:editorialNote "This class is an umbrella: it does not assert regulatory compliance and does not require all three child kinds."@en ;
+                      matsus:alignmentRelation "close conceptual correspondence; annotation-only; non-entailing" ;
+                      matsus:integrationBasis "SRC-005 SSbD Core 0.0.1 SafetyAssessment; final human decisions 2 and 10." ;
+                      matsus:integrationMethod "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing" ;
+                      matsus:integrationNote "No SSbD restriction is inherited." ;
+                      matsus:mappedTo <https://w3id.org/ssbd/SafetyAssessment> .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000045
+matsus:MATSUS_0000045 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000044 ;
+                      dcterms:source "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16" ;
+                      rdfs:label "hazard assessment"@en ;
+                      skos:definition "A safety assessment that identifies or characterizes the potential of an entity or condition to cause harm."@en ;
+                      skos:editorialNote "This local umbrella is broader than SSbD's environment-, human-health-, and intrinsic-chemical-hazard leaves. Hazard is not modelled here as an assessment result or disposition."@en ;
+                      matsus:alignmentRelation "broader local umbrella over several SSbD leaves; annotation-only; non-entailing" ;
+                      matsus:integrationBasis "SRC-005 SSbD hazard-assessment leaves; MatSus broader umbrella approved by final human decision 2." ;
+                      matsus:integrationMethod "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing" ;
+                      matsus:integrationNote "There is no generic SSbD HazardAssessment IRI." ;
+                      matsus:mappedTo <https://w3id.org/ssbd/HazardAssessmentEnvironment> ,
+                                      <https://w3id.org/ssbd/HazardAssessmentHumanHealth> ,
+                                      <https://w3id.org/ssbd/IntrinsicChemicalHazardAssessment> .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000046
+matsus:MATSUS_0000046 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000044 ;
+                      dcterms:source "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16" ;
+                      rdfs:label "exposure assessment"@en ;
+                      skos:definition "A safety assessment that evaluates the magnitude, frequency, duration, route, or circumstances of contact between an agent and an entity of concern."@en ;
+                      skos:editorialNote "SSbD output-like wording is not inherited. No exposure-estimate information-content class is introduced in this increment."@en ;
+                      matsus:alignmentRelation "broader local umbrella; annotation-only; non-entailing" ;
+                      matsus:integrationBasis "SRC-005 SSbD environmental and human-health exposure-assessment leaves; MatSus broader process approved by final human decision 2." ;
+                      matsus:integrationMethod "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing" ;
+                      matsus:integrationNote "The SSbD result-like textual wording is not inherited." ;
+                      matsus:mappedTo <https://w3id.org/ssbd/ExposureAssessmentEnvironment> ,
+                                      <https://w3id.org/ssbd/ExposureAssessmentHumanHealth> .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000047
+matsus:MATSUS_0000047 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000044 ;
+                      dcterms:source "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16" ;
+                      rdfs:label "risk assessment"@en ;
+                      skos:definition "A safety assessment that evaluates the likelihood and severity of harm under specified hazard, exposure, and contextual conditions."@en ;
+                      skos:editorialNote "Risk assessment is a process; risk estimate is information resulting from such an assessment."@en ;
+                      matsus:alignmentRelation "broader local process correspondence; annotation-only; non-entailing" ;
+                      matsus:integrationBasis "SRC-005 SSbD environmental and human-health risk-assessment leaves; process/result distinction approved by final human decisions 2 and 5." ;
+                      matsus:integrationMethod "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing" ;
+                      matsus:integrationNote "SSbD EnvironmentalRiskAssessment has estimate-like wording; MatSus retains a process category." ;
+                      matsus:mappedTo <https://w3id.org/ssbd/EnvironmentalRiskAssessment> ,
+                                      <https://w3id.org/ssbd/HumanHealthRiskAssessment> .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000048
+matsus:MATSUS_0000048 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000043 ;
+                      dcterms:source "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16" ;
+                      rdfs:label "sustainability assessment"@en ;
+                      skos:definition "An assessment process that evaluates one or more environmental, economic, or social sustainability aspects of an entity or process."@en ;
+                      skos:editorialNote "This class does not require all three dimensions, and its aspect branches are neither disjoint nor exhaustive."@en ;
+                      matsus:alignmentRelation "close conceptual correspondence; annotation-only; non-entailing" ;
+                      matsus:integrationBasis "SRC-005 SSbD SustainabilityAssessment; September MKB1 Material Sustainability Assessment carryover; final human decisions 2 and 3." ;
+                      matsus:integrationMethod "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing" ;
+                      matsus:integrationNote "SSbD dimension restrictions are not inherited." ;
+                      matsus:mappedTo <https://w3id.org/ssbd/SustainabilityAssessment> .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000049
+matsus:MATSUS_0000049 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000048 ;
+                      dcterms:source "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16" ;
+                      rdfs:label "environmental sustainability assessment"@en ;
+                      skos:definition "A sustainability assessment that evaluates environmental sustainability aspects of an entity or process."@en ;
+                      skos:editorialNote "Impact categories, environmental effects, and indicator results are not subclasses of this process. Detailed life-cycle-assessment modelling is deferred."@en ;
+                      matsus:alignmentRelation "close conceptual correspondence; annotation-only; non-entailing" ;
+                      matsus:integrationBasis "SRC-005 SSbD EnvironmentalSustainabilityAssessment; LCA content excluded by final human decision 12." ;
+                      matsus:integrationMethod "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing" ;
+                      matsus:integrationNote "No SSbD impact-category descendants are imported or reproduced." ;
+                      matsus:mappedTo <https://w3id.org/ssbd/EnvironmentalSustainabilityAssessment> .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000050
+matsus:MATSUS_0000050 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000048 ;
+                      dcterms:source "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16" ;
+                      rdfs:label "economic sustainability assessment"@en ;
+                      skos:definition "A sustainability assessment that evaluates economic sustainability aspects of an entity or process."@en ;
+                      skos:editorialNote "This is a thin interoperability anchor. No method, criterion, child, or specialized-result axioms are added in this increment."@en ;
+                      matsus:alignmentRelation "thin-anchor correspondence; annotation-only; non-entailing" ;
+                      matsus:integrationBasis "SRC-005 SSbD EconomicSustainabilityAssessment; thin-anchor scope fixed by final human decision 10." ;
+                      matsus:integrationMethod "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing" ;
+                      matsus:integrationNote "Only the superclass and annotation-level SSbD correspondence are asserted." ;
+                      matsus:mappedTo <https://w3id.org/ssbd/EconomicSustainabilityAssessment> .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000051
+matsus:MATSUS_0000051 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000048 ;
+                      dcterms:source "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16" ;
+                      rdfs:label "social sustainability assessment"@en ;
+                      skos:definition "A sustainability assessment that evaluates social sustainability aspects of an entity or process."@en ;
+                      skos:editorialNote "This is a thin interoperability anchor. No method, criterion, child, or specialized-result axioms are added in this increment."@en ;
+                      matsus:alignmentRelation "thin-anchor correspondence; annotation-only; non-entailing" ;
+                      matsus:integrationBasis "SRC-005 SSbD SocialSustainabilityAssessment; thin-anchor scope fixed by final human decision 10." ;
+                      matsus:integrationMethod "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing" ;
+                      matsus:integrationNote "Only the superclass and annotation-level SSbD correspondence are asserted." ;
+                      matsus:mappedTo <https://w3id.org/ssbd/SocialSustainabilityAssessment> .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000052
+matsus:MATSUS_0000052 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000043 ;
+                      dcterms:source "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16" ;
+                      rdfs:label "sustainability-relevant functionality assessment"@en ;
+                      skos:definition "An assessment process that evaluates whether or how well an entity or process fulfils a stated function or performance requirement in a sustainability or SSbD decision context."@en ;
+                      skos:editorialNote "Ordinary material-characterization assays are not subclasses merely because they measure functional properties. PMDco assays and their results may be subprocesses or evidence when a concrete assessment uses them."@en ;
+                      matsus:alignmentRelation "narrower MatSus correspondence; annotation-only; non-entailing" ;
+                      matsus:integrationBasis "SRC-005 SSbD FunctionalityAssessment and pinned PMDco assay comparison; sustainability-context narrowing fixed by final human decision 4." ;
+                      matsus:integrationMethod "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing" ;
+                      matsus:integrationNote "MatSus requires a sustainability or SSbD decision context; ordinary characterization is not included automatically." ;
+                      matsus:mappedTo <https://w3id.org/ssbd/FunctionalityAssessment> .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000053
+matsus:MATSUS_0000053 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:IAO_0000104 ;
+                      dcterms:source "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16" ;
+                      rdfs:label "assessment specification"@en ;
+                      skos:definition "A plan specification that prescribes how an assessment process is to be conducted in order to achieve a stated assessment objective."@en ;
+                      skos:editorialNote "This is directive information, not a report, result, material input, or process. It inherits the plan-specification requirements for objective- and action-specification parts. A merely retrospective description is not thereby an assessment specification."@en ;
+                      matsus:alignmentRelation "partial relatedMatch; annotation-only; non-entailing" ;
+                      matsus:integrationBasis "MKB1 assessment-method/specification carryover; imported IAO plan-specification axioms; CLEO lifecycle calculation request reviewed as partial evidence; final human decision 6." ;
+                      matsus:integrationMethod "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing" ;
+                      matsus:integrationNote "CLEO lifecycle calculation request is a parameter specification, not a general assessment specification. No mapping to SSbD SpecifiedAssessment is asserted because that class denotes a process." ;
+                      matsus:mappedTo obo:CLEO_0000007 .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000054
+matsus:MATSUS_0000054 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:IAO_0000030 ;
+                      dcterms:source "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16" ;
+                      rdfs:label "assessment output information"@en ;
+                      skos:definition "An information content entity that is produced or compiled as an informational output concerning an assessment process."@en ;
+                      skos:editorialNote "This is the broad common category for informational outputs of an assessment. It includes actual findings and documents but is not limited to either, and it does not imply specified-output provenance without an explicit process assertion."@en ;
+                      matsus:alignmentRelation "loose information-level correspondence; annotation-only; non-entailing" ;
+                      matsus:integrationBasis "SRC-005 information-output requirement and MKB1 process/specification/output distinction; final human decision 5." ;
+                      matsus:integrationMethod "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing" ;
+                      matsus:integrationNote "SSbD Sign/Data categories are not aligned to BFO/IAO." ;
+                      matsus:mappedTo <https://w3id.org/ssbd/Information> .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000055
+matsus:MATSUS_0000055 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000054 ;
+                      dcterms:source "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16" ;
+                      rdfs:label "assessment result information"@en ;
+                      skos:definition "Assessment output information that represents an actual finding or outcome obtained through an assessment process."@en ;
+                      skos:editorialNote "This is the common parent for quantitative and qualitative findings. A plan, method, or report is not an individual result merely because it discusses one."@en ;
+                      matsus:alignmentRelation "loose result-information correspondence; annotation-only; non-entailing" ;
+                      matsus:integrationBasis "SRC-005 findings architecture and MKB1 result-information carryover; final human decision 5." ;
+                      matsus:integrationMethod "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing" ;
+                      matsus:integrationNote "SSbD Property is a semiotic Sign, not a BFO quality or MatSus result class." ;
+                      matsus:mappedTo <https://w3id.org/ssbd/Description> ,
+                                      <https://w3id.org/ssbd/Property> .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000056
+matsus:MATSUS_0000056 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:IAO_0000027 ,
+                                      matsus:MATSUS_0000055 ;
+                      dcterms:source "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16" ;
+                      rdfs:label "assessment result datum"@en ;
+                      skos:definition "A data item that is assessment result information and records an actual finding or outcome obtained through an assessment process."@en ;
+                      skos:editorialNote "This class inherits IAO's truth-intended and reliable-method semantics. It is not the process, specification, or report that generated or communicates it."@en ;
+                      matsus:alignmentRelation "broader MatSus result-datum correspondence; annotation-only; non-entailing" ;
+                      matsus:integrationBasis "Imported IAO data-item semantics, SSbD Datum, and CLEO lifecycle-analysis result datum reviewed; final human decision 5." ;
+                      matsus:integrationMethod "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing" ;
+                      matsus:integrationNote "CLEO is lifecycle-specific and SSbD uses a different upper category." ;
+                      matsus:mappedTo obo:CLEO_0000002 ,
+                                      <https://w3id.org/ssbd/Datum> .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000057
+matsus:MATSUS_0000057 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000056 ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty matsus:MATSUS_0000061 ;
+                                        owl:someValuesFrom matsus:MATSUS_0000027
+                                      ] ;
+                      dcterms:source "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16" ;
+                      rdfs:label "indicator result"@en ;
+                      skos:definition "An assessment result datum that records a quantitative indicator value determined according to a metric specification."@en ;
+                      skos:editorialNote "This class is distinct from metric specification and from the OBI value specification carrying its numeric or structured value. SSbD Indicator has a different input/property meaning."@en ;
+                      matsus:alignmentRelation "relatedMatch only; annotation-only; non-entailing" ;
+                      matsus:integrationBasis "MKB1 ADD-SCO-011 indicator-value carryover, existing MATSUS_0000027, SSbD Indicator mismatch, and CLEO result example reviewed; final human decisions 5 and 9." ;
+                      matsus:integrationMethod "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing" ;
+                      matsus:integrationNote "SSbD Indicator is an input/property; CLEO's mapped class is climate-specific and carries the rejected carbon-dioxide-equivalent-disposition restriction." ;
+                      matsus:mappedTo obo:CLEO_0000010 ,
+                                      <https://w3id.org/ssbd/Indicator> .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000058
+matsus:MATSUS_0000058 rdf:type owl:Class ;
+                      rdfs:subClassOf matsus:MATSUS_0000055 ;
+                      dcterms:source "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16" ;
+                      rdfs:label "risk estimate"@en ;
+                      skos:definition "Assessment result information that estimates the likelihood, severity, or level of harm under stated conditions."@en ;
+                      skos:editorialNote "Qualitative estimates are allowed. A quantitative risk estimate may additionally be typed as assessment result datum or indicator result when warranted; no disjointness is asserted."@en ;
+                      matsus:integrationBasis "SRC-005 risk branch and process/result distinction; final human decision 5." ;
+                      matsus:integrationMethod "MatSus-local class using the pinned PMDco/IAO/OBI backbone; no exact external class mapping was found" ;
+                      matsus:integrationNote "SSbD risk-assessment candidates denote processes, not this result; the absence of a mappedTo annotation is deliberate." .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000059
+matsus:MATSUS_0000059 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:IAO_0000310 ,
+                                      matsus:MATSUS_0000054 ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty obo:IAO_0000136 ;
+                                        owl:someValuesFrom matsus:MATSUS_0000043
+                                      ] ;
+                      dcterms:source "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16" ;
+                      rdfs:label "assessment report"@en ;
+                      skos:definition "A document that organizes or communicates assessment result information concerning one or more assessment processes."@en ;
+                      skos:editorialNote "An assessment report is not identical to an individual result. It may have result information as actual content or be about an external result; those cases require different assertions."@en ;
+                      matsus:integrationBasis "MKB1 assessment-report carryover, imported IAO document, and current MatSus report review; final human decisions 5 and 11." ;
+                      matsus:integrationMethod "MatSus-local class using the pinned PMDco/IAO/OBI backbone; no exact external class mapping was found" ;
+                      matsus:integrationNote "Neither inspected ontology provides an assessment-report class matching this meaning; the absence of a mappedTo annotation is deliberate." .
+
+
 ###  https://w3id.org/pmd/matsus/RecycledContentInformation
 matsus:RecycledContentInformation rdf:type owl:Class ;
-                                  rdfs:subClassOf obo:IAO_0000027 ,
-                                                  <http://w3id.org/dppo/ontology/dpp-info/DPPInformation> ;
+                                  rdfs:subClassOf <http://w3id.org/dppo/ontology/dpp-info/DPPInformation> ,
+                                                  matsus:MATSUS_0000057 ;
                                   dcterms:source <urn:samm:io.BatteryPass.Circularity:1.2.0#recycledContent> ,
-                                                 "BatteryPass-ready Data Attribute Long List v1.3, attributes 48-54" ;
+                                                 "BatteryPass-ready Data Attribute Long List v1.3, attributes 48-54" ,
+                                                 "MKB2 SRC-005/SRC-006 approved legacy indicator-result bridge, 2026-09-16" ;
                                   rdfs:label "recycled content information"@en ;
                                   skos:definition "A DPP data item that records a calculated share of recycled material content in a battery or constituent material."@en ;
                                   skos:editorialNote "This is a calculated composition indicator, not an intrinsic quality. Detailed circularity and resource-flow semantics are deferred to CEON/BONSAI." ;

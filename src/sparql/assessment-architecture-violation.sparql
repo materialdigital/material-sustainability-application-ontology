@@ -1,0 +1,252 @@
+PREFIX matsus: <https://w3id.org/pmd/matsus/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+# This query returns only violations of the approved MKB2 assessment architecture.
+# Positive existence and direct-parent checks make accidental omissions visible;
+# the remaining branches protect the explicit semantic exclusions.
+
+SELECT DISTINCT ?violation ?entity ?value
+WHERE {
+  {
+    VALUES (?entity ?value) {
+      (matsus:MATSUS_0000043 owl:Class)
+      (matsus:MATSUS_0000044 owl:Class)
+      (matsus:MATSUS_0000045 owl:Class)
+      (matsus:MATSUS_0000046 owl:Class)
+      (matsus:MATSUS_0000047 owl:Class)
+      (matsus:MATSUS_0000048 owl:Class)
+      (matsus:MATSUS_0000049 owl:Class)
+      (matsus:MATSUS_0000050 owl:Class)
+      (matsus:MATSUS_0000051 owl:Class)
+      (matsus:MATSUS_0000052 owl:Class)
+      (matsus:MATSUS_0000053 owl:Class)
+      (matsus:MATSUS_0000054 owl:Class)
+      (matsus:MATSUS_0000055 owl:Class)
+      (matsus:MATSUS_0000056 owl:Class)
+      (matsus:MATSUS_0000057 owl:Class)
+      (matsus:MATSUS_0000058 owl:Class)
+      (matsus:MATSUS_0000059 owl:Class)
+      (matsus:MATSUS_0000060 owl:ObjectProperty)
+      (matsus:MATSUS_0000061 owl:ObjectProperty)
+    }
+    FILTER NOT EXISTS { ?entity rdf:type ?value }
+    BIND("missing approved entity declaration" AS ?violation)
+  }
+  UNION
+  {
+    VALUES (?entity ?value) {
+      (matsus:MATSUS_0000043 obo:COB_0000082)
+      (matsus:MATSUS_0000044 matsus:MATSUS_0000043)
+      (matsus:MATSUS_0000045 matsus:MATSUS_0000044)
+      (matsus:MATSUS_0000046 matsus:MATSUS_0000044)
+      (matsus:MATSUS_0000047 matsus:MATSUS_0000044)
+      (matsus:MATSUS_0000048 matsus:MATSUS_0000043)
+      (matsus:MATSUS_0000049 matsus:MATSUS_0000048)
+      (matsus:MATSUS_0000050 matsus:MATSUS_0000048)
+      (matsus:MATSUS_0000051 matsus:MATSUS_0000048)
+      (matsus:MATSUS_0000052 matsus:MATSUS_0000043)
+      (matsus:MATSUS_0000053 obo:IAO_0000104)
+      (matsus:MATSUS_0000054 obo:IAO_0000030)
+      (matsus:MATSUS_0000055 matsus:MATSUS_0000054)
+      (matsus:MATSUS_0000056 obo:IAO_0000027)
+      (matsus:MATSUS_0000056 matsus:MATSUS_0000055)
+      (matsus:MATSUS_0000057 matsus:MATSUS_0000056)
+      (matsus:MATSUS_0000058 matsus:MATSUS_0000055)
+      (matsus:MATSUS_0000059 obo:IAO_0000310)
+      (matsus:MATSUS_0000059 matsus:MATSUS_0000054)
+      (matsus:MATSUS_0000004 matsus:MATSUS_0000048)
+      (matsus:BatteryCarbonFootprintInformation matsus:MATSUS_0000057)
+      (matsus:MATSUS_0000028 matsus:MATSUS_0000057)
+      (matsus:RecycledContentInformation matsus:MATSUS_0000057)
+      (matsus:TestReport obo:IAO_0000310)
+    }
+    FILTER NOT EXISTS { ?entity rdfs:subClassOf ?value }
+    BIND("missing approved direct subclass axiom" AS ?violation)
+  }
+  UNION
+  {
+    VALUES (?entity ?value) {
+      (matsus:MATSUS_0000060 matsus:MATSUS_0000043)
+      (matsus:MATSUS_0000061 matsus:MATSUS_0000057)
+    }
+    FILTER NOT EXISTS { ?entity rdfs:domain ?value }
+    BIND("missing approved object-property domain" AS ?violation)
+  }
+  UNION
+  {
+    VALUES (?entity ?value) {
+      (matsus:MATSUS_0000060 obo:BFO_0000001)
+      (matsus:MATSUS_0000061 matsus:MATSUS_0000027)
+    }
+    FILTER NOT EXISTS { ?entity rdfs:range ?value }
+    BIND("missing approved object-property range" AS ?violation)
+  }
+  UNION
+  {
+    VALUES (?entity ?property ?value) {
+      (matsus:MATSUS_0000057 matsus:MATSUS_0000061 matsus:MATSUS_0000027)
+      (matsus:MATSUS_0000059 obo:IAO_0000136 matsus:MATSUS_0000043)
+    }
+    FILTER NOT EXISTS {
+      ?entity rdfs:subClassOf [
+        rdf:type owl:Restriction ;
+        owl:onProperty ?property ;
+        owl:someValuesFrom ?value
+      ]
+    }
+    BIND("missing approved existential restriction" AS ?violation)
+  }
+  UNION
+  {
+    VALUES ?property {
+      obo:STATO_0000102
+      matsus:MATSUS_0000060
+      obo:OBI_0000293
+      obo:OBI_0000299
+      obo:RO_0002233
+      obo:RO_0002234
+    }
+    matsus:MATSUS_0000043 rdfs:subClassOf ?restriction .
+    ?restriction rdf:type owl:Restriction ;
+      owl:onProperty ?property ;
+      owl:someValuesFrom ?value .
+    BIND(matsus:MATSUS_0000043 AS ?entity)
+    BIND("forbidden universal assessment-process existential" AS ?violation)
+  }
+  UNION
+  {
+    matsus:MATSUS_0000004 rdfs:subClassOf+ obo:OBI_0000070 .
+    BIND(matsus:MATSUS_0000004 AS ?entity)
+    BIND(obo:OBI_0000070 AS ?value)
+    BIND("material sustainability assessment still inherits OBI assay" AS ?violation)
+  }
+  UNION
+  {
+    matsus:MATSUS_0000043 rdfs:subClassOf+ obo:COB_0000035 .
+    BIND(matsus:MATSUS_0000043 AS ?entity)
+    BIND(obo:COB_0000035 AS ?value)
+    BIND("general assessment process inherits completely executed planned process" AS ?violation)
+  }
+  UNION
+  {
+    matsus:TestReport rdfs:subClassOf+ matsus:MATSUS_0000059 .
+    BIND(matsus:TestReport AS ?entity)
+    BIND(matsus:MATSUS_0000059 AS ?value)
+    BIND("deferred TestReport was classified as assessment report" AS ?violation)
+  }
+  UNION
+  {
+    VALUES ?entity {
+      matsus:SupplyChainDueDiligenceReport
+      matsus:MATSUS_0000037
+    }
+    ?entity rdfs:subClassOf+ ?value .
+    VALUES ?value {
+      matsus:MATSUS_0000054
+      matsus:MATSUS_0000055
+      matsus:MATSUS_0000056
+      matsus:MATSUS_0000057
+      matsus:MATSUS_0000058
+      matsus:MATSUS_0000059
+    }
+    BIND("unapproved existing information class was reparented" AS ?violation)
+  }
+  UNION
+  {
+    {
+      matsus:MATSUS_0000059 rdfs:subClassOf+ matsus:MATSUS_0000055 .
+      BIND(matsus:MATSUS_0000059 AS ?entity)
+      BIND(matsus:MATSUS_0000055 AS ?value)
+    }
+    UNION
+    {
+      matsus:MATSUS_0000058 rdfs:subClassOf+ ?value .
+      VALUES ?value { matsus:MATSUS_0000056 matsus:MATSUS_0000057 }
+      BIND(matsus:MATSUS_0000058 AS ?entity)
+    }
+    BIND("result/report category boundary violated" AS ?violation)
+  }
+  UNION
+  {
+    VALUES ?entity {
+      matsus:MATSUS_0000043 matsus:MATSUS_0000044 matsus:MATSUS_0000045
+      matsus:MATSUS_0000046 matsus:MATSUS_0000047 matsus:MATSUS_0000048
+      matsus:MATSUS_0000049 matsus:MATSUS_0000050 matsus:MATSUS_0000051
+      matsus:MATSUS_0000052 matsus:MATSUS_0000053 matsus:MATSUS_0000054
+      matsus:MATSUS_0000055 matsus:MATSUS_0000056 matsus:MATSUS_0000057
+      matsus:MATSUS_0000058 matsus:MATSUS_0000059
+    }
+    {
+      ?entity ?logicalPredicate ?value .
+      VALUES ?logicalPredicate {
+        rdfs:subClassOf owl:equivalentClass owl:disjointWith
+        rdfs:subPropertyOf owl:equivalentProperty owl:inverseOf
+        rdfs:domain rdfs:range
+      }
+      FILTER(
+        isIRI(?value) &&
+        (
+          STRSTARTS(STR(?value), "https://w3id.org/ssbd/") ||
+          STRSTARTS(STR(?value), "http://purl.obolibrary.org/obo/CLEO_")
+        )
+      )
+    }
+    UNION
+    {
+      ?entity rdfs:subClassOf ?restriction .
+      ?restriction ?restrictionPredicate ?value .
+      VALUES ?restrictionPredicate {
+        owl:onProperty owl:someValuesFrom owl:allValuesFrom owl:hasValue owl:onClass
+      }
+      FILTER(
+        isIRI(?value) &&
+        (
+          STRSTARTS(STR(?value), "https://w3id.org/ssbd/") ||
+          STRSTARTS(STR(?value), "http://purl.obolibrary.org/obo/CLEO_")
+        )
+      )
+    }
+    BIND("SSbD or CLEO IRI used in a logical axiom" AS ?violation)
+  }
+  UNION
+  {
+    VALUES ?entity {
+      matsus:MATSUS_0000043 matsus:MATSUS_0000044 matsus:MATSUS_0000045
+      matsus:MATSUS_0000046 matsus:MATSUS_0000047 matsus:MATSUS_0000048
+      matsus:MATSUS_0000049 matsus:MATSUS_0000050 matsus:MATSUS_0000051
+      matsus:MATSUS_0000052 matsus:MATSUS_0000053 matsus:MATSUS_0000054
+      matsus:MATSUS_0000055 matsus:MATSUS_0000056 matsus:MATSUS_0000057
+      matsus:MATSUS_0000058 matsus:MATSUS_0000059
+    }
+    {
+      ?entity ?logicalPredicate ?value .
+      VALUES ?logicalPredicate { owl:equivalentClass owl:disjointWith }
+    }
+    UNION
+    {
+      ?value ?logicalPredicate ?entity .
+      VALUES ?logicalPredicate { owl:equivalentClass owl:disjointWith }
+    }
+    UNION
+    {
+      ?value rdf:type owl:AllDisjointClasses ;
+        owl:members/rdf:rest*/rdf:first ?entity .
+    }
+    BIND("equivalence or disjointness involves a new assessment class" AS ?violation)
+  }
+  UNION
+  {
+    ?entity ?labelPredicate ?value .
+    VALUES ?labelPredicate { rdfs:label skos:altLabel }
+    FILTER(
+      STRSTARTS(STR(?entity), "https://w3id.org/pmd/matsus/") &&
+      ?entity != matsus:MATSUS_0000027 &&
+      LCASE(STR(?value)) IN ("metric specification", "indicator specification")
+    )
+    BIND("duplicate local metric or indicator specification class" AS ?violation)
+  }
+}
