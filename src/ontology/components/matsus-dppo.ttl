@@ -202,7 +202,7 @@ dpp-prov:responsibleActor a owl:ObjectProperty ;
         <https://github.com/LiUSemWeb/DPPO/tree/dd39101cdf2bde6d1749123b6fb250c13644ddbd/ontology/dpp-info/0.1>,
         <https://github.com/LiUSemWeb/DPPO/tree/dd39101cdf2bde6d1749123b6fb250c13644ddbd/ontology/dpp-odp/0.1>,
         <https://github.com/LiUSemWeb/DPPO/tree/dd39101cdf2bde6d1749123b6fb250c13644ddbd/ontology/dpp-prov/0.1> ;
-    dcterms:title "Selected DPPO integration component for Mat.Sus" ;
+    dcterms:title "MatSus — DPPO integration" ;
     rdfs:seeAlso <https://github.com/LiUSemWeb/DPPO> ;
     owl:versionInfo "Mat.Sus adaptation of DPPO 0.1 at commit dd39101cdf2bde6d1749123b6fb250c13644ddbd" .
 
