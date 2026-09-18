@@ -8,6 +8,8 @@ Prefix: : <https://w3id.org/pmd/matsus/components/matsus-shared.owl>
 
 
 Ontology: <https://w3id.org/pmd/matsus/components/matsus-shared.owl>
+    Annotations:
+        rdfs:label "MatSus — Shared"@en
 
 Import: <https://w3id.org/pmd/matsus/components/imports-edit.owl>
 

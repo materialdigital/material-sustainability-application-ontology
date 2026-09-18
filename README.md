@@ -72,7 +72,10 @@ Original MatSus content is licensed under
 [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Reused components
 retain their own source, licence, attribution and modification notices. The
 selected DPPO component is a MatSus adaptation of CC-BY-4.0 DPPO 0.1 content.
-The LOG-derived component remains subject to maintainer confirmation of the
-exact supplier snapshot and licence before public distribution. The virgin
+The LOG-derived component is adapted from the Platform MaterialDigital
+Application Ontology for Logistics and Supply Chain (LOG), based on upstream
+`main` commit `0c89424ffc17096599d5bfdcfba783686494d49e`; ontology source
+content at that revision corresponds to LOG v1.0.2. LOG is licensed under
+CC BY 4.0. The virgin
 material definition is independently worded for MatSus; its editor note records
 only that ISO terminology informed the concept.

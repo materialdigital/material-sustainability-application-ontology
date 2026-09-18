@@ -15,7 +15,7 @@
     dcterms:source <http://w3id.org/CEON/ontology/process/0.5/> ,
         <http://w3id.org/CEON/ontology/processODP/0.5/> ,
         <https://github.com/LiUSemWeb/CEON/releases/tag/v1.0.0> ;
-    dcterms:title "Selected CEON process integration component for Mat.Sus"@en ;
+    dcterms:title "MatSus — CEON integration"@en ;
     owl:versionInfo "CEON v1.0.0, commit 9cdcae1b68f4e9d5a55697c8e3e3f8df788fc937" .
 
 #################################################################
