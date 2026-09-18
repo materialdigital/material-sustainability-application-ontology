@@ -29,7 +29,7 @@
                                 dcterms:publisher <https://materialdigital.de/> ;
                                 dcterms:source <https://github.com/materialdigital/material-sustainability-application-ontology> ;
                                 dcterms:title "Material Sustainability Application Ontology (Mat.Sus)" ;
-                                owl:versionInfo "2026-09-16" .
+                                owl:versionInfo "2026-09-18" .
 
 #################################################################
 #    Annotation properties

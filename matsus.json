@@ -25,7 +25,7 @@
         "val" : "Material Sustainability Application Ontology (Mat.Sus)"
       }, {
         "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
-        "val" : "2026-09-16"
+        "val" : "2026-09-18"
       } ],
       "version" : "https://w3id.org/pmd/matsus/dev/"
     },

@@ -29,7 +29,7 @@
         <dcterms:publisher rdf:resource="https://materialdigital.de/"/>
         <dcterms:source rdf:resource="https://github.com/materialdigital/material-sustainability-application-ontology"/>
         <dcterms:title>Material Sustainability Application Ontology (Mat.Sus)</dcterms:title>
-        <owl:versionInfo>2026-09-16</owl:versionInfo>
+        <owl:versionInfo>2026-09-18</owl:versionInfo>
     </owl:Ontology>
     
 
