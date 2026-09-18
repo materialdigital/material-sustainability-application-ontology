@@ -769,7 +769,9 @@ log:LOG_1900002 a owl:ObjectProperty ;
 
 <https://w3id.org/pmd/matsus/components/matsus-log-stageA.ttl> a owl:Ontology ;
     dcterms:description log:,
-        "Preserves the accepted Mat.Sus Stage A integration of LOG classes, properties, alignments, weakened axioms, compatibility exceptions, definitions, and integration annotations." ;
+        "Preserves the accepted Mat.Sus Stage A integration of LOG classes, properties, alignments, weakened axioms, compatibility exceptions, definitions, and integration annotations. This Mat.Sus component is adapted from the Platform MaterialDigital Application Ontology for Logistics and Supply Chain (LOG), based on upstream main commit 0c89424ffc17096599d5bfdcfba783686494d49e; ontology source content at that revision corresponds to LOG v1.0.2." ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:source <https://github.com/materialdigital/logistics-application-ontology/commit/0c89424ffc17096599d5bfdcfba783686494d49e> ;
     dcterms:title "Accepted Stage A LOG integration component for Mat.Sus" .
 
 pmd:PMD_0040122 a owl:ObjectProperty ;
