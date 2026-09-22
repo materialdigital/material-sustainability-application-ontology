@@ -1,5 +1,5 @@
 @prefix ceon-process: <http://w3id.org/CEON/ontology/process/> .
-@prefix ceon-processODP: <http://w3id.org/CEON/ontology/processODP/> .
+
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix matsus: <https://w3id.org/pmd/matsus/> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
@@ -13,147 +13,85 @@
     dcterms:description "A manually curated integration of selected CEON v1.0.0 process terms into the authoritative PMDco 3.1.0 and BFO process backbone used by Mat.Sus."@en ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
     dcterms:source <http://w3id.org/CEON/ontology/process/0.5/> ,
-        <http://w3id.org/CEON/ontology/processODP/0.5/> ,
         <https://github.com/LiUSemWeb/CEON/releases/tag/v1.0.0> ;
     dcterms:title "MatSus — CEON integration"@en ;
     owl:versionInfo "CEON v1.0.0, commit 9cdcae1b68f4e9d5a55697c8e3e3f8df788fc937" .
 
 #################################################################
-# A. Axioms reproduced from CEON v1.0.0
+# A. Selected CEON v1.0.0 term axioms retained in MatSus
+# Generic CEON process-backbone axioms and overlapping disassembling/dismantle terms are intentionally omitted; retained terms are re-grounded below in the MatSus process backbone.
 #################################################################
-
-ceon-processODP:hasInput a owl:ObjectProperty ;
-    rdfs:label "has input" ;
-    dcterms:source <http://w3id.org/CEON/ontology/processODP/0.5/> ;
-    rdfs:comment "The inputs to a process or event." ;
-    rdfs:domain ceon-processODP:Process .
-
-ceon-processODP:hasOutput a owl:ObjectProperty ;
-    rdfs:label "has output" ;
-    dcterms:source <http://w3id.org/CEON/ontology/processODP/0.5/> ;
-    rdfs:comment "The output of a process or event." ;
-    rdfs:domain ceon-processODP:Process .
-
-ceon-processODP:hasPart a owl:ObjectProperty ,
-        owl:TransitiveProperty ;
-    rdfs:label "has part" ;
-    dcterms:source <http://w3id.org/CEON/ontology/processODP/0.5/> ;
-    rdfs:comment "A process or event can consist of several parts, which are sub-processes (e.g. steps) or events." .
-
-ceon-processODP:Event a owl:Class ;
-    rdfs:label "Event" ;
-    dcterms:source <http://w3id.org/CEON/ontology/processODP/0.5/> ;
-    rdfs:comment "Something that happens within a given context or (short) timeframe." ;
-    rdfs:subClassOf [ a owl:Class ;
-            owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:onProperty ceon-processODP:hasInput ;
-                        owl:someValuesFrom owl:Thing ] [ a owl:Restriction ;
-                        owl:onProperty ceon-processODP:hasOutput ;
-                        owl:someValuesFrom owl:Thing ] ) ] ,
-        [ a owl:Restriction ;
-            owl:allValuesFrom ceon-processODP:Event ;
-            owl:onProperty ceon-processODP:hasPart ] .
-
-ceon-processODP:Process a owl:Class ;
-    rdfs:label "Process" ;
-    dcterms:source <http://w3id.org/CEON/ontology/processODP/0.5/> ;
-    rdfs:comment "Something that takes place over a (longer) period of time and changes some state of affairs."@en ;
-    rdfs:subClassOf [ a owl:Class ;
-            owl:intersectionOf ( [ a owl:Restriction ;
-                        owl:onProperty ceon-processODP:hasInput ;
-                        owl:someValuesFrom owl:Thing ] [ a owl:Restriction ;
-                        owl:onProperty ceon-processODP:hasOutput ;
-                        owl:someValuesFrom owl:Thing ] ) ] ,
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a owl:Class ;
-                    owl:unionOf ( ceon-processODP:Event ceon-processODP:Process ) ] ;
-            owl:onProperty ceon-processODP:hasPart ] .
-
-ceon-process:TransformationProcess a owl:Class ;
-    rdfs:label "Transformation Process" ;
-    dcterms:source <http://w3id.org/CEON/ontology/process/0.5/> ;
-    rdfs:comment "Set of interrelated or interacting activities that transforms inputs into outputs."@en ;
-    rdfs:isDefinedBy "ISO 59004:2024  - 3.5.5 process" ;
-    rdfs:seeAlso "https://ref.gs1.org/epcis/Transformation" ;
-    rdfs:subClassOf ceon-processODP:Process .
 
 ceon-process:RecycleProcess a owl:Class ;
     rdfs:label "Recycle Process" ;
     dcterms:source <http://w3id.org/CEON/ontology/process/0.5/> ;
-    rdfs:comment "A process of recycling." ;
-    rdfs:subClassOf ceon-process:TransformationProcess .
+    rdfs:comment "A process of recycling." .
 
 ceon-process:ReuseProcess a owl:Class ;
     rdfs:label "Reuse Process" ;
     dcterms:source <http://w3id.org/CEON/ontology/process/0.5/> ;
-    rdfs:comment "A process of reusing." ;
-    rdfs:subClassOf ceon-processODP:Process .
+    rdfs:comment "A process of reusing." .
 
 ceon-process:RepairProcess a owl:Class ;
     rdfs:label "Repair Process" ;
     dcterms:source <http://w3id.org/CEON/ontology/process/0.5/> ;
-    rdfs:comment "A process of repairing." ;
-    rdfs:subClassOf ceon-process:TransformationProcess .
+    rdfs:comment "A process of repairing." .
 
 ceon-process:RefurbishmentProcess a owl:Class ;
     rdfs:label "Refurbishment Process" ;
     dcterms:source <http://w3id.org/CEON/ontology/process/0.5/> ;
-    rdfs:comment "A process of refurbishment." ;
-    rdfs:subClassOf ceon-process:TransformationProcess .
+    rdfs:comment "A process of refurbishment." .
 
 ceon-process:TakeBackProcess a owl:Class ;
     rdfs:label "Take Back Process" ;
     dcterms:source <http://w3id.org/CEON/ontology/process/0.5/> ;
-    rdfs:comment "A process of taking back." ;
-    rdfs:subClassOf ceon-processODP:Process .
-
-ceon-process:DisassemblingProcess a owl:Class ;
-    rdfs:label "Disassembling Process" ;
-    dcterms:source <http://w3id.org/CEON/ontology/process/0.5/> ;
-    rdfs:comment "A process of disassembling." ;
-    rdfs:subClassOf ceon-process:TransformationProcess .
-
-ceon-process:DismantleProcess a owl:Class ;
-    rdfs:label "Dismantle Process" ;
-    dcterms:source <http://w3id.org/CEON/ontology/process/0.5/> ;
-    rdfs:comment "A process of dismantling." ;
-    rdfs:subClassOf ceon-process:TransformationProcess .
+    rdfs:comment "A process of taking back." .
 
 ceon-process:DeconstructionProcess a owl:Class ;
     rdfs:label "Deconstruction Process" ;
     dcterms:source <http://w3id.org/CEON/ontology/process/0.5/> ;
-    rdfs:comment "A process of deconstruction." ;
-    rdfs:subClassOf ceon-process:TransformationProcess .
+    rdfs:comment "A process of deconstruction." .
 
 #################################################################
 # B. Mat.Sus-authored grounding, integration, and bridge axioms
 #################################################################
 
 matsus:MATSUS_0000000 a owl:Class ;
-    rdfs:label "product end-of-life management process"@en ;
-    dcterms:source "Mat.Sus CEON Phase 12 approved modelling decision" ;
+    rdfs:label "end of use management process"@en ;
+    dcterms:source "Mat.Sus CEON Phase 12 approved modelling decision; MKB2 end-of-use architecture refinement, 2026-09-20" ;
+    rdfs:comment "Examples include reuse, refurbishment, remanufacturing, repurposing, and, where applicable, repair, recycling, dismantling, disassembly, deconstruction, take-back, or waste collection. Generic process classes that can also occur outside an end-of-use context (e.g., repair) are not thereby subclasses of end of use management process."@en ;
     rdfs:subClassOf obo:COB_0000082 ;
-    skos:definition "A process undertaken to manage a product that has reached, or is approaching, the end of its current use or service life, including its collection, separation, recovery, preparation for further use, recycling, or final treatment."@en ;
-    matsus:integrationBasis "Mat.Sus application-level end-of-life process branch grounded under the PMDco-imported planned process hierarchy" ;
-    matsus:integrationMethod "new Mat.Sus class with selected CEON process subclasses" .
+    skos:definition "A planned process that handles a material entity following a use phase."@en ;
+    matsus:integrationBasis "MatSus application-level end-of-use process branch grounded under the PMDco-imported planned process hierarchy" ;
+    matsus:integrationMethod "MatSus-local class with selected CEON and MatSus process subclasses" .
 
-ceon-processODP:Process rdfs:subClassOf obo:BFO_0000015 ;
-    matsus:integrationBasis "PMDco 3.1.0 and BFO authoritative process backbone" ;
-    matsus:integrationMethod "Mat.Sus-authored subclass grounding without equivalence" .
+ceon-process:ReuseProcess rdfs:subClassOf matsus:MATSUS_0000000 ;
+    matsus:integrationMethod "MatSus-authored subclassing under end of use management process" .
 
-ceon-process:TakeBackProcess rdfs:subClassOf matsus:MATSUS_0000000 ;
-    matsus:integrationMethod "Mat.Sus-authored end-of-life subclassing" .
+ceon-process:RefurbishmentProcess rdfs:subClassOf matsus:MATSUS_0000000 ;
+    matsus:integrationMethod "MatSus-authored subclassing under end of use management process" .
 
-ceon-process:RecycleProcess rdfs:subClassOf matsus:MATSUS_0000000 ;
-    matsus:integrationMethod "Mat.Sus-authored end-of-life subclassing" .
+ceon-process:RepairProcess rdfs:subClassOf obo:COB_0000082 ;
+    rdfs:comment "In MatSus, a repair process may be an end of use management process when it is performed after a use phase to enable further use."@en ;
+    skos:editorialNote "The generic repair class is not placed under end of use management process because repair may also occur during ordinary use, maintenance, or other non-end-of-use contexts."@en ;
+    matsus:integrationMethod "MatSus-authored grounding under COB planned process; end-of-use status is contextual" .
 
-ceon-process:DisassemblingProcess rdfs:subClassOf matsus:MATSUS_0000000 ;
-    matsus:integrationMethod "Mat.Sus-authored provisional end-of-life subclassing pending pre-publication modelling review" .
+ceon-process:RecycleProcess rdfs:subClassOf obo:COB_0000082 ;
+    rdfs:comment "In MatSus, a recycle process may be an end of use management process when it treats material arising after a use phase."@en ;
+    skos:editorialNote "The generic recycle class is not placed under end of use management process because recycling may also concern pre-consumer, production, or other material streams that are not end-of-use."@en ;
+    matsus:integrationMethod "MatSus-authored grounding under COB planned process; end-of-use status is contextual" .
 
-ceon-process:DismantleProcess rdfs:subClassOf matsus:MATSUS_0000000 ;
-    matsus:integrationMethod "Mat.Sus-authored provisional end-of-life subclassing pending pre-publication modelling review" .
 
-ceon-process:DeconstructionProcess rdfs:subClassOf matsus:MATSUS_0000000 ;
-    matsus:integrationMethod "Mat.Sus-authored provisional end-of-life subclassing pending pre-publication modelling review" .
+pmd:PMD_0000612 rdfs:comment "In MatSus, a disassembling process may be an end of use management process when it is performed as part of a post-use pathway."@en ;
+    skos:editorialNote "The generic PMDco disassembling class remains outside the end of use management hierarchy because disassembling can also occur in manufacturing, maintenance, inspection, reconfiguration, or other non-end-of-use contexts. MatSus reuses PMDco PMD_0000612 instead of retaining the overlapping CEON DisassemblingProcess and DismantleProcess terms."@en ;
+    matsus:integrationMethod "PMDco class reused as the authoritative MSE disassembling concept; end-of-use status is contextual" .
 
-pmd:PMD_0000612 rdfs:subClassOf matsus:MATSUS_0000000 .
+ceon-process:DeconstructionProcess rdfs:subClassOf obo:COB_0000082 ;
+    rdfs:comment "In MatSus, a deconstruction process may be an end of use management process when it is performed as part of a post-use pathway."@en ;
+    skos:editorialNote "The generic deconstruction class is not placed under end of use management process because deconstruction can also occur in other technical or operational contexts."@en ;
+    matsus:integrationMethod "MatSus-authored grounding under COB planned process; end-of-use status is contextual" .
+
+ceon-process:TakeBackProcess rdfs:subClassOf obo:COB_0000082 ;
+    rdfs:comment "In MatSus, a take-back process may support an end of use management pathway by returning a material entity to an actor or system for subsequent handling."@en ;
+    skos:editorialNote "The generic take-back class remains outside the end of use management hierarchy because take-back denotes a return or logistics activity and does not by itself determine the subsequent disposition."@en ;
+    matsus:integrationMethod "MatSus-authored grounding under COB planned process; end-of-use status is contextual" .
