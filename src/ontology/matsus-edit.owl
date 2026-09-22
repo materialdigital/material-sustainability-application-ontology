@@ -25,6 +25,7 @@ Annotation(<http://purl.org/dc/terms/title> "Material Sustainability Application
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000015>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000023>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000027>))
+Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000040>))
 Declaration(Class(<http://purl.obolibrary.org/obo/COB_0000082>))
 Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0000005>))
 Declaration(Class(<http://purl.obolibrary.org/obo/IAO_0000027>))
@@ -104,6 +105,8 @@ Declaration(Class(:MATSUS_0000056))
 Declaration(Class(:MATSUS_0000057))
 Declaration(Class(:MATSUS_0000058))
 Declaration(Class(:MATSUS_0000059))
+Declaration(Class(:MATSUS_0000062))
+Declaration(Class(:MATSUS_0000063))
 Declaration(Class(:RecycledContentInformation))
 Declaration(Class(:SupplyChainDueDiligenceReport))
 Declaration(Class(:TestReport))
@@ -112,6 +115,7 @@ Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/RO_0000087>))
 Declaration(ObjectProperty(<http://purl.obolibrary.org/obo/RO_0002234>))
 Declaration(ObjectProperty(:MATSUS_0000060))
 Declaration(ObjectProperty(:MATSUS_0000061))
+Declaration(ObjectProperty(:MATSUS_0000064))
 Declaration(NamedIndividual(<https://w3id.org/pmd/co/PMD_0040128>))
 Declaration(AnnotationProperty(<http://purl.org/dc/terms/description>))
 Declaration(AnnotationProperty(<http://purl.org/dc/terms/license>))
@@ -198,6 +202,18 @@ AnnotationAssertion(:integrationNote :MATSUS_0000061 "No SSbD or CLEO property d
 ObjectPropertyDomain(:MATSUS_0000061 :MATSUS_0000057)
 ObjectPropertyRange(:MATSUS_0000061 :MATSUS_0000027)
 
+# Object Property: :MATSUS_0000064 (recommends)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000064 "MKB2 end-of-use architecture final human decision, 2026-09-20")
+AnnotationAssertion(rdfs:label :MATSUS_0000064 "recommends"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000064 "Relates an end of use disposition recommendation to an end of use management process that the recommendation identifies as suitable for the evaluated material entity."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000064 "This relation does not imply authorization, formal selection, uniqueness, or execution of the recommended process. It is not functional and no inverse is introduced in this increment."@en)
+AnnotationAssertion(:integrationBasis :MATSUS_0000064 "MKB2 end-of-use competency questions and review of the pinned PMDco/IAO/OBI relation inventory; final human decision, 2026-09-20.")
+AnnotationAssertion(:integrationMethod :MATSUS_0000064 "MatSus-local object property; no exact relation in the pinned PMDco/IAO/OBI closure expresses recommendation of an end-of-use process")
+AnnotationAssertion(:integrationNote :MATSUS_0000064 "CCO prescribes was reviewed as an external candidate but was not reused because its rule-or-guide semantics are stronger than the intended recommendation relation.")
+ObjectPropertyDomain(:MATSUS_0000064 :MATSUS_0000063)
+ObjectPropertyRange(:MATSUS_0000064 :MATSUS_0000000)
+
 
 
 ############################
@@ -211,11 +227,11 @@ AnnotationAssertion(<http://purl.org/dc/terms/source> :BatteryCarbonFootprintInf
 AnnotationAssertion(<http://purl.org/dc/terms/source> :BatteryCarbonFootprintInformation "MKB2 SRC-005/SRC-006 approved legacy indicator-result bridge, 2026-09-16")
 AnnotationAssertion(rdfs:label :BatteryCarbonFootprintInformation "battery carbon footprint information"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :BatteryCarbonFootprintInformation "A DPP data item that records a calculated greenhouse-gas emissions result for a battery under a specified method, system boundary, and functional unit."@en)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :BatteryCarbonFootprintInformation "This is a calculated indicator/data item, not an intrinsic material quality. Detailed LCA methodology alignment is deferred to the CLEO stage.")
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :BatteryCarbonFootprintInformation "This is a calculated indicator/data item, not an intrinsic material quality. In the MKB2 LCA architecture it specializes the generic MatSus carbon footprint result while retaining its DPP-specific scope.")
 AnnotationAssertion(:integrationMethod :BatteryCarbonFootprintInformation "new MatSus DPP data-item class based on BatteryPass requirements")
 SubClassOf(:BatteryCarbonFootprintInformation <http://purl.obolibrary.org/obo/IAO_0000027>)
 SubClassOf(:BatteryCarbonFootprintInformation <http://w3id.org/dppo/ontology/dpp-info/DPPInformation>)
-SubClassOf(:BatteryCarbonFootprintInformation :MATSUS_0000057)
+SubClassOf(:BatteryCarbonFootprintInformation :MATSUS_0000076)
 
 # Class: :BatteryLabelInformation (battery label information)
 
@@ -286,9 +302,12 @@ AnnotationAssertion(<http://purl.org/dc/terms/source> :LifecycleStageCarbonFootp
 AnnotationAssertion(<http://purl.org/dc/terms/source> :LifecycleStageCarbonFootprintContribution "BatteryPass-ready Data Attribute Long List v1.3, attributes 29-32")
 AnnotationAssertion(rdfs:label :LifecycleStageCarbonFootprintContribution "lifecycle-stage carbon-footprint contribution"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :LifecycleStageCarbonFootprintContribution "Battery carbon footprint information that records the contribution of a specified lifecycle stage to the total footprint result."@en)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :LifecycleStageCarbonFootprintContribution "Lifecycle-stage identifiers, values, units, functional units and calculation provenance are represented through data/value patterns and later SHACL; a detailed lifecycle model is deferred to CLEO.")
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :LifecycleStageCarbonFootprintContribution "Lifecycle-stage identifiers, values, units, functional units, and calculation provenance are represented through data/value patterns and later SHACL. The suitability of the generic MatSus contributes-to pattern for this BatteryPass-specific class remains subject to later review."@en)
 AnnotationAssertion(:integrationMethod :LifecycleStageCarbonFootprintContribution "new MatSus subclass based on BatteryPass requirements")
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :LifecycleStageCarbonFootprintContribution "The contributes-to existential links this BatteryPass-specific result class to the generic MatSus result-contribution pattern; it does not imply arithmetic summation or that the total result has only one contributing stage."@en)
+AnnotationAssertion(:integrationNote :LifecycleStageCarbonFootprintContribution "REVIEW_LATER: Reassess whether the contributes-to existential remains the right TBox commitment when lifecycle-stage result modelling and the related SHACL profile are revisited.")
 SubClassOf(:LifecycleStageCarbonFootprintContribution :BatteryCarbonFootprintInformation)
+SubClassOf(:LifecycleStageCarbonFootprintContribution ObjectSomeValuesFrom(:MATSUS_0000077 :BatteryCarbonFootprintInformation))
 
 # Class: :MATSUS_0000001 (recovered material)
 
@@ -427,6 +446,8 @@ SubClassOf(:MATSUS_0000014 <http://purl.obolibrary.org/obo/BFO_0000027>)
 
 AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000015 "MKB1 IR2 Class Review: supporting waste process; human-gate Closure related-terms decision")
 AnnotationAssertion(rdfs:label :MATSUS_0000015 "waste collection process"@en)
+AnnotationAssertion(rdfs:comment :MATSUS_0000015 "In MatSus, a waste collection process may be an end of use management process when the collected waste arises after a use phase."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000015 "The generic waste collection class remains outside the end of use management hierarchy because waste collection also applies to production, construction, process, and other waste streams that are not necessarily post-use."@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000015 "A planned process in which waste material is gathered from one or more holders or locations for transport, storage, sorting, recovery, treatment, or disposal."@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000015 "Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. This is a supporting process with no standalone MKB ID. Later: add waste participant, origin, destination, and responsible-agent relations. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization.")
 AnnotationAssertion(:integrationMethod :MATSUS_0000015 "new MatSus subclass of COB planned process")
@@ -581,8 +602,8 @@ AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000031 "MKB1 IR2 
 AnnotationAssertion(rdfs:label :MATSUS_0000031 "repurposing process"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000031 "A planned process in which a product, component, or material is prepared or modified so that it can fulfil a purpose different from its preceding intended purpose."@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000031 "Human-gate-authorized MKB1 IR2 Batch 3 implementation. No maintained compatible repurposing-process class was verified in the reviewed sources. Later: represent prior purpose, new purpose, participants, inputs, and outputs.")
-AnnotationAssertion(:integrationMethod :MATSUS_0000031 "new MatSus subclass of COB planned process")
-SubClassOf(:MATSUS_0000031 <http://purl.obolibrary.org/obo/COB_0000082>)
+AnnotationAssertion(:integrationMethod :MATSUS_0000031 "MatSus subclass of end of use management process")
+SubClassOf(:MATSUS_0000031 :MATSUS_0000000)
 
 # Class: :MATSUS_0000032 (battery repurposing process)
 
@@ -626,8 +647,8 @@ AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000036 "MKB1 IR2 
 AnnotationAssertion(rdfs:label :MATSUS_0000036 "remanufacturing process"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000036 "A planned process in which a used product or component is restored to a specified performance and quality state through inspection and one or more restorative operations."@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000036 "Human-gate-authorized MKB1 IR2 Batch 3 implementation. The remanufacturing process remains distinct from the separate AutomatCE remanufacturability disposition candidate. Later: model used input, retained identity or components, restorative operations, and specified output state.")
-AnnotationAssertion(:integrationMethod :MATSUS_0000036 "new MatSus subclass of COB planned process")
-SubClassOf(:MATSUS_0000036 <http://purl.obolibrary.org/obo/COB_0000082>)
+AnnotationAssertion(:integrationMethod :MATSUS_0000036 "MatSus subclass of end of use management process")
+SubClassOf(:MATSUS_0000036 :MATSUS_0000000)
 
 # Class: :MATSUS_0000037 (decoupling datum)
 
@@ -777,9 +798,9 @@ SubClassOf(:MATSUS_0000048 :MATSUS_0000043)
 AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000049 "MKB2 SRC-005/SRC-006 final human decision, 2026-09-16")
 AnnotationAssertion(rdfs:label :MATSUS_0000049 "environmental sustainability assessment"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000049 "A sustainability assessment that evaluates environmental sustainability aspects of an entity or process."@en)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000049 "Impact categories, environmental effects, and indicator results are not subclasses of this process. Detailed life-cycle-assessment modelling is deferred."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000049 "Impact categories, environmental effects, and indicator results are not subclasses of this process. Dedicated life-cycle-assessment process classes are modelled under sustainability assessment."@en)
 AnnotationAssertion(:alignmentRelation :MATSUS_0000049 "close conceptual correspondence; annotation-only; non-entailing")
-AnnotationAssertion(:integrationBasis :MATSUS_0000049 "SRC-005 SSbD EnvironmentalSustainabilityAssessment; LCA content excluded by final human decision 12.")
+AnnotationAssertion(:integrationBasis :MATSUS_0000049 "SRC-005 SSbD EnvironmentalSustainabilityAssessment; LCA content was deferred during SRC-005 and introduced in the subsequent SRC-006 LCA implementation batch.")
 AnnotationAssertion(:integrationMethod :MATSUS_0000049 "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing")
 AnnotationAssertion(:integrationNote :MATSUS_0000049 "No SSbD impact-category descendants are imported or reproduced.")
 AnnotationAssertion(:mappedTo :MATSUS_0000049 <https://w3id.org/ssbd/EnvironmentalSustainabilityAssessment>)
@@ -918,6 +939,29 @@ SubClassOf(:MATSUS_0000059 <http://purl.obolibrary.org/obo/IAO_0000310>)
 SubClassOf(:MATSUS_0000059 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/IAO_0000136> :MATSUS_0000043))
 SubClassOf(:MATSUS_0000059 :MATSUS_0000054)
 
+# Class: :MATSUS_0000062 (end of use disposition assessment)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000062 "MKB2 end-of-use architecture final human decision, 2026-09-20")
+AnnotationAssertion(rdfs:label :MATSUS_0000062 "end of use disposition assessment"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000062 "An assessment process that evaluates a material entity to determine the suitability of one or more subsequent end of use management processes."@en)
+AnnotationAssertion(rdfs:comment :MATSUS_0000062 "Relevant evidence may include condition, functionality, safety, reparability, reusability, remanufacturability, recyclability, composition, or other criteria relevant to selecting a subsequent management pathway."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000062 "The assessment is distinct from the subsequent management process and does not imply that a recommended pathway is selected or executed. Functionality assessments, assays, and other analyses may provide evidence for the assessment."@en)
+AnnotationAssertion(:integrationBasis :MATSUS_0000062 "MKB2 end-of-use competency questions and existing MatSus assessment architecture; final human decision, 2026-09-20.")
+AnnotationAssertion(:integrationMethod :MATSUS_0000062 "MatSus-local assessment-process specialization using the existing evaluates relation")
+SubClassOf(:MATSUS_0000062 :MATSUS_0000043)
+SubClassOf(:MATSUS_0000062 ObjectSomeValuesFrom(:MATSUS_0000060 <http://purl.obolibrary.org/obo/BFO_0000040>))
+
+# Class: :MATSUS_0000063 (end of use disposition recommendation)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000063 "MKB2 end-of-use architecture final human decision, 2026-09-20")
+AnnotationAssertion(rdfs:label :MATSUS_0000063 "end of use disposition recommendation"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000063 "Assessment result information that recommends one or more end of use management processes for an evaluated material entity."@en)
+AnnotationAssertion(rdfs:comment :MATSUS_0000063 "A disposition recommendation is distinct from a decision authorizing a pathway and from the subsequent management process itself. It may be supported by other assessment result information concerning condition, functionality, composition, safety, or other relevant characteristics."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000063 "No universal is-about existential is asserted in this increment. In complete local records, consistency between the assessment's evaluated material entity and the recommendation's aboutness target is to be checked in the application-profile/SHACL layer."@en)
+AnnotationAssertion(:integrationBasis :MATSUS_0000063 "MKB2 end-of-use competency questions and existing MatSus assessment-result architecture; final human decision, 2026-09-20.")
+AnnotationAssertion(:integrationMethod :MATSUS_0000063 "MatSus-local specialization of assessment result information")
+SubClassOf(:MATSUS_0000063 :MATSUS_0000055)
+
 # Class: :RecycledContentInformation (recycled content information)
 
 AnnotationAssertion(<http://purl.org/dc/terms/source> :RecycledContentInformation <urn:samm:io.BatteryPass.Circularity:1.2.0#recycledContent>)
@@ -949,6 +993,153 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :TestReport
 AnnotationAssertion(:integrationMethod :TestReport "new MatSus document class based on BatteryPass requirements")
 SubClassOf(:TestReport <http://purl.obolibrary.org/obo/IAO_0000310>)
 
+# ============================================
+# MKB2 SRC-006 LCA architecture, 2026-09-18
+# ============================================
 
+Declaration(Class(:MATSUS_0000065))
+Declaration(Class(:MATSUS_0000066))
+Declaration(Class(:MATSUS_0000067))
+Declaration(Class(:MATSUS_0000068))
+Declaration(Class(:MATSUS_0000069))
+Declaration(Class(:MATSUS_0000070))
+Declaration(Class(:MATSUS_0000071))
+Declaration(Class(:MATSUS_0000072))
+Declaration(Class(:MATSUS_0000073))
+Declaration(Class(:MATSUS_0000074))
+Declaration(Class(:MATSUS_0000076))
+Declaration(ObjectProperty(:MATSUS_0000077))
+Declaration(NamedIndividual(:MATSUS_0000078))
+Declaration(NamedIndividual(:MATSUS_0000079))
 
+# Class: :MATSUS_0000065 (life cycle assessment process)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000065 "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18")
+AnnotationAssertion(rdfs:label :MATSUS_0000065 "life cycle assessment process"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000065 "A sustainability assessment that compiles and evaluates inputs, outputs, and potential environmental impacts associated with a product system across its life cycle."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000065 "Life cycle inventory analysis and life cycle impact assessment are represented as process parts of a life cycle assessment, not as subclasses of it. No universal specified-output restriction is asserted."@en)
+AnnotationAssertion(:integrationBasis :MATSUS_0000065 "MKB2 SRC-006 CLEO/LCA source gate and final MatSus LCA architecture decision, 2026-09-18.")
+AnnotationAssertion(:integrationMethod :MATSUS_0000065 "MatSus-local sustainability-assessment specialization using the existing PMDco/IAO/OBI backbone")
+SubClassOf(:MATSUS_0000065 :MATSUS_0000048)
+SubClassOf(:MATSUS_0000065 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000051> :MATSUS_0000066))
+SubClassOf(:MATSUS_0000065 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000051> :MATSUS_0000067))
+SubClassOf(:MATSUS_0000065 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/OBI_0000293> :MATSUS_0000072))
+
+# Class: :MATSUS_0000066 (life cycle inventory analysis process)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000066 "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18")
+AnnotationAssertion(rdfs:label :MATSUS_0000066 "life cycle inventory analysis process"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000066 "A planned process that compiles and quantifies inputs and outputs relevant to a life cycle assessment."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000066 "This process is modelled under planned process rather than assessment process. Its occurrence may be a process part of a life cycle assessment."@en)
+AnnotationAssertion(:integrationBasis :MATSUS_0000066 "MKB2 SRC-006 CLEO/LCA source gate and final MatSus LCA architecture decision, 2026-09-18.")
+AnnotationAssertion(:integrationMethod :MATSUS_0000066 "MatSus-local planned-process specialization")
+SubClassOf(:MATSUS_0000066 <http://purl.obolibrary.org/obo/COB_0000082>)
+
+# Class: :MATSUS_0000067 (life cycle impact assessment process)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000067 "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18")
+AnnotationAssertion(rdfs:label :MATSUS_0000067 "life cycle impact assessment process"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000067 "A sustainability assessment that evaluates potential environmental impacts using life cycle inventory information and impact categories."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000067 "This class is parallel to life cycle assessment under sustainability assessment and may occur as a process part of a life cycle assessment."@en)
+AnnotationAssertion(:integrationBasis :MATSUS_0000067 "MKB2 SRC-006 CLEO/LCA source gate and final MatSus LCA architecture decision, 2026-09-18.")
+AnnotationAssertion(:integrationMethod :MATSUS_0000067 "MatSus-local sustainability-assessment specialization")
+SubClassOf(:MATSUS_0000067 :MATSUS_0000048)
+
+# Class: :MATSUS_0000068 (life cycle assessment specification)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000068 "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18")
+AnnotationAssertion(rdfs:label :MATSUS_0000068 "life cycle assessment specification"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000068 "An assessment specification that prescribes the scope, reference basis, system boundary, and other methodological choices for a life cycle assessment process."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000068 "Functional unit, reference flow, and system boundary specifications are represented as information parts of the life cycle assessment specification."@en)
+AnnotationAssertion(:integrationBasis :MATSUS_0000068 "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18.")
+AnnotationAssertion(:integrationMethod :MATSUS_0000068 "MatSus-local specialization of assessment specification")
+SubClassOf(:MATSUS_0000068 :MATSUS_0000053)
+SubClassOf(:MATSUS_0000068 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000051> :MATSUS_0000069))
+SubClassOf(:MATSUS_0000068 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000051> :MATSUS_0000070))
+SubClassOf(:MATSUS_0000068 ObjectSomeValuesFrom(<http://purl.obolibrary.org/obo/BFO_0000051> :MATSUS_0000071))
+
+# Class: :MATSUS_0000069 (functional unit specification)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000069 "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18")
+AnnotationAssertion(rdfs:label :MATSUS_0000069 "functional unit specification"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000069 "A directive information entity that specifies a quantified performance used as the reference basis of a life cycle assessment."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000069 "This is information specifying the reference basis of the assessment, not a physical unit and not the assessed process itself."@en)
+AnnotationAssertion(:integrationMethod :MATSUS_0000069 "MatSus-local directive information entity")
+SubClassOf(:MATSUS_0000069 <http://purl.obolibrary.org/obo/IAO_0000033>)
+
+# Class: :MATSUS_0000070 (reference flow specification)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000070 "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18")
+AnnotationAssertion(rdfs:label :MATSUS_0000070 "reference flow specification"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000070 "An information content entity that specifies the quantity of product or material flow required to fulfil the functional unit of a life cycle assessment."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000070 "The exact directive-information subtype is intentionally not asserted in this increment."@en)
+AnnotationAssertion(:integrationMethod :MATSUS_0000070 "MatSus-local information-content specialization")
+SubClassOf(:MATSUS_0000070 <http://purl.obolibrary.org/obo/IAO_0000030>)
+
+# Class: :MATSUS_0000071 (system boundary specification)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000071 "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18")
+AnnotationAssertion(rdfs:label :MATSUS_0000071 "system boundary specification"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000071 "A directive information entity that specifies which processes or activities are included in or excluded from the system evaluated by a life cycle assessment."@en)
+AnnotationAssertion(:integrationMethod :MATSUS_0000071 "MatSus-local directive information entity")
+SubClassOf(:MATSUS_0000071 <http://purl.obolibrary.org/obo/IAO_0000033>)
+
+# Class: :MATSUS_0000072 (system model)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000072 "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18")
+AnnotationAssertion(rdfs:label :MATSUS_0000072 "system model"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000072 "An information content entity that represents processes, flows, and relationships of a system for assessment or analysis."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000072 "This is a generic system-model class. A separate lifecycle system model is intentionally deferred."@en)
+AnnotationAssertion(:integrationMethod :MATSUS_0000072 "MatSus-local generic information-content specialization")
+SubClassOf(:MATSUS_0000072 <http://purl.obolibrary.org/obo/IAO_0000030>)
+
+# Class: :MATSUS_0000073 (impact category)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000073 "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18")
+AnnotationAssertion(rdfs:label :MATSUS_0000073 "impact category"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000073 "An information content entity that represents an environmental issue of concern evaluated in a life cycle impact assessment."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000073 "An impact category is information used to organize and interpret impact assessment; it is not itself an assessment process or environmental effect."@en)
+AnnotationAssertion(:integrationMethod :MATSUS_0000073 "MatSus-local information-content specialization")
+SubClassOf(:MATSUS_0000073 <http://purl.obolibrary.org/obo/IAO_0000030>)
+
+# Class: :MATSUS_0000074 (life cycle assessment result information)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000074 "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18")
+AnnotationAssertion(rdfs:label :MATSUS_0000074 "life cycle assessment result information"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000074 "Assessment result information that represents a finding or outcome obtained through a life cycle assessment process."@en)
+AnnotationAssertion(:integrationMethod :MATSUS_0000074 "MatSus-local specialization of assessment result information")
+SubClassOf(:MATSUS_0000074 :MATSUS_0000055)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000076 "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18")
+AnnotationAssertion(rdfs:label :MATSUS_0000076 "carbon footprint result"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#altLabel> :MATSUS_0000076 "carbon footprint"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000076 "An indicator result that quantifies greenhouse gas emissions and removals associated with a specified subject and scope as carbon dioxide equivalents for the climate-change impact category."@en)
+AnnotationAssertion(rdfs:comment :MATSUS_0000076 "The applicable scope, method, global-warming-potential time horizon, and completeness depend on the governing specification. Membership in this class does not by itself imply a complete life cycle assessment or conformity with a particular standard."@en)
+AnnotationAssertion(:integrationMethod :MATSUS_0000076 "MatSus-local primitive specialization of indicator result")
+SubClassOf(:MATSUS_0000076 :MATSUS_0000057)
+
+# Object Property: :MATSUS_0000077 (contributes to)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000077 "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18")
+AnnotationAssertion(rdfs:label :MATSUS_0000077 "contributes to"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000077 "Relates assessment result information to other assessment result information to whose represented result it contributes."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000077 "This relation does not assert parthood, arithmetic summation, exhaustive coverage, or transitivity."@en)
+AnnotationAssertion(:integrationMethod :MATSUS_0000077 "MatSus-local result-to-result relation")
+ObjectPropertyDomain(:MATSUS_0000077 :MATSUS_0000055)
+ObjectPropertyRange(:MATSUS_0000077 :MATSUS_0000055)
+
+# Named Individual: :MATSUS_0000078 (climate change)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000078 "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18")
+AnnotationAssertion(rdfs:label :MATSUS_0000078 "climate change"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000078 "An impact category concerning potential effects associated with changes in the climate system."@en)
+ClassAssertion(:MATSUS_0000073 :MATSUS_0000078)
+
+# Named Individual: :MATSUS_0000079 (GWP100)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000079 "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18")
+AnnotationAssertion(rdfs:label :MATSUS_0000079 "GWP100"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000079 "A metric specification for global warming potential evaluated over a 100-year time horizon."@en)
+ClassAssertion(:MATSUS_0000027 :MATSUS_0000079)
+ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/IAO_0000136> :MATSUS_0000079 :MATSUS_0000078)
 )
