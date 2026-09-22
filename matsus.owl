@@ -29,7 +29,7 @@
         <dcterms:publisher rdf:resource="https://materialdigital.de/"/>
         <dcterms:source rdf:resource="https://github.com/materialdigital/material-sustainability-application-ontology"/>
         <dcterms:title>Material Sustainability Application Ontology (Mat.Sus)</dcterms:title>
-        <owl:versionInfo>2026-09-18</owl:versionInfo>
+        <owl:versionInfo>2026-09-22</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -1751,39 +1751,6 @@ derivative === (&apos;has differential numerator&apos; only entity) and (&apos;h
     
 
 
-    <!-- http://w3id.org/CEON/ontology/processODP/hasInput -->
-
-    <owl:ObjectProperty rdf:about="http://w3id.org/CEON/ontology/processODP/hasInput">
-        <rdfs:domain rdf:resource="http://w3id.org/CEON/ontology/processODP/Process"/>
-        <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/processODP/0.5/"/>
-        <rdfs:comment>The inputs to a process or event.</rdfs:comment>
-        <rdfs:label>has input</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://w3id.org/CEON/ontology/processODP/hasOutput -->
-
-    <owl:ObjectProperty rdf:about="http://w3id.org/CEON/ontology/processODP/hasOutput">
-        <rdfs:domain rdf:resource="http://w3id.org/CEON/ontology/processODP/Process"/>
-        <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/processODP/0.5/"/>
-        <rdfs:comment>The output of a process or event.</rdfs:comment>
-        <rdfs:label>has output</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- http://w3id.org/CEON/ontology/processODP/hasPart -->
-
-    <owl:ObjectProperty rdf:about="http://w3id.org/CEON/ontology/processODP/hasPart">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
-        <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/processODP/0.5/"/>
-        <rdfs:comment>A process or event can consist of several parts, which are sub-processes (e.g. steps) or events.</rdfs:comment>
-        <rdfs:label>has part</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- http://w3id.org/dppo/ontology/dpp-comp/aboutPart -->
 
     <owl:ObjectProperty rdf:about="http://w3id.org/dppo/ontology/dpp-comp/aboutPart">
@@ -2473,6 +2440,36 @@ RO&apos;s &apos;quality of&apos; is functional i.e., a-&gt;b, a-&gt;c =&gt; b=c.
         <integrationBasis>Complete pinned PMDco/IAO/OBI relation inventory, existing MATSUS_0000027, and SSbD/CLEO indicator-pattern comparison; final human decision 9.</integrationBasis>
         <integrationMethod>MatSus-local object property using the pinned PMDco/IAO/OBI backbone; no exact external relation was found</integrationMethod>
         <integrationNote>No SSbD or CLEO property denotes this relation; the absence of a mappedTo annotation is deliberate after inventory.</integrationNote>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/matsus/MATSUS_0000064 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000064">
+        <rdfs:domain rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000063"/>
+        <rdfs:range rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000000"/>
+        <dcterms:source>MKB2 end-of-use architecture final human decision, 2026-09-20</dcterms:source>
+        <rdfs:label xml:lang="en">recommends</rdfs:label>
+        <skos:definition xml:lang="en">Relates an end of use disposition recommendation to an end of use management process that the recommendation identifies as suitable for the evaluated material entity.</skos:definition>
+        <skos:editorialNote xml:lang="en">This relation does not imply authorization, formal selection, uniqueness, or execution of the recommended process. It is not functional and no inverse is introduced in this increment.</skos:editorialNote>
+        <integrationBasis>MKB2 end-of-use competency questions and review of the pinned PMDco/IAO/OBI relation inventory; final human decision, 2026-09-20.</integrationBasis>
+        <integrationMethod>MatSus-local object property; no exact relation in the pinned PMDco/IAO/OBI closure expresses recommendation of an end-of-use process</integrationMethod>
+        <integrationNote>CCO prescribes was reviewed as an external candidate but was not reused because its rule-or-guide semantics are stronger than the intended recommendation relation.</integrationNote>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/pmd/matsus/MATSUS_0000077 -->
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000077">
+        <rdfs:domain rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000055"/>
+        <rdfs:range rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000055"/>
+        <dcterms:source>MKB2 SRC-006 LCA architecture final human decision, 2026-09-18</dcterms:source>
+        <rdfs:label xml:lang="en">contributes to</rdfs:label>
+        <skos:definition xml:lang="en">Relates assessment result information to other assessment result information to whose represented result it contributes.</skos:definition>
+        <skos:editorialNote xml:lang="en">This relation does not assert parthood, arithmetic summation, exhaustive coverage, or transitivity.</skos:editorialNote>
+        <integrationMethod>MatSus-local result-to-result relation</integrationMethod>
     </owl:ObjectProperty>
     
 
@@ -5577,38 +5574,13 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
     <!-- http://w3id.org/CEON/ontology/process/DeconstructionProcess -->
 
     <owl:Class rdf:about="http://w3id.org/CEON/ontology/process/DeconstructionProcess">
-        <rdfs:subClassOf rdf:resource="http://w3id.org/CEON/ontology/process/TransformationProcess"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000000"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/COB_0000082"/>
         <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
         <rdfs:comment>A process of deconstruction.</rdfs:comment>
+        <rdfs:comment xml:lang="en">In MatSus, a deconstruction process may be an end of use management process when it is performed as part of a post-use pathway.</rdfs:comment>
         <rdfs:label>Deconstruction Process</rdfs:label>
-        <integrationMethod>Mat.Sus-authored provisional end-of-life subclassing pending pre-publication modelling review</integrationMethod>
-    </owl:Class>
-    
-
-
-    <!-- http://w3id.org/CEON/ontology/process/DisassemblingProcess -->
-
-    <owl:Class rdf:about="http://w3id.org/CEON/ontology/process/DisassemblingProcess">
-        <rdfs:subClassOf rdf:resource="http://w3id.org/CEON/ontology/process/TransformationProcess"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000000"/>
-        <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
-        <rdfs:comment>A process of disassembling.</rdfs:comment>
-        <rdfs:label>Disassembling Process</rdfs:label>
-        <integrationMethod>Mat.Sus-authored provisional end-of-life subclassing pending pre-publication modelling review</integrationMethod>
-    </owl:Class>
-    
-
-
-    <!-- http://w3id.org/CEON/ontology/process/DismantleProcess -->
-
-    <owl:Class rdf:about="http://w3id.org/CEON/ontology/process/DismantleProcess">
-        <rdfs:subClassOf rdf:resource="http://w3id.org/CEON/ontology/process/TransformationProcess"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000000"/>
-        <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
-        <rdfs:comment>A process of dismantling.</rdfs:comment>
-        <rdfs:label>Dismantle Process</rdfs:label>
-        <integrationMethod>Mat.Sus-authored provisional end-of-life subclassing pending pre-publication modelling review</integrationMethod>
+        <skos:editorialNote xml:lang="en">The generic deconstruction class is not placed under end of use management process because deconstruction can also occur in other technical or operational contexts.</skos:editorialNote>
+        <integrationMethod>MatSus-authored grounding under COB planned process; end-of-use status is contextual</integrationMethod>
     </owl:Class>
     
 
@@ -5616,12 +5588,13 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
     <!-- http://w3id.org/CEON/ontology/process/RecycleProcess -->
 
     <owl:Class rdf:about="http://w3id.org/CEON/ontology/process/RecycleProcess">
-        <rdfs:subClassOf rdf:resource="http://w3id.org/CEON/ontology/process/TransformationProcess"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000000"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/COB_0000082"/>
         <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
         <rdfs:comment>A process of recycling.</rdfs:comment>
+        <rdfs:comment xml:lang="en">In MatSus, a recycle process may be an end of use management process when it treats material arising after a use phase.</rdfs:comment>
         <rdfs:label>Recycle Process</rdfs:label>
-        <integrationMethod>Mat.Sus-authored end-of-life subclassing</integrationMethod>
+        <skos:editorialNote xml:lang="en">The generic recycle class is not placed under end of use management process because recycling may also concern pre-consumer, production, or other material streams that are not end-of-use.</skos:editorialNote>
+        <integrationMethod>MatSus-authored grounding under COB planned process; end-of-use status is contextual</integrationMethod>
     </owl:Class>
     
 
@@ -5629,10 +5602,11 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
     <!-- http://w3id.org/CEON/ontology/process/RefurbishmentProcess -->
 
     <owl:Class rdf:about="http://w3id.org/CEON/ontology/process/RefurbishmentProcess">
-        <rdfs:subClassOf rdf:resource="http://w3id.org/CEON/ontology/process/TransformationProcess"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000000"/>
         <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
         <rdfs:comment>A process of refurbishment.</rdfs:comment>
         <rdfs:label>Refurbishment Process</rdfs:label>
+        <integrationMethod>MatSus-authored subclassing under end of use management process</integrationMethod>
     </owl:Class>
     
 
@@ -5640,10 +5614,13 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
     <!-- http://w3id.org/CEON/ontology/process/RepairProcess -->
 
     <owl:Class rdf:about="http://w3id.org/CEON/ontology/process/RepairProcess">
-        <rdfs:subClassOf rdf:resource="http://w3id.org/CEON/ontology/process/TransformationProcess"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/COB_0000082"/>
         <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
         <rdfs:comment>A process of repairing.</rdfs:comment>
+        <rdfs:comment xml:lang="en">In MatSus, a repair process may be an end of use management process when it is performed after a use phase to enable further use.</rdfs:comment>
         <rdfs:label>Repair Process</rdfs:label>
+        <skos:editorialNote xml:lang="en">The generic repair class is not placed under end of use management process because repair may also occur during ordinary use, maintenance, or other non-end-of-use contexts.</skos:editorialNote>
+        <integrationMethod>MatSus-authored grounding under COB planned process; end-of-use status is contextual</integrationMethod>
     </owl:Class>
     
 
@@ -5651,10 +5628,11 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
     <!-- http://w3id.org/CEON/ontology/process/ReuseProcess -->
 
     <owl:Class rdf:about="http://w3id.org/CEON/ontology/process/ReuseProcess">
-        <rdfs:subClassOf rdf:resource="http://w3id.org/CEON/ontology/processODP/Process"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000000"/>
         <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
         <rdfs:comment>A process of reusing.</rdfs:comment>
         <rdfs:label>Reuse Process</rdfs:label>
+        <integrationMethod>MatSus-authored subclassing under end of use management process</integrationMethod>
     </owl:Class>
     
 
@@ -5662,82 +5640,13 @@ More formally, the value of a physical quantity Q with respect to a unit (U) is 
     <!-- http://w3id.org/CEON/ontology/process/TakeBackProcess -->
 
     <owl:Class rdf:about="http://w3id.org/CEON/ontology/process/TakeBackProcess">
-        <rdfs:subClassOf rdf:resource="http://w3id.org/CEON/ontology/processODP/Process"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000000"/>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/COB_0000082"/>
         <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
         <rdfs:comment>A process of taking back.</rdfs:comment>
+        <rdfs:comment xml:lang="en">In MatSus, a take-back process may support an end of use management pathway by returning a material entity to an actor or system for subsequent handling.</rdfs:comment>
         <rdfs:label>Take Back Process</rdfs:label>
-        <integrationMethod>Mat.Sus-authored end-of-life subclassing</integrationMethod>
-    </owl:Class>
-    
-
-
-    <!-- http://w3id.org/CEON/ontology/process/TransformationProcess -->
-
-    <owl:Class rdf:about="http://w3id.org/CEON/ontology/process/TransformationProcess">
-        <rdfs:subClassOf rdf:resource="http://w3id.org/CEON/ontology/processODP/Process"/>
-        <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/process/0.5/"/>
-        <rdfs:comment xml:lang="en">Set of interrelated or interacting activities that transforms inputs into outputs.</rdfs:comment>
-        <rdfs:isDefinedBy>ISO 59004:2024  - 3.5.5 process</rdfs:isDefinedBy>
-        <rdfs:label>Transformation Process</rdfs:label>
-        <rdfs:seeAlso>https://ref.gs1.org/epcis/Transformation</rdfs:seeAlso>
-    </owl:Class>
-    
-
-
-    <!-- http://w3id.org/CEON/ontology/processODP/Event -->
-
-    <owl:Class rdf:about="http://w3id.org/CEON/ontology/processODP/Event">
-        <rdfs:subClassOf rdf:resource="http://w3id.org/CEON/ontology/processODP/Process"/>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://w3id.org/CEON/ontology/processODP/hasPart"/>
-                <owl:allValuesFrom rdf:resource="http://w3id.org/CEON/ontology/processODP/Event"/>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/processODP/0.5/"/>
-        <rdfs:comment>Something that happens within a given context or (short) timeframe.</rdfs:comment>
-        <rdfs:label>Event</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://w3id.org/CEON/ontology/processODP/Process -->
-
-    <owl:Class rdf:about="http://w3id.org/CEON/ontology/processODP/Process">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
-        <rdfs:subClassOf>
-            <owl:Class>
-                <owl:intersectionOf rdf:parseType="Collection">
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://w3id.org/CEON/ontology/processODP/hasInput"/>
-                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-                    </owl:Restriction>
-                    <owl:Restriction>
-                        <owl:onProperty rdf:resource="http://w3id.org/CEON/ontology/processODP/hasOutput"/>
-                        <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-                    </owl:Restriction>
-                </owl:intersectionOf>
-            </owl:Class>
-        </rdfs:subClassOf>
-        <rdfs:subClassOf>
-            <owl:Restriction>
-                <owl:onProperty rdf:resource="http://w3id.org/CEON/ontology/processODP/hasPart"/>
-                <owl:allValuesFrom>
-                    <owl:Class>
-                        <owl:unionOf rdf:parseType="Collection">
-                            <rdf:Description rdf:about="http://w3id.org/CEON/ontology/processODP/Event"/>
-                            <rdf:Description rdf:about="http://w3id.org/CEON/ontology/processODP/Process"/>
-                        </owl:unionOf>
-                    </owl:Class>
-                </owl:allValuesFrom>
-            </owl:Restriction>
-        </rdfs:subClassOf>
-        <dcterms:source rdf:resource="http://w3id.org/CEON/ontology/processODP/0.5/"/>
-        <rdfs:comment xml:lang="en">Something that takes place over a (longer) period of time and changes some state of affairs.</rdfs:comment>
-        <rdfs:label>Process</rdfs:label>
-        <integrationBasis>PMDco 3.1.0 and BFO authoritative process backbone</integrationBasis>
-        <integrationMethod>Mat.Sus-authored subclass grounding without equivalence</integrationMethod>
+        <skos:editorialNote xml:lang="en">The generic take-back class remains outside the end of use management hierarchy because take-back denotes a return or logistics activity and does not by itself determine the subsequent disposition.</skos:editorialNote>
+        <integrationMethod>MatSus-authored grounding under COB planned process; end-of-use status is contextual</integrationMethod>
     </owl:Class>
     
 
@@ -6067,7 +5976,7 @@ granularity. At these coarser levels, the individual molecules cannot be differe
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000005">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020353"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0023004"/>
-        <rdfs:subClassOf rdf:nodeID="genid199"/>
+        <rdfs:subClassOf rdf:nodeID="genid189"/>
         <obo:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000122"/>
         <obo:IAO_0000117>PERSON: Joerg Waitelonis</obo:IAO_0000117>
         <rdfs:comment xml:lang="en">A property is a material trait in terms of the kind and magnitude of response to a specific imposed stimulus. Generally, definitions of properties are made independent of material shape and size.
@@ -6083,7 +5992,7 @@ Extensive properties that depend on the object being tested rather than on the p
         <skos:definition xml:lang="en">a disposition of a portion of matter that is realized in a compatible process and whose realization is grounded in the portions intensive qualities</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
-    <owl:Restriction rdf:nodeID="genid199">
+    <owl:Restriction rdf:nodeID="genid189">
         <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
         <owl:someValuesFrom>
             <owl:Class>
@@ -6100,7 +6009,7 @@ Extensive properties that depend on the object being tested rather than on the p
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0000005"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid199"/>
+        <owl:annotatedTarget rdf:nodeID="genid189"/>
         <rdfs:comment xml:lang="en">Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom.</rdfs:comment>
     </owl:Axiom>
     
@@ -8678,14 +8587,16 @@ process and (&apos;has participant&apos; some
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0000612">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0000927"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000000"/>
         <obo:IAO_0000119 xml:lang="en">Official definition can be found in: DIN 8591</obo:IAO_0000119>
         <obo:IAO_0000119 xml:lang="de">Offizielle Definition findet man in: DIN 8591</obo:IAO_0000119>
+        <rdfs:comment xml:lang="en">In MatSus, a disassembling process may be an end of use management process when it is performed as part of a post-use pathway.</rdfs:comment>
         <rdfs:label xml:lang="de">Zerlegen</rdfs:label>
         <rdfs:label xml:lang="en">disassembling</rdfs:label>
         <skos:definition xml:lang="en">A separating process that involves disassembling a composite or assembled unit into its constituent parts or sections.</skos:definition>
         <skos:definition xml:lang="de">Ein Trennprozess, bei dem eine zusammengesetzte oder montierte Einheit in ihre Einzelteile oder Abschnitte zerlegt wird.</skos:definition>
+        <skos:editorialNote xml:lang="en">The generic PMDco disassembling class remains outside the end of use management hierarchy because disassembling can also occur in manufacturing, maintenance, inspection, reconfiguration, or other non-end-of-use contexts. MatSus reuses PMDco PMD_0000612 instead of retaining the overlapping CEON DisassemblingProcess and DismantleProcess terms.</skos:editorialNote>
         <skos:example xml:lang="en">Dismantling, Emptying</skos:example>
+        <integrationMethod>PMDco class reused as the authoritative MSE disassembling concept; end-of-use status is contextual</integrationMethod>
     </owl:Class>
     
 
@@ -25577,8 +25488,8 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0080108">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0020311"/>
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0023004"/>
-        <rdfs:subClassOf rdf:nodeID="genid2147"/>
-        <rdfs:subClassOf rdf:nodeID="genid2153"/>
+        <rdfs:subClassOf rdf:nodeID="genid2137"/>
+        <rdfs:subClassOf rdf:nodeID="genid2143"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0000052"/>
@@ -25592,7 +25503,7 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
         <skos:example xml:lang="en">A cross-section of a loaded steel column bears a compressive stress of 150 MPa</skos:example>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
-    <owl:Class rdf:nodeID="genid2147">
+    <owl:Class rdf:nodeID="genid2137">
         <owl:intersectionOf rdf:parseType="Collection">
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
@@ -25604,7 +25515,7 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
             </owl:Restriction>
         </owl:intersectionOf>
     </owl:Class>
-    <owl:Class rdf:nodeID="genid2153">
+    <owl:Class rdf:nodeID="genid2143">
         <owl:intersectionOf rdf:parseType="Collection">
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
@@ -25619,13 +25530,13 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0080108"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid2147"/>
+        <owl:annotatedTarget rdf:nodeID="genid2137"/>
         <rdfs:comment xml:lang="en">Mechanical view on stress</rdfs:comment>
     </owl:Axiom>
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0080108"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid2153"/>
+        <owl:annotatedTarget rdf:nodeID="genid2143"/>
         <rdfs:comment xml:lang="en">Thermodynamic view on stress</rdfs:comment>
     </owl:Axiom>
     
@@ -25680,14 +25591,14 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
     <!-- https://w3id.org/pmd/co/PMD_0080111 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0080111">
-        <rdfs:subClassOf rdf:nodeID="genid2162"/>
+        <rdfs:subClassOf rdf:nodeID="genid2152"/>
         <obo:IAO_0000117>PERSON: Thomas Hanke</obo:IAO_0000117>
         <rdfs:label xml:lang="de">Kriechspannung</rdfs:label>
         <rdfs:label xml:lang="en">creep stress</rdfs:label>
         <skos:definition xml:lang="en">Creep stress is characterized by strain occurring with time when a constant force is applied to a physical body</skos:definition>
         <skos:example xml:lang="en">A polymer gasket under a creep stress of 5 MPa at 60 C relaxes significantly over 1000 hours</skos:example>
     </owl:Class>
-    <owl:Class rdf:nodeID="genid2162">
+    <owl:Class rdf:nodeID="genid2152">
         <owl:intersectionOf rdf:parseType="Collection">
             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0080108"/>
             <owl:Restriction>
@@ -25709,7 +25620,7 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0080111"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid2162"/>
+        <owl:annotatedTarget rdf:nodeID="genid2152"/>
         <rdfs:comment xml:lang="en">strictly speaking this is just stress sustained over time.</rdfs:comment>
     </owl:Axiom>
     
@@ -25798,14 +25709,14 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0080116">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000019"/>
-        <rdfs:subClassOf rdf:nodeID="genid2172"/>
+        <rdfs:subClassOf rdf:nodeID="genid2162"/>
         <obo:IAO_0000117>Philipp von Hartrott</obo:IAO_0000117>
         <rdfs:comment xml:lang="en">Every potential in physics is the same mathematical object — a partial derivative of energy with respect to its conjugate extensive quantity. The differences are only in which extensive quality you&apos;re considering.</rdfs:comment>
         <rdfs:label xml:lang="en">potential</rdfs:label>
         <skos:definition xml:lang="en">a partial derivative of energy with respect to its conjugate extensive quantity</skos:definition>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
-    <owl:Class rdf:nodeID="genid2172">
+    <owl:Class rdf:nodeID="genid2162">
         <owl:intersectionOf rdf:parseType="Collection">
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002328"/>
@@ -25820,7 +25731,7 @@ where k_B​ is the Boltzmann constant and W is the number of microstates.</rdfs
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0080116"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid2172"/>
+        <owl:annotatedTarget rdf:nodeID="genid2162"/>
         <rdfs:comment xml:lang="en">In field theories (e.g., gravity, electrostatics), the potential becomes a field ϕ(r⃗), and the force is recovered via:
 F=−∇ϕ(r⃗)F
 This is the spatial analogue: instead of asking &quot;how does energy change per unit carrier added?&quot;, you ask &quot;how does energy change per unit carrier moved in space?&quot;</rdfs:comment>
@@ -26160,7 +26071,7 @@ This is the spatial analogue: instead of asking &quot;how does energy change per
 
     <owl:Class rdf:about="https://w3id.org/pmd/co/PMD_0080137">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/co/PMD_0023004"/>
-        <rdfs:subClassOf rdf:nodeID="genid2187"/>
+        <rdfs:subClassOf rdf:nodeID="genid2177"/>
         <obo:IAO_0000117>PERSON: Thomas Hanke</obo:IAO_0000117>
         <rdfs:label xml:lang="de">Poissonzahl</rdfs:label>
         <rdfs:label xml:lang="en">poisson&apos;s ratio</rdfs:label>
@@ -26168,7 +26079,7 @@ This is the spatial analogue: instead of asking &quot;how does energy change per
         <skos:example xml:lang="en">Rubber has a Poisson&apos;s ratio close to 0.5, indicating nearly incompressible behavior under loading</skos:example>
         <co:PMD_0000060 rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</co:PMD_0000060>
     </owl:Class>
-    <owl:Class rdf:nodeID="genid2187">
+    <owl:Class rdf:nodeID="genid2177">
         <owl:intersectionOf rdf:parseType="Collection">
             <rdf:Description rdf:about="https://w3id.org/pmd/co/PMD_0020311"/>
             <owl:Restriction>
@@ -26184,7 +26095,7 @@ This is the spatial analogue: instead of asking &quot;how does energy change per
     <owl:Axiom>
         <owl:annotatedSource rdf:resource="https://w3id.org/pmd/co/PMD_0080137"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#subClassOf"/>
-        <owl:annotatedTarget rdf:nodeID="genid2187"/>
+        <owl:annotatedTarget rdf:nodeID="genid2177"/>
         <rdfs:comment xml:lang="en">The two strains should be perpendicular to each other</rdfs:comment>
     </owl:Axiom>
     
@@ -31486,13 +31397,13 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/BatteryCarbonFootprintInformation">
         <rdfs:subClassOf rdf:resource="http://w3id.org/dppo/ontology/dpp-info/DPPInformation"/>
-        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000057"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000076"/>
         <dcterms:source rdf:resource="urn:samm:io.BatteryPass.CarbonFootprint:1.2.0#batteryCarbonFootprint"/>
         <dcterms:source>BatteryPass-ready Data Attribute Long List v1.3, attributes 28-35</dcterms:source>
         <dcterms:source>MKB2 SRC-005/SRC-006 approved legacy indicator-result bridge, 2026-09-16</dcterms:source>
         <rdfs:label xml:lang="en">battery carbon footprint information</rdfs:label>
         <skos:definition xml:lang="en">A DPP data item that records a calculated greenhouse-gas emissions result for a battery under a specified method, system boundary, and functional unit.</skos:definition>
-        <skos:editorialNote>This is a calculated indicator/data item, not an intrinsic material quality. Detailed LCA methodology alignment is deferred to the CLEO stage.</skos:editorialNote>
+        <skos:editorialNote>This is a calculated indicator/data item, not an intrinsic material quality. In the MKB2 LCA architecture it specializes the generic MatSus carbon footprint result while retaining its DPP-specific scope.</skos:editorialNote>
         <integrationMethod>new MatSus DPP data-item class based on BatteryPass requirements</integrationMethod>
     </owl:Class>
     
@@ -31598,12 +31509,20 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/LifecycleStageCarbonFootprintContribution">
         <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/BatteryCarbonFootprintInformation"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000077"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/matsus/BatteryCarbonFootprintInformation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <dcterms:source rdf:resource="urn:samm:io.BatteryPass.CarbonFootprint:1.2.0#carbonFootprintPerLifeCycleStage"/>
         <dcterms:source>BatteryPass-ready Data Attribute Long List v1.3, attributes 29-32</dcterms:source>
         <rdfs:label xml:lang="en">lifecycle-stage carbon-footprint contribution</rdfs:label>
         <skos:definition xml:lang="en">Battery carbon footprint information that records the contribution of a specified lifecycle stage to the total footprint result.</skos:definition>
-        <skos:editorialNote>Lifecycle-stage identifiers, values, units, functional units and calculation provenance are represented through data/value patterns and later SHACL; a detailed lifecycle model is deferred to CLEO.</skos:editorialNote>
+        <skos:editorialNote xml:lang="en">Lifecycle-stage identifiers, values, units, functional units, and calculation provenance are represented through data/value patterns and later SHACL. The suitability of the generic MatSus contributes-to pattern for this BatteryPass-specific class remains subject to later review.</skos:editorialNote>
+        <skos:editorialNote xml:lang="en">The contributes-to existential links this BatteryPass-specific result class to the generic MatSus result-contribution pattern; it does not imply arithmetic summation or that the total result has only one contributing stage.</skos:editorialNote>
         <integrationMethod>new MatSus subclass based on BatteryPass requirements</integrationMethod>
+        <integrationNote>REVIEW_LATER: Reassess whether the contributes-to existential remains the right TBox commitment when lifecycle-stage result modelling and the related SHACL profile are revisited.</integrationNote>
     </owl:Class>
     
 
@@ -31612,11 +31531,12 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000000">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/COB_0000082"/>
-        <dcterms:source>Mat.Sus CEON Phase 12 approved modelling decision</dcterms:source>
-        <rdfs:label xml:lang="en">product end-of-life management process</rdfs:label>
-        <skos:definition xml:lang="en">A process undertaken to manage a product that has reached, or is approaching, the end of its current use or service life, including its collection, separation, recovery, preparation for further use, recycling, or final treatment.</skos:definition>
-        <integrationBasis>Mat.Sus application-level end-of-life process branch grounded under the PMDco-imported planned process hierarchy</integrationBasis>
-        <integrationMethod>new Mat.Sus class with selected CEON process subclasses</integrationMethod>
+        <dcterms:source>Mat.Sus CEON Phase 12 approved modelling decision; MKB2 end-of-use architecture refinement, 2026-09-20</dcterms:source>
+        <rdfs:comment xml:lang="en">Examples include reuse, refurbishment, remanufacturing, repurposing, and, where applicable, repair, recycling, dismantling, disassembly, deconstruction, take-back, or waste collection. Generic process classes that can also occur outside an end-of-use context (e.g., repair) are not thereby subclasses of end of use management process.</rdfs:comment>
+        <rdfs:label xml:lang="en">end of use management process</rdfs:label>
+        <skos:definition xml:lang="en">A planned process that handles a material entity following a use phase.</skos:definition>
+        <integrationBasis>MatSus application-level end-of-use process branch grounded under the PMDco-imported planned process hierarchy</integrationBasis>
+        <integrationMethod>MatSus-local class with selected CEON and MatSus process subclasses</integrationMethod>
     </owl:Class>
     
 
@@ -31820,9 +31740,11 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000015">
         <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/COB_0000082"/>
         <dcterms:source>MKB1 IR2 Class Review: supporting waste process; human-gate Closure related-terms decision</dcterms:source>
+        <rdfs:comment xml:lang="en">In MatSus, a waste collection process may be an end of use management process when the collected waste arises after a use phase.</rdfs:comment>
         <rdfs:label xml:lang="en">waste collection process</rdfs:label>
         <skos:definition xml:lang="en">A planned process in which waste material is gathered from one or more holders or locations for transport, storage, sorting, recovery, treatment, or disposal.</skos:definition>
         <skos:editorialNote>Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. This is a supporting process with no standalone MKB ID. Later: add waste participant, origin, destination, and responsible-agent relations. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization.</skos:editorialNote>
+        <skos:editorialNote xml:lang="en">The generic waste collection class remains outside the end of use management hierarchy because waste collection also applies to production, construction, process, and other waste streams that are not necessarily post-use.</skos:editorialNote>
         <integrationMethod>new MatSus subclass of COB planned process</integrationMethod>
     </owl:Class>
     
@@ -32038,12 +31960,12 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
     <!-- https://w3id.org/pmd/matsus/MATSUS_0000031 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000031">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/COB_0000082"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000000"/>
         <dcterms:source>MKB1 IR2 Class Review: MKB-000202; SRC-001 Circular Berlin</dcterms:source>
         <rdfs:label xml:lang="en">repurposing process</rdfs:label>
         <skos:definition xml:lang="en">A planned process in which a product, component, or material is prepared or modified so that it can fulfil a purpose different from its preceding intended purpose.</skos:definition>
         <skos:editorialNote>Human-gate-authorized MKB1 IR2 Batch 3 implementation. No maintained compatible repurposing-process class was verified in the reviewed sources. Later: represent prior purpose, new purpose, participants, inputs, and outputs.</skos:editorialNote>
-        <integrationMethod>new MatSus subclass of COB planned process</integrationMethod>
+        <integrationMethod>MatSus subclass of end of use management process</integrationMethod>
     </owl:Class>
     
 
@@ -32103,12 +32025,12 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
     <!-- https://w3id.org/pmd/matsus/MATSUS_0000036 -->
 
     <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000036">
-        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/COB_0000082"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000000"/>
         <dcterms:source>MKB1 IR2 Class Review: MKB-000189; SRC-003 European Environment Agency</dcterms:source>
         <rdfs:label xml:lang="en">remanufacturing process</rdfs:label>
         <skos:definition xml:lang="en">A planned process in which a used product or component is restored to a specified performance and quality state through inspection and one or more restorative operations.</skos:definition>
         <skos:editorialNote>Human-gate-authorized MKB1 IR2 Batch 3 implementation. The remanufacturing process remains distinct from the separate AutomatCE remanufacturability disposition candidate. Later: model used input, retained identity or components, restorative operations, and specified output state.</skos:editorialNote>
-        <integrationMethod>new MatSus subclass of COB planned process</integrationMethod>
+        <integrationMethod>MatSus subclass of end of use management process</integrationMethod>
     </owl:Class>
     
 
@@ -32311,9 +32233,9 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
         <dcterms:source>MKB2 SRC-005/SRC-006 final human decision, 2026-09-16</dcterms:source>
         <rdfs:label xml:lang="en">environmental sustainability assessment</rdfs:label>
         <skos:definition xml:lang="en">A sustainability assessment that evaluates environmental sustainability aspects of an entity or process.</skos:definition>
-        <skos:editorialNote xml:lang="en">Impact categories, environmental effects, and indicator results are not subclasses of this process. Detailed life-cycle-assessment modelling is deferred.</skos:editorialNote>
+        <skos:editorialNote xml:lang="en">Impact categories, environmental effects, and indicator results are not subclasses of this process. Dedicated life-cycle-assessment process classes are modelled under sustainability assessment.</skos:editorialNote>
         <alignmentRelation>close conceptual correspondence; annotation-only; non-entailing</alignmentRelation>
-        <integrationBasis>SRC-005 SSbD EnvironmentalSustainabilityAssessment; LCA content excluded by final human decision 12.</integrationBasis>
+        <integrationBasis>SRC-005 SSbD EnvironmentalSustainabilityAssessment; LCA content was deferred during SRC-005 and introduced in the subsequent SRC-006 LCA implementation batch.</integrationBasis>
         <integrationMethod>MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing</integrationMethod>
         <integrationNote>No SSbD impact-category descendants are imported or reproduced.</integrationNote>
         <mappedTo rdf:resource="https://w3id.org/ssbd/EnvironmentalSustainabilityAssessment"/>
@@ -32500,6 +32422,225 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
         <integrationBasis>MKB1 assessment-report carryover, imported IAO document, and current MatSus report review; final human decisions 5 and 11.</integrationBasis>
         <integrationMethod>MatSus-local class using the pinned PMDco/IAO/OBI backbone; no exact external class mapping was found</integrationMethod>
         <integrationNote>Neither inspected ontology provides an assessment-report class matching this meaning; the absence of a mappedTo annotation is deliberate.</integrationNote>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/matsus/MATSUS_0000062 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000062">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000043"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000060"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dcterms:source>MKB2 end-of-use architecture final human decision, 2026-09-20</dcterms:source>
+        <rdfs:comment xml:lang="en">Relevant evidence may include condition, functionality, safety, reparability, reusability, remanufacturability, recyclability, composition, or other criteria relevant to selecting a subsequent management pathway.</rdfs:comment>
+        <rdfs:label xml:lang="en">end of use disposition assessment</rdfs:label>
+        <skos:definition xml:lang="en">An assessment process that evaluates a material entity to determine the suitability of one or more subsequent end of use management processes.</skos:definition>
+        <skos:editorialNote xml:lang="en">The assessment is distinct from the subsequent management process and does not imply that a recommended pathway is selected or executed. Functionality assessments, assays, and other analyses may provide evidence for the assessment.</skos:editorialNote>
+        <integrationBasis>MKB2 end-of-use competency questions and existing MatSus assessment architecture; final human decision, 2026-09-20.</integrationBasis>
+        <integrationMethod>MatSus-local assessment-process specialization using the existing evaluates relation</integrationMethod>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/matsus/MATSUS_0000063 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000063">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000055"/>
+        <dcterms:source>MKB2 end-of-use architecture final human decision, 2026-09-20</dcterms:source>
+        <rdfs:comment xml:lang="en">A disposition recommendation is distinct from a decision authorizing a pathway and from the subsequent management process itself. It may be supported by other assessment result information concerning condition, functionality, composition, safety, or other relevant characteristics.</rdfs:comment>
+        <rdfs:label xml:lang="en">end of use disposition recommendation</rdfs:label>
+        <skos:definition xml:lang="en">Assessment result information that recommends one or more end of use management processes for an evaluated material entity.</skos:definition>
+        <skos:editorialNote xml:lang="en">No universal is-about existential is asserted in this increment. In complete local records, consistency between the assessment&apos;s evaluated material entity and the recommendation&apos;s aboutness target is to be checked in the application-profile/SHACL layer.</skos:editorialNote>
+        <integrationBasis>MKB2 end-of-use competency questions and existing MatSus assessment-result architecture; final human decision, 2026-09-20.</integrationBasis>
+        <integrationMethod>MatSus-local specialization of assessment result information</integrationMethod>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/matsus/MATSUS_0000065 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000065">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/COB_0000035"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000048"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000066"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000067"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0000293"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000072"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dcterms:source>MKB2 SRC-006 LCA architecture final human decision, 2026-09-18</dcterms:source>
+        <rdfs:label xml:lang="en">life cycle assessment process</rdfs:label>
+        <skos:definition xml:lang="en">A sustainability assessment that compiles and evaluates inputs, outputs, and potential environmental impacts associated with a product system across its life cycle.</skos:definition>
+        <skos:editorialNote xml:lang="en">Life cycle inventory analysis and life cycle impact assessment are represented as process parts of a life cycle assessment, not as subclasses of it. No universal specified-output restriction is asserted.</skos:editorialNote>
+        <integrationBasis>MKB2 SRC-006 CLEO/LCA source gate and final MatSus LCA architecture decision, 2026-09-18.</integrationBasis>
+        <integrationMethod>MatSus-local sustainability-assessment specialization using the existing PMDco/IAO/OBI backbone</integrationMethod>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/matsus/MATSUS_0000066 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000066">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/COB_0000082"/>
+        <dcterms:source>MKB2 SRC-006 LCA architecture final human decision, 2026-09-18</dcterms:source>
+        <rdfs:label xml:lang="en">life cycle inventory analysis process</rdfs:label>
+        <skos:definition xml:lang="en">A planned process that compiles and quantifies inputs and outputs relevant to a life cycle assessment.</skos:definition>
+        <skos:editorialNote xml:lang="en">This process is modelled under planned process rather than assessment process. Its occurrence may be a process part of a life cycle assessment.</skos:editorialNote>
+        <integrationBasis>MKB2 SRC-006 CLEO/LCA source gate and final MatSus LCA architecture decision, 2026-09-18.</integrationBasis>
+        <integrationMethod>MatSus-local planned-process specialization</integrationMethod>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/matsus/MATSUS_0000067 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000067">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000048"/>
+        <dcterms:source>MKB2 SRC-006 LCA architecture final human decision, 2026-09-18</dcterms:source>
+        <rdfs:label xml:lang="en">life cycle impact assessment process</rdfs:label>
+        <skos:definition xml:lang="en">A sustainability assessment that evaluates potential environmental impacts using life cycle inventory information and impact categories.</skos:definition>
+        <skos:editorialNote xml:lang="en">This class is parallel to life cycle assessment under sustainability assessment and may occur as a process part of a life cycle assessment.</skos:editorialNote>
+        <integrationBasis>MKB2 SRC-006 CLEO/LCA source gate and final MatSus LCA architecture decision, 2026-09-18.</integrationBasis>
+        <integrationMethod>MatSus-local sustainability-assessment specialization</integrationMethod>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/matsus/MATSUS_0000068 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000068">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000053"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000069"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000070"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+                <owl:someValuesFrom rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000071"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dcterms:source>MKB2 SRC-006 LCA architecture final human decision, 2026-09-18</dcterms:source>
+        <rdfs:label xml:lang="en">life cycle assessment specification</rdfs:label>
+        <skos:definition xml:lang="en">An assessment specification that prescribes the scope, reference basis, system boundary, and other methodological choices for a life cycle assessment process.</skos:definition>
+        <skos:editorialNote xml:lang="en">Functional unit, reference flow, and system boundary specifications are represented as information parts of the life cycle assessment specification.</skos:editorialNote>
+        <integrationBasis>MKB2 SRC-006 LCA architecture final human decision, 2026-09-18.</integrationBasis>
+        <integrationMethod>MatSus-local specialization of assessment specification</integrationMethod>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/matsus/MATSUS_0000069 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000069">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000033"/>
+        <dcterms:source>MKB2 SRC-006 LCA architecture final human decision, 2026-09-18</dcterms:source>
+        <rdfs:label xml:lang="en">functional unit specification</rdfs:label>
+        <skos:definition xml:lang="en">A directive information entity that specifies a quantified performance used as the reference basis of a life cycle assessment.</skos:definition>
+        <skos:editorialNote xml:lang="en">This is information specifying the reference basis of the assessment, not a physical unit and not the assessed process itself.</skos:editorialNote>
+        <integrationMethod>MatSus-local directive information entity</integrationMethod>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/matsus/MATSUS_0000070 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000070">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <dcterms:source>MKB2 SRC-006 LCA architecture final human decision, 2026-09-18</dcterms:source>
+        <rdfs:label xml:lang="en">reference flow specification</rdfs:label>
+        <skos:definition xml:lang="en">An information content entity that specifies the quantity of product or material flow required to fulfil the functional unit of a life cycle assessment.</skos:definition>
+        <skos:editorialNote xml:lang="en">The exact directive-information subtype is intentionally not asserted in this increment.</skos:editorialNote>
+        <integrationMethod>MatSus-local information-content specialization</integrationMethod>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/matsus/MATSUS_0000071 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000071">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000033"/>
+        <dcterms:source>MKB2 SRC-006 LCA architecture final human decision, 2026-09-18</dcterms:source>
+        <rdfs:label xml:lang="en">system boundary specification</rdfs:label>
+        <skos:definition xml:lang="en">A directive information entity that specifies which processes or activities are included in or excluded from the system evaluated by a life cycle assessment.</skos:definition>
+        <integrationMethod>MatSus-local directive information entity</integrationMethod>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/matsus/MATSUS_0000072 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000072">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <dcterms:source>MKB2 SRC-006 LCA architecture final human decision, 2026-09-18</dcterms:source>
+        <rdfs:label xml:lang="en">system model</rdfs:label>
+        <skos:definition xml:lang="en">An information content entity that represents processes, flows, and relationships of a system for assessment or analysis.</skos:definition>
+        <skos:editorialNote xml:lang="en">This is a generic system-model class. A separate lifecycle system model is intentionally deferred.</skos:editorialNote>
+        <integrationMethod>MatSus-local generic information-content specialization</integrationMethod>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/matsus/MATSUS_0000073 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000073">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <dcterms:source>MKB2 SRC-006 LCA architecture final human decision, 2026-09-18</dcterms:source>
+        <rdfs:label xml:lang="en">impact category</rdfs:label>
+        <skos:definition xml:lang="en">An information content entity that represents an environmental issue of concern evaluated in a life cycle impact assessment.</skos:definition>
+        <skos:editorialNote xml:lang="en">An impact category is information used to organize and interpret impact assessment; it is not itself an assessment process or environmental effect.</skos:editorialNote>
+        <integrationMethod>MatSus-local information-content specialization</integrationMethod>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/matsus/MATSUS_0000074 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000074">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000055"/>
+        <dcterms:source>MKB2 SRC-006 LCA architecture final human decision, 2026-09-18</dcterms:source>
+        <rdfs:label xml:lang="en">life cycle assessment result information</rdfs:label>
+        <skos:definition xml:lang="en">Assessment result information that represents a finding or outcome obtained through a life cycle assessment process.</skos:definition>
+        <integrationMethod>MatSus-local specialization of assessment result information</integrationMethod>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/pmd/matsus/MATSUS_0000076 -->
+
+    <owl:Class rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000076">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000057"/>
+        <dcterms:source>MKB2 SRC-006 LCA architecture final human decision, 2026-09-18</dcterms:source>
+        <rdfs:comment xml:lang="en">The applicable scope, method, global-warming-potential time horizon, and completeness depend on the governing specification. Membership in this class does not by itself imply a complete life cycle assessment or conformity with a particular standard.</rdfs:comment>
+        <rdfs:label xml:lang="en">carbon footprint result</rdfs:label>
+        <skos:altLabel xml:lang="en">carbon footprint</skos:altLabel>
+        <skos:definition xml:lang="en">An indicator result that quantifies greenhouse gas emissions and removals associated with a specified subject and scope as carbon dioxide equivalents for the climate-change impact category.</skos:definition>
+        <integrationMethod>MatSus-local primitive specialization of indicator result</integrationMethod>
     </owl:Class>
     
 
@@ -33048,6 +33189,29 @@ European Commission: Directorate-General for Research and Innovation, Biodegrada
     <!-- https://w3id.org/pmd/co/PMD_0040128 -->
 
     <owl:NamedIndividual rdf:about="https://w3id.org/pmd/co/PMD_0040128"/>
+    
+
+
+    <!-- https://w3id.org/pmd/matsus/MATSUS_0000078 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000078">
+        <rdf:type rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000073"/>
+        <dcterms:source>MKB2 SRC-006 LCA architecture final human decision, 2026-09-18</dcterms:source>
+        <rdfs:label xml:lang="en">climate change</rdfs:label>
+        <skos:definition xml:lang="en">An impact category concerning potential effects associated with changes in the climate system.</skos:definition>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://w3id.org/pmd/matsus/MATSUS_0000079 -->
+
+    <owl:NamedIndividual rdf:about="https://w3id.org/pmd/matsus/MATSUS_0000079">
+        <rdf:type rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000027"/>
+        <obo:IAO_0000136 rdf:resource="https://w3id.org/pmd/matsus/MATSUS_0000078"/>
+        <dcterms:source>MKB2 SRC-006 LCA architecture final human decision, 2026-09-18</dcterms:source>
+        <rdfs:label xml:lang="en">GWP100</rdfs:label>
+        <skos:definition xml:lang="en">A metric specification for global warming potential evaluated over a 100-year time horizon.</skos:definition>
+    </owl:NamedIndividual>
     
 
 

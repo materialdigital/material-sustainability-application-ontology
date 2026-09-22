@@ -25,7 +25,7 @@
         "val" : "Material Sustainability Application Ontology (Mat.Sus)"
       }, {
         "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
-        "val" : "2026-09-18"
+        "val" : "2026-09-22"
       } ],
       "version" : "https://w3id.org/pmd/matsus/dev/"
     },
@@ -2213,41 +2213,16 @@
       "lbl" : "Deconstruction Process",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "A process of deconstruction." ],
+        "comments" : [ "A process of deconstruction.", "In MatSus, a deconstruction process may be an end of use management process when it is performed as part of a post-use pathway." ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://w3id.org/CEON/ontology/process/0.5/"
         }, {
-          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
-          "val" : "Mat.Sus-authored provisional end-of-life subclassing pending pre-publication modelling review"
-        } ]
-      }
-    }, {
-      "id" : "http://w3id.org/CEON/ontology/process/DisassemblingProcess",
-      "lbl" : "Disassembling Process",
-      "type" : "CLASS",
-      "meta" : {
-        "comments" : [ "A process of disassembling." ],
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/source",
-          "val" : "http://w3id.org/CEON/ontology/process/0.5/"
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "The generic deconstruction class is not placed under end of use management process because deconstruction can also occur in other technical or operational contexts."
         }, {
           "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
-          "val" : "Mat.Sus-authored provisional end-of-life subclassing pending pre-publication modelling review"
-        } ]
-      }
-    }, {
-      "id" : "http://w3id.org/CEON/ontology/process/DismantleProcess",
-      "lbl" : "Dismantle Process",
-      "type" : "CLASS",
-      "meta" : {
-        "comments" : [ "A process of dismantling." ],
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/source",
-          "val" : "http://w3id.org/CEON/ontology/process/0.5/"
-        }, {
-          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
-          "val" : "Mat.Sus-authored provisional end-of-life subclassing pending pre-publication modelling review"
+          "val" : "MatSus-authored grounding under COB planned process; end-of-use status is contextual"
         } ]
       }
     }, {
@@ -2255,13 +2230,16 @@
       "lbl" : "Recycle Process",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "A process of recycling." ],
+        "comments" : [ "A process of recycling.", "In MatSus, a recycle process may be an end of use management process when it treats material arising after a use phase." ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://w3id.org/CEON/ontology/process/0.5/"
         }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "The generic recycle class is not placed under end of use management process because recycling may also concern pre-consumer, production, or other material streams that are not end-of-use."
+        }, {
           "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
-          "val" : "Mat.Sus-authored end-of-life subclassing"
+          "val" : "MatSus-authored grounding under COB planned process; end-of-use status is contextual"
         } ]
       }
     }, {
@@ -2273,6 +2251,9 @@
         "basicPropertyValues" : [ {
           "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://w3id.org/CEON/ontology/process/0.5/"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-authored subclassing under end of use management process"
         } ]
       }
     }, {
@@ -2280,10 +2261,16 @@
       "lbl" : "Repair Process",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "A process of repairing." ],
+        "comments" : [ "A process of repairing.", "In MatSus, a repair process may be an end of use management process when it is performed after a use phase to enable further use." ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://w3id.org/CEON/ontology/process/0.5/"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "The generic repair class is not placed under end of use management process because repair may also occur during ordinary use, maintenance, or other non-end-of-use contexts."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-authored grounding under COB planned process; end-of-use status is contextual"
         } ]
       }
     }, {
@@ -2295,6 +2282,9 @@
         "basicPropertyValues" : [ {
           "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://w3id.org/CEON/ontology/process/0.5/"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-authored subclassing under end of use management process"
         } ]
       }
     }, {
@@ -2302,58 +2292,16 @@
       "lbl" : "Take Back Process",
       "type" : "CLASS",
       "meta" : {
-        "comments" : [ "A process of taking back." ],
+        "comments" : [ "A process of taking back.", "In MatSus, a take-back process may support an end of use management pathway by returning a material entity to an actor or system for subsequent handling." ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.org/dc/terms/source",
           "val" : "http://w3id.org/CEON/ontology/process/0.5/"
         }, {
-          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
-          "val" : "Mat.Sus-authored end-of-life subclassing"
-        } ]
-      }
-    }, {
-      "id" : "http://w3id.org/CEON/ontology/process/TransformationProcess",
-      "lbl" : "Transformation Process",
-      "type" : "CLASS",
-      "meta" : {
-        "comments" : [ "Set of interrelated or interacting activities that transforms inputs into outputs." ],
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/source",
-          "val" : "http://w3id.org/CEON/ontology/process/0.5/"
-        }, {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#isDefinedBy",
-          "val" : "ISO 59004:2024  - 3.5.5 process"
-        }, {
-          "pred" : "http://www.w3.org/2000/01/rdf-schema#seeAlso",
-          "val" : "https://ref.gs1.org/epcis/Transformation"
-        } ]
-      }
-    }, {
-      "id" : "http://w3id.org/CEON/ontology/processODP/Event",
-      "lbl" : "Event",
-      "type" : "CLASS",
-      "meta" : {
-        "comments" : [ "Something that happens within a given context or (short) timeframe." ],
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/source",
-          "val" : "http://w3id.org/CEON/ontology/processODP/0.5/"
-        } ]
-      }
-    }, {
-      "id" : "http://w3id.org/CEON/ontology/processODP/Process",
-      "lbl" : "Process",
-      "type" : "CLASS",
-      "meta" : {
-        "comments" : [ "Something that takes place over a (longer) period of time and changes some state of affairs." ],
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/source",
-          "val" : "http://w3id.org/CEON/ontology/processODP/0.5/"
-        }, {
-          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
-          "val" : "PMDco 3.1.0 and BFO authoritative process backbone"
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "The generic take-back class remains outside the end of use management hierarchy because take-back denotes a return or logistics activity and does not by itself determine the subsequent disposition."
         }, {
           "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
-          "val" : "Mat.Sus-authored subclass grounding without equivalence"
+          "val" : "MatSus-authored grounding under COB planned process; end-of-use status is contextual"
         } ]
       }
     }, {
@@ -5326,6 +5274,7 @@
       "lbl" : "disassembling",
       "type" : "CLASS",
       "meta" : {
+        "comments" : [ "In MatSus, a disassembling process may be an end of use management process when it is performed as part of a post-use pathway." ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
           "val" : "Official definition can be found in: DIN 8591"
@@ -5339,8 +5288,14 @@
           "pred" : "http://www.w3.org/2004/02/skos/core#definition",
           "val" : "Ein Trennprozess, bei dem eine zusammengesetzte oder montierte Einheit in ihre Einzelteile oder Abschnitte zerlegt wird."
         }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "The generic PMDco disassembling class remains outside the end of use management hierarchy because disassembling can also occur in manufacturing, maintenance, inspection, reconfiguration, or other non-end-of-use contexts. MatSus reuses PMDco PMD_0000612 instead of retaining the overlapping CEON DisassemblingProcess and DismantleProcess terms."
+        }, {
           "pred" : "http://www.w3.org/2004/02/skos/core#example",
           "val" : "Dismantling, Emptying"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "PMDco class reused as the authoritative MSE disassembling concept; end-of-use status is contextual"
         } ]
       }
     }, {
@@ -26062,7 +26017,7 @@
           "val" : "A DPP data item that records a calculated greenhouse-gas emissions result for a battery under a specified method, system boundary, and functional unit."
         }, {
           "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
-          "val" : "This is a calculated indicator/data item, not an intrinsic material quality. Detailed LCA methodology alignment is deferred to the CLEO stage."
+          "val" : "This is a calculated indicator/data item, not an intrinsic material quality. In the MKB2 LCA architecture it specializes the generic MatSus carbon footprint result while retaining its DPP-specific scope."
         }, {
           "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
           "val" : "new MatSus DPP data-item class based on BatteryPass requirements"
@@ -26214,29 +26169,36 @@
           "val" : "Battery carbon footprint information that records the contribution of a specified lifecycle stage to the total footprint result."
         }, {
           "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
-          "val" : "Lifecycle-stage identifiers, values, units, functional units and calculation provenance are represented through data/value patterns and later SHACL; a detailed lifecycle model is deferred to CLEO."
+          "val" : "Lifecycle-stage identifiers, values, units, functional units, and calculation provenance are represented through data/value patterns and later SHACL. The suitability of the generic MatSus contributes-to pattern for this BatteryPass-specific class remains subject to later review."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "The contributes-to existential links this BatteryPass-specific result class to the generic MatSus result-contribution pattern; it does not imply arithmetic summation or that the total result has only one contributing stage."
         }, {
           "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
           "val" : "new MatSus subclass based on BatteryPass requirements"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationNote",
+          "val" : "REVIEW_LATER: Reassess whether the contributes-to existential remains the right TBox commitment when lifecycle-stage result modelling and the related SHACL profile are revisited."
         } ]
       }
     }, {
       "id" : "https://w3id.org/pmd/matsus/MATSUS_0000000",
-      "lbl" : "product end-of-life management process",
+      "lbl" : "end of use management process",
       "type" : "CLASS",
       "meta" : {
+        "comments" : [ "Examples include reuse, refurbishment, remanufacturing, repurposing, and, where applicable, repair, recycling, dismantling, disassembly, deconstruction, take-back, or waste collection. Generic process classes that can also occur outside an end-of-use context (e.g., repair) are not thereby subclasses of end of use management process." ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.org/dc/terms/source",
-          "val" : "Mat.Sus CEON Phase 12 approved modelling decision"
+          "val" : "Mat.Sus CEON Phase 12 approved modelling decision; MKB2 end-of-use architecture refinement, 2026-09-20"
         }, {
           "pred" : "http://www.w3.org/2004/02/skos/core#definition",
-          "val" : "A process undertaken to manage a product that has reached, or is approaching, the end of its current use or service life, including its collection, separation, recovery, preparation for further use, recycling, or final treatment."
+          "val" : "A planned process that handles a material entity following a use phase."
         }, {
           "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
-          "val" : "Mat.Sus application-level end-of-life process branch grounded under the PMDco-imported planned process hierarchy"
+          "val" : "MatSus application-level end-of-use process branch grounded under the PMDco-imported planned process hierarchy"
         }, {
           "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
-          "val" : "new Mat.Sus class with selected CEON process subclasses"
+          "val" : "MatSus-local class with selected CEON and MatSus process subclasses"
         } ]
       }
     }, {
@@ -26528,6 +26490,7 @@
       "lbl" : "waste collection process",
       "type" : "CLASS",
       "meta" : {
+        "comments" : [ "In MatSus, a waste collection process may be an end of use management process when the collected waste arises after a use phase." ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.org/dc/terms/source",
           "val" : "MKB1 IR2 Class Review: supporting waste process; human-gate Closure related-terms decision"
@@ -26537,6 +26500,9 @@
         }, {
           "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
           "val" : "Human-gate-authorized provisional MKB1 IR2 waste implementation. PMDco issue #485 is ISSUE_SUBMITTED. This is a supporting process with no standalone MKB ID. Later: add waste participant, origin, destination, and responsible-agent relations. Later PMDco acceptance triggers migration or reconciliation of mappings, parents, and restrictions, not deletion of the MatSus specialization."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "The generic waste collection class remains outside the end of use management hierarchy because waste collection also applies to production, construction, process, and other waste streams that are not necessarily post-use."
         }, {
           "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
           "val" : "new MatSus subclass of COB planned process"
@@ -26859,7 +26825,7 @@
           "val" : "Human-gate-authorized MKB1 IR2 Batch 3 implementation. No maintained compatible repurposing-process class was verified in the reviewed sources. Later: represent prior purpose, new purpose, participants, inputs, and outputs."
         }, {
           "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
-          "val" : "new MatSus subclass of COB planned process"
+          "val" : "MatSus subclass of end of use management process"
         } ]
       }
     }, {
@@ -26954,7 +26920,7 @@
           "val" : "Human-gate-authorized MKB1 IR2 Batch 3 implementation. The remanufacturing process remains distinct from the separate AutomatCE remanufacturability disposition candidate. Later: model used input, retained identity or components, restorative operations, and specified output state."
         }, {
           "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
-          "val" : "new MatSus subclass of COB planned process"
+          "val" : "MatSus subclass of end of use management process"
         } ]
       }
     }, {
@@ -27289,13 +27255,13 @@
           "val" : "A sustainability assessment that evaluates environmental sustainability aspects of an entity or process."
         }, {
           "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
-          "val" : "Impact categories, environmental effects, and indicator results are not subclasses of this process. Detailed life-cycle-assessment modelling is deferred."
+          "val" : "Impact categories, environmental effects, and indicator results are not subclasses of this process. Dedicated life-cycle-assessment process classes are modelled under sustainability assessment."
         }, {
           "pred" : "https://w3id.org/pmd/matsus/alignmentRelation",
           "val" : "close conceptual correspondence; annotation-only; non-entailing"
         }, {
           "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
-          "val" : "SRC-005 SSbD EnvironmentalSustainabilityAssessment; LCA content excluded by final human decision 12."
+          "val" : "SRC-005 SSbD EnvironmentalSustainabilityAssessment; LCA content was deferred during SRC-005 and introduced in the subsequent SRC-006 LCA implementation batch."
         }, {
           "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
           "val" : "MatSus-local class using the pinned PMDco/IAO/OBI backbone; external correspondence is annotation-only and non-entailing"
@@ -27612,6 +27578,268 @@
         }, {
           "pred" : "https://w3id.org/pmd/matsus/integrationNote",
           "val" : "Neither inspected ontology provides an assessment-report class matching this meaning; the absence of a mappedTo annotation is deliberate."
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000062",
+      "lbl" : "end of use disposition assessment",
+      "type" : "CLASS",
+      "meta" : {
+        "comments" : [ "Relevant evidence may include condition, functionality, safety, reparability, reusability, remanufacturability, recyclability, composition, or other criteria relevant to selecting a subsequent management pathway." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 end-of-use architecture final human decision, 2026-09-20"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "An assessment process that evaluates a material entity to determine the suitability of one or more subsequent end of use management processes."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "The assessment is distinct from the subsequent management process and does not imply that a recommended pathway is selected or executed. Functionality assessments, assays, and other analyses may provide evidence for the assessment."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "MKB2 end-of-use competency questions and existing MatSus assessment architecture; final human decision, 2026-09-20."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local assessment-process specialization using the existing evaluates relation"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000063",
+      "lbl" : "end of use disposition recommendation",
+      "type" : "CLASS",
+      "meta" : {
+        "comments" : [ "A disposition recommendation is distinct from a decision authorizing a pathway and from the subsequent management process itself. It may be supported by other assessment result information concerning condition, functionality, composition, safety, or other relevant characteristics." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 end-of-use architecture final human decision, 2026-09-20"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "Assessment result information that recommends one or more end of use management processes for an evaluated material entity."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "No universal is-about existential is asserted in this increment. In complete local records, consistency between the assessment's evaluated material entity and the recommendation's aboutness target is to be checked in the application-profile/SHACL layer."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "MKB2 end-of-use competency questions and existing MatSus assessment-result architecture; final human decision, 2026-09-20."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local specialization of assessment result information"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000065",
+      "lbl" : "life cycle assessment process",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "A sustainability assessment that compiles and evaluates inputs, outputs, and potential environmental impacts associated with a product system across its life cycle."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "Life cycle inventory analysis and life cycle impact assessment are represented as process parts of a life cycle assessment, not as subclasses of it. No universal specified-output restriction is asserted."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "MKB2 SRC-006 CLEO/LCA source gate and final MatSus LCA architecture decision, 2026-09-18."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local sustainability-assessment specialization using the existing PMDco/IAO/OBI backbone"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000066",
+      "lbl" : "life cycle inventory analysis process",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "A planned process that compiles and quantifies inputs and outputs relevant to a life cycle assessment."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "This process is modelled under planned process rather than assessment process. Its occurrence may be a process part of a life cycle assessment."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "MKB2 SRC-006 CLEO/LCA source gate and final MatSus LCA architecture decision, 2026-09-18."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local planned-process specialization"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000067",
+      "lbl" : "life cycle impact assessment process",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "A sustainability assessment that evaluates potential environmental impacts using life cycle inventory information and impact categories."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "This class is parallel to life cycle assessment under sustainability assessment and may occur as a process part of a life cycle assessment."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "MKB2 SRC-006 CLEO/LCA source gate and final MatSus LCA architecture decision, 2026-09-18."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local sustainability-assessment specialization"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000068",
+      "lbl" : "life cycle assessment specification",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "An assessment specification that prescribes the scope, reference basis, system boundary, and other methodological choices for a life cycle assessment process."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "Functional unit, reference flow, and system boundary specifications are represented as information parts of the life cycle assessment specification."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local specialization of assessment specification"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000069",
+      "lbl" : "functional unit specification",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "A directive information entity that specifies a quantified performance used as the reference basis of a life cycle assessment."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "This is information specifying the reference basis of the assessment, not a physical unit and not the assessed process itself."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local directive information entity"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000070",
+      "lbl" : "reference flow specification",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "An information content entity that specifies the quantity of product or material flow required to fulfil the functional unit of a life cycle assessment."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "The exact directive-information subtype is intentionally not asserted in this increment."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local information-content specialization"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000071",
+      "lbl" : "system boundary specification",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "A directive information entity that specifies which processes or activities are included in or excluded from the system evaluated by a life cycle assessment."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local directive information entity"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000072",
+      "lbl" : "system model",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "An information content entity that represents processes, flows, and relationships of a system for assessment or analysis."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "This is a generic system-model class. A separate lifecycle system model is intentionally deferred."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local generic information-content specialization"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000073",
+      "lbl" : "impact category",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "An information content entity that represents an environmental issue of concern evaluated in a life cycle impact assessment."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "An impact category is information used to organize and interpret impact assessment; it is not itself an assessment process or environmental effect."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local information-content specialization"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000074",
+      "lbl" : "life cycle assessment result information",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "Assessment result information that represents a finding or outcome obtained through a life cycle assessment process."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local specialization of assessment result information"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000076",
+      "lbl" : "carbon footprint result",
+      "type" : "CLASS",
+      "meta" : {
+        "comments" : [ "The applicable scope, method, global-warming-potential time horizon, and completeness depend on the governing specification. Membership in this class does not by itself imply a complete life cycle assessment or conformity with a particular standard." ],
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#altLabel",
+          "val" : "carbon footprint"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "An indicator result that quantifies greenhouse gas emissions and removals associated with a specified subject and scope as carbon dioxide equivalents for the climate-change impact category."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local primitive specialization of indicator result"
         } ]
       }
     }, {
@@ -28998,42 +29226,6 @@
         } ]
       }
     }, {
-      "id" : "http://w3id.org/CEON/ontology/processODP/hasInput",
-      "lbl" : "has input",
-      "type" : "PROPERTY",
-      "propertyType" : "OBJECT",
-      "meta" : {
-        "comments" : [ "The inputs to a process or event." ],
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/source",
-          "val" : "http://w3id.org/CEON/ontology/processODP/0.5/"
-        } ]
-      }
-    }, {
-      "id" : "http://w3id.org/CEON/ontology/processODP/hasOutput",
-      "lbl" : "has output",
-      "type" : "PROPERTY",
-      "propertyType" : "OBJECT",
-      "meta" : {
-        "comments" : [ "The output of a process or event." ],
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/source",
-          "val" : "http://w3id.org/CEON/ontology/processODP/0.5/"
-        } ]
-      }
-    }, {
-      "id" : "http://w3id.org/CEON/ontology/processODP/hasPart",
-      "lbl" : "has part",
-      "type" : "PROPERTY",
-      "propertyType" : "OBJECT",
-      "meta" : {
-        "comments" : [ "A process or event can consist of several parts, which are sub-processes (e.g. steps) or events." ],
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.org/dc/terms/source",
-          "val" : "http://w3id.org/CEON/ontology/processODP/0.5/"
-        } ]
-      }
-    }, {
       "id" : "http://w3id.org/dppo/ontology/dpp-comp/aboutPart",
       "lbl" : "about part",
       "type" : "PROPERTY",
@@ -29879,6 +30071,52 @@
         } ]
       }
     }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000064",
+      "lbl" : "recommends",
+      "type" : "PROPERTY",
+      "propertyType" : "OBJECT",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 end-of-use architecture final human decision, 2026-09-20"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "Relates an end of use disposition recommendation to an end of use management process that the recommendation identifies as suitable for the evaluated material entity."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "This relation does not imply authorization, formal selection, uniqueness, or execution of the recommended process. It is not functional and no inverse is introduced in this increment."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationBasis",
+          "val" : "MKB2 end-of-use competency questions and review of the pinned PMDco/IAO/OBI relation inventory; final human decision, 2026-09-20."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local object property; no exact relation in the pinned PMDco/IAO/OBI closure expresses recommendation of an end-of-use process"
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationNote",
+          "val" : "CCO prescribes was reviewed as an external candidate but was not reused because its rule-or-guide semantics are stronger than the intended recommendation relation."
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000077",
+      "lbl" : "contributes to",
+      "type" : "PROPERTY",
+      "propertyType" : "OBJECT",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "Relates assessment result information to other assessment result information to whose represented result it contributes."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "This relation does not assert parthood, arithmetic summation, exhaustive coverage, or transitivity."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local result-to-result relation"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/OBI_0001937",
       "lbl" : "has specified numeric value",
       "type" : "PROPERTY",
@@ -30660,6 +30898,32 @@
     }, {
       "id" : "https://w3id.org/pmd/co/PMD_0040128",
       "type" : "INDIVIDUAL"
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000078",
+      "lbl" : "climate change",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "An impact category concerning potential effects associated with changes in the climate system."
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000079",
+      "lbl" : "GWP100",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "MKB2 SRC-006 LCA architecture final human decision, 2026-09-18"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "A metric specification for global warming potential evaluated over a 100-year time horizon."
+        } ]
+      }
     }, {
       "id" : "http://purl.obolibrary.org/obo/IAO_0000112",
       "lbl" : "example of usage",
@@ -32447,67 +32711,27 @@
     }, {
       "sub" : "http://w3id.org/CEON/ontology/process/DeconstructionProcess",
       "pred" : "is_a",
-      "obj" : "http://w3id.org/CEON/ontology/process/TransformationProcess"
-    }, {
-      "sub" : "http://w3id.org/CEON/ontology/process/DeconstructionProcess",
-      "pred" : "is_a",
-      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000000"
-    }, {
-      "sub" : "http://w3id.org/CEON/ontology/process/DisassemblingProcess",
-      "pred" : "is_a",
-      "obj" : "http://w3id.org/CEON/ontology/process/TransformationProcess"
-    }, {
-      "sub" : "http://w3id.org/CEON/ontology/process/DisassemblingProcess",
-      "pred" : "is_a",
-      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000000"
-    }, {
-      "sub" : "http://w3id.org/CEON/ontology/process/DismantleProcess",
-      "pred" : "is_a",
-      "obj" : "http://w3id.org/CEON/ontology/process/TransformationProcess"
-    }, {
-      "sub" : "http://w3id.org/CEON/ontology/process/DismantleProcess",
-      "pred" : "is_a",
-      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000000"
+      "obj" : "http://purl.obolibrary.org/obo/COB_0000082"
     }, {
       "sub" : "http://w3id.org/CEON/ontology/process/RecycleProcess",
       "pred" : "is_a",
-      "obj" : "http://w3id.org/CEON/ontology/process/TransformationProcess"
-    }, {
-      "sub" : "http://w3id.org/CEON/ontology/process/RecycleProcess",
-      "pred" : "is_a",
-      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000000"
+      "obj" : "http://purl.obolibrary.org/obo/COB_0000082"
     }, {
       "sub" : "http://w3id.org/CEON/ontology/process/RefurbishmentProcess",
       "pred" : "is_a",
-      "obj" : "http://w3id.org/CEON/ontology/process/TransformationProcess"
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000000"
     }, {
       "sub" : "http://w3id.org/CEON/ontology/process/RepairProcess",
       "pred" : "is_a",
-      "obj" : "http://w3id.org/CEON/ontology/process/TransformationProcess"
+      "obj" : "http://purl.obolibrary.org/obo/COB_0000082"
     }, {
       "sub" : "http://w3id.org/CEON/ontology/process/ReuseProcess",
       "pred" : "is_a",
-      "obj" : "http://w3id.org/CEON/ontology/processODP/Process"
-    }, {
-      "sub" : "http://w3id.org/CEON/ontology/process/TakeBackProcess",
-      "pred" : "is_a",
-      "obj" : "http://w3id.org/CEON/ontology/processODP/Process"
-    }, {
-      "sub" : "http://w3id.org/CEON/ontology/process/TakeBackProcess",
-      "pred" : "is_a",
       "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000000"
     }, {
-      "sub" : "http://w3id.org/CEON/ontology/process/TransformationProcess",
+      "sub" : "http://w3id.org/CEON/ontology/process/TakeBackProcess",
       "pred" : "is_a",
-      "obj" : "http://w3id.org/CEON/ontology/processODP/Process"
-    }, {
-      "sub" : "http://w3id.org/CEON/ontology/processODP/Event",
-      "pred" : "is_a",
-      "obj" : "http://w3id.org/CEON/ontology/processODP/Process"
-    }, {
-      "sub" : "http://w3id.org/CEON/ontology/processODP/Process",
-      "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/BFO_0000015"
+      "obj" : "http://purl.obolibrary.org/obo/COB_0000082"
     }, {
       "sub" : "http://w3id.org/dppo/ontology/dpp-core/ComponentDPP",
       "pred" : "is_a",
@@ -33322,10 +33546,6 @@
       "sub" : "https://w3id.org/pmd/co/PMD_0000612",
       "pred" : "is_a",
       "obj" : "https://w3id.org/pmd/co/PMD_0000927"
-    }, {
-      "sub" : "https://w3id.org/pmd/co/PMD_0000612",
-      "pred" : "is_a",
-      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000000"
     }, {
       "sub" : "https://w3id.org/pmd/co/PMD_0000613",
       "pred" : "is_a",
@@ -39157,7 +39377,7 @@
     }, {
       "sub" : "https://w3id.org/pmd/matsus/BatteryCarbonFootprintInformation",
       "pred" : "is_a",
-      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000057"
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000076"
     }, {
       "sub" : "https://w3id.org/pmd/matsus/BatteryLabelInformation",
       "pred" : "is_a",
@@ -39193,6 +39413,10 @@
     }, {
       "sub" : "https://w3id.org/pmd/matsus/LifecycleStageCarbonFootprintContribution",
       "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/matsus/BatteryCarbonFootprintInformation"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/LifecycleStageCarbonFootprintContribution",
+      "pred" : "https://w3id.org/pmd/matsus/MATSUS_0000077",
       "obj" : "https://w3id.org/pmd/matsus/BatteryCarbonFootprintInformation"
     }, {
       "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000000",
@@ -39329,7 +39553,7 @@
     }, {
       "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000031",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/COB_0000082"
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000000"
     }, {
       "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000032",
       "pred" : "is_a",
@@ -39349,7 +39573,7 @@
     }, {
       "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000036",
       "pred" : "is_a",
-      "obj" : "http://purl.obolibrary.org/obo/COB_0000082"
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000000"
     }, {
       "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000037",
       "pred" : "is_a",
@@ -39467,6 +39691,90 @@
       "pred" : "http://purl.obolibrary.org/obo/IAO_0000136",
       "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000043"
     }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000062",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000043"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000062",
+      "pred" : "https://w3id.org/pmd/matsus/MATSUS_0000060",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000040"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000063",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000055"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000065",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/COB_0000035"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000065",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000048"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000065",
+      "pred" : "http://purl.obolibrary.org/obo/BFO_0000051",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000066"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000065",
+      "pred" : "http://purl.obolibrary.org/obo/BFO_0000051",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000067"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000065",
+      "pred" : "http://purl.obolibrary.org/obo/OBI_0000293",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000072"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000066",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/COB_0000082"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000067",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000048"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000068",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000053"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000068",
+      "pred" : "http://purl.obolibrary.org/obo/BFO_0000051",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000069"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000068",
+      "pred" : "http://purl.obolibrary.org/obo/BFO_0000051",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000070"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000068",
+      "pred" : "http://purl.obolibrary.org/obo/BFO_0000051",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000071"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000069",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/IAO_0000033"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000070",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/IAO_0000030"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000071",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/IAO_0000033"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000072",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/IAO_0000030"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000073",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/IAO_0000030"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000074",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000055"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000076",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000057"
+    }, {
       "sub" : "https://w3id.org/pmd/matsus/RecycledContentInformation",
       "pred" : "is_a",
       "obj" : "http://w3id.org/dppo/ontology/dpp-info/DPPInformation"
@@ -39507,9 +39815,21 @@
       "pred" : "type",
       "obj" : "http://purl.obolibrary.org/obo/OBI_0001931"
     }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000078",
+      "pred" : "type",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000073"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000079",
+      "pred" : "type",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000027"
+    }, {
       "sub" : "https://w3id.org/pmd/co/PMD_0020368",
       "pred" : "http://purl.obolibrary.org/obo/IAO_0000039",
       "obj" : "http://qudt.org/vocab/unit/PER-MOL"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000079",
+      "pred" : "http://purl.obolibrary.org/obo/IAO_0000136",
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000078"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/BFO_0000051",
       "pred" : "subPropertyOf",
@@ -40567,13 +40887,6 @@
         "obj" : "https://w3id.org/pmd/log/LOG_1000143"
       } ]
     }, {
-      "predicateId" : "http://w3id.org/CEON/ontology/processODP/hasPart",
-      "allValuesFromEdges" : [ {
-        "sub" : "http://w3id.org/CEON/ontology/processODP/Event",
-        "pred" : "http://w3id.org/CEON/ontology/processODP/hasPart",
-        "obj" : "http://w3id.org/CEON/ontology/processODP/Event"
-      } ]
-    }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0000080",
       "allValuesFromEdges" : [ {
         "sub" : "https://w3id.org/pmd/co/PMD_0020367",
@@ -40733,12 +41046,6 @@
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0009007",
       "domainClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000020" ]
     }, {
-      "predicateId" : "http://w3id.org/CEON/ontology/processODP/hasInput",
-      "domainClassIds" : [ "http://w3id.org/CEON/ontology/processODP/Process" ]
-    }, {
-      "predicateId" : "http://w3id.org/CEON/ontology/processODP/hasOutput",
-      "domainClassIds" : [ "http://w3id.org/CEON/ontology/processODP/Process" ]
-    }, {
       "predicateId" : "http://w3id.org/dppo/ontology/dpp-comp/aboutPart",
       "domainClassIds" : [ "http://w3id.org/dppo/ontology/dpp-info/CompositionInformation" ],
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000040" ]
@@ -40844,6 +41151,14 @@
       "predicateId" : "https://w3id.org/pmd/matsus/MATSUS_0000061",
       "domainClassIds" : [ "https://w3id.org/pmd/matsus/MATSUS_0000057" ],
       "rangeClassIds" : [ "https://w3id.org/pmd/matsus/MATSUS_0000027" ]
+    }, {
+      "predicateId" : "https://w3id.org/pmd/matsus/MATSUS_0000064",
+      "domainClassIds" : [ "https://w3id.org/pmd/matsus/MATSUS_0000063" ],
+      "rangeClassIds" : [ "https://w3id.org/pmd/matsus/MATSUS_0000000" ]
+    }, {
+      "predicateId" : "https://w3id.org/pmd/matsus/MATSUS_0000077",
+      "domainClassIds" : [ "https://w3id.org/pmd/matsus/MATSUS_0000055" ],
+      "rangeClassIds" : [ "https://w3id.org/pmd/matsus/MATSUS_0000055" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/BFO_0000199",
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/BFO_0000008" ]
