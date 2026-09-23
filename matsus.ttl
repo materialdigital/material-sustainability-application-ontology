@@ -29,7 +29,7 @@
                                 dcterms:publisher <https://materialdigital.de/> ;
                                 dcterms:source <https://github.com/materialdigital/material-sustainability-application-ontology> ;
                                 dcterms:title "Material Sustainability Application Ontology (Mat.Sus)" ;
-                                owl:versionInfo "2026-09-22" .
+                                owl:versionInfo "2026-09-23" .
 
 #################################################################
 #    Annotation properties
@@ -23640,15 +23640,15 @@ co:PMD_0200008 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/matsus/BatteryCarbonFootprintInformation
 matsus:BatteryCarbonFootprintInformation rdf:type owl:Class ;
-                                         rdfs:subClassOf <http://w3id.org/dppo/ontology/dpp-info/DPPInformation> ,
-                                                         matsus:MATSUS_0000076 ;
+                                         rdfs:subClassOf matsus:MATSUS_0000076 ;
                                          dcterms:source <urn:samm:io.BatteryPass.CarbonFootprint:1.2.0#batteryCarbonFootprint> ,
                                                         "BatteryPass-ready Data Attribute Long List v1.3, attributes 28-35" ,
                                                         "MKB2 SRC-005/SRC-006 approved legacy indicator-result bridge, 2026-09-16" ;
-                                         rdfs:label "battery carbon footprint information"@en ;
-                                         skos:definition "A DPP data item that records a calculated greenhouse-gas emissions result for a battery under a specified method, system boundary, and functional unit."@en ;
-                                         skos:editorialNote "This is a calculated indicator/data item, not an intrinsic material quality. In the MKB2 LCA architecture it specializes the generic MatSus carbon footprint result while retaining its DPP-specific scope." ;
-                                         matsus:integrationMethod "new MatSus DPP data-item class based on BatteryPass requirements" .
+                                         rdfs:label "battery carbon footprint result"@en ;
+                                         skos:altLabel "battery carbon footprint information"@en ;
+                                         skos:definition "A carbon footprint result that quantifies greenhouse gas emissions and removals associated with a battery under a specified method, system boundary, and functional unit."@en ;
+                                         skos:editorialNote "This is a calculated indicator result, not an intrinsic material quality. It may be contained in a Digital Product Passport or another information artifact; DPP containment is not part of the class definition."@en ;
+                                         matsus:integrationMethod "MatSus battery-specific specialization of carbon footprint result based on BatteryPass requirements" .
 
 
 ###  https://w3id.org/pmd/matsus/BatteryLabelInformation
@@ -23716,25 +23716,28 @@ matsus:DigitalProductPassportIdentifier rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/matsus/EndOfLifeInformation
 matsus:EndOfLifeInformation rdf:type owl:Class ;
-                            rdfs:subClassOf <http://w3id.org/dppo/ontology/dpp-info/DPPInformation> ;
+                            rdfs:subClassOf obo:IAO_0000030 ;
                             dcterms:source "BatteryPass-ready Data Attribute Long List v1.3, attributes 56-58" ;
-                            rdfs:label "end-of-life information"@en ;
-                            skos:definition "DPP information about waste prevention, collection, preparation for second life, dismantling, treatment, recycling, or other end-of-life handling of a battery."@en ;
+                            rdfs:comment "For example, a battery Digital Product Passport may contain end-of-use information concerning collection, dismantling, preparation for further use, recycling, recovery, treatment, or disposal."@en ;
+                            rdfs:label "end-of-use information"@en ;
+                            skos:altLabel "end-of-life information"@en ;
+                            skos:definition "An information content entity that is about the management of a material entity when it has reached or is approaching the end of a use phase, including collection, preparation for further use, dismantling, treatment, recycling, recovery, or disposal."@en ;
                             skos:editorialNote "Detailed end-of-life processes and circular value-network semantics are deferred to CEON and BONSAI." ;
-                            matsus:integrationMethod "new MatSus DPP information class" .
+                            matsus:integrationMethod "MatSus generic end-of-use information class; BatteryPass retained as source provenance and application example" .
 
 
 ###  https://w3id.org/pmd/matsus/LifecycleStageCarbonFootprintContribution
 matsus:LifecycleStageCarbonFootprintContribution rdf:type owl:Class ;
-                                                 rdfs:subClassOf matsus:BatteryCarbonFootprintInformation ,
+                                                 rdfs:subClassOf matsus:MATSUS_0000076 ,
                                                                  [ rdf:type owl:Restriction ;
                                                                    owl:onProperty matsus:MATSUS_0000077 ;
                                                                    owl:someValuesFrom matsus:BatteryCarbonFootprintInformation
                                                                  ] ;
                                                  dcterms:source <urn:samm:io.BatteryPass.CarbonFootprint:1.2.0#carbonFootprintPerLifeCycleStage> ,
                                                                 "BatteryPass-ready Data Attribute Long List v1.3, attributes 29-32" ;
-                                                 rdfs:label "lifecycle-stage carbon-footprint contribution"@en ;
-                                                 skos:definition "Battery carbon footprint information that records the contribution of a specified lifecycle stage to the total footprint result."@en ;
+                                                 rdfs:label "battery lifecycle-stage carbon-footprint contribution"@en ;
+                                                 skos:altLabel "lifecycle-stage carbon-footprint contribution"@en ;
+                                                 skos:definition "A carbon footprint result that represents the contribution of a specified life-cycle stage to a battery carbon footprint result."@en ;
                                                  skos:editorialNote "Lifecycle-stage identifiers, values, units, functional units, and calculation provenance are represented through data/value patterns and later SHACL. The suitability of the generic MatSus contributes-to pattern for this BatteryPass-specific class remains subject to later review."@en ,
                                                                     "The contributes-to existential links this BatteryPass-specific result class to the generic MatSus result-contribution pattern; it does not imply arithmetic summation or that the total result has only one contributing stage."@en ;
                                                  matsus:integrationMethod "new MatSus subclass based on BatteryPass requirements" ;

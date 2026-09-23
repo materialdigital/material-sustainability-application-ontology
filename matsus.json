@@ -25,7 +25,7 @@
         "val" : "Material Sustainability Application Ontology (Mat.Sus)"
       }, {
         "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
-        "val" : "2026-09-22"
+        "val" : "2026-09-23"
       } ],
       "version" : "https://w3id.org/pmd/matsus/dev/"
     },
@@ -26000,7 +26000,7 @@
       }
     }, {
       "id" : "https://w3id.org/pmd/matsus/BatteryCarbonFootprintInformation",
-      "lbl" : "battery carbon footprint information",
+      "lbl" : "battery carbon footprint result",
       "type" : "CLASS",
       "meta" : {
         "basicPropertyValues" : [ {
@@ -26013,14 +26013,17 @@
           "pred" : "http://purl.org/dc/terms/source",
           "val" : "MKB2 SRC-005/SRC-006 approved legacy indicator-result bridge, 2026-09-16"
         }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#altLabel",
+          "val" : "battery carbon footprint information"
+        }, {
           "pred" : "http://www.w3.org/2004/02/skos/core#definition",
-          "val" : "A DPP data item that records a calculated greenhouse-gas emissions result for a battery under a specified method, system boundary, and functional unit."
+          "val" : "A carbon footprint result that quantifies greenhouse gas emissions and removals associated with a battery under a specified method, system boundary, and functional unit."
         }, {
           "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
-          "val" : "This is a calculated indicator/data item, not an intrinsic material quality. In the MKB2 LCA architecture it specializes the generic MatSus carbon footprint result while retaining its DPP-specific scope."
+          "val" : "This is a calculated indicator result, not an intrinsic material quality. It may be contained in a Digital Product Passport or another information artifact; DPP containment is not part of the class definition."
         }, {
           "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
-          "val" : "new MatSus DPP data-item class based on BatteryPass requirements"
+          "val" : "MatSus battery-specific specialization of carbon footprint result based on BatteryPass requirements"
         } ]
       }
     }, {
@@ -26136,26 +26139,30 @@
       }
     }, {
       "id" : "https://w3id.org/pmd/matsus/EndOfLifeInformation",
-      "lbl" : "end-of-life information",
+      "lbl" : "end-of-use information",
       "type" : "CLASS",
       "meta" : {
+        "comments" : [ "For example, a battery Digital Product Passport may contain end-of-use information concerning collection, dismantling, preparation for further use, recycling, recovery, treatment, or disposal." ],
         "basicPropertyValues" : [ {
           "pred" : "http://purl.org/dc/terms/source",
           "val" : "BatteryPass-ready Data Attribute Long List v1.3, attributes 56-58"
         }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#altLabel",
+          "val" : "end-of-life information"
+        }, {
           "pred" : "http://www.w3.org/2004/02/skos/core#definition",
-          "val" : "DPP information about waste prevention, collection, preparation for second life, dismantling, treatment, recycling, or other end-of-life handling of a battery."
+          "val" : "An information content entity that is about the management of a material entity when it has reached or is approaching the end of a use phase, including collection, preparation for further use, dismantling, treatment, recycling, recovery, or disposal."
         }, {
           "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
           "val" : "Detailed end-of-life processes and circular value-network semantics are deferred to CEON and BONSAI."
         }, {
           "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
-          "val" : "new MatSus DPP information class"
+          "val" : "MatSus generic end-of-use information class; BatteryPass retained as source provenance and application example"
         } ]
       }
     }, {
       "id" : "https://w3id.org/pmd/matsus/LifecycleStageCarbonFootprintContribution",
-      "lbl" : "lifecycle-stage carbon-footprint contribution",
+      "lbl" : "battery lifecycle-stage carbon-footprint contribution",
       "type" : "CLASS",
       "meta" : {
         "basicPropertyValues" : [ {
@@ -26165,8 +26172,11 @@
           "pred" : "http://purl.org/dc/terms/source",
           "val" : "BatteryPass-ready Data Attribute Long List v1.3, attributes 29-32"
         }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#altLabel",
+          "val" : "lifecycle-stage carbon-footprint contribution"
+        }, {
           "pred" : "http://www.w3.org/2004/02/skos/core#definition",
-          "val" : "Battery carbon footprint information that records the contribution of a specified lifecycle stage to the total footprint result."
+          "val" : "A carbon footprint result that represents the contribution of a specified life-cycle stage to a battery carbon footprint result."
         }, {
           "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
           "val" : "Lifecycle-stage identifiers, values, units, functional units, and calculation provenance are represented through data/value patterns and later SHACL. The suitability of the generic MatSus contributes-to pattern for this BatteryPass-specific class remains subject to later review."
@@ -39373,10 +39383,6 @@
     }, {
       "sub" : "https://w3id.org/pmd/matsus/BatteryCarbonFootprintInformation",
       "pred" : "is_a",
-      "obj" : "http://w3id.org/dppo/ontology/dpp-info/DPPInformation"
-    }, {
-      "sub" : "https://w3id.org/pmd/matsus/BatteryCarbonFootprintInformation",
-      "pred" : "is_a",
       "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000076"
     }, {
       "sub" : "https://w3id.org/pmd/matsus/BatteryLabelInformation",
@@ -39409,11 +39415,11 @@
     }, {
       "sub" : "https://w3id.org/pmd/matsus/EndOfLifeInformation",
       "pred" : "is_a",
-      "obj" : "http://w3id.org/dppo/ontology/dpp-info/DPPInformation"
+      "obj" : "http://purl.obolibrary.org/obo/IAO_0000030"
     }, {
       "sub" : "https://w3id.org/pmd/matsus/LifecycleStageCarbonFootprintContribution",
       "pred" : "is_a",
-      "obj" : "https://w3id.org/pmd/matsus/BatteryCarbonFootprintInformation"
+      "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000076"
     }, {
       "sub" : "https://w3id.org/pmd/matsus/LifecycleStageCarbonFootprintContribution",
       "pred" : "https://w3id.org/pmd/matsus/MATSUS_0000077",
