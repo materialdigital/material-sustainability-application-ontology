@@ -1,8 +1,7 @@
 # Material Sustainability Application Ontology (Mat.Sus)
 
-MatSus is a material-centred application ontology of the
-[Platform MaterialDigital Core Ontology (PMDco)](https://github.com/materialdigital/core-ontology).
-
+MatSus is a material-centred application ontology based on the
+[Platform MaterialDigital Core Ontology (PMDco)](https://github.com/materialdigital/core-ontology). 
 It connects materials science and engineering concepts with sustainability-relevant
 information across material life cycles. Current development covers, among other
 areas, sustainability and life-cycle assessment, circularity and end-of-use
@@ -13,52 +12,41 @@ relevant to digital product passports.
 
 ### Development status
 
-MatSus is under active development. No stable release has been published yet.
-The first formal release is planned for the end of 2026.
+MatSus is under active development.
+The first formal release is planned for December 2026.
 
 Persistent publication through `https://w3id.org/pmd/matsus/` and versioned
-GitHub Pages documentation are planned before the first formal release.
+GitHub Pages documentation are planned for autumn 2026, ahead of the first
+formal release.
 
 ### Editors' version
 
 The authoritative editable source is
 [src/ontology/matsus-edit.owl](src/ontology/matsus-edit.owl).
 
-## Contact
-
-Please use this GitHub repository's
-[issue tracker](https://github.com/materialdigital/material-sustainability-application-ontology/issues)
-to request terms or report modelling concerns.
-
-## Acknowledgements
-
-This ontology repository was created using the
-[Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit).
-
 ## Development
 
-This ontology is developed using OWL and managed with the
+MatSus is developed using OWL and managed with the
 [Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit).
 
-To contribute or edit:
+We invite contributions to the further development of MatSus. You can contribute by:
 
-- Open `src/ontology/matsus-edit.owl` in
-  [Protégé](https://protege.stanford.edu/) or your preferred OWL editor.
-- Create new MatSus entities within the namespace
-  `https://w3id.org/pmd/matsus/`.
-  Example IRI: `https://w3id.org/pmd/matsus/MATSUS_0000040`
-  (the `MATSUS_` prefix portion is always uppercase).
-- Use the ODK wrapper for repository automation:
-  - `sh run.sh make test`: run quality control.
-  - `sh run.sh make refresh-imports`: update configured imports.
-  - `sh run.sh make all_assets copy_release_files`: build and synchronize release artifacts.
-  - `sh run.sh update_repo`: synchronize the ODK-managed repository structure.
+- **reporting bugs or inconsistencies** in the ontology, documentation, or generated artifacts;
+- **requesting new terms or features** relevant to material sustainability, materials science and engineering, or related application scenarios;
+- **raising modelling questions** about definitions, class hierarchies, relations, reuse of external ontologies, or alignment with PMDco;
+- **suggesting improvements** to the ontology structure, documentation, competency questions, validation, or examples;
+- **proposing relevant sources or existing ontology terms** that should be considered for reuse or alignment.
+
+Please use the repository's
+[issue tracker](https://github.com/materialdigital/material-sustainability-application-ontology/issues)
+to report bugs, request terms or features, raise modelling concerns, and propose
+concrete improvements.
 
 MatSus uses pinned external ontology dependencies. Updates to PMDco and other
 external sources are reviewed deliberately before their pinned versions are
 changed and imports are refreshed.
 
-## Repository Structure
+## Repository structure
 
 | Path | Description |
 |------|-------------|
@@ -75,17 +63,18 @@ We welcome contributions to the Material Sustainability Application Ontology (Ma
 
 - **Issue tracker**:
   [github.com/materialdigital/material-sustainability-application-ontology/issues](https://github.com/materialdigital/material-sustainability-application-ontology/issues)
-  Report errors, request new terms, or flag modelling concerns.
+  Report errors, request new terms or features, or flag modelling concerns.
 
 - **Discussion forum**:
   [github.com/materialdigital/material-sustainability-application-ontology/discussions](https://github.com/materialdigital/material-sustainability-application-ontology/discussions)
-  Discuss modelling decisions with the community.
+  Discuss modelling decisions and broader topics with the community.
 
 - **Application ontology template**:
   [materialdigital/application-ontology-template](https://github.com/materialdigital/application-ontology-template/)
   MaterialDigital template and infrastructure for PMD application ontologies.
 
-- **PMD Ontology Playground meetings**: Every second Friday, 1–2 pm CET.
+- **PMD Ontology Playground meetings**:
+  Every second Friday, 1–2 pm CET.
   [Register via the mailing list](https://www.lists.kit.edu/sympa/subscribe/ontology-playground?previous_action=info)
 
 - **Contact**:
@@ -93,7 +82,7 @@ We welcome contributions to the Material Sustainability Application Ontology (Ma
 
 ## Authorship, maintenance and licensing
 
-MatSus was created and edited by Khashayar Razghandi. Maintenance is coordinated
+MatSus was created and edited by Dr.-Ing. Khashayar Razghandi. Maintenance is coordinated
 through the MatSus issue tracker within Platform MaterialDigital.
 
 Original MatSus content is licensed under
@@ -110,5 +99,9 @@ Application Ontology for Logistics and Supply Chain (LOG), based on upstream
 Ontology source content at that revision corresponds to LOG v1.0.2.
 LOG is licensed under CC BY 4.0.
 
-The virgin material definition is independently worded for MatSus; its editor
-note records only that ISO terminology informed the concept.
+## Acknowledgements
+This ontology repository was created using the
+[Ontology Development Kit (ODK)](https://github.com/INCATools/ontology-development-kit)
+via the
+[PMD Application Ontology Template](https://github.com/materialdigital/application-ontology-template/).
+
