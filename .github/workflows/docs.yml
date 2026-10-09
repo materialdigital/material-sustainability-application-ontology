@@ -97,7 +97,7 @@ jobs:
   # ============================================================================
   # JOB 1: check
   # ============================================================================
-  # Verify the ontology has been scaffolded and find the full OWL file.
+  # Verify the committed public ontology artifact is available.
   # Resolves the version string for this build.
   # ============================================================================
   check:
@@ -116,9 +116,9 @@ jobs:
       - name: Check for ontology file
         id: check
         run: |
-          ONTOLOGY_FILE=$(find src/ontology/ -name "*-full.owl" -type f 2>/dev/null | head -1)
-          if [ -z "$ONTOLOGY_FILE" ]; then
-            echo "No *-full.owl found — ontology not yet built. Skipping docs."
+          ONTOLOGY_FILE="matsus.ttl"
+          if [ ! -f "$ONTOLOGY_FILE" ]; then
+            echo "No matsus.ttl found — committed public ontology artifact is unavailable. Skipping docs."
             echo "exists=false" >> $GITHUB_OUTPUT
             echo "file=" >> $GITHUB_OUTPUT
           else
