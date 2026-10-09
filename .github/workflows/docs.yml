@@ -204,7 +204,7 @@ jobs:
 
           java -jar widoco.jar \
             -ontFile "$ONTFILE" \
-            -outFolder "./_site/${VERSION}/doc" \
+            -outFolder "./_site/${VERSION}" \
             -uniteSections \
             -includeAnnotationProperties \
             -lang en-de \
