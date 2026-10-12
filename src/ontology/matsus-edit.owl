@@ -23,6 +23,7 @@ Annotation(<http://purl.org/dc/terms/source> <https://github.com/materialdigital
 Annotation(<http://purl.org/dc/terms/title> "Material Sustainability Application Ontology (Mat.Sus)")
 
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000015>))
+Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000016>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000023>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000027>))
 Declaration(Class(<http://purl.obolibrary.org/obo/BFO_0000040>))
@@ -646,9 +647,10 @@ SubClassOf(:MATSUS_0000035 <http://purl.obolibrary.org/obo/COB_0000082>)
 # Class: :MATSUS_0000036 (remanufacturing process)
 
 AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000036 "MKB1 IR2 Class Review: MKB-000189; SRC-003 European Environment Agency")
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000036 "MKB2 SRC-007 consolidated human-gate decision, 2026-10-09")
 AnnotationAssertion(rdfs:label :MATSUS_0000036 "remanufacturing process"@en)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000036 "A planned process in which a used product or component is restored to a specified performance and quality state through inspection and one or more restorative operations."@en)
-AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000036 "Human-gate-authorized MKB1 IR2 Batch 3 implementation. The remanufacturing process remains distinct from the separate AutomatCE remanufacturability disposition candidate. Later: model used input, retained identity or components, restorative operations, and specified output state.")
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000036 "A planned process that reprocesses used products or components to produce a product meeting the performance and quality requirements of an equivalent new product."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000036 "Remanufacturing is distinct from refurbishment: this class requires reprocessing to meet the performance and quality requirements of an equivalent new product, whereas refurbishment restores performance or functionality within the originally intended use and performance range. Regulation (EU) 2024/1781 uses remanufacturing for actions that produce a new product and include at least one substantial change affecting safety, performance, purpose, or type; that regulatory meaning is not adopted as an equivalent definition here. No equivalence, subclass, or disjointness relation with refurbishment is asserted. The separate remanufacturability disposition candidate remains deferred."@en)
 AnnotationAssertion(:integrationMethod :MATSUS_0000036 "MatSus subclass of end of use management process")
 SubClassOf(:MATSUS_0000036 :MATSUS_0000000)
 
@@ -1144,4 +1146,30 @@ AnnotationAssertion(rdfs:label :MATSUS_0000079 "GWP100"@en)
 AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000079 "A metric specification for global warming potential evaluated over a 100-year time horizon."@en)
 ClassAssertion(:MATSUS_0000027 :MATSUS_0000079)
 ObjectPropertyAssertion(<http://purl.obolibrary.org/obo/IAO_0000136> :MATSUS_0000079 :MATSUS_0000078)
+
+# ============================================
+# MKB2 SRC-007 MATERIAL EFFICIENCY INCREMENT
+# ============================================
+
+Declaration(Class(:MATSUS_0000080))
+Declaration(Class(:MATSUS_0000081))
+
+# Class: :MATSUS_0000080 (durability)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000080 "MKB2 SRC-007 consolidated human-gate decision, 2026-10-09")
+AnnotationAssertion(rdfs:label :MATSUS_0000080 "material entity durability"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#altLabel> :MATSUS_0000080 "durability"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000080 "A disposition of a material entity to retain specified properties or performance over time under stated conditions."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000080 "This is a generic disposition whose intended bearer is a material entity. PMDco PMD_0080133 uses a narrower wear-, tear-, and damage-resistance meaning and is classified under PMDco's provisional unclassified property branch; no equivalence or subclass relation is asserted pending separate alignment approval."@en)
+AnnotationAssertion(:integrationMethod :MATSUS_0000080 "MatSus-local disposition specialization using the pinned BFO semantics")
+SubClassOf(:MATSUS_0000080 <http://purl.obolibrary.org/obo/BFO_0000016>)
+
+# Class: :MATSUS_0000081 (recycled content datum)
+
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000081 "MKB2 SRC-007 consolidated human-gate decision, 2026-10-09")
+AnnotationAssertion(rdfs:label :MATSUS_0000081 "recycled content datum"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000081 "A data item that records the proportion of recycled material in a specified material entity."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000081 "This generic datum is not asserted to be an indicator result or DPPInformation. The existing battery-specific RecycledContentInformation class is unchanged; any future relationship between the classes requires separate approval."@en)
+AnnotationAssertion(:integrationMethod :MATSUS_0000081 "MatSus-local data-item specialization using the pinned IAO semantics")
+SubClassOf(:MATSUS_0000081 <http://purl.obolibrary.org/obo/IAO_0000027>)
 )
