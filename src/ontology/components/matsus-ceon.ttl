@@ -22,6 +22,9 @@
 # Generic CEON process-backbone axioms and overlapping disassembling/dismantle terms are intentionally omitted; retained terms are re-grounded below in the MatSus process backbone.
 #################################################################
 
+skos:altLabel a owl:AnnotationProperty .
+skos:editorialNote a owl:AnnotationProperty .
+
 ceon-process:RecycleProcess a owl:Class ;
     rdfs:label "Recycle Process" ;
     dcterms:source <http://w3id.org/CEON/ontology/process/0.5/> ;
@@ -69,6 +72,8 @@ ceon-process:ReuseProcess rdfs:subClassOf matsus:MATSUS_0000000 ;
     matsus:integrationMethod "MatSus-authored subclassing under end of use management process" .
 
 ceon-process:RefurbishmentProcess rdfs:subClassOf matsus:MATSUS_0000000 ;
+    skos:altLabel "reconditioning"@en ;
+    skos:editorialNote "The alternative label reconditioning is a MatSus application-level terminology decision, not an asserted synonym from the CEON source."@en ;
     matsus:integrationMethod "MatSus-authored subclassing under end of use management process" .
 
 ceon-process:RepairProcess rdfs:subClassOf obo:COB_0000082 ;
