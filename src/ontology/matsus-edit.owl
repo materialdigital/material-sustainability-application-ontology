@@ -1249,4 +1249,53 @@ AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_
 AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000089 "MatSus MKB2 SRC-007/008 human-gate decisions, October 2026"@en)
 SubClassOf(:MATSUS_0000089 <http://purl.obolibrary.org/obo/IAO_0000027>)
 
+# ============================================
+# MKB2 LIFE CYCLE COSTING INCREMENT
+# ============================================
+
+Declaration(Class(:MATSUS_0000090))
+Declaration(Class(:MATSUS_0000091))
+Declaration(Class(:MATSUS_0000092))
+
+# Class: :MATSUS_0000090 (life cycle costing assessment)
+
+AnnotationAssertion(rdfs:label :MATSUS_0000090 "life cycle costing assessment"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000090 "An assessment process that evaluates monetary costs and, where applicable, revenues, benefits or monetized externalities associated with an entity or system over a specified portion of its life cycle from a stated perspective."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> :MATSUS_0000090 "An assessment comparing the discounted acquisition, manufacturing, operation, maintenance, and end-of-life costs of functionally equivalent product systems using virgin aluminium and recycled aluminium over 20 years from the manufacturer's perspective."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000090 "Conventional, environmental, and societal life cycle costing are distinguished by the scope and perspective prescribed by the governing specification. This class is not a subclass of economic sustainability assessment (MATSUS_0000050), because conventional life cycle costing need not evaluate economic sustainability. A life cycle costing assessment instance used for sustainability evaluation may additionally be typed as MATSUS_0000050. This class is distinct from life cycle assessment process (MATSUS_0000065)."@en)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000090 "MatSus LCC source gate and approved modelling specification, 2026-10-21"@en)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000090 <https://eur-lex.europa.eu/eli/reco/2026/510/oj/eng>)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000090 <https://doi.org/10.2760/5103785>)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000090 <https://doi.org/10.1201/9781420054736>)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000090 <https://www.setac.org/resource/enviro-life-cycle-costing-code-practice.html>)
+AnnotationAssertion(:integrationBasis :MATSUS_0000090 "Commission Recommendation (EU) 2026/510; JRC143022; Hunkeler, Lichtenvort and Rebitzer (eds.), Environmental Life Cycle Costing (2008); Swarr et al., Environmental Life Cycle Costing: A Code of Practice (2011); approved MatSus LCC modelling decision."@en)
+AnnotationAssertion(:integrationMethod :MATSUS_0000090 "MatSus-local primitive specialization of assessment process; no external import or logical mapping added"@en)
+SubClassOf(:MATSUS_0000090 :MATSUS_0000043)
+
+# Class: :MATSUS_0000091 (life cycle costing specification)
+
+AnnotationAssertion(rdfs:label :MATSUS_0000091 "life cycle costing specification"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000091 "An assessment specification that prescribes the methodological scope, perspective, temporal and monetary assumptions, and calculation rules for a life cycle costing assessment."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> :MATSUS_0000091 "A specification for comparing virgin- and recycled-aluminium routes that states one tonne of conforming sheet as the functional reference, cradle-to-grave boundaries, a 20-year horizon, EUR with 2025 as the reference year, a 3 percent discount rate, the cost bearers and cost categories, and whether externalities are monetized."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000091 "Relevant parameters include the life cycle costing variant, cost bearers, functional reference, lifecycle boundaries, time horizon, currency, reference year, discounting, cost categories, and externality treatment. These parameters remain at the information or application-profile level; no mandatory OWL restrictions are asserted. This class is distinct from life cycle assessment specification (MATSUS_0000068). A generic relation linking assessment processes to their governing specifications remains deferred."@en)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000091 "MatSus LCC source gate and approved modelling specification, 2026-10-21"@en)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000091 <https://doi.org/10.1201/9781420054736>)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000091 <https://www.setac.org/resource/enviro-life-cycle-costing-code-practice.html>)
+AnnotationAssertion(:integrationBasis :MATSUS_0000091 "Hunkeler, Lichtenvort and Rebitzer (eds.), Environmental Life Cycle Costing (2008); Swarr et al., Environmental Life Cycle Costing: A Code of Practice (2011); approved MatSus LCC modelling decision."@en)
+AnnotationAssertion(:integrationMethod :MATSUS_0000091 "MatSus-local primitive specialization of assessment specification; method parameters remain information-level and unconstrained in this increment"@en)
+SubClassOf(:MATSUS_0000091 :MATSUS_0000053)
+
+# Class: :MATSUS_0000092 (life cycle cost result)
+
+AnnotationAssertion(rdfs:label :MATSUS_0000092 "life cycle cost result"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000092 "An indicator result that records a monetary cost amount, including an aggregate, component or net cost, determined through a life cycle costing assessment according to a metric specification."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> :MATSUS_0000092 "A discounted total life cycle cost of EUR 2.4 million in 2025 euros per 10,000 components for the recycled-material route over a 20-year horizon."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000092 "Cost results are distinct from revenues and benefits, which may remain generic indicator results and should be represented separately unless a governing metric specification explicitly calculates a net cost. A monetized externality may be represented as a cost result only when the life cycle costing method treats it as a monetary cost; the underlying physical environmental impact remains distinct. This class inherits the has indicator specification pattern from MATSUS_0000057. Currency vocabulary and monetary-value encoding remain deferred."@en)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000092 "MatSus LCC source gate and approved modelling specification, 2026-10-21"@en)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000092 <https://doi.org/10.1201/9781420054736>)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000092 <https://www.setac.org/resource/enviro-life-cycle-costing-code-practice.html>)
+AnnotationAssertion(:integrationBasis :MATSUS_0000092 "Hunkeler, Lichtenvort and Rebitzer (eds.), Environmental Life Cycle Costing (2008); Swarr et al., Environmental Life Cycle Costing: A Code of Practice (2011); approved MatSus LCC modelling decision."@en)
+AnnotationAssertion(:integrationMethod :MATSUS_0000092 "MatSus-local primitive specialization of indicator result using the inherited indicator-specification pattern"@en)
+SubClassOf(:MATSUS_0000092 :MATSUS_0000057)
+
 )
