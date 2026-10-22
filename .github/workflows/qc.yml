@@ -32,8 +32,7 @@
 # │  Steps:                                                             │
 # │    1. make refresh-imports  — re-extract SLME modules               │
 # │    2. make all_assets       — generate OWL/TTL/JSON release files  │
-# │    3. Commit release artifacts back to main                        │
-# │    4. Dispatch trigger-docs to start docs.yml                      │
+# │    3. Dispatch trigger-docs to start docs.yml                      │
 # └─────────────────────────────────────────────────────────────────────┘
 #
 # Execution chain:
@@ -54,8 +53,6 @@ on:
     types: [trigger-qc]
 
   # ── Push to main: full build (path-filtered to ontology source files) ───────
-  # Bot commits from this workflow touch only release artifacts (*.owl, *.ttl,
-  # *.json) which are NOT in the paths list below, so there is no infinite loop.
   push:
     branches: [main]
     paths:
@@ -291,7 +288,7 @@ jobs:
   # JOB 2: ontology-build
   # ============================================================================
   # Runs for push / repository_dispatch / workflow_dispatch events.
-  # Performs the full ODK build and commits release artifacts to main.
+  # Performs the full ODK build without committing generated artifacts.
   # ============================================================================
   ontology-build:
     name: Build Ontology
@@ -323,24 +320,6 @@ jobs:
           cd src/ontology
           make refresh-imports all_assets
           make copy_release_files
-
-      # ── Commit release artifacts ───────────────────────────────────────────
-      # Stage only the public primary artifacts, the tracked source-side Turtle
-      # product, and configured imports. Never stage the editor source here.
-      - name: Stage release artifacts
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global --add safe.directory "$GITHUB_WORKSPACE"
-          git add -- matsus.owl matsus.ttl matsus.json
-          git add -- src/ontology/matsus.ttl
-          git add src/ontology/imports/*.owl || true
-
-      - name: Commit ontology release assets
-        run: |
-          git diff --cached --quiet && echo "Nothing to commit." && exit 0
-          git commit -m "Building the ontology from the edits"
-          git push
 
       # ── Trigger documentation workflow ─────────────────────────────────────
       - name: Trigger Documentation Workflow
