@@ -86,8 +86,8 @@ import_group:
   products:
     - id: pmdco
       title: "PMD Core Ontology"
-      # Source of PMD Core ontology to import
-      mirror_from: "https://raw.githubusercontent.com/materialdigital/core-ontology/v3.1.0/pmdco-full.owl"
+      # Complete PMDco v3.1.2 release pinned to its verified commit
+      mirror_from: "https://raw.githubusercontent.com/materialdigital/core-ontology/d8a4677f250d0ea3d3529752b636ff8b8a2407ed/pmdco-full.owl"
       # mirror: retain the complete pinned PMDco release
       module_type: mirror
       # base_iris: Tells ODK which IRI patterns belong to PMD Core

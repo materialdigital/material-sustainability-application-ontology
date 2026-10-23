@@ -10,7 +10,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 <https://w3id.org/pmd/matsus/components/matsus-ceon.ttl> a owl:Ontology ;
-    dcterms:description "A manually curated integration of selected CEON v1.0.0 process terms into the authoritative PMDco 3.1.0 and BFO process backbone used by Mat.Sus."@en ;
+    dcterms:description "A manually curated integration of selected CEON v1.0.0 process terms into the authoritative PMDco 3.1.2 and BFO process backbone used by Mat.Sus."@en ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
     dcterms:source <http://w3id.org/CEON/ontology/process/0.5/> ,
         <https://github.com/LiUSemWeb/CEON/releases/tag/v1.0.0> ;
