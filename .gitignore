@@ -92,3 +92,15 @@ src/patterns/all_pattern_terms.txt
 /src/ontology/matsus-edit-before-local-merge.owl.bak
 /src/ontology/matsus-edit-merged.owl
 /src/ontology/matsus-edit-no-imports-temp.owl
+# P1 R3 example allowance - narrowly scoped, not ODK-generated files
+!/patterns/
+/patterns/*
+!/patterns/object-material-recycling-provenance/
+/patterns/object-material-recycling-provenance/*
+!/patterns/object-material-recycling-provenance/gearbox-example.ttl
+!/patterns/object-material-recycling-provenance/pattern.md
+!/patterns/object-material-recycling-provenance/run_queries.py
+!/patterns/object-material-recycling-provenance/expected_rows.json
+!/patterns/object-material-recycling-provenance/queries/
+/patterns/object-material-recycling-provenance/queries/*
+!/patterns/object-material-recycling-provenance/queries/*.sparql

@@ -1,0 +1,9 @@
+PREFIX ex: <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+SELECT ?melt ?ingot WHERE {
+  ex:housingRecycling obo:BFO_0000117 ex:remelting, ex:castingSolidification .
+  ex:remelting obo:OBI_0000293 ex:housing, ex:otherAluminiumCharge ;
+                obo:OBI_0000299 ?melt .
+  ex:castingSolidification obo:OBI_0000293 ?melt ;
+                           obo:OBI_0000299 ?ingot .
+}

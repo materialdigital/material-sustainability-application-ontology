@@ -1,0 +1,7 @@
+PREFIX bfo: <http://purl.obolibrary.org/obo/>
+PREFIX pmd: <https://w3id.org/pmd/co/>
+SELECT ?component ?materialType WHERE {
+  ?component a bfo:BFO_0000030, ?materialType .
+  VALUES ?materialType { pmd:PMD_0020186 pmd:PMD_0020096 }
+}
+ORDER BY ?component ?materialType

@@ -1,0 +1,60 @@
+{
+  "CHECK-01-housing-extension.sparql": [
+    {
+      "crack": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingCrack",
+      "role": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingCrackDefectRole",
+      "composition": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingChemicalComposition"
+    }
+  ],
+  "CHECK-02-obsolete-inspections.sparql": [],
+  "CQ-P1-01-duality.sparql": [
+    {
+      "component": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gear",
+      "materialType": "https://w3id.org/pmd/co/PMD_0020096"
+    },
+    {
+      "component": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housing",
+      "materialType": "https://w3id.org/pmd/co/PMD_0020186"
+    }
+  ],
+  "CQ-P1-02-housing-damage.sparql": [
+    {
+      "assessment": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingDispositionAssessment",
+      "condition": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingConditionResult",
+      "recommendation": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingRecycleRecommendation",
+      "crack": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingCrack",
+      "role": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingCrackDefectRole"
+    }
+  ],
+  "CQ-P1-03-recovered-material.sparql": [
+    {
+      "recycling": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingRecycling",
+      "ingot": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/recoveredIngot"
+    }
+  ],
+  "CQ-P1-04-recommendation-pathway.sparql": [
+    {
+      "component": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gear",
+      "recommendation": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gearReuseRecommendation",
+      "recommendedProcess": null
+    },
+    {
+      "component": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housing",
+      "recommendation": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingRecycleRecommendation",
+      "recommendedProcess": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingRecycling"
+    }
+  ],
+  "CQ-P1-05-recycling-steps.sparql": [
+    {
+      "melt": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/aluminiumMelt",
+      "ingot": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/recoveredIngot"
+    }
+  ],
+  "CQ-P1-06-traceability.sparql": [
+    {
+      "operator": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/recyclingOperator",
+      "record": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/recyclingRecord"
+    }
+  ],
+  "CQ-P1-07-quantitative-limit.sparql": []
+}
