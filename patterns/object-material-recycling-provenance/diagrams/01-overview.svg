@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="1080" viewBox="0 0 1360 1080" role="img" aria-labelledby="title desc">
+  <title id="title">MatSus Pattern 1 overall end-of-use scenario</title>
+  <desc id="desc">Selective overview of the gearbox assembly, disassembly and sorting assertions, and distinct housing-recycling and gear-reuse-recommendation pathways.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#34495e"/></marker>
+    <marker id="arrowNote" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7f8c8d"/></marker>
+    <style>
+      text{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#17212b}
+      .title{font-size:29px;font-weight:700}.subtitle{font-size:16px;fill:#506070}
+      .panelTitle{font-size:19px;font-weight:700}.name{font-size:17px;font-weight:700}
+      .type{font-size:14px;fill:#405466}.note{font-size:14px;fill:#46525e}
+      .edgeLabel{font-size:14px;font-weight:600;fill:#283747;paint-order:stroke;stroke:#fff;stroke-width:5px;stroke-linejoin:round}
+      .legend{font-size:13px;fill:#334455}.badge{font-size:12px;font-weight:700}
+      .material{fill:#e8f2fb;stroke:#2d6f9f}.process{fill:#fff1d8;stroke:#b66a17}
+      .info{fill:#f2eafa;stroke:#76539c}.annotation{fill:#f7f8f8;stroke:#7f8c8d;stroke-dasharray:7 5}
+      .node{stroke-width:2}.edge{fill:none;stroke:#34495e;stroke-width:2.2;marker-end:url(#arrow)}
+      .narrative{fill:none;stroke:#7f8c8d;stroke-width:2;stroke-dasharray:8 6;marker-end:url(#arrowNote)}
+    </style>
+  </defs>
+  <rect width="1360" height="1080" fill="#fff"/>
+  <text class="title" x="42" y="45">Pattern 1 &#8212; overall end-of-use scenario</text>
+  <text class="subtitle" x="42" y="73">Solid arrows are asserted RDF. Dashed arrows and boxes are explanatory context only.</text>
+
+  <rect x="35" y="94" width="1290" height="185" rx="18" fill="#f9fbfd" stroke="#d8e2ea"/>
+  <text class="panelTitle" x="58" y="126">Pre-disassembly assembly</text>
+  <g id="assembly-gearbox">
+    <rect class="node material" x="60" y="158" width="255" height="88" rx="12"/>
+    <text class="name" x="80" y="188">Used industrial gearbox</text>
+    <text class="type" x="80" y="214">ex:gearbox</text>
+    <text class="type" x="80" y="234">object (BFO_0000030)</text>
+  </g>
+  <g id="assembly-housing">
+    <rect class="node material" x="520" y="136" width="300" height="106" rx="12"/>
+    <text class="name" x="540" y="166">Damaged gearbox housing</text>
+    <text class="type" x="540" y="192">ex:housing &#8212; same individual</text>
+    <text class="type" x="540" y="214">object + aluminium alloy</text>
+  </g>
+  <g id="assembly-gear">
+    <rect class="node material" x="1010" y="136" width="270" height="106" rx="12"/>
+    <text class="name" x="1030" y="166">Steel gear</text>
+    <text class="type" x="1030" y="192">ex:gear &#8212; same individual</text>
+    <text class="type" x="1030" y="214">object + steel</text>
+  </g>
+  <path class="edge" d="M315 180 C390 140 445 140 520 175"/>
+  <text class="edgeLabel" x="350" y="145">has part (BFO_0000051)</text>
+  <path class="edge" d="M315 220 C545 276 790 276 1010 202"/>
+  <text class="edgeLabel" x="650" y="267">has part (BFO_0000051)</text>
+
+  <rect x="35" y="300" width="1290" height="335" rx="18" fill="#f9fbfd" stroke="#d8e2ea"/>
+  <text class="panelTitle" x="58" y="334">Disassembly and sorting assertion lanes</text>
+  <text class="note" x="1030" y="334">Repeated cards identify the same ABox individuals.</text>
+
+  <g id="disassembly-input">
+    <rect class="node material" x="60" y="380" width="225" height="76" rx="11"/>
+    <text class="name" x="78" y="409">Used gearbox</text>
+    <text class="type" x="78" y="434">ex:gearbox</text>
+  </g>
+  <g id="disassembly">
+    <rect class="node process" x="365" y="370" width="255" height="96" rx="12"/>
+    <text class="name" x="385" y="400">Gearbox disassembly</text>
+    <text class="type" x="385" y="426">ex:disassembly</text>
+    <text class="type" x="385" y="448">disassembling (PMD_0000612)</text>
+  </g>
+  <g id="disassembly-housing">
+    <rect class="node material" x="750" y="350" width="235" height="78" rx="11"/>
+    <text class="name" x="768" y="379">Housing</text>
+    <text class="type" x="768" y="404">ex:housing</text>
+  </g>
+  <g id="disassembly-gear">
+    <rect class="node material" x="1050" y="350" width="225" height="78" rx="11"/>
+    <text class="name" x="1068" y="379">Gear</text>
+    <text class="type" x="1068" y="404">ex:gear</text>
+  </g>
+  <path class="edge" d="M365 414 L285 414"/>
+  <text class="edgeLabel" x="250" y="374">has specified input</text>
+  <text class="edgeLabel" x="275" y="391">(OBI_0000293)</text>
+  <path class="edge" d="M620 395 C670 380 700 380 750 389"/>
+  <text class="edgeLabel" x="635" y="354">has specified output</text>
+  <text class="edgeLabel" x="658" y="371">(OBI_0000299)</text>
+  <path class="edge" d="M620 438 C780 485 930 480 1050 408"/>
+  <text class="edgeLabel" x="810" y="438">has specified output</text>
+  <text class="edgeLabel" x="833" y="455">(OBI_0000299)</text>
+
+  <g id="sorting">
+    <rect class="node process" x="365" y="515" width="255" height="96" rx="12"/>
+    <text class="name" x="385" y="545">Component sorting</text>
+    <text class="type" x="385" y="571">ex:componentSorting</text>
+    <text class="type" x="385" y="593">sorting process (MATSUS_0000016)</text>
+  </g>
+  <g id="sorting-housing">
+    <rect class="node material" x="750" y="505" width="235" height="78" rx="11"/>
+    <text class="name" x="768" y="534">Housing</text>
+    <text class="type" x="768" y="559">ex:housing</text>
+  </g>
+  <g id="sorting-gear">
+    <rect class="node material" x="1050" y="505" width="225" height="78" rx="11"/>
+    <text class="name" x="1068" y="534">Gear</text>
+    <text class="type" x="1068" y="559">ex:gear</text>
+  </g>
+  <path class="edge" d="M620 545 L750 545"/>
+  <text class="edgeLabel" x="627" y="478">has specified input + output</text>
+  <text class="edgeLabel" x="646" y="495">(OBI_0000293 / OBI_0000299)</text>
+  <path class="edge" d="M620 586 C780 628 925 625 1050 562"/>
+  <text class="edgeLabel" x="790" y="596">has specified input + output</text>
+  <text class="edgeLabel" x="810" y="613">(OBI_0000293 / OBI_0000299)</text>
+
+  <rect x="35" y="658" width="1290" height="310" rx="18" fill="#fcfbfd" stroke="#ded8e8"/>
+  <text class="panelTitle" x="58" y="692">Distinct assessment pathways</text>
+
+  <g id="housing-target">
+    <rect class="node material" x="55" y="735" width="215" height="82" rx="11"/>
+    <text class="name" x="73" y="765">Housing</text>
+    <text class="type" x="73" y="790">ex:housing</text>
+  </g>
+  <g id="housing-assessment">
+    <rect class="node process" x="330" y="725" width="255" height="100" rx="12"/>
+    <text class="name" x="350" y="755">Housing assessment</text>
+    <text class="type" x="350" y="781">ex:housingDispositionAssessment</text>
+    <text class="type" x="350" y="803">MATSUS_0000062</text>
+  </g>
+  <g id="housing-recommendation">
+    <rect class="node info" x="650" y="725" width="250" height="100" rx="12"/>
+    <text class="name" x="670" y="755">Recycle housing</text>
+    <text class="type" x="670" y="781">ex:housingRecycleRecommendation</text>
+    <text class="type" x="670" y="803">MATSUS_0000063</text>
+  </g>
+  <g id="housing-recycling">
+    <rect class="node process" x="965" y="725" width="220" height="100" rx="12"/>
+    <text class="name" x="985" y="755">Housing recycling</text>
+    <text class="type" x="985" y="781">ex:housingRecycling</text>
+    <text class="badge" x="985" y="805" fill="#9a4f00">independently asserted process</text>
+  </g>
+  <g id="recovered-ingot">
+    <rect class="node material" x="1215" y="735" width="105" height="82" rx="11"/>
+    <text class="name" x="1230" y="765">Recovered</text>
+    <text class="name" x="1230" y="785">ingot</text>
+    <text class="type" x="1230" y="806">ex:recoveredIngot</text>
+  </g>
+  <path class="edge" d="M330 775 L270 775"/>
+  <text class="edgeLabel" x="200" y="713">evaluates</text>
+  <text class="edgeLabel" x="172" y="730">(MATSUS_0000060)</text>
+  <path class="edge" d="M585 775 L650 775"/>
+  <text class="edgeLabel" x="574" y="711">has specified output</text>
+  <text class="edgeLabel" x="597" y="728">(OBI_0000299)</text>
+  <path class="edge" d="M900 775 L965 775"/>
+  <text class="edgeLabel" x="891" y="711">recommends</text>
+  <text class="edgeLabel" x="874" y="728">(MATSUS_0000064)</text>
+  <path class="edge" d="M1185 775 L1215 775"/>
+  <text class="edgeLabel" x="1125" y="704">has specified output</text>
+  <text class="edgeLabel" x="1148" y="721">(OBI_0000299)</text>
+
+  <g id="gear-target">
+    <rect class="node material" x="55" y="858" width="215" height="82" rx="11"/>
+    <text class="name" x="73" y="888">Gear</text>
+    <text class="type" x="73" y="913">ex:gear</text>
+  </g>
+  <g id="gear-assessment">
+    <rect class="node process" x="330" y="848" width="255" height="100" rx="12"/>
+    <text class="name" x="350" y="878">Gear assessment</text>
+    <text class="type" x="350" y="904">ex:gearDispositionAssessment</text>
+    <text class="type" x="350" y="926">MATSUS_0000062</text>
+  </g>
+  <g id="gear-recommendation">
+    <rect class="node info" x="650" y="848" width="250" height="100" rx="12"/>
+    <text class="name" x="670" y="878">Potential reuse</text>
+    <text class="type" x="670" y="904">ex:gearReuseRecommendation</text>
+    <text class="badge" x="670" y="928" fill="#6b3f8c">recommendation only</text>
+  </g>
+  <g id="no-reuse">
+    <rect class="annotation" x="965" y="854" width="320" height="88" rx="12"/>
+    <text class="name" x="985" y="884">No executed gear-reuse process</text>
+    <text class="note" x="985" y="910">No reuse-process individual and no</text>
+    <text class="note" x="985" y="930">recommends assertion occur in the ABox.</text>
+  </g>
+  <path class="edge" d="M330 898 L270 898"/>
+  <text class="edgeLabel" x="200" y="844">evaluates</text>
+  <text class="edgeLabel" x="172" y="861">(MATSUS_0000060)</text>
+  <path class="edge" d="M585 898 L650 898"/>
+  <text class="edgeLabel" x="574" y="840">has specified output</text>
+  <text class="edgeLabel" x="597" y="857">(OBI_0000299)</text>
+  <path class="narrative" d="M900 898 L965 898"/>
+  <text class="edgeLabel" x="904" y="882">not asserted</text>
+
+  <text class="note" x="58" y="1002">Condition-result outputs and asserted is-about relationships are shown without compression in Diagram 03.</text>
+  <g transform="translate(580 1050)">
+    <rect class="material" x="0" y="-13" width="25" height="15"/><text class="legend" x="33" y="0">material/object</text>
+    <rect class="process" x="165" y="-13" width="25" height="15"/><text class="legend" x="198" y="0">process</text>
+    <rect class="info" x="285" y="-13" width="25" height="15"/><text class="legend" x="318" y="0">information</text>
+    <line class="edge" x1="420" y1="-6" x2="475" y2="-6"/><text class="legend" x="487" y="0">asserted RDF</text>
+    <line class="narrative" x1="590" y1="-6" x2="645" y2="-6"/><text class="legend" x="657" y="0">explanatory only</text>
+  </g>
+</svg>

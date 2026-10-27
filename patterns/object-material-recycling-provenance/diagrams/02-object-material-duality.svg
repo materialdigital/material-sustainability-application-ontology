@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1420" height="840" viewBox="0 0 1420 840" role="img" aria-labelledby="title desc">
+  <title id="title">Object–material duality and housing damage in MatSus Pattern 1</title>
+  <desc id="desc">The same housing individual is asserted as both a BFO object and PMDco aluminium alloy. It has a chemical composition quality and is the location of a crack site; the crack bears a defect role. No crack parthood assertion is shown or present.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#34495e"/></marker>
+    <marker id="calloutArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7f8c8d"/></marker>
+    <style>
+      text{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#17212b}.title{font-size:29px;font-weight:700}.subtitle{font-size:16px;fill:#506070}.section{font-size:18px;font-weight:700}.name{font-size:17px;font-weight:700}.type{font-size:13.5px;fill:#405466}.note{font-size:13.5px;fill:#46525e}.material{fill:#e8f2fb;stroke:#2d6f9f}.quality{fill:#e8f6ed;stroke:#3b8b5a}.site{fill:#fdebea;stroke:#b64e49}.role{fill:#fff8d8;stroke:#aa8a20}.annotation{fill:#f7f8f8;stroke:#7f8c8d;stroke-dasharray:7 5}.node{stroke-width:2}.edge{fill:none;stroke:#34495e;stroke-width:2.2;marker-end:url(#arrow)}.callout{fill:none;stroke:#7f8c8d;stroke-width:1.8;stroke-dasharray:7 5;marker-end:url(#calloutArrow)}.edgeLabel{font-size:13.5px;font-weight:600;fill:#283747;paint-order:stroke;stroke:white;stroke-width:5px;stroke-linejoin:round}.badge{font-size:11.5px;font-weight:700}.legend{font-size:13px;fill:#334455}
+    </style>
+  </defs>
+  <rect width="1420" height="840" fill="#ffffff"/>
+  <text class="title" x="48" y="48">Object–material duality and damage</text>
+  <text class="subtitle" x="48" y="76">All solid arrows and listed rdf:type assertions occur in shape-data.ttl. Classification boxes identify the asserted types of one ABox individual.</text>
+
+  <g id="gearbox">
+    <rect class="node material" x="70" y="310" width="230" height="90" rx="12"/>
+    <text class="name" x="90" y="340">Used industrial gearbox</text>
+    <text class="type" x="90" y="366">ex:gearbox</text>
+    <text class="type" x="90" y="386">object (BFO_0000030)</text>
+  </g>
+
+  <g id="housing">
+    <rect class="node material" x="430" y="170" width="330" height="160" rx="14"/>
+    <text class="name" x="452" y="201">Damaged gearbox housing</text>
+    <text class="type" x="452" y="226">ex:housing — one physical individual</text>
+    <line x1="452" y1="240" x2="738" y2="240" stroke="#a9c8df"/>
+    <text class="badge" x="452" y="262" fill="#1f5e8b">ASSERTED TYPE 1</text>
+    <text class="type" x="452" y="282">object (BFO_0000030)</text>
+    <text class="badge" x="602" y="262" fill="#1f5e8b">ASSERTED TYPE 2</text>
+    <text class="type" x="602" y="282">aluminium alloy</text>
+    <text class="type" x="602" y="302">(PMD_0020186)</text>
+  </g>
+
+  <g id="gear">
+    <rect class="node material" x="430" y="500" width="330" height="150" rx="14"/>
+    <text class="name" x="452" y="531">Steel gear</text>
+    <text class="type" x="452" y="556">ex:gear — one physical individual</text>
+    <line x1="452" y1="570" x2="738" y2="570" stroke="#a9c8df"/>
+    <text class="badge" x="452" y="592" fill="#1f5e8b">ASSERTED TYPE 1</text>
+    <text class="type" x="452" y="612">object (BFO_0000030)</text>
+    <text class="badge" x="602" y="592" fill="#1f5e8b">ASSERTED TYPE 2</text>
+    <text class="type" x="602" y="612">steel (PMD_0020096)</text>
+  </g>
+
+  <g id="composition">
+    <rect class="node quality" x="920" y="105" width="330" height="100" rx="12"/>
+    <text class="name" x="942" y="135">Housing chemical composition</text>
+    <text class="type" x="942" y="160">ex:housingChemicalComposition</text>
+    <text class="type" x="942" y="182">chemical composition (PMD_0000551)</text>
+  </g>
+  <g id="crack">
+    <rect class="node site" x="920" y="280" width="330" height="104" rx="12"/>
+    <text class="name" x="942" y="311">Structural crack</text>
+    <text class="type" x="942" y="337">ex:housingCrack</text>
+    <text class="type" x="942" y="360">crack (PMD_0020202) ⊑ site</text>
+  </g>
+  <g id="defectRole">
+    <rect class="node role" x="920" y="465" width="330" height="104" rx="12"/>
+    <text class="name" x="942" y="496">Defect role of the crack</text>
+    <text class="type" x="942" y="522">ex:housingCrackDefectRole</text>
+    <text class="type" x="942" y="545">defect role (PMD_0020205)</text>
+  </g>
+
+  <path class="edge" d="M300 335 C345 300 382 270 430 250"/>
+  <text class="edgeLabel" x="320" y="287">has part (BFO_0000051)</text>
+  <path class="edge" d="M300 380 C350 430 382 525 430 555"/>
+  <text class="edgeLabel" x="315" y="475">has part (BFO_0000051)</text>
+  <path class="edge" d="M760 210 C820 174 855 155 920 155"/>
+  <text class="edgeLabel" x="778" y="165">has quality (RO_0000086)</text>
+  <path class="edge" d="M760 273 C825 294 858 330 920 330"/>
+  <text class="edgeLabel" x="770" y="305">location of (RO_0001015)</text>
+  <path class="edge" d="M1085 384 L1085 465"/>
+  <text class="edgeLabel" x="1098" y="418">has role</text>
+  <text class="edgeLabel" x="1098" y="435">(RO_0000087)</text>
+
+  <g id="noParthood">
+    <rect class="annotation" x="790" y="650" width="540" height="118" rx="12"/>
+    <text class="name" x="814" y="680">Important ABox boundary</text>
+    <text class="note" x="814" y="707">The housing is asserted as location of the crack. No part-of or has-part</text>
+    <text class="note" x="814" y="729">triple connects the housing and crack. PMDco's defect-role definition mentions</text>
+    <text class="note" x="814" y="751">continuant parthood; its application to this immaterial crack site remains open.</text>
+  </g>
+  <path class="callout" d="M920 350 C835 430 790 560 880 650"/>
+
+  <g transform="translate(70 790)">
+    <rect class="material" x="0" y="-13" width="24" height="14"/><text class="legend" x="31" y="0">material entity / object</text>
+    <rect class="quality" x="190" y="-13" width="24" height="14"/><text class="legend" x="221" y="0">quality</text>
+    <rect class="site" x="300" y="-13" width="24" height="14"/><text class="legend" x="331" y="0">site</text>
+    <rect class="role" x="400" y="-13" width="24" height="14"/><text class="legend" x="431" y="0">role</text>
+    <line class="edge" x1="515" y1="-6" x2="567" y2="-6"/><text class="legend" x="577" y="0">asserted RDF</text>
+    <rect class="annotation" x="690" y="-13" width="24" height="14"/><text class="legend" x="721" y="0">explanatory boundary, not a triple</text>
+  </g>
+</svg>

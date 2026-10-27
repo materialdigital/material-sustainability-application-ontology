@@ -1,0 +1,204 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="1200" viewBox="0 0 1360 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Recycling provenance and traceability in MatSus Pattern 1</title>
+  <desc id="desc">Separate panels show overall recycling-process assertions, detailed material and process flow, and recycling-record aboutness to the housing, process, ingot and operator.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#34495e"/></marker>
+    <marker id="arrowAbout" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#76539c"/></marker>
+    <marker id="arrowNote" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7f8c8d"/></marker>
+    <style>
+      text{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#17212b}
+      .title{font-size:29px;font-weight:700}.subtitle{font-size:16px;fill:#506070}
+      .panelTitle{font-size:20px;font-weight:700}.subhead{font-size:15px;font-weight:700;fill:#3b4b59}
+      .name{font-size:16.5px;font-weight:700}.type{font-size:13.5px;fill:#405466}
+      .note{font-size:14px;fill:#46525e}.badge{font-size:12px;font-weight:700}
+      .edgeLabel{font-size:14px;font-weight:600;fill:#283747;paint-order:stroke;stroke:#fff;stroke-width:5px;stroke-linejoin:round}
+      .aboutLabel{font-size:14px;font-weight:700;fill:#68468a}.legend{font-size:13px;fill:#334455}
+      .material{fill:#e8f2fb;stroke:#2d6f9f}.process{fill:#fff1d8;stroke:#b66a17}
+      .info{fill:#f2eafa;stroke:#76539c}.agent{fill:#e9f4f3;stroke:#2e7c75}
+      .annotation{fill:#f7f8f8;stroke:#7f8c8d;stroke-dasharray:7 5}.node{stroke-width:2}
+      .edge{fill:none;stroke:#34495e;stroke-width:2.2;marker-end:url(#arrow)}
+      .about{fill:none;stroke:#76539c;stroke-width:2.2;marker-end:url(#arrowAbout)}
+      .callout{fill:none;stroke:#7f8c8d;stroke-width:2;stroke-dasharray:8 6;marker-end:url(#arrowNote)}
+    </style>
+  </defs>
+  <rect width="1360" height="1200" fill="#fff"/>
+  <text class="title" x="42" y="45">Recycling provenance and traceability</text>
+  <text class="subtitle" x="42" y="73">Predicate arrows follow asserted RDF subject &#8594; object direction; process-input arrows therefore point toward input material.</text>
+
+  <rect x="35" y="95" width="1290" height="355" rx="18" fill="#fffaf2" stroke="#ead6b7"/>
+  <text class="panelTitle" x="58" y="130">Overall recycling-process assertions</text>
+  <text class="subhead" x="58" y="160">Parts and participant</text>
+  <text class="subhead" x="790" y="160">Overall specified inputs and output</text>
+
+  <g id="overall-left">
+    <rect class="node process" x="50" y="205" width="280" height="110" rx="13"/>
+    <text class="name" x="70" y="235">Housing recycling process</text>
+    <text class="type" x="70" y="261">ex:housingRecycling</text>
+    <text class="type" x="70" y="284">RecycleProcess + MATSUS_0000000</text>
+    <text class="badge" x="70" y="305" fill="#9a4f00">same process in both subpanels</text>
+  </g>
+  <g id="part-remelting">
+    <rect class="node process" x="500" y="120" width="230" height="70" rx="11"/>
+    <text class="name" x="518" y="148">Remelting</text>
+    <text class="type" x="518" y="173">ex:remelting</text>
+  </g>
+  <g id="part-casting">
+    <rect class="node process" x="500" y="220" width="230" height="70" rx="11"/>
+    <text class="name" x="518" y="248">Casting / solidification</text>
+    <text class="type" x="518" y="273">ex:castingSolidification</text>
+  </g>
+  <g id="participant-operator">
+    <rect class="node agent" x="500" y="320" width="230" height="70" rx="11"/>
+    <text class="name" x="518" y="348">Recycling operator</text>
+    <text class="type" x="518" y="373">ex:recyclingOperator</text>
+  </g>
+  <path class="edge" d="M330 225 C395 225 430 155 500 155"/>
+  <text class="edgeLabel" x="345" y="176">has occurrent part</text>
+  <text class="edgeLabel" x="367" y="193">(BFO_0000117)</text>
+  <path class="edge" d="M330 260 L500 255"/>
+  <text class="edgeLabel" x="345" y="242">has occurrent part</text>
+  <text class="edgeLabel" x="367" y="259">(BFO_0000117)</text>
+  <path class="edge" d="M330 295 C395 295 430 355 500 355"/>
+  <text class="edgeLabel" x="357" y="338">has participant</text>
+  <text class="edgeLabel" x="365" y="355">(RO_0000057)</text>
+
+  <g id="overall-right">
+    <rect class="node process" x="790" y="205" width="240" height="110" rx="13"/>
+    <text class="name" x="810" y="235">Housing recycling process</text>
+    <text class="type" x="810" y="261">ex:housingRecycling</text>
+    <text class="type" x="810" y="284">same ABox individual</text>
+  </g>
+  <g id="overall-housing">
+    <rect class="node material" x="1150" y="120" width="170" height="70" rx="11"/>
+    <text class="name" x="1168" y="148">Housing</text>
+    <text class="type" x="1168" y="173">ex:housing</text>
+  </g>
+  <g id="overall-charge">
+    <rect class="node material" x="1150" y="220" width="170" height="70" rx="11"/>
+    <text class="name" x="1168" y="248">Primary charge</text>
+    <text class="type" x="1168" y="273" style="font-size:12px">ex:otherAluminiumCharge</text>
+  </g>
+  <g id="overall-ingot">
+    <rect class="node material" x="1150" y="320" width="170" height="70" rx="11"/>
+    <text class="name" x="1168" y="348">Recovered ingot</text>
+    <text class="type" x="1168" y="373">ex:recoveredIngot</text>
+  </g>
+  <path class="edge" d="M1030 225 C1080 225 1100 155 1150 155"/>
+  <text class="edgeLabel" x="1028" y="176">has specified input</text>
+  <text class="edgeLabel" x="1050" y="193">(OBI_0000293)</text>
+  <path class="edge" d="M1030 260 L1150 255"/>
+  <text class="edgeLabel" x="1028" y="242">has specified input</text>
+  <text class="edgeLabel" x="1050" y="259">(OBI_0000293)</text>
+  <path class="edge" d="M1030 295 C1080 295 1100 355 1150 355"/>
+  <text class="edgeLabel" x="1028" y="338">has specified output</text>
+  <text class="edgeLabel" x="1050" y="355">(OBI_0000299)</text>
+
+  <rect x="35" y="470" width="1290" height="335" rx="18" fill="#f9fbfd" stroke="#d8e2ea"/>
+  <text class="panelTitle" x="58" y="505">Detailed material and process flow</text>
+  <text class="note" x="58" y="529">The housing and primary charge are remelting inputs; melt is the casting input; the ingot is the casting output.</text>
+
+  <g id="flow-housing">
+    <rect class="node material" x="50" y="560" width="230" height="82" rx="11"/>
+    <text class="name" x="68" y="590">Original damaged housing</text>
+    <text class="type" x="68" y="616">ex:housing &#8212; object + aluminium alloy</text>
+  </g>
+  <g id="flow-charge">
+    <rect class="node material" x="50" y="675" width="230" height="94" rx="11"/>
+    <text class="name" x="68" y="705">Additional aluminium charge</text>
+    <text class="type" x="68" y="731">ex:otherAluminiumCharge</text>
+    <text class="type" x="68" y="753">primary raw material (MATSUS_0000041)</text>
+  </g>
+  <g id="flow-remelting">
+    <rect class="node process" x="350" y="590" width="230" height="92" rx="12"/>
+    <text class="name" x="370" y="620">Aluminium remelting</text>
+    <text class="type" x="370" y="646">ex:remelting</text>
+    <text class="type" x="370" y="668">melting process (PMD_0000053)</text>
+  </g>
+  <g id="flow-melt">
+    <rect class="node material" x="650" y="590" width="210" height="92" rx="12"/>
+    <text class="name" x="670" y="620">Aluminium alloy melt</text>
+    <text class="type" x="670" y="646">ex:aluminiumMelt</text>
+    <text class="type" x="670" y="668">melt (PMD_0020139)</text>
+  </g>
+  <g id="flow-casting">
+    <rect class="node process" x="930" y="590" width="230" height="92" rx="12"/>
+    <text class="name" x="950" y="620">Casting / solidification</text>
+    <text class="type" x="950" y="646">ex:castingSolidification</text>
+    <text class="type" x="950" y="668">manufacturing process (PMD_0000833)</text>
+  </g>
+  <g id="flow-ingot">
+    <rect class="node material" x="1060" y="700" width="260" height="84" rx="11"/>
+    <text class="name" x="1080" y="730">Recovered aluminium ingot</text>
+    <text class="type" x="1080" y="756">ex:recoveredIngot &#8212; recycled material</text>
+  </g>
+  <path class="edge" d="M350 615 C320 600 305 600 280 601"/>
+  <text class="edgeLabel" x="275" y="552">has specified input</text>
+  <text class="edgeLabel" x="297" y="569">(OBI_0000293)</text>
+  <path class="edge" d="M350 655 C320 690 305 720 280 722"/>
+  <text class="edgeLabel" x="285" y="690">has specified input</text>
+  <text class="edgeLabel" x="307" y="707">(OBI_0000293)</text>
+  <path class="edge" d="M580 636 L650 636"/>
+  <text class="edgeLabel" x="574" y="570">has specified output</text>
+  <text class="edgeLabel" x="596" y="587">(OBI_0000299)</text>
+  <path class="edge" d="M930 636 L860 636"/>
+  <text class="edgeLabel" x="855" y="570">has specified input</text>
+  <text class="edgeLabel" x="877" y="587">(OBI_0000293)</text>
+  <path class="edge" d="M1080 682 C1090 692 1110 700 1140 700"/>
+  <text class="edgeLabel" x="1120" y="681">has specified output</text>
+  <text class="edgeLabel" x="1142" y="698">(OBI_0000299)</text>
+
+  <rect class="annotation" x="350" y="710" width="640" height="70" rx="11"/>
+  <text class="name" x="370" y="738">Primary raw material; virgin status not asserted.</text>
+  <text class="note" x="370" y="762">MatSus asserts no equivalence, hierarchy or disjointness with virgin material (MATSUS_0000030).</text>
+  <path class="callout" d="M280 735 L350 735"/>
+
+  <rect x="35" y="830" width="1290" height="260" rx="18" fill="#fbfafc" stroke="#ded8e8"/>
+  <text class="panelTitle" x="58" y="865">Recycling-record aboutness &#8212; separate information zone</text>
+  <text class="aboutLabel" x="58" y="890">Each purple solid arrow is is about (IAO_0000136). Repeated cards refer to the same ABox individuals shown above.</text>
+
+  <g id="record-housing">
+    <rect class="node material" x="60" y="910" width="250" height="70" rx="11"/>
+    <text class="name" x="78" y="938">Housing</text>
+    <text class="type" x="78" y="963">ex:housing</text>
+  </g>
+  <g id="record-recycling">
+    <rect class="node process" x="60" y="1000" width="250" height="70" rx="11"/>
+    <text class="name" x="78" y="1028">Recycling process</text>
+    <text class="type" x="78" y="1053">ex:housingRecycling</text>
+  </g>
+  <g id="record">
+    <rect class="node info" x="500" y="930" width="360" height="110" rx="13"/>
+    <text class="name" x="522" y="962">Synthetic recycling record</text>
+    <text class="type" x="522" y="988">ex:recyclingRecord</text>
+    <text class="type" x="522" y="1011">document (IAO_0000310)</text>
+    <text class="badge" x="522" y="1030" fill="#6b3f8c">four asserted aboutness targets</text>
+  </g>
+  <g id="record-ingot">
+    <rect class="node material" x="1030" y="910" width="270" height="70" rx="11"/>
+    <text class="name" x="1048" y="938">Recovered ingot</text>
+    <text class="type" x="1048" y="963">ex:recoveredIngot</text>
+  </g>
+  <g id="record-operator">
+    <rect class="node agent" x="1030" y="1000" width="270" height="70" rx="11"/>
+    <text class="name" x="1048" y="1028">Recycling operator</text>
+    <text class="type" x="1048" y="1053">ex:recyclingOperator</text>
+  </g>
+  <path class="about" d="M500 952 C430 930 380 930 310 945"/>
+  <path class="about" d="M500 1018 C430 1040 380 1045 310 1035"/>
+  <path class="about" d="M860 952 C920 930 970 930 1030 945"/>
+  <path class="about" d="M860 1018 C920 1040 970 1045 1030 1035"/>
+
+  <rect class="annotation" x="300" y="1105" width="760" height="54" rx="11"/>
+  <text class="note" x="320" y="1128">No quantities, mass balance, recovered-content percentage, grade conformity or certified provenance are asserted.</text>
+  <text class="note" x="320" y="1148">The record's aboutness does not establish authorship, attestation or certification.</text>
+
+  <g transform="translate(58 1182)">
+    <rect class="material" x="0" y="-13" width="25" height="15"/><text class="legend" x="33" y="0">material/object</text>
+    <rect class="process" x="165" y="-13" width="25" height="15"/><text class="legend" x="198" y="0">process</text>
+    <rect class="agent" x="285" y="-13" width="25" height="15"/><text class="legend" x="318" y="0">agent</text>
+    <rect class="info" x="390" y="-13" width="25" height="15"/><text class="legend" x="423" y="0">information</text>
+    <line class="edge" x1="550" y1="-6" x2="605" y2="-6"/><text class="legend" x="617" y="0">asserted RDF</text>
+    <line class="about" x1="750" y1="-6" x2="805" y2="-6"/><text class="legend" x="817" y="0">asserted aboutness</text>
+    <rect class="annotation" x="990" y="-13" width="25" height="15"/><text class="legend" x="1023" y="0">scope note</text>
+  </g>
+</svg>

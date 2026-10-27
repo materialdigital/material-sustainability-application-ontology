@@ -1,5 +1,9 @@
 """Run reproducible asserted-RDF (NOT OWL reasoning) P1 SPARQL checks.
-Usage: python run_queries.py [path-to-gearbox-example.ttl]
+
+Usage:
+    python validation/run_queries.py
+    python validation/run_queries.py path/to/shape-data.ttl
+
 Requires: pip install rdflib (tested with rdflib 7.x)
 """
 import json
@@ -7,9 +11,32 @@ import sys
 from pathlib import Path
 from rdflib import Dataset, Graph, URIRef
 
-root = Path(__file__).resolve().parent
-input_file = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).parent / "gearbox-example.ttl"
-expected_file = root / "expected_rows.json"
+script_dir = Path(__file__).parent
+input_file = Path(sys.argv[1]) if len(sys.argv) > 1 else script_dir.parent / "shape-data.ttl"
+expected_file = script_dir / "expected_rows.json"
+queries_dir = script_dir / "queries"
+
+if not expected_file.is_file():
+    raise FileNotFoundError(f"Missing expected results: {expected_file}")
+if not queries_dir.is_dir():
+    raise FileNotFoundError(f"Missing query directory: {queries_dir}")
+
+query_files = sorted(queries_dir.glob("*.sparql"))
+if len(query_files) != 9:
+    raise FileNotFoundError(
+        f"Expected 9 SPARQL query files in {queries_dir}, found {len(query_files)}"
+    )
+
+expected = json.loads(expected_file.read_text(encoding="utf-8"))
+expected_names = set(expected)
+query_names = {qfile.name for qfile in query_files}
+if expected_names != query_names:
+    missing_expected = sorted(query_names - expected_names)
+    missing_queries = sorted(expected_names - query_names)
+    raise ValueError(
+        "Query/expected fixture mismatch: "
+        f"missing expected entries={missing_expected}; missing query files={missing_queries}"
+    )
 
 if input_file.suffix.lower() == ".trig":
     dataset = Dataset()
@@ -28,12 +55,9 @@ def encode(results):
         rows.append({col: str(row[i]) if row[i] is not None else None for i, col in enumerate(cols)})
     return sorted(rows, key=lambda v: json.dumps(v, sort_keys=True))
 
-if not expected_file.is_file():
-    raise FileNotFoundError(f"Missing expected results: {expected_file}")
-expected = json.loads(expected_file.read_text(encoding="utf-8"))
 actual = {}
 status_ok = True
-for qfile in sorted((root / "queries").glob("*.sparql")):
+for qfile in query_files:
     result = graph.query(qfile.read_text(encoding="utf-8"))
     actual[qfile.name] = encode(result)
     passed = expected.get(qfile.name) == actual[qfile.name]
