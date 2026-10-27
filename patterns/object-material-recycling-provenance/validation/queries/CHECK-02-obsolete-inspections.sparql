@@ -1,0 +1,5 @@
+PREFIX ex: <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/>
+SELECT ?obsolete ?predicate ?object WHERE {
+  VALUES ?obsolete { ex:housingInspection ex:gearInspection }
+  ?obsolete ?predicate ?object .
+}

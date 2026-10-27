@@ -1,0 +1,7 @@
+PREFIX ex: <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+SELECT ?operator ?record WHERE {
+  ex:housingRecycling obo:RO_0000057 ?operator .
+  ?record a obo:IAO_0000310 ;
+          obo:IAO_0000136 ex:housingRecycling, ?operator, ex:recoveredIngot .
+}

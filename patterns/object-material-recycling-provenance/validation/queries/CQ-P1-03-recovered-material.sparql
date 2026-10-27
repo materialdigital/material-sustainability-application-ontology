@@ -1,0 +1,9 @@
+PREFIX ex: <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/>
+PREFIX matsus: <https://w3id.org/pmd/matsus/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+SELECT ?recycling ?ingot WHERE {
+  BIND(ex:housingRecycling AS ?recycling)
+  ?recycling obo:OBI_0000293 ex:housing ;
+             obo:OBI_0000299 ?ingot .
+  ?ingot a matsus:MATSUS_0000002 .
+}

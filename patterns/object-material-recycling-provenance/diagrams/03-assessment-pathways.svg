@@ -1,0 +1,221 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1360" height="1240" viewBox="0 0 1360 1240" role="img" aria-labelledby="title desc">
+  <title id="title">End-of-use assessments and recommendations in MatSus Pattern 1</title>
+  <desc id="desc">Assertion rows show separate housing and gear assessments, their outputs, information aboutness, the housing recycling recommendation and process, and the absence of an executed gear reuse process.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#34495e"/></marker>
+    <marker id="arrowNote" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7f8c8d"/></marker>
+    <style>
+      text{font-family:Inter,Segoe UI,Arial,sans-serif;fill:#17212b}
+      .title{font-size:29px;font-weight:700}.subtitle{font-size:16px;fill:#506070}
+      .panelTitle{font-size:20px;font-weight:700}.name{font-size:16.5px;font-weight:700}
+      .type{font-size:13.5px;fill:#405466}.note{font-size:14px;fill:#46525e}
+      .edgeLabel{font-size:14px;font-weight:600;fill:#283747;paint-order:stroke;stroke:#fff;stroke-width:5px;stroke-linejoin:round}
+      .legend{font-size:13px;fill:#334455}.badge{font-size:12px;font-weight:700}
+      .material{fill:#e8f2fb;stroke:#2d6f9f}.process{fill:#fff1d8;stroke:#b66a17}
+      .info{fill:#f2eafa;stroke:#76539c}.site{fill:#fdebea;stroke:#b64e49}
+      .annotation{fill:#f7f8f8;stroke:#7f8c8d;stroke-dasharray:7 5}
+      .node{stroke-width:2}.edge{fill:none;stroke:#34495e;stroke-width:2.2;marker-end:url(#arrow)}
+      .callout{fill:none;stroke:#7f8c8d;stroke-width:2;stroke-dasharray:8 6;marker-end:url(#arrowNote)}
+    </style>
+  </defs>
+  <rect width="1360" height="1240" fill="#fff"/>
+  <text class="title" x="42" y="45">End-of-use assessments and recommendations</text>
+  <text class="subtitle" x="42" y="73">Each solid row follows asserted RDF subject &#8594; predicate &#8594; object direction. Repeated cards denote the same ABox individuals.</text>
+
+  <rect x="35" y="96" width="1290" height="680" rx="18" fill="#fbfafc" stroke="#ded8e8"/>
+  <text class="panelTitle" x="58" y="130">Housing pathway &#8212; recommendation plus independently asserted recycling</text>
+  <text class="note" x="58" y="154">The crack is retained because the condition result has an explicit is-about assertion to it.</text>
+
+  <g id="h1-assessment">
+    <rect class="node process" x="55" y="175" width="300" height="62" rx="11"/>
+    <text class="name" x="73" y="200">Housing assessment</text>
+    <text class="type" x="73" y="222">ex:housingDispositionAssessment</text>
+  </g>
+  <g id="h1-housing">
+    <rect class="node material" x="530" y="175" width="300" height="62" rx="11"/>
+    <text class="name" x="548" y="200">Damaged housing</text>
+    <text class="type" x="548" y="222">ex:housing &#8212; object + aluminium alloy</text>
+  </g>
+  <path class="edge" d="M355 206 L530 206"/>
+  <text class="edgeLabel" x="401" y="190">evaluates</text>
+  <text class="edgeLabel" x="376" y="207">(MATSUS_0000060)</text>
+
+  <g id="h2-assessment">
+    <rect class="node process" x="55" y="255" width="300" height="62" rx="11"/>
+    <text class="name" x="73" y="280">Housing assessment</text>
+    <text class="type" x="73" y="302">ex:housingDispositionAssessment</text>
+  </g>
+  <g id="h2-result">
+    <rect class="node info" x="530" y="255" width="300" height="62" rx="11"/>
+    <text class="name" x="548" y="280">Housing condition result</text>
+    <text class="type" x="548" y="302">ex:housingConditionResult</text>
+  </g>
+  <g id="h2-housing">
+    <rect class="node material" x="1035" y="255" width="270" height="62" rx="11"/>
+    <text class="name" x="1053" y="280">Damaged housing</text>
+    <text class="type" x="1053" y="302">ex:housing</text>
+  </g>
+  <path class="edge" d="M355 286 L530 286"/>
+  <text class="edgeLabel" x="365" y="270">has specified output</text>
+  <text class="edgeLabel" x="389" y="287">(OBI_0000299)</text>
+  <path class="edge" d="M830 286 L1035 286"/>
+  <text class="edgeLabel" x="898" y="270">is about</text>
+  <text class="edgeLabel" x="881" y="287">(IAO_0000136)</text>
+
+  <g id="h3-result">
+    <rect class="node info" x="55" y="335" width="300" height="62" rx="11"/>
+    <text class="name" x="73" y="360">Housing condition result</text>
+    <text class="type" x="73" y="382">ex:housingConditionResult</text>
+  </g>
+  <g id="h3-crack">
+    <rect class="node site" x="530" y="335" width="300" height="62" rx="11"/>
+    <text class="name" x="548" y="360">Structural crack</text>
+    <text class="type" x="548" y="382">ex:housingCrack &#8212; crack (PMD_0020202)</text>
+  </g>
+  <path class="edge" d="M355 366 L530 366"/>
+  <text class="edgeLabel" x="416" y="350">is about</text>
+  <text class="edgeLabel" x="399" y="367">(IAO_0000136)</text>
+
+  <g id="h4-assessment">
+    <rect class="node process" x="55" y="415" width="300" height="62" rx="11"/>
+    <text class="name" x="73" y="440">Housing assessment</text>
+    <text class="type" x="73" y="462">ex:housingDispositionAssessment</text>
+  </g>
+  <g id="h4-recommendation">
+    <rect class="node info" x="530" y="415" width="300" height="62" rx="11"/>
+    <text class="name" x="548" y="440">Recycle-housing recommendation</text>
+    <text class="type" x="548" y="462">ex:housingRecycleRecommendation</text>
+  </g>
+  <g id="h4-housing">
+    <rect class="node material" x="1035" y="415" width="270" height="62" rx="11"/>
+    <text class="name" x="1053" y="440">Damaged housing</text>
+    <text class="type" x="1053" y="462">ex:housing</text>
+  </g>
+  <path class="edge" d="M355 446 L530 446"/>
+  <text class="edgeLabel" x="365" y="430">has specified output</text>
+  <text class="edgeLabel" x="389" y="447">(OBI_0000299)</text>
+  <path class="edge" d="M830 446 L1035 446"/>
+  <text class="edgeLabel" x="898" y="430">is about</text>
+  <text class="edgeLabel" x="881" y="447">(IAO_0000136)</text>
+
+  <g id="h5-recommendation">
+    <rect class="node info" x="55" y="495" width="300" height="62" rx="11"/>
+    <text class="name" x="73" y="520">Recycle-housing recommendation</text>
+    <text class="type" x="73" y="542">ex:housingRecycleRecommendation</text>
+  </g>
+  <g id="h5-recycling">
+    <rect class="node process" x="530" y="495" width="300" height="62" rx="11"/>
+    <text class="name" x="548" y="520">Housing recycling process</text>
+    <text class="type" x="548" y="542">ex:housingRecycling</text>
+  </g>
+  <path class="edge" d="M355 526 L530 526"/>
+  <text class="edgeLabel" x="397" y="510">recommends</text>
+  <text class="edgeLabel" x="376" y="527">(MATSUS_0000064)</text>
+  <rect class="annotation" x="920" y="488" width="385" height="76" rx="11"/>
+  <text class="name" x="940" y="516">Execution is not entailed by recommends</text>
+  <text class="note" x="940" y="540">The process has independent input/output assertions.</text>
+  <path class="callout" d="M830 526 L920 526"/>
+
+  <g id="h6-recycling">
+    <rect class="node process" x="55" y="575" width="300" height="62" rx="11"/>
+    <text class="name" x="73" y="600">Housing recycling process</text>
+    <text class="type" x="73" y="622">ex:housingRecycling</text>
+  </g>
+  <g id="h6-housing">
+    <rect class="node material" x="530" y="575" width="300" height="62" rx="11"/>
+    <text class="name" x="548" y="600">Damaged housing</text>
+    <text class="type" x="548" y="622">ex:housing</text>
+  </g>
+  <path class="edge" d="M355 606 L530 606"/>
+  <text class="edgeLabel" x="365" y="590">has specified input</text>
+  <text class="edgeLabel" x="389" y="607">(OBI_0000293)</text>
+
+  <g id="h7-recycling">
+    <rect class="node process" x="55" y="655" width="300" height="62" rx="11"/>
+    <text class="name" x="73" y="680">Housing recycling process</text>
+    <text class="type" x="73" y="702">ex:housingRecycling</text>
+  </g>
+  <g id="h7-ingot">
+    <rect class="node material" x="530" y="655" width="300" height="62" rx="11"/>
+    <text class="name" x="548" y="680">Recovered aluminium ingot</text>
+    <text class="type" x="548" y="702">ex:recoveredIngot</text>
+  </g>
+  <path class="edge" d="M355 686 L530 686"/>
+  <text class="edgeLabel" x="365" y="670">has specified output</text>
+  <text class="edgeLabel" x="389" y="687">(OBI_0000299)</text>
+
+  <rect x="35" y="800" width="1290" height="350" rx="18" fill="#fbfafc" stroke="#ded8e8"/>
+  <text class="panelTitle" x="58" y="836">Gear pathway &#8212; recommendation only</text>
+  <text class="note" x="58" y="860">No recommends edge or reuse-process individual occurs for the gear.</text>
+
+  <g id="g1-assessment">
+    <rect class="node process" x="55" y="880" width="300" height="62" rx="11"/>
+    <text class="name" x="73" y="905">Gear assessment</text>
+    <text class="type" x="73" y="927">ex:gearDispositionAssessment</text>
+  </g>
+  <g id="g1-gear">
+    <rect class="node material" x="530" y="880" width="300" height="62" rx="11"/>
+    <text class="name" x="548" y="905">Steel gear</text>
+    <text class="type" x="548" y="927">ex:gear &#8212; object + steel</text>
+  </g>
+  <path class="edge" d="M355 911 L530 911"/>
+  <text class="edgeLabel" x="401" y="895">evaluates</text>
+  <text class="edgeLabel" x="376" y="912">(MATSUS_0000060)</text>
+
+  <g id="g2-assessment">
+    <rect class="node process" x="55" y="960" width="300" height="62" rx="11"/>
+    <text class="name" x="73" y="985">Gear assessment</text>
+    <text class="type" x="73" y="1007">ex:gearDispositionAssessment</text>
+  </g>
+  <g id="g2-result">
+    <rect class="node info" x="530" y="960" width="300" height="62" rx="11"/>
+    <text class="name" x="548" y="985">Gear condition result</text>
+    <text class="type" x="548" y="1007">ex:gearConditionResult</text>
+  </g>
+  <g id="g2-gear">
+    <rect class="node material" x="1035" y="960" width="270" height="62" rx="11"/>
+    <text class="name" x="1053" y="985">Steel gear</text>
+    <text class="type" x="1053" y="1007">ex:gear</text>
+  </g>
+  <path class="edge" d="M355 991 L530 991"/>
+  <text class="edgeLabel" x="365" y="975">has specified output</text>
+  <text class="edgeLabel" x="389" y="992">(OBI_0000299)</text>
+  <path class="edge" d="M830 991 L1035 991"/>
+  <text class="edgeLabel" x="898" y="975">is about</text>
+  <text class="edgeLabel" x="881" y="992">(IAO_0000136)</text>
+
+  <g id="g3-assessment">
+    <rect class="node process" x="55" y="1040" width="300" height="62" rx="11"/>
+    <text class="name" x="73" y="1065">Gear assessment</text>
+    <text class="type" x="73" y="1087">ex:gearDispositionAssessment</text>
+  </g>
+  <g id="g3-recommendation">
+    <rect class="node info" x="530" y="1040" width="300" height="62" rx="11"/>
+    <text class="name" x="548" y="1065">Potential reuse recommendation</text>
+    <text class="type" x="548" y="1087">ex:gearReuseRecommendation</text>
+  </g>
+  <g id="g3-gear">
+    <rect class="node material" x="1035" y="1040" width="270" height="62" rx="11"/>
+    <text class="name" x="1053" y="1065">Steel gear</text>
+    <text class="type" x="1053" y="1087">ex:gear</text>
+  </g>
+  <path class="edge" d="M355 1071 L530 1071"/>
+  <text class="edgeLabel" x="365" y="1055">has specified output</text>
+  <text class="edgeLabel" x="389" y="1072">(OBI_0000299)</text>
+  <path class="edge" d="M830 1071 L1035 1071"/>
+  <text class="edgeLabel" x="898" y="1055">is about</text>
+  <text class="edgeLabel" x="881" y="1072">(IAO_0000136)</text>
+
+  <rect class="annotation" x="530" y="1118" width="775" height="52" rx="11"/>
+  <text class="note" x="550" y="1149">No asserted process follows the gear recommendation; the pathway ends at information.</text>
+  <path class="callout" d="M680 1102 L680 1118"/>
+
+  <g transform="translate(58 1205)">
+    <rect class="material" x="0" y="-13" width="25" height="15"/><text class="legend" x="33" y="0">material/object</text>
+    <rect class="process" x="165" y="-13" width="25" height="15"/><text class="legend" x="198" y="0">process</text>
+    <rect class="info" x="285" y="-13" width="25" height="15"/><text class="legend" x="318" y="0">information</text>
+    <rect class="site" x="435" y="-13" width="25" height="15"/><text class="legend" x="468" y="0">site</text>
+    <line class="edge" x1="550" y1="-6" x2="605" y2="-6"/><text class="legend" x="617" y="0">asserted RDF</text>
+    <line class="callout" x1="760" y1="-6" x2="815" y2="-6"/><text class="legend" x="827" y="0">explanatory only</text>
+  </g>
+</svg>

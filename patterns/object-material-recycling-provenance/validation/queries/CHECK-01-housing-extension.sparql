@@ -1,0 +1,10 @@
+PREFIX ex: <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX pmd: <https://w3id.org/pmd/co/>
+SELECT ?crack ?role ?composition WHERE {
+  ex:housing obo:RO_0001015 ?crack ; obo:RO_0000086 ?composition .
+  ?crack a pmd:PMD_0020202 ; obo:RO_0000087 ?role .
+  ?role a pmd:PMD_0020205 .
+  ?composition a pmd:PMD_0000551 .
+  ex:housingConditionResult obo:IAO_0000136 ?crack .
+}

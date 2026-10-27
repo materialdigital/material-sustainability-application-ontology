@@ -1,0 +1,6 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+SELECT ?subject ?predicate ?number WHERE {
+  ?subject ?predicate ?number .
+  FILTER(isLiteral(?number) && DATATYPE(?number) IN (xsd:integer, xsd:int, xsd:decimal, xsd:double, xsd:float))
+}
+ORDER BY ?subject ?predicate

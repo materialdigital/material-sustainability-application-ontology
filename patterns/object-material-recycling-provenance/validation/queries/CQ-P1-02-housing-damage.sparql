@@ -1,0 +1,17 @@
+PREFIX ex: <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/>
+PREFIX matsus: <https://w3id.org/pmd/matsus/>
+PREFIX pmd: <https://w3id.org/pmd/co/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+SELECT ?assessment ?condition ?recommendation ?crack ?role WHERE {
+  BIND(ex:housingDispositionAssessment AS ?assessment)
+  ?assessment a matsus:MATSUS_0000062 ;
+    matsus:MATSUS_0000060 ex:housing ;
+    obo:OBI_0000299 ?condition, ?recommendation .
+  ?condition a matsus:MATSUS_0000055 ;
+    obo:IAO_0000136 ex:housing, ?crack .
+  ?recommendation a matsus:MATSUS_0000063 ;
+    obo:IAO_0000136 ex:housing .
+  ex:housing obo:RO_0001015 ?crack .
+  ?crack a pmd:PMD_0020202 ; obo:RO_0000087 ?role .
+  ?role a pmd:PMD_0020205 .
+}

@@ -1,0 +1,84 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix dcterms: <http://purl.org/dc/terms/>.
+@prefix log: <https://w3id.org/pmd/log/>.
+@prefix matsus: <https://w3id.org/pmd/matsus/>.
+@prefix obo: <http://purl.obolibrary.org/obo/>.
+@prefix pmd: <https://w3id.org/pmd/co/>.
+@prefix ceon-process: <http://w3id.org/CEON/ontology/process/>.
+
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox> a owl:Ontology;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/>;
+    dcterms:title "MatSus gearbox recycling provenance example"@en;
+    dcterms:description "Synthetic example for disassembly, sorting, aluminium recycling, documentation, and an unexecuted gear reuse recommendation."@en.
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gearbox> a obo:BFO_0000030;
+    rdfs:label "Obj. used industrial gearbox";
+    obo:BFO_0000051 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housing>, <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gear>.
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housing> a obo:BFO_0000030, pmd:PMD_0020186;
+    rdfs:label "Obj./Mat. damaged gearbox housing; EN AC-46000 / AlSi9Cu3(Fe)";
+    obo:RO_0001015 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingCrack>;
+    obo:RO_0000086 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingChemicalComposition>.
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gear> a obo:BFO_0000030, pmd:PMD_0020096;
+    rdfs:label "Obj./Mat. steel gear; 20MnCr5 (1.7147)".
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingCrack> a pmd:PMD_0020202;
+    rdfs:label "Site. structural crack in gearbox housing";
+    obo:RO_0000087 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingCrackDefectRole>.
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingChemicalComposition> a pmd:PMD_0000551;
+    rdfs:label "Qual. chemical composition of housing aluminium alloy".
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/disassembly> a pmd:PMD_0000612;
+    rdfs:label "Proc. gearbox disassembly process";
+    obo:OBI_0000293 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gearbox>;
+    obo:OBI_0000299 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housing>, <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gear>.
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/componentSorting> a matsus:MATSUS_0000016;
+    rdfs:label "Proc. gearbox component sorting process";
+    obo:OBI_0000293 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housing>, <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gear>;
+    obo:OBI_0000299 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housing>, <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gear>.
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/otherAluminiumCharge> a pmd:PMD_0020186, matsus:MATSUS_0000041;
+    rdfs:label "Mat. additional primary aluminium feedstock".
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingRecycling> a ceon-process:RecycleProcess, matsus:MATSUS_0000000;
+    rdfs:label "Proc. gearbox housing recycling process";
+    obo:OBI_0000293 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housing>, <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/otherAluminiumCharge>;
+    obo:OBI_0000299 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/recoveredIngot>;
+    obo:BFO_0000117 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/remelting>, <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/castingSolidification>;
+    obo:RO_0000057 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/recyclingOperator>.
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/recoveredIngot> a pmd:PMD_0020186, pmd:PMD_0020170, matsus:MATSUS_0000002;
+    rdfs:label "Obj./Mat. gearbox-example recovered aluminium alloy ingot".
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/remelting> a pmd:PMD_0000053;
+    rdfs:label "Proc. aluminium remelting process";
+    obo:OBI_0000293 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housing>, <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/otherAluminiumCharge>;
+    obo:OBI_0000299 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/aluminiumMelt>.
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/castingSolidification> a pmd:PMD_0000833;
+    rdfs:label "Proc. casting and solidification process";
+    obo:OBI_0000293 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/aluminiumMelt>;
+    obo:OBI_0000299 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/recoveredIngot>.
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/recyclingOperator> a obo:OBI_0000245, log:LOG_1000011;
+    rdfs:label "Org. Synthetic Aluminium Recycler GmbH".
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/aluminiumMelt> a pmd:PMD_0020139;
+    rdfs:label "Mat. aluminium alloy melt".
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/recyclingRecord> a obo:IAO_0000310;
+    rdfs:label "Inf. synthetic gearbox housing recycling record";
+    obo:IAO_0000136 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housing>, <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingRecycling>, <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/recoveredIngot>, <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/recyclingOperator>.
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingConditionResult> a matsus:MATSUS_0000055;
+    rdfs:label "Inf. housing damaged and unsuitable for continued use";
+    obo:IAO_0000136 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housing>, <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingCrack>.
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingDispositionAssessment> a matsus:MATSUS_0000062;
+    rdfs:label "Proc. housing end-of-use evaluation process";
+    obo:OBI_0000299 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingConditionResult>, <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingRecycleRecommendation>;
+    matsus:MATSUS_0000060 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housing>.
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingRecycleRecommendation> a matsus:MATSUS_0000063;
+    rdfs:label "Inf. recycle the damaged housing";
+    obo:IAO_0000136 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housing>;
+    matsus:MATSUS_0000064 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingRecycling>.
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gearConditionResult> a matsus:MATSUS_0000055;
+    rdfs:label "Inf. gear suitable for potential reuse";
+    obo:IAO_0000136 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gear>.
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gearDispositionAssessment> a matsus:MATSUS_0000062;
+    rdfs:label "Proc. gear end-of-use evaluation process";
+    obo:OBI_0000299 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gearConditionResult>, <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gearReuseRecommendation>;
+    matsus:MATSUS_0000060 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gear>.
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gearReuseRecommendation> a matsus:MATSUS_0000063;
+    rdfs:label "Inf. potential reuse in a gearbox remanufacturing context";
+    obo:IAO_0000136 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gear>.
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housingCrackDefectRole> a pmd:PMD_0020205;
+    rdfs:label "Role. defect role of housing crack".
