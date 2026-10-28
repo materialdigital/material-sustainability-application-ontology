@@ -29,10 +29,13 @@
 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/disassembly> a pmd:PMD_0000612;
     rdfs:label "Proc. gearbox disassembly process";
     obo:OBI_0000293 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gearbox>;
-    obo:OBI_0000299 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housing>, <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gear>.
+    obo:OBI_0000299 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housing>, <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gear>, <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/disassembledComponents>.
+<https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/disassembledComponents> a obo:BFO_0000027;
+    rdfs:label "Obj. aggregate of disassembled gearbox components";
+    obo:BFO_0000051 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housing>, <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gear>.
 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/componentSorting> a matsus:MATSUS_0000016;
     rdfs:label "Proc. gearbox component sorting process";
-    obo:OBI_0000293 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housing>, <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gear>;
+    obo:OBI_0000293 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/disassembledComponents>;
     obo:OBI_0000299 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housing>, <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gear>.
 <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/otherAluminiumCharge> a pmd:PMD_0020186, matsus:MATSUS_0000041;
     rdfs:label "Mat. additional primary aluminium feedstock".
