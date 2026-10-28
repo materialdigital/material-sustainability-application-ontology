@@ -22,9 +22,9 @@ if not queries_dir.is_dir():
     raise FileNotFoundError(f"Missing query directory: {queries_dir}")
 
 query_files = sorted(queries_dir.glob("*.sparql"))
-if len(query_files) != 9:
+if len(query_files) != 10:
     raise FileNotFoundError(
-        f"Expected 9 SPARQL query files in {queries_dir}, found {len(query_files)}"
+        f"Expected 10 SPARQL query files in {queries_dir}, found {len(query_files)}"
     )
 
 expected = json.loads(expected_file.read_text(encoding="utf-8"))

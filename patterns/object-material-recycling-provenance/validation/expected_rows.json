@@ -56,5 +56,13 @@
       "record": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/recyclingRecord"
     }
   ],
-  "CQ-P1-07-quantitative-limit.sparql": []
+  "CQ-P1-07-quantitative-limit.sparql": [],
+  "CQ-P1-08-disassembly-sorting.sparql": [
+    {
+      "component": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/gear"
+    },
+    {
+      "component": "https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/housing"
+    }
+  ]
 }

@@ -1,0 +1,15 @@
+PREFIX ex: <https://w3id.org/pmd/matsus/pattern/object-material-recycling-provenance/gearbox/>
+PREFIX matsus: <https://w3id.org/pmd/matsus/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+SELECT ?component WHERE {
+  ex:disassembly obo:OBI_0000299 ex:disassembledComponents, ?component .
+  ex:disassembledComponents a obo:BFO_0000027 ;
+      obo:BFO_0000051 ?component .
+  ex:componentSorting a matsus:MATSUS_0000016 ;
+      obo:OBI_0000293 ex:disassembledComponents ;
+      obo:OBI_0000299 ?component .
+  ?assessment a matsus:MATSUS_0000062 ;
+      matsus:MATSUS_0000060 ?component .
+  VALUES ?component { ex:housing ex:gear }
+}
+ORDER BY ?component

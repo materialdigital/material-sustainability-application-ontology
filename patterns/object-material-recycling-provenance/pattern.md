@@ -6,11 +6,13 @@ This pattern uses a synthetic gearbox example to connect **end-of-use assessment
 
 ## 1. Overall scenario
 
-A used gearbox is disassembled into an aluminium-alloy housing and a steel gear. Separate assessments recommend recycling the housing and potential reuse of the gear. Only the housing recycling is represented as an executed process.
+A used gearbox is disassembled. The example models the separated housing and steel gear as members of one **disassembled-component aggregate** (`object aggregate`, `BFO_0000027`). The disassembly process has the aggregate **and both components** as specified outputs. The aggregate `has part (BFO_0000051)` the original housing and gear individuals; it is not a second gearbox or a replacement for either component.
+
+The asserted **component sorting process** takes this aggregate as a specified input and has the **same housing and gear individuals** as specified outputs, representing their organization into separate streams without creating duplicate physical objects. Sorting is included as an executed process in this example, but it is **optional when adapting the pattern**. The housing and gear are evaluated by separate end-of-use disposition assessments, which recommend recycling and potential reuse, respectively. Only housing recycling is represented as executed.
 
 ![Overall gearbox scenario](diagrams/01-overview.svg)
 
-*Reading the figures: coloured boxes are individuals, with their asserted types shown in smaller text. Solid arrows are RDF assertions (subject → object); dashed annotations provide context, not additional assertions.*
+*Reading the figure: coloured boxes represent individuals (smaller text gives their asserted types). Solid arrowheads always follow RDF **subject → object**, not necessarily physical material flow. Dashed annotations are explanatory, not asserted RDF relationships. The disassembly–sorting–assessment sequence is illustrative; the example does not assert an explicit temporal ordering relation. The gearbox `has part` statements describe the initial assembly; the aggregate's membership describes the separated components. Neither relation is time-qualified in the ABox.*
 
 ## 2. Object–material duality and damage
 
@@ -34,10 +36,10 @@ The input–output links establish **qualitative provenance**, not a mass balanc
 
 ## Appendix — example, reuse and validation
 
-- **Example ABox:** [`shape-data.ttl`](shape-data.ttl) — 94 asserted triples in a synthetic scenario. For this example, gearbox `has part` links describe the assembly **before disassembly**; the RDF does not encode when those links cease to hold.
-- **Executable checks:** [seven competency questions and two structural checks](validation/queries/); [runner](validation/run_queries.py) and [expected answers](validation/expected_rows.json). From this directory run `python validation/run_queries.py`.
-- **Evidence:** The example was accepted in evaluation rounds R1–R3; nine asserted-RDF checks passed. ROBOT/HermiT compatibility was assessed with the pinned PMDco v3.1.2 import closure. These checks do not establish empirical validity or P1-specific SHACL conformance; the nine queries are not part of standard repository CI.
-- **Semantic boundary:** PMDco's crack-site/defect-role parthood interpretation remains unresolved. No crack–housing parthood edge is asserted. Recommendations do not themselves imply execution.
+- **Example ABox:** [`shape-data.ttl`](shape-data.ttl) — 98 asserted triples in a synthetic scenario; component identity is preserved across disassembly, sorting and assessment.
+- **Executable checks:** [eight competency questions and two structural checks](validation/queries/); [runner](validation/run_queries.py) and [expected answers](validation/expected_rows.json). From this directory run `python validation/run_queries.py`.
+- **Evidence:** The original 94-triple example was accepted in evaluation rounds R1–R3. **For this 98-triple revision, all ten asserted-RDF checks passed locally using RDFLib 7.5.0. Fresh import-closure resolution and ROBOT/HermiT consistency and coherence checks also passed against pinned PMDco v3.1.2.** P1-specific SHACL conformance has not been run; the ten queries are not part of standard repository CI.
+- **Semantic boundary:** PMDco's crack-site/defect-role parthood interpretation remains unresolved. No crack–housing parthood edge is asserted. Recommendations do not themselves imply execution. No explicit temporal interval or sequence assertion is included.
 
 ### Key predicates for adaptation
 
@@ -45,6 +47,7 @@ The input–output links establish **qualitative provenance**, not a mass balanc
 | --- | --- |
 | `evaluates (MATSUS_0000060)` | Link an end-of-use assessment to the component being evaluated. |
 | `has specified input / output (OBI_0000293 / OBI_0000299)` | Identify process inputs and outputs. |
+| `has part (BFO_0000051)` | Link the disassembled-component object aggregate to the original component objects. |
 | `recommends (MATSUS_0000064)` | Link a recommendation to a proposed management process, without asserting execution. |
 | `has occurrent part (BFO_0000117)` | Identify the recycling subprocesses. |
 | `is about (IAO_0000136)` | Connect result or record information to its subject matter. |
