@@ -1,4 +1,4 @@
-# Pattern: Component End-of-Use Assessment and Recycling Provenance
+# Pattern: Component End-of-Use: Disassembly, Sorting, Assessment and Recycling Provenance
 
 ## Purpose
 
