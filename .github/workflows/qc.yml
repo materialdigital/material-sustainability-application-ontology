@@ -26,13 +26,14 @@
 # ├─────────────────────────────────────────────────────────────────────┤
 # │  Job 2: ontology-build  (push / dispatch events)                   │
 # │  ─────────────────────────────────────────────────────────────────  │
-# │  Full build triggered only when ontology source files change on     │
-# │  main (or via workflow/repository dispatch).                        │
+# │  Full build triggered when ontology build files change on main     │
+# │  (or via workflow/repository dispatch).                             │
 # │                                                                     │
 # │  Steps:                                                             │
 # │    1. make refresh-imports  — re-extract SLME modules               │
 # │    2. make all_assets       — generate OWL/TTL/JSON release files  │
-# │    3. Dispatch trigger-docs to start docs.yml                      │
+# │    3. Validate and upload generated distribution candidates        │
+# │    4. Dispatch trigger-docs for automatic builds only              │
 # └─────────────────────────────────────────────────────────────────────┘
 #
 # Execution chain:
@@ -52,13 +53,18 @@ on:
   repository_dispatch:
     types: [trigger-qc]
 
-  # ── Push to main: full build (path-filtered to ontology source files) ───────
+  # ── Push to main: full build (path-filtered to ontology build files) ────────
   push:
     branches: [main]
     paths:
+      - .github/workflows/qc.yml
+      - matsus.owl
+      - matsus.ttl
+      - matsus.json
       - src/ontology/*-edit.owl
       - src/ontology/components/**
       - src/ontology/imports/**
+      - src/ontology/distribution-version.txt
       - src/ontology/Makefile
       - src/ontology/*-Makefile
 
@@ -305,6 +311,41 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Read and validate distribution version
+        id: distribution_version
+        shell: bash
+        run: |
+          set -euo pipefail
+          distribution_version_file=src/ontology/distribution-version.txt
+          if [[ ! -f "${distribution_version_file}" ]]; then
+            echo "::error file=${distribution_version_file}::Distribution version file is missing."
+            exit 1
+          fi
+
+          distribution_version=$(<"${distribution_version_file}")
+          if [[ ! "${distribution_version}" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] ||
+             [[ "$(date --date="${distribution_version}" +%F 2>/dev/null)" != "${distribution_version}" ]]; then
+            echo "::error file=${distribution_version_file}::Distribution version must be a valid YYYY-MM-DD date."
+            exit 1
+          fi
+
+          echo "date=${distribution_version}" >> "${GITHUB_OUTPUT}"
+
+      # Preserve the committed distribution signatures before the build
+      # overwrites the root files. Automatic builds compare these signatures
+      # with the generated candidates before publishing documentation.
+      - name: Snapshot committed distribution signatures
+        if: github.event_name != 'workflow_dispatch'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p generated-validation
+          robot query \
+            --input matsus.owl \
+            --format tsv \
+            --query src/sparql/distribution-signature.sparql \
+            generated-validation/committed-distribution-signature.tsv
+
       # ── Full ODK build ─────────────────────────────────────────────────────
       # refresh-imports: re-download upstream ontologies and extract SLME modules
       # all_assets:         generate OWL/TTL/JSON release files + QC reports
@@ -316,13 +357,44 @@ jobs:
       - name: Build ontology (refresh imports + generate all release assets)
         env:
           ROBOT_ENV: ROBOT_JAVA_ARGS=-Xmx6G
+          TODAY: ${{ steps.distribution_version.outputs.date }}
         run: |
           cd src/ontology
-          make refresh-imports all_assets
-          make copy_release_files
+          make TODAY="${TODAY}" refresh-imports all_assets
+          make TODAY="${TODAY}" copy_release_files
+
+      - name: Validate generated distributions
+        run: bash src/scripts/validate-generated-distributions.sh
+
+      # Manual runs produce review candidates without publishing documentation.
+      # Automatic builds block publication if signatures differ or any tracked
+      # generated distribution is not byte-reproducible from the current source.
+      - name: Guard automatic publication against stale distributions
+        if: github.event_name != 'workflow_dispatch'
+        run: |
+          diff -u generated-validation/committed-distribution-signature.tsv generated-validation/matsus-owl-signature.tsv
+          if ! git diff --quiet -- matsus.owl matsus.ttl matsus.json src/ontology/matsus.ttl; then
+            echo '::error::Generated distributions differ from the committed files; documentation dispatch is blocked.'
+            git diff --stat -- matsus.owl matsus.ttl matsus.json src/ontology/matsus.ttl
+            exit 1
+          fi
+
+      - name: Upload generated distributions and validation evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: matsus-generated-distributions-${{ github.sha }}
+          if-no-files-found: error
+          retention-days: 14
+          path: |
+            matsus.owl
+            matsus.ttl
+            matsus.json
+            src/ontology/matsus.ttl
+            generated-validation/
 
       # ── Trigger documentation workflow ─────────────────────────────────────
       - name: Trigger Documentation Workflow
+        if: github.event_name != 'workflow_dispatch'
         uses: peter-evans/repository-dispatch@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
