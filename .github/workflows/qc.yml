@@ -57,6 +57,7 @@ on:
   push:
     branches: [main]
     paths:
+      - .github/workflows/qc.yml
       - matsus.owl
       - matsus.ttl
       - matsus.json
@@ -335,6 +336,7 @@ jobs:
       # with the generated candidates before publishing documentation.
       - name: Snapshot committed distribution signatures
         if: github.event_name != 'workflow_dispatch'
+        shell: bash
         run: |
           set -euo pipefail
           mkdir -p generated-validation
