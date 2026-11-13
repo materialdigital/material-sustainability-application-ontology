@@ -87,7 +87,8 @@ with open(output, 'w', encoding='utf-8', newline='\n') as stream:
         stream.write(f'<{entity_id}>\n')
 print(f'validated {len(graphs)} graph(s) and {len(entity_ids)} named entity IRI(s)')
 PY
-diff -u generated-validation/matsus-owl-entity-ids.tsv generated-validation/matsus-json-entity-ids.tsv
+#diff -u generated-validation/matsus-owl-entity-ids.tsv generated-validation/matsus-json-entity-ids.tsv
+diff -u <(LC_ALL=C sort -u generated-validation/matsus-owl-entity-ids.tsv) <(LC_ALL=C sort -u generated-validation/matsus-json-entity-ids.tsv)
 
 robot query --input src/ontology/imports/pmdco_import.owl --format tsv --query src/sparql/pmd-signature.sparql generated-validation/pmdco-import-signature.tsv
 robot query --input matsus.owl --format tsv --query src/sparql/pmd-signature.sparql generated-validation/matsus-pmd-signature.tsv
