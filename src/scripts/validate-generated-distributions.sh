@@ -46,7 +46,8 @@ robot query --input matsus.ttl --format tsv --query src/sparql/distribution-sign
 diff -u generated-validation/matsus-full-signature.tsv generated-validation/matsus-owl-signature.tsv
 diff -u generated-validation/matsus-owl-signature.tsv generated-validation/matsus-ttl-signature.tsv
 
-tail -n +2 generated-validation/matsus-owl-signature.tsv | cut -f1 | sort -u > generated-validation/matsus-owl-entity-ids.tsv
+tail -n +2 generated-validation/matsus-owl-signature.tsv | cut -f1 | LC_ALL=C sort -u > generated-validation/matsus-owl-entity-ids.tsv
+#tail -n +2 generated-validation/matsus-owl-signature.tsv | cut -f1 | sort -u > generated-validation/matsus-owl-entity-ids.tsv
 # OBO Graphs JSON is not an RDF/OWL input format for ROBOT and can collapse
 # OWL punning. Compare its named entity IRI set; OWL/TTL retain the typed check.
 python3 - matsus.json generated-validation/matsus-json-entity-ids.tsv <<'PY'
