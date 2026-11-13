@@ -1,0 +1,28 @@
+PREFIX matsus: <https://w3id.org/pmd/matsus/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX p2: <https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/>
+PREFIX pmd: <https://w3id.org/pmd/co/>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+SELECT ?result WHERE {
+  VALUES (?result ?quantification ?subject ?specification) {
+    (p2:sortingCFResult p2:recyclingCFQuantification p2:sorting p2:recyclingCFSpecification)
+    (p2:shreddingCFResult p2:recyclingCFQuantification p2:shredding p2:recyclingCFSpecification)
+    (p2:washingCFResult p2:recyclingCFQuantification p2:washing p2:recyclingCFSpecification)
+    (p2:dryingCFResult p2:recyclingCFQuantification p2:drying p2:recyclingCFSpecification)
+    (p2:extrusionCFResult p2:recyclingCFQuantification p2:extrusionMeltFiltration p2:recyclingCFSpecification)
+    (p2:pelletizingCFResult p2:recyclingCFQuantification p2:pelletizing p2:recyclingCFSpecification)
+    (p2:recycledPelletCFResult p2:recyclingCFQuantification p2:recycledPelletBatch p2:recyclingCFSpecification)
+    (p2:virginSupplierCFResult p2:virginSupplierCFQuantification p2:virginHDPEBatch p2:virginCFSpecification)
+    (p2:mixingCFResult p2:bottleCFQuantification p2:mixing p2:bottleCFSpecification)
+    (p2:blowMoldingCFResult p2:bottleCFQuantification p2:extrusionBlowMolding p2:bottleCFSpecification)
+    (p2:finalBottleCFResult p2:bottleCFQuantification p2:finalBottleBatch p2:bottleCFSpecification)
+  }
+  FILTER NOT EXISTS {
+    ?quantification a pmd:PMD_0000583 ; obo:OBI_0000299 ?result ; obo:OBI_0000293 ?specification .
+    ?specification a matsus:MATSUS_0000068 ; obo:BFO_0000051 ?fu, ?ref, ?boundary .
+    ?fu a matsus:MATSUS_0000069 . ?ref a matsus:MATSUS_0000070 . ?boundary a matsus:MATSUS_0000071 .
+    ?result a matsus:MATSUS_0000076 ; obo:IAO_0000136 ?subject, matsus:MATSUS_0000078, matsus:MATSUS_0000079 ; obo:OBI_0001938 ?value .
+    ?value a pmd:PMD_0080205 ; qudt:numericValue ?number ; qudt:hasUnit ?unit .
+    FILTER(isLiteral(?number))
+  }
+} ORDER BY ?result

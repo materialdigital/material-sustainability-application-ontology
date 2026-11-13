@@ -1,0 +1,9 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX p2: <https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?item ?source ?limitation WHERE {
+  VALUES ?item { p2:pefCircularFootprintFormulaCandidate p2:virginSupplierDeclaration p2:gridElectricityEmissionFactorDatum }
+  ?item dcterms:source ?source .
+  OPTIONAL { p2:knownLimitationsRecord obo:BFO_0000051 ?note . ?note obo:IAO_0000136 ?item ; rdfs:comment ?limitation . }
+} ORDER BY ?item

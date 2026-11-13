@@ -1,0 +1,13 @@
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX p2: <https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/>
+PREFIX pmd: <https://w3id.org/pmd/co/>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+SELECT ?process ?batch ?method ?datum ?contaminant ?basis ?number ?unit WHERE {
+  p2:ppContaminationCharacterization obo:OBI_0000293 ?batch, ?method ; obo:OBI_0000299 ?datum .
+  FILTER(?batch = p2:recycledPelletBatch && ?method = p2:syntheticPPCharacterizationMethod)
+  BIND(p2:ppContaminationCharacterization AS ?process)
+  ?datum obo:IAO_0000136 ?contaminant, ?basis ; obo:OBI_0001938 ?value .
+  ?contaminant a pmd:PMD_0050009 .
+  FILTER(?basis = p2:ppDryMassBasis)
+  ?value qudt:numericValue ?number ; qudt:hasUnit ?unit .
+}

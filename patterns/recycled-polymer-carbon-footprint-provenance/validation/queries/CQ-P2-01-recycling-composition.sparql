@@ -1,0 +1,14 @@
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX p2: <https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/>
+SELECT ?step ?stepType WHERE {
+  p2:mechanicalRecycling obo:BFO_0000117 ?step .
+  VALUES (?step ?stepType) {
+    (p2:sorting <https://w3id.org/pmd/matsus/MATSUS_0000016>)
+    (p2:shredding <https://w3id.org/pmd/co/PMD_0000927>)
+    (p2:washing <https://w3id.org/pmd/co/PMD_0000560>)
+    (p2:drying <https://w3id.org/pmd/co/PMD_0000833>)
+    (p2:extrusionMeltFiltration <https://w3id.org/pmd/co/PMD_0200004>)
+    (p2:pelletizing <https://w3id.org/pmd/co/PMD_0000833>)
+  }
+  ?step a ?stepType .
+} ORDER BY ?step

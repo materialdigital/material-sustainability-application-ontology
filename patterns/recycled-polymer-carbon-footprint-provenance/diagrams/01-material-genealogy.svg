@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="760" viewBox="0 0 1440 760" role="img" aria-labelledby="title desc">
+  <title id="title">Synthetic HDPE material genealogy and process composition</title>
+  <desc id="desc">Six recycling subprocesses transform distinct HDPE batch individuals, followed by mixing with virgin HDPE and blow molding.</desc>
+  <defs><marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#334155"/></marker><style>
+    text{font-family:Arial,sans-serif;fill:#172033}.title{font-size:26px;font-weight:700}.sub{font-size:15px;fill:#475569}.head{font-size:16px;font-weight:700}.small{font-size:13px}.mat{fill:#e0f2fe;stroke:#0284c7;stroke-width:2}.proc{fill:#fef3c7;stroke:#d97706;stroke-width:2}.down{fill:#dcfce7;stroke:#16a34a;stroke-width:2}.group{fill:none;stroke:#64748b;stroke-width:2;stroke-dasharray:8 6}.edge{stroke:#334155;stroke-width:2;fill:none;marker-end:url(#arrow)}
+  </style></defs>
+  <rect width="1440" height="760" fill="#f8fafc"/><text x="40" y="45" class="title">Recycled HDPE: physical genealogy and process composition</text>
+  <text x="40" y="72" class="sub">Boxes are individuals. Arrows follow asserted specified input/output paths; they do not assert time relations or quantitative balance.</text>
+  <rect x="25" y="100" width="1390" height="390" rx="18" class="group"/><text x="50" y="130" class="head">mechanicalRecycling — six asserted occurrent parts (BFO_0000117)</text>
+  <rect x="45" y="165" width="170" height="72" rx="10" class="mat"/><text x="60" y="190" class="head">Post-consumer HDPE</text><text x="60" y="214" class="small">350 kg batch</text>
+  <rect x="245" y="165" width="150" height="72" rx="10" class="proc"/><text x="285" y="195" class="head">Sorting</text><text x="267" y="216" class="small">MATSUS_0000016</text>
+  <rect x="425" y="165" width="160" height="72" rx="10" class="mat"/><text x="447" y="192" class="head">Sorted stream</text><text x="470" y="215" class="small">340 kg</text>
+  <rect x="615" y="165" width="150" height="72" rx="10" class="proc"/><text x="654" y="194" class="head">Shredding</text><text x="637" y="216" class="small">separating</text>
+  <rect x="795" y="165" width="160" height="72" rx="10" class="mat"/><text x="818" y="192" class="head">HDPE flakes</text><text x="840" y="215" class="small">335 kg</text>
+  <rect x="985" y="165" width="150" height="72" rx="10" class="proc"/><text x="1025" y="194" class="head">Washing</text><text x="1012" y="216" class="small">cleaning</text>
+  <rect x="1165" y="165" width="180" height="72" rx="10" class="mat"/><text x="1192" y="192" class="head">Washed flakes</text><text x="1220" y="215" class="small">320 kg</text>
+  <path d="M215 201H245M395 201H425M585 201H615M765 201H795M955 201H985M1135 201H1165" class="edge"/>
+  <rect x="1165" y="300" width="180" height="72" rx="10" class="proc"/><text x="1217" y="330" class="head">Drying</text><text x="1194" y="351" class="small">manufacturing process</text>
+  <rect x="940" y="300" width="180" height="72" rx="10" class="mat"/><text x="968" y="328" class="head">Dried flakes</text><text x="995" y="351" class="small">315 kg</text>
+  <rect x="680" y="300" width="210" height="72" rx="10" class="proc"/><text x="714" y="328" class="head">Extrusion + filtration</text><text x="743" y="351" class="small">extrusion</text>
+  <rect x="455" y="300" width="180" height="72" rx="10" class="mat"/><text x="473" y="328" class="head">Filtered extrudate</text><text x="510" y="351" class="small">310 kg</text>
+  <rect x="245" y="300" width="165" height="72" rx="10" class="proc"/><text x="279" y="328" class="head">Pelletizing</text><text x="265" y="351" class="small">manufacturing process</text>
+  <rect x="45" y="300" width="155" height="72" rx="10" class="mat"/><text x="69" y="328" class="head">rHDPE pellets</text><text x="88" y="351" class="small">300 kg</text>
+  <path d="M1255 237V300M1165 336H1120M940 336H890M680 336H635M455 336H410M245 336H200" class="edge"/>
+  <text x="50" y="445" class="small">Washing also asserts water + detergent inputs and wastewater output (not expanded here).</text>
+  <rect x="45" y="550" width="170" height="72" rx="10" class="mat"/><text x="67" y="579" class="head">rHDPE pellets</text><text x="92" y="602" class="small">300 kg</text>
+  <rect x="45" y="650" width="170" height="72" rx="10" class="mat"/><text x="67" y="679" class="head">Virgin HDPE</text><text x="92" y="702" class="small">700 kg</text>
+  <rect x="285" y="600" width="150" height="72" rx="10" class="down"/><text x="328" y="630" class="head">Mixing</text><text x="311" y="653" class="small">30 % recycled</text>
+  <rect x="505" y="600" width="180" height="72" rx="10" class="mat"/><text x="537" y="630" class="head">HDPE blend</text><text x="555" y="653" class="small">1000 kg</text>
+  <rect x="755" y="600" width="210" height="72" rx="10" class="down"/><text x="786" y="630" class="head">Extrusion blow molding</text><text x="807" y="653" class="small">PMD_0200007</text>
+  <rect x="1035" y="600" width="250" height="72" rx="10" class="mat"/><text x="1063" y="628" class="head">Non-food bottle batch</text><text x="1108" y="653" class="small">1000 kg</text>
+  <path d="M215 586L285 625M215 686L285 647M435 636H505M685 636H755M965 636H1035" class="edge"/>
+</svg>

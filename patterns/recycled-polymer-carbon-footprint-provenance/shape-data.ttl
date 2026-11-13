@@ -1,0 +1,193 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix log: <https://w3id.org/pmd/log/> .
+@prefix matsus: <https://w3id.org/pmd/matsus/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix p2: <https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/> .
+@prefix pmd: <https://w3id.org/pmd/co/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ceon-process: <http://w3id.org/CEON/ontology/process/> .
+
+# Physical batches and executed recycling genealogy
+p2:postConsumerHDPEBatch a pmd:PMD_0050007, pmd:PMD_0000891 ; rdfs:label "Mat. synthetic post-consumer HDPE packaging batch (350 kg)"@en .
+p2:sortedHDPEBatch a pmd:PMD_0050007, pmd:PMD_0000891 ; rdfs:label "Mat. sorted HDPE stream (340 kg)"@en .
+p2:shreddedHDPEFlakeBatch a pmd:PMD_0050007, pmd:PMD_0000891 ; rdfs:label "Mat. shredded HDPE flake stream (335 kg)"@en .
+p2:washedHDPEFlakeBatch a pmd:PMD_0050007, pmd:PMD_0000891 ; rdfs:label "Mat. washed HDPE flake stream (320 kg)"@en .
+p2:driedHDPEFlakeBatch a pmd:PMD_0050007, pmd:PMD_0000891 ; rdfs:label "Mat. dried HDPE flake stream (315 kg)"@en .
+p2:filteredHDPEExtrudateBatch a pmd:PMD_0050007 ; rdfs:label "Mat. melt-filtered HDPE extrudate stream (310 kg)"@en .
+p2:recycledPelletBatch a pmd:PMD_0050007, pmd:PMD_0000891, matsus:MATSUS_0000002, matsus:MATSUS_0000003 ; rdfs:label "Mat. recovered rHDPE pellet batch (300 kg)"@en .
+p2:washWater a pmd:PMD_0000000 ; rdfs:label "Mat. synthetic washing-water input"@en .
+p2:washDetergent a pmd:PMD_0000000 ; rdfs:label "Mat. synthetic detergent input"@en .
+p2:washWastewater a pmd:PMD_0000000 ; rdfs:label "Mat. synthetic washing wastewater output"@en .
+
+p2:mechanicalRecycling a ceon-process:RecycleProcess, matsus:MATSUS_0000000 ; rdfs:label "Proc. executed composite mechanical recycling process"@en ; obo:OBI_0000293 p2:postConsumerHDPEBatch ; obo:OBI_0000299 p2:recycledPelletBatch ; obo:BFO_0000117 p2:sorting, p2:shredding, p2:washing, p2:drying, p2:extrusionMeltFiltration, p2:pelletizing .
+p2:sorting a matsus:MATSUS_0000016 ; rdfs:label "Proc. executed polymer sorting"@en ; obo:OBI_0000293 p2:postConsumerHDPEBatch ; obo:OBI_0000299 p2:sortedHDPEBatch .
+p2:shredding a pmd:PMD_0000927 ; rdfs:label "Proc. executed shredding (PMDco separating)"@en ; obo:OBI_0000293 p2:sortedHDPEBatch ; obo:OBI_0000299 p2:shreddedHDPEFlakeBatch .
+p2:washing a pmd:PMD_0000560 ; rdfs:label "Proc. executed flake washing"@en ; obo:OBI_0000293 p2:shreddedHDPEFlakeBatch, p2:washWater, p2:washDetergent ; obo:OBI_0000299 p2:washedHDPEFlakeBatch, p2:washWastewater .
+p2:drying a pmd:PMD_0000833 ; rdfs:label "Proc. executed flake drying (PMDco manufacturing process)"@en ; obo:OBI_0000293 p2:washedHDPEFlakeBatch ; obo:OBI_0000299 p2:driedHDPEFlakeBatch .
+p2:extrusionMeltFiltration a pmd:PMD_0200004 ; rdfs:label "Proc. executed extrusion with integrated melt filtration"@en ; obo:OBI_0000293 p2:driedHDPEFlakeBatch ; obo:OBI_0000299 p2:filteredHDPEExtrudateBatch .
+p2:pelletizing a pmd:PMD_0000833 ; rdfs:label "Proc. executed pelletizing/regranulation (PMDco manufacturing process)"@en ; obo:OBI_0000293 p2:filteredHDPEExtrudateBatch ; obo:OBI_0000299 p2:recycledPelletBatch .
+
+# Batch quantities
+p2:batchWeighingRecord a obo:IAO_0000310 ; rdfs:label "Inf. synthetic recycling-batch weighing record"@en ; obo:IAO_0000136 p2:mechanicalRecycling ; obo:BFO_0000051 p2:postConsumerMassDatum, p2:sortedMassDatum, p2:shreddedMassDatum, p2:washedMassDatum, p2:driedMassDatum, p2:extrudateMassDatum, p2:pelletMassDatum .
+p2:postConsumerMassDatum a obo:IAO_0000109 ; rdfs:label "Data. synthetic feed mass"@en ; obo:IAO_0000136 p2:postConsumerHDPEBatch ; dcterms:source p2:batchWeighingRecord ; obo:OBI_0001938 p2:postConsumerMassValue .
+p2:postConsumerMassValue a pmd:PMD_0080205 ; qudt:numericValue "350"^^xsd:decimal ; qudt:hasUnit unit:KiloGM .
+p2:sortedMassDatum a obo:IAO_0000109 ; rdfs:label "Data. synthetic sorted-stream mass"@en ; obo:IAO_0000136 p2:sortedHDPEBatch ; dcterms:source p2:batchWeighingRecord ; obo:OBI_0001938 p2:sortedMassValue .
+p2:sortedMassValue a pmd:PMD_0080205 ; qudt:numericValue "340"^^xsd:decimal ; qudt:hasUnit unit:KiloGM .
+p2:shreddedMassDatum a obo:IAO_0000109 ; rdfs:label "Data. synthetic shredded-flake mass"@en ; obo:IAO_0000136 p2:shreddedHDPEFlakeBatch ; dcterms:source p2:batchWeighingRecord ; obo:OBI_0001938 p2:shreddedMassValue .
+p2:shreddedMassValue a pmd:PMD_0080205 ; qudt:numericValue "335"^^xsd:decimal ; qudt:hasUnit unit:KiloGM .
+p2:washedMassDatum a obo:IAO_0000109 ; rdfs:label "Data. synthetic washed-flake mass"@en ; obo:IAO_0000136 p2:washedHDPEFlakeBatch ; dcterms:source p2:batchWeighingRecord ; obo:OBI_0001938 p2:washedMassValue .
+p2:washedMassValue a pmd:PMD_0080205 ; qudt:numericValue "320"^^xsd:decimal ; qudt:hasUnit unit:KiloGM .
+p2:driedMassDatum a obo:IAO_0000109 ; rdfs:label "Data. synthetic dried-flake mass"@en ; obo:IAO_0000136 p2:driedHDPEFlakeBatch ; dcterms:source p2:batchWeighingRecord ; obo:OBI_0001938 p2:driedMassValue .
+p2:driedMassValue a pmd:PMD_0080205 ; qudt:numericValue "315"^^xsd:decimal ; qudt:hasUnit unit:KiloGM .
+p2:extrudateMassDatum a obo:IAO_0000109 ; rdfs:label "Data. synthetic filtered-extrudate mass"@en ; obo:IAO_0000136 p2:filteredHDPEExtrudateBatch ; dcterms:source p2:batchWeighingRecord ; obo:OBI_0001938 p2:extrudateMassValue .
+p2:extrudateMassValue a pmd:PMD_0080205 ; qudt:numericValue "310"^^xsd:decimal ; qudt:hasUnit unit:KiloGM .
+p2:pelletMassDatum a obo:IAO_0000109 ; rdfs:label "Data. synthetic rHDPE-pellet mass"@en ; obo:IAO_0000136 p2:recycledPelletBatch ; dcterms:source p2:batchWeighingRecord ; obo:OBI_0001938 p2:pelletMassValue .
+p2:pelletMassValue a pmd:PMD_0080205 ; qudt:numericValue "300"^^xsd:decimal ; qudt:hasUnit unit:KiloGM .
+
+# Process inventory evidence; washing is detailed
+p2:sortingInventoryRecord a obo:IAO_0000310 ; rdfs:label "Inf. synthetic sorting inventory record"@en ; obo:IAO_0000136 p2:sorting ; obo:BFO_0000051 p2:sortingElectricityDatum .
+p2:sortingElectricityDatum a obo:IAO_0000109 ; rdfs:label "Data. synthetic sorting electricity consumption"@en ; obo:IAO_0000136 p2:sorting ; dcterms:source p2:sortingMeterSource ; obo:OBI_0001938 p2:sortingElectricityValue .
+p2:sortingElectricityValue a pmd:PMD_0080205 ; qudt:numericValue "4.0"^^xsd:decimal ; qudt:hasUnit unit:KiloW-HR .
+p2:sortingMeterSource a obo:IAO_0000310 ; rdfs:label "Inf. synthetic sorting electricity-meter record"@en ; obo:IAO_0000136 p2:sorting, p2:sortingElectricityDatum .
+p2:shreddingInventoryRecord a obo:IAO_0000310 ; rdfs:label "Inf. synthetic shredding inventory record"@en ; obo:IAO_0000136 p2:shredding ; obo:BFO_0000051 p2:shreddingElectricityDatum .
+p2:shreddingElectricityDatum a obo:IAO_0000109 ; rdfs:label "Data. synthetic shredding electricity consumption"@en ; obo:IAO_0000136 p2:shredding ; dcterms:source p2:shreddingMeterSource ; obo:OBI_0001938 p2:shreddingElectricityValue .
+p2:shreddingElectricityValue a pmd:PMD_0080205 ; qudt:numericValue "12.0"^^xsd:decimal ; qudt:hasUnit unit:KiloW-HR .
+p2:shreddingMeterSource a obo:IAO_0000310 ; rdfs:label "Inf. synthetic shredder electricity-meter record"@en ; obo:IAO_0000136 p2:shredding, p2:shreddingElectricityDatum .
+
+p2:washingInventoryRecord a obo:IAO_0000310 ; rdfs:label "Inf. synthetic washing unit-process inventory record"@en ; obo:IAO_0000136 p2:washing, p2:shreddedHDPEFlakeBatch, p2:washWater, p2:washDetergent, p2:washedHDPEFlakeBatch, p2:washWastewater ; obo:BFO_0000051 p2:washingElectricityDatum, p2:washWaterDatum, p2:washDetergentDatum, p2:washWastewaterDatum .
+p2:washingElectricityDatum a obo:IAO_0000109 ; rdfs:label "Data. synthetic washing electricity consumption"@en ; obo:IAO_0000136 p2:washing ; dcterms:source p2:washingMeterSource ; obo:OBI_0001938 p2:washingElectricityValue .
+p2:washingElectricityValue a pmd:PMD_0080205 ; qudt:numericValue "18.0"^^xsd:decimal ; qudt:hasUnit unit:KiloW-HR .
+p2:washingMeterSource a obo:IAO_0000310 ; rdfs:label "Inf. synthetic washing electricity-meter record"@en ; obo:IAO_0000136 p2:washing, p2:washingElectricityDatum .
+p2:washWaterDatum a obo:IAO_0000109 ; rdfs:label "Data. synthetic washing-water consumption"@en ; obo:IAO_0000136 p2:washing, p2:washWater ; dcterms:source p2:washWaterTankSource ; obo:OBI_0001938 p2:washWaterValue .
+p2:washWaterValue a pmd:PMD_0080205 ; qudt:numericValue "450"^^xsd:decimal ; qudt:hasUnit unit:L .
+p2:washWaterTankSource a obo:IAO_0000310 ; rdfs:label "Inf. synthetic wash-water tank-level record"@en ; obo:IAO_0000136 p2:washing, p2:washWaterDatum .
+p2:washDetergentDatum a obo:IAO_0000109 ; rdfs:label "Data. synthetic washing-detergent consumption"@en ; obo:IAO_0000136 p2:washing, p2:washDetergent ; dcterms:source p2:detergentBatchSheetSource ; obo:OBI_0001938 p2:washDetergentValue .
+p2:washDetergentValue a pmd:PMD_0080205 ; qudt:numericValue "1.5"^^xsd:decimal ; qudt:hasUnit unit:KiloGM .
+p2:detergentBatchSheetSource a obo:IAO_0000310 ; rdfs:label "Inf. synthetic detergent batch-sheet record"@en ; obo:IAO_0000136 p2:washing, p2:washDetergentDatum .
+p2:washWastewaterDatum a obo:IAO_0000109 ; rdfs:label "Data. synthetic wastewater output"@en ; obo:IAO_0000136 p2:washing, p2:washWastewater ; dcterms:source p2:wastewaterLogSource ; obo:OBI_0001938 p2:washWastewaterValue .
+p2:washWastewaterValue a pmd:PMD_0080205 ; qudt:numericValue "430"^^xsd:decimal ; qudt:hasUnit unit:L .
+p2:wastewaterLogSource a obo:IAO_0000310 ; rdfs:label "Inf. synthetic wastewater discharge log"@en ; obo:IAO_0000136 p2:washing, p2:washWastewaterDatum .
+p2:dryingInventoryRecord a obo:IAO_0000310 ; rdfs:label "Inf. synthetic drying inventory record"@en ; obo:IAO_0000136 p2:drying ; obo:BFO_0000051 p2:dryingElectricityDatum .
+p2:dryingElectricityDatum a obo:IAO_0000109 ; rdfs:label "Data. synthetic drying electricity consumption"@en ; obo:IAO_0000136 p2:drying ; dcterms:source p2:dryingMeterSource ; obo:OBI_0001938 p2:dryingElectricityValue .
+p2:dryingElectricityValue a pmd:PMD_0080205 ; qudt:numericValue "22.0"^^xsd:decimal ; qudt:hasUnit unit:KiloW-HR .
+p2:dryingMeterSource a obo:IAO_0000310 ; rdfs:label "Inf. synthetic dryer electricity-meter record"@en ; obo:IAO_0000136 p2:drying, p2:dryingElectricityDatum .
+p2:extrusionInventoryRecord a obo:IAO_0000310 ; rdfs:label "Inf. synthetic extrusion and melt-filtration inventory record"@en ; obo:IAO_0000136 p2:extrusionMeltFiltration ; obo:BFO_0000051 p2:extrusionElectricityDatum .
+p2:extrusionElectricityDatum a obo:IAO_0000109 ; rdfs:label "Data. synthetic extrusion electricity consumption"@en ; obo:IAO_0000136 p2:extrusionMeltFiltration ; dcterms:source p2:extrusionMeterSource ; obo:OBI_0001938 p2:extrusionElectricityValue .
+p2:extrusionElectricityValue a pmd:PMD_0080205 ; qudt:numericValue "40.0"^^xsd:decimal ; qudt:hasUnit unit:KiloW-HR .
+p2:extrusionMeterSource a obo:IAO_0000310 ; rdfs:label "Inf. synthetic extruder electricity-meter record"@en ; obo:IAO_0000136 p2:extrusionMeltFiltration, p2:extrusionElectricityDatum .
+p2:pelletizingInventoryRecord a obo:IAO_0000310 ; rdfs:label "Inf. synthetic pelletizing inventory record"@en ; obo:IAO_0000136 p2:pelletizing ; obo:BFO_0000051 p2:pelletizingElectricityDatum .
+p2:pelletizingElectricityDatum a obo:IAO_0000109 ; rdfs:label "Data. synthetic pelletizing electricity consumption"@en ; obo:IAO_0000136 p2:pelletizing ; dcterms:source p2:pelletizingMeterSource ; obo:OBI_0001938 p2:pelletizingElectricityValue .
+p2:pelletizingElectricityValue a pmd:PMD_0080205 ; qudt:numericValue "6.0"^^xsd:decimal ; qudt:hasUnit unit:KiloW-HR .
+p2:pelletizingMeterSource a obo:IAO_0000310 ; rdfs:label "Inf. synthetic pelletizer electricity-meter record"@en ; obo:IAO_0000136 p2:pelletizing, p2:pelletizingElectricityDatum .
+
+# PP-contamination characterization
+p2:ppContaminationCharacterization a pmd:PMD_0000552 ; rdfs:label "Proc. illustrative PP-contamination characterization"@en ; obo:OBI_0000293 p2:recycledPelletBatch, p2:syntheticPPCharacterizationMethod ; obo:OBI_0000299 p2:ppContaminationDatum .
+p2:syntheticPPCharacterizationMethod a obo:IAO_0000104 ; rdfs:label "Spec. illustrative PP-contamination characterization method (not validated)"@en ; obo:IAO_0000136 p2:ppContaminationCharacterization .
+p2:ppDryMassBasis a obo:IAO_0000033 ; rdfs:label "Spec. PP mass fraction of dry recovered-pellet sample"@en ; obo:IAO_0000136 p2:recycledPelletBatch, p2:ppMassFractionQuality .
+p2:ppMassFractionQuality a pmd:PMD_0020102 ; rdfs:label "Qual. PP mass fraction in the synthetic recovered-pellet batch"@en ; obo:RO_0000052 p2:recycledPelletBatch .
+p2:ppContaminantMaterial a pmd:PMD_0050009 ; rdfs:label "Mat. polypropylene constituent represented by the synthetic characterization result"@en .
+p2:ppContaminationDatum a obo:IAO_0000109 ; rdfs:label "Data. illustrative PP contamination: 0.8 % by dry mass"@en ; obo:IAO_0000136 p2:recycledPelletBatch, p2:ppMassFractionQuality, p2:ppContaminantMaterial, p2:ppDryMassBasis ; dcterms:source p2:syntheticCharacterizationReport ; obo:OBI_0001938 p2:ppContaminationValue .
+p2:ppContaminationValue a pmd:PMD_0080205 ; obo:OBI_0001927 p2:ppMassFractionQuality ; qudt:numericValue "0.8"^^xsd:decimal ; qudt:hasUnit unit:PERCENT .
+p2:syntheticCharacterizationReport a obo:IAO_0000310 ; rdfs:label "Inf. synthetic PP-contamination characterization report"@en ; obo:IAO_0000136 p2:ppContaminationCharacterization, p2:recycledPelletBatch, p2:ppContaminationDatum, p2:syntheticPPCharacterizationMethod .
+
+# Recycling carbon-footprint provenance
+p2:recyclingCFSpecification a matsus:MATSUS_0000068 ; rdfs:label "Spec. synthetic recycling CF quantification specification"@en ; obo:BFO_0000051 p2:recyclingFunctionalUnit, p2:recyclingReferenceFlow, p2:recyclingSystemBoundary .
+p2:recyclingFunctionalUnit a matsus:MATSUS_0000069 ; rdfs:label "Spec. process the one synthetic 350 kg post-consumer HDPE batch"@en .
+p2:recyclingReferenceFlow a matsus:MATSUS_0000070 ; rdfs:label "Spec. reference flow: the resulting 300 kg rHDPE pellet batch"@en ; obo:IAO_0000136 p2:recycledPelletBatch, p2:pelletMassDatum .
+p2:recyclingSystemBoundary a matsus:MATSUS_0000071 ; rdfs:label "Spec. gate-to-gate: sorting through pelletizing; excludes collection, transport, prior use and bottle manufacture"@en ; obo:IAO_0000136 p2:mechanicalRecycling .
+p2:recyclingSystemModel a matsus:MATSUS_0000072 ; rdfs:label "Inf. synthetic mechanical-recycling system model"@en ; obo:IAO_0000136 p2:mechanicalRecycling, p2:postConsumerHDPEBatch, p2:recycledPelletBatch .
+
+p2:gridElectricityFactorBasis a obo:IAO_0000033 ; rdfs:label "Spec. synthetic grid-electricity factor basis: kg CO2e per kWh; no geography, time or technology representativeness claim"@en ; obo:IAO_0000136 matsus:MATSUS_0000078, matsus:MATSUS_0000079 .
+p2:syntheticEmissionFactorSource a obo:IAO_0000310 ; rdfs:label "Inf. synthetic grid-electricity factor source; not an empirical database"@en ; obo:IAO_0000136 p2:gridElectricityEmissionFactorDatum, p2:gridElectricityEmissionFactorValue, p2:gridElectricityFactorBasis .
+p2:gridElectricityEmissionFactorDatum a obo:IAO_0000027 ; rdfs:label "Data. synthetic test factor: 0.4 kg CO2e per kWh"@en ; dcterms:source p2:syntheticEmissionFactorSource ; obo:IAO_0000136 p2:recyclingCFQuantification, p2:bottleCFQuantification, p2:gridElectricityFactorBasis, matsus:MATSUS_0000078, matsus:MATSUS_0000079 ; obo:OBI_0001938 p2:gridElectricityEmissionFactorValue .
+p2:gridElectricityEmissionFactorValue a pmd:PMD_0080205 ; qudt:numericValue "0.4"^^xsd:decimal ; qudt:hasUnit unit:KiloGM-PER-KiloW-HR .
+
+p2:recyclingLCIAnalysis a matsus:MATSUS_0000066 ; rdfs:label "Proc. synthetic recycling inventory compilation"@en ; obo:OBI_0000293 p2:sortingInventoryRecord, p2:shreddingInventoryRecord, p2:washingInventoryRecord, p2:dryingInventoryRecord, p2:extrusionInventoryRecord, p2:pelletizingInventoryRecord, p2:batchWeighingRecord ; obo:OBI_0000299 p2:compiledRecyclingInventory .
+p2:compiledRecyclingInventory a obo:IAO_0000310 ; rdfs:label "Inf. compiled synthetic recycling inventory dataset"@en ; obo:IAO_0000136 p2:mechanicalRecycling ; dcterms:source p2:sortingInventoryRecord, p2:shreddingInventoryRecord, p2:washingInventoryRecord, p2:dryingInventoryRecord, p2:extrusionInventoryRecord, p2:pelletizingInventoryRecord, p2:batchWeighingRecord .
+p2:recyclingCFQuantification a pmd:PMD_0000583 ; rdfs:label "Proc. black-box synthetic recycling CF computation"@en ; obo:OBI_0000293 p2:recyclingSystemModel, p2:recyclingCFSpecification, p2:compiledRecyclingInventory, p2:gridElectricityEmissionFactorDatum ; obo:OBI_0000299 p2:sortingCFResult, p2:shreddingCFResult, p2:washingCFResult, p2:dryingCFResult, p2:extrusionCFResult, p2:pelletizingCFResult, p2:recycledPelletCFResult .
+
+p2:sortingCFResult a matsus:MATSUS_0000076 ; rdfs:label "Result. synthetic sorting CF"@en ; obo:IAO_0000136 p2:sorting, matsus:MATSUS_0000078, matsus:MATSUS_0000079 ; obo:OBI_0001938 p2:sortingCFValue ; matsus:MATSUS_0000077 p2:recycledPelletCFResult .
+p2:sortingCFValue a pmd:PMD_0080205 ; qudt:numericValue "1.8"^^xsd:decimal ; qudt:hasUnit unit:KiloGM .
+p2:shreddingCFResult a matsus:MATSUS_0000076 ; rdfs:label "Result. synthetic shredding CF"@en ; obo:IAO_0000136 p2:shredding, matsus:MATSUS_0000078, matsus:MATSUS_0000079 ; obo:OBI_0001938 p2:shreddingCFValue ; matsus:MATSUS_0000077 p2:recycledPelletCFResult .
+p2:shreddingCFValue a pmd:PMD_0080205 ; qudt:numericValue "5.2"^^xsd:decimal ; qudt:hasUnit unit:KiloGM .
+p2:washingCFResult a matsus:MATSUS_0000076 ; rdfs:label "Result. synthetic washing CF"@en ; obo:IAO_0000136 p2:washing, matsus:MATSUS_0000078, matsus:MATSUS_0000079 ; obo:OBI_0001938 p2:washingCFValue ; matsus:MATSUS_0000077 p2:recycledPelletCFResult .
+p2:washingCFValue a pmd:PMD_0080205 ; qudt:numericValue "9.4"^^xsd:decimal ; qudt:hasUnit unit:KiloGM .
+p2:dryingCFResult a matsus:MATSUS_0000076 ; rdfs:label "Result. synthetic drying CF"@en ; obo:IAO_0000136 p2:drying, matsus:MATSUS_0000078, matsus:MATSUS_0000079 ; obo:OBI_0001938 p2:dryingCFValue ; matsus:MATSUS_0000077 p2:recycledPelletCFResult .
+p2:dryingCFValue a pmd:PMD_0080205 ; qudt:numericValue "10.1"^^xsd:decimal ; qudt:hasUnit unit:KiloGM .
+p2:extrusionCFResult a matsus:MATSUS_0000076 ; rdfs:label "Result. synthetic extrusion and melt-filtration CF"@en ; obo:IAO_0000136 p2:extrusionMeltFiltration, matsus:MATSUS_0000078, matsus:MATSUS_0000079 ; obo:OBI_0001938 p2:extrusionCFValue ; matsus:MATSUS_0000077 p2:recycledPelletCFResult .
+p2:extrusionCFValue a pmd:PMD_0080205 ; qudt:numericValue "19.8"^^xsd:decimal ; qudt:hasUnit unit:KiloGM .
+p2:pelletizingCFResult a matsus:MATSUS_0000076 ; rdfs:label "Result. synthetic pelletizing CF"@en ; obo:IAO_0000136 p2:pelletizing, matsus:MATSUS_0000078, matsus:MATSUS_0000079 ; obo:OBI_0001938 p2:pelletizingCFValue ; matsus:MATSUS_0000077 p2:recycledPelletCFResult .
+p2:pelletizingCFValue a pmd:PMD_0080205 ; qudt:numericValue "2.7"^^xsd:decimal ; qudt:hasUnit unit:KiloGM .
+p2:recycledPelletCFResult a matsus:MATSUS_0000076 ; rdfs:label "Result. synthetic gate-to-gate CF for the 300 kg pellet batch"@en ; obo:IAO_0000136 p2:recycledPelletBatch, matsus:MATSUS_0000078, matsus:MATSUS_0000079 ; obo:OBI_0001938 p2:recycledPelletCFValue ; matsus:MATSUS_0000077 p2:finalBottleCFResult .
+p2:recycledPelletCFValue a pmd:PMD_0080205 ; qudt:numericValue "49.0"^^xsd:decimal ; qudt:hasUnit unit:KiloGM .
+
+# Virgin supply, mixing and bottle manufacture
+p2:virginHDPEBatch a pmd:PMD_0050007, pmd:PMD_0000891, matsus:MATSUS_0000030 ; rdfs:label "Mat. independent supplier virgin-HDPE batch (700 kg)"@en .
+p2:blendedHDPEBatch a pmd:PMD_0050007, pmd:PMD_0000891 ; rdfs:label "Mat. 30 % recycled / 70 % virgin HDPE blend batch (1000 kg)"@en .
+p2:finalBottleBatch a pmd:PMD_0050007, obo:BFO_0000027 ; rdfs:label "Obj./Mat. synthetic non-food detergent/shampoo bottle batch (1000 kg)"@en .
+p2:mixing a pmd:PMD_0000778 ; rdfs:label "Proc. executed mixing of recycled and virgin HDPE"@en ; obo:OBI_0000293 p2:recycledPelletBatch, p2:virginHDPEBatch ; obo:OBI_0000299 p2:blendedHDPEBatch .
+p2:extrusionBlowMolding a pmd:PMD_0200007 ; rdfs:label "Proc. executed extrusion blow molding of non-food bottles"@en ; obo:OBI_0000293 p2:blendedHDPEBatch ; obo:OBI_0000299 p2:finalBottleBatch .
+
+p2:recycledContentDatum a matsus:MATSUS_0000081 ; rdfs:label "Data. illustrative 30 % recycled mass fraction"@en ; obo:IAO_0000136 p2:blendedHDPEBatch, p2:finalBottleBatch, p2:recycledPelletBatch, p2:virginHDPEBatch ; dcterms:source p2:mixingBatchRecord ; obo:OBI_0001938 p2:recycledContentValue .
+p2:recycledContentValue a pmd:PMD_0080205 ; qudt:numericValue "30"^^xsd:decimal ; qudt:hasUnit unit:PERCENT .
+p2:virginMassDatum a obo:IAO_0000109 ; rdfs:label "Data. synthetic virgin-HDPE input mass"@en ; obo:IAO_0000136 p2:virginHDPEBatch ; dcterms:source p2:mixingBatchRecord ; obo:OBI_0001938 p2:virginMassValue .
+p2:virginMassValue a pmd:PMD_0080205 ; qudt:numericValue "700"^^xsd:decimal ; qudt:hasUnit unit:KiloGM .
+p2:blendMassDatum a obo:IAO_0000109 ; rdfs:label "Data. synthetic blend output mass"@en ; obo:IAO_0000136 p2:blendedHDPEBatch ; dcterms:source p2:mixingBatchRecord ; obo:OBI_0001938 p2:blendMassValue .
+p2:blendMassValue a pmd:PMD_0080205 ; qudt:numericValue "1000"^^xsd:decimal ; qudt:hasUnit unit:KiloGM .
+p2:bottleMassDatum a obo:IAO_0000109 ; rdfs:label "Data. synthetic bottle-batch mass"@en ; obo:IAO_0000136 p2:finalBottleBatch ; dcterms:source p2:blowMoldingBatchRecord ; obo:OBI_0001938 p2:bottleMassValue .
+p2:bottleMassValue a pmd:PMD_0080205 ; qudt:numericValue "1000"^^xsd:decimal ; qudt:hasUnit unit:KiloGM .
+p2:mixingBatchRecord a obo:IAO_0000310 ; rdfs:label "Inf. synthetic mixing batch and inventory record"@en ; obo:IAO_0000136 p2:mixing ; obo:BFO_0000051 p2:pelletMassDatum, p2:virginMassDatum, p2:blendMassDatum, p2:recycledContentDatum, p2:mixingElectricityDatum .
+p2:mixingElectricityDatum a obo:IAO_0000109 ; rdfs:label "Data. synthetic mixing electricity consumption"@en ; obo:IAO_0000136 p2:mixing ; dcterms:source p2:mixingBatchRecord ; obo:OBI_0001938 p2:mixingElectricityValue .
+p2:mixingElectricityValue a pmd:PMD_0080205 ; qudt:numericValue "5.0"^^xsd:decimal ; qudt:hasUnit unit:KiloW-HR .
+p2:blowMoldingBatchRecord a obo:IAO_0000310 ; rdfs:label "Inf. synthetic blow-molding batch and inventory record"@en ; obo:IAO_0000136 p2:extrusionBlowMolding ; obo:BFO_0000051 p2:bottleMassDatum, p2:blowMoldingElectricityDatum .
+p2:blowMoldingElectricityDatum a obo:IAO_0000109 ; rdfs:label "Data. synthetic blow-molding electricity consumption"@en ; obo:IAO_0000136 p2:extrusionBlowMolding ; dcterms:source p2:blowMoldingBatchRecord ; obo:OBI_0001938 p2:blowMoldingElectricityValue .
+p2:blowMoldingElectricityValue a pmd:PMD_0080205 ; qudt:numericValue "180"^^xsd:decimal ; qudt:hasUnit unit:KiloW-HR .
+
+# Supplier-provided virgin-HDPE footprint information
+p2:syntheticVirginSupplier a log:LOG_1000020, obo:OBI_0000245 ; rdfs:label "Org. Synthetic Virgin HDPE Supplier Ltd."@en .
+p2:syntheticSupplierPrimaryDataRecord a obo:IAO_0000310 ; rdfs:label "Inf. synthetic supplier primary-data source record"@en ; obo:IAO_0000136 p2:syntheticVirginSupplier, p2:virginHDPEBatch .
+p2:virginCFSpecification a matsus:MATSUS_0000068 ; rdfs:label "Spec. synthetic supplier cradle-to-gate virgin-HDPE CF specification"@en ; obo:BFO_0000051 p2:virginFunctionalUnit, p2:virginReferenceFlow, p2:virginSystemBoundary .
+p2:virginFunctionalUnit a matsus:MATSUS_0000069 ; rdfs:label "Spec. supply the one 700 kg virgin-HDPE batch"@en .
+p2:virginReferenceFlow a matsus:MATSUS_0000070 ; rdfs:label "Spec. reference flow: 700 kg virgin HDPE at bottle-plant gate"@en ; obo:IAO_0000136 p2:virginHDPEBatch, p2:virginMassDatum .
+p2:virginSystemBoundary a matsus:MATSUS_0000071 ; rdfs:label "Spec. declared cradle-to-bottle-plant-gate boundary; internal supplier model not exposed"@en ; obo:IAO_0000136 p2:virginHDPEBatch .
+p2:virginSystemModel a matsus:MATSUS_0000072 ; rdfs:label "Inf. synthetic supplier black-box system model"@en ; obo:IAO_0000136 p2:virginHDPEBatch .
+p2:virginSupplierCFQuantification a pmd:PMD_0000583 ; rdfs:label "Proc. synthetic supplier virgin-HDPE CF computation"@en ; obo:OBI_0000293 p2:virginSystemModel, p2:virginCFSpecification, p2:syntheticSupplierPrimaryDataRecord ; obo:OBI_0000299 p2:virginSupplierCFResult .
+p2:virginSupplierCFResult a matsus:MATSUS_0000076 ; rdfs:label "Result. supplier-provided synthetic virgin-HDPE CF"@en ; obo:IAO_0000136 p2:virginHDPEBatch, matsus:MATSUS_0000078, matsus:MATSUS_0000079 ; obo:OBI_0001938 p2:virginSupplierCFValue ; matsus:MATSUS_0000077 p2:finalBottleCFResult .
+p2:virginSupplierCFValue a pmd:PMD_0080205 ; qudt:numericValue "1260.0"^^xsd:decimal ; qudt:hasUnit unit:KiloGM .
+p2:virginSupplierDeclaration a obo:IAO_0000310 ; rdfs:label "Inf. synthetic supplier CF declaration (not independently verified)"@en ; dcterms:source p2:syntheticSupplierPrimaryDataRecord ; obo:IAO_0000136 p2:syntheticVirginSupplier, p2:virginHDPEBatch, p2:virginSupplierCFQuantification, p2:virginSupplierCFResult, p2:virginCFSpecification .
+
+# Downstream bottle-product CF provenance
+p2:bottleCFSpecification a matsus:MATSUS_0000068 ; rdfs:label "Spec. synthetic bottle-product CF specification"@en ; obo:BFO_0000051 p2:bottleFunctionalUnit, p2:bottleReferenceFlow, p2:bottleSystemBoundary .
+p2:bottleFunctionalUnit a matsus:MATSUS_0000069 ; rdfs:label "Spec. produce the one synthetic non-food bottle batch"@en .
+p2:bottleReferenceFlow a matsus:MATSUS_0000070 ; rdfs:label "Spec. reference flow: 1000 kg finished non-food HDPE bottles"@en ; obo:IAO_0000136 p2:finalBottleBatch, p2:bottleMassDatum .
+p2:bottleSystemBoundary a matsus:MATSUS_0000071 ; rdfs:label "Spec. pellet and declared virgin-resin supply plus mixing and blow molding; excludes distribution, use and end of life"@en ; obo:IAO_0000136 p2:recycledPelletBatch, p2:virginHDPEBatch, p2:mixing, p2:extrusionBlowMolding .
+p2:bottleSystemModel a matsus:MATSUS_0000072 ; rdfs:label "Inf. synthetic bottle-production system model"@en ; obo:IAO_0000136 p2:recycledPelletBatch, p2:virginHDPEBatch, p2:mixing, p2:extrusionBlowMolding, p2:finalBottleBatch .
+p2:bottleLCIAnalysis a matsus:MATSUS_0000066 ; rdfs:label "Proc. synthetic bottle-production inventory compilation"@en ; obo:OBI_0000293 p2:compiledRecyclingInventory, p2:virginSupplierDeclaration, p2:mixingBatchRecord, p2:blowMoldingBatchRecord ; obo:OBI_0000299 p2:compiledBottleInventory .
+p2:compiledBottleInventory a obo:IAO_0000310 ; rdfs:label "Inf. compiled synthetic bottle-production inventory dataset"@en ; obo:IAO_0000136 p2:finalBottleBatch ; dcterms:source p2:compiledRecyclingInventory, p2:virginSupplierDeclaration, p2:mixingBatchRecord, p2:blowMoldingBatchRecord .
+p2:bottleCFQuantification a pmd:PMD_0000583 ; rdfs:label "Proc. black-box synthetic final-bottle CF computation"@en ; obo:OBI_0000293 p2:bottleSystemModel, p2:bottleCFSpecification, p2:compiledBottleInventory, p2:virginSupplierDeclaration, p2:compiledRecyclingInventory, p2:mixingBatchRecord, p2:blowMoldingBatchRecord, p2:gridElectricityEmissionFactorDatum ; obo:OBI_0000299 p2:mixingCFResult, p2:blowMoldingCFResult, p2:finalBottleCFResult .
+p2:mixingCFResult a matsus:MATSUS_0000076 ; rdfs:label "Result. synthetic mixing CF"@en ; obo:IAO_0000136 p2:mixing, matsus:MATSUS_0000078, matsus:MATSUS_0000079 ; obo:OBI_0001938 p2:mixingCFValue ; matsus:MATSUS_0000077 p2:finalBottleCFResult .
+p2:mixingCFValue a pmd:PMD_0080205 ; qudt:numericValue "3.0"^^xsd:decimal ; qudt:hasUnit unit:KiloGM .
+p2:blowMoldingCFResult a matsus:MATSUS_0000076 ; rdfs:label "Result. synthetic blow-molding CF"@en ; obo:IAO_0000136 p2:extrusionBlowMolding, matsus:MATSUS_0000078, matsus:MATSUS_0000079 ; obo:OBI_0001938 p2:blowMoldingCFValue ; matsus:MATSUS_0000077 p2:finalBottleCFResult .
+p2:blowMoldingCFValue a pmd:PMD_0080205 ; qudt:numericValue "88.0"^^xsd:decimal ; qudt:hasUnit unit:KiloGM .
+p2:finalBottleCFResult a matsus:MATSUS_0000076 ; rdfs:label "Result. synthetic CF for the 1000 kg final bottle batch"@en ; obo:IAO_0000136 p2:finalBottleBatch, matsus:MATSUS_0000078, matsus:MATSUS_0000079 ; obo:OBI_0001938 p2:finalBottleCFValue .
+p2:finalBottleCFValue a pmd:PMD_0080205 ; qudt:numericValue "1400.0"^^xsd:decimal ; qudt:hasUnit unit:KiloGM .
+
+# Candidate method source and explicit limitations
+p2:pefCircularFootprintFormulaCandidate a obo:IAO_0000104 ; rdfs:label "Spec. EU PEF Circular Footprint Formula candidate allocation method (not applied)"@en ; dcterms:source <http://data.europa.eu/eli/reco/2021/2279/oj> ; obo:IAO_0000136 p2:recyclingCFSpecification, p2:bottleCFSpecification .
+p2:knownLimitationsRecord a obo:IAO_0000310 ; rdfs:label "Inf. known semantic and evidence limitations"@en ; obo:BFO_0000051 p2:shreddingTypeGap, p2:dryingTypeGap, p2:meltFiltrationTypeGap, p2:pelletizingTypeGap, p2:cffNotAppliedLimitation, p2:supplierComparabilityLimitation, p2:syntheticEvidenceLimitation, p2:cfMethodCompletenessLimitation .
+p2:shreddingTypeGap a obo:IAO_0000030 ; rdfs:label "Limitation. no exact pinned shredding class"@en ; rdfs:comment "Shredding uses the verified PMDco separating superclass."@en ; obo:IAO_0000136 p2:shredding .
+p2:dryingTypeGap a obo:IAO_0000030 ; rdfs:label "Limitation. no exact pinned polymer-drying class"@en ; rdfs:comment "Drying uses the verified PMDco manufacturing-process superclass."@en ; obo:IAO_0000136 p2:drying .
+p2:meltFiltrationTypeGap a obo:IAO_0000030 ; rdfs:label "Limitation. no exact pinned melt-filtration class"@en ; rdfs:comment "The integrated operation is typed only as PMDco extrusion."@en ; obo:IAO_0000136 p2:extrusionMeltFiltration .
+p2:pelletizingTypeGap a obo:IAO_0000030 ; rdfs:label "Limitation. no exact pinned pelletizing/regranulation class"@en ; rdfs:comment "Pelletizing uses the verified PMDco manufacturing-process superclass."@en ; obo:IAO_0000136 p2:pelletizing .
+p2:cffNotAppliedLimitation a obo:IAO_0000030 ; rdfs:label "Limitation. PEF CFF is only a candidate method"@en ; rdfs:comment "No CFF parameters or calculations are implemented, and no PEF compliance is claimed."@en ; obo:IAO_0000136 p2:pefCircularFootprintFormulaCandidate .
+p2:supplierComparabilityLimitation a obo:IAO_0000030 ; rdfs:label "Limitation. supplier CF comparability is not established"@en ; rdfs:comment "The supplier model is not exposed; contributes-to asserts neither arithmetic aggregation nor methodological comparability."@en ; obo:IAO_0000136 p2:virginSupplierDeclaration, p2:virginSupplierCFResult, p2:finalBottleCFResult .
+p2:syntheticEvidenceLimitation a obo:IAO_0000030 ; rdfs:label "Limitation. all values and source records are synthetic"@en ; rdfs:comment "Numbers exercise the graph only; they are not measured data, validated methods, certified mass balance, or verified CF results."@en ; obo:IAO_0000136 p2:compiledRecyclingInventory, p2:compiledBottleInventory, p2:ppContaminationDatum .
+p2:cfMethodCompletenessLimitation a obo:IAO_0000030 ; rdfs:label "Limitation. CF computational method and completeness evidence are absent"@en ; rdfs:comment "The black-box computations do not disclose equations, allocation choices, completeness reconciliation, uncertainty or a reproducible derivation of the aggregate results."@en ; obo:IAO_0000136 p2:recyclingCFQuantification, p2:virginSupplierCFQuantification, p2:bottleCFQuantification .
+p2: a owl:Ontology ;
+ dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+ dcterms:title "Mat.Sus recycled HDPE processing and carbon-footprint provenance example"@en ;
+ dcterms:description "Synthetic asserted-RDF example; values are not industrial measurements, verified factors, a mass-balance claim, or a certified footprint."@en .
