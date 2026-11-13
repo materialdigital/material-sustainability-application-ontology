@@ -1,0 +1,175 @@
+{
+  "CHECK-01-cf-completeness.sparql": [],
+  "CHECK-02-no-local-tbox.sparql": [],
+  "CHECK-03-subprocess-inventory.sparql": [],
+  "CHECK-04-supplier-result-traceability.sparql": [],
+  "CQ-P2-01-recycling-composition.sparql": [
+    {
+      "step": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/drying",
+      "stepType": "https://w3id.org/pmd/co/PMD_0000833"
+    },
+    {
+      "step": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/extrusionMeltFiltration",
+      "stepType": "https://w3id.org/pmd/co/PMD_0200004"
+    },
+    {
+      "step": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/pelletizing",
+      "stepType": "https://w3id.org/pmd/co/PMD_0000833"
+    },
+    {
+      "step": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/shredding",
+      "stepType": "https://w3id.org/pmd/co/PMD_0000927"
+    },
+    {
+      "step": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/sorting",
+      "stepType": "https://w3id.org/pmd/matsus/MATSUS_0000016"
+    },
+    {
+      "step": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/washing",
+      "stepType": "https://w3id.org/pmd/co/PMD_0000560"
+    }
+  ],
+  "CQ-P2-02-material-genealogy.sparql": [
+    {
+      "process": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/extrusionMeltFiltration",
+      "input": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/driedHDPEFlakeBatch",
+      "output": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/filteredHDPEExtrudateBatch"
+    },
+    {
+      "process": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/pelletizing",
+      "input": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/filteredHDPEExtrudateBatch",
+      "output": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/recycledPelletBatch"
+    },
+    {
+      "process": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/sorting",
+      "input": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/postConsumerHDPEBatch",
+      "output": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/sortedHDPEBatch"
+    },
+    {
+      "process": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/washing",
+      "input": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/shreddedHDPEFlakeBatch",
+      "output": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/washedHDPEFlakeBatch"
+    },
+    {
+      "process": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/shredding",
+      "input": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/sortedHDPEBatch",
+      "output": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/shreddedHDPEFlakeBatch"
+    },
+    {
+      "process": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/drying",
+      "input": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/washedHDPEFlakeBatch",
+      "output": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/driedHDPEFlakeBatch"
+    }
+  ],
+  "CQ-P2-03-washing-inventory.sparql": [
+    {
+      "datum": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/washDetergentDatum",
+      "source": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/detergentBatchSheetSource",
+      "number": "1.5",
+      "unit": "http://qudt.org/vocab/unit/KiloGM"
+    },
+    {
+      "datum": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/washWastewaterDatum",
+      "source": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/wastewaterLogSource",
+      "number": "430",
+      "unit": "http://qudt.org/vocab/unit/L"
+    },
+    {
+      "datum": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/washWaterDatum",
+      "source": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/washWaterTankSource",
+      "number": "450",
+      "unit": "http://qudt.org/vocab/unit/L"
+    },
+    {
+      "datum": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/washingElectricityDatum",
+      "source": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/washingMeterSource",
+      "number": "18.0",
+      "unit": "http://qudt.org/vocab/unit/KiloW-HR"
+    }
+  ],
+  "CQ-P2-04-cf-provenance.sparql": [
+    {
+      "result": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/finalBottleCFResult",
+      "specification": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/bottleCFSpecification",
+      "reference": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/bottleReferenceFlow",
+      "boundary": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/bottleSystemBoundary",
+      "evidence": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/blowMoldingBatchRecord",
+      "number": "1400.0",
+      "unit": "http://qudt.org/vocab/unit/KiloGM"
+    },
+    {
+      "result": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/finalBottleCFResult",
+      "specification": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/bottleCFSpecification",
+      "reference": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/bottleReferenceFlow",
+      "boundary": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/bottleSystemBoundary",
+      "evidence": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/compiledRecyclingInventory",
+      "number": "1400.0",
+      "unit": "http://qudt.org/vocab/unit/KiloGM"
+    },
+    {
+      "result": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/finalBottleCFResult",
+      "specification": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/bottleCFSpecification",
+      "reference": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/bottleReferenceFlow",
+      "boundary": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/bottleSystemBoundary",
+      "evidence": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/mixingBatchRecord",
+      "number": "1400.0",
+      "unit": "http://qudt.org/vocab/unit/KiloGM"
+    },
+    {
+      "result": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/finalBottleCFResult",
+      "specification": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/bottleCFSpecification",
+      "reference": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/bottleReferenceFlow",
+      "boundary": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/bottleSystemBoundary",
+      "evidence": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/virginSupplierDeclaration",
+      "number": "1400.0",
+      "unit": "http://qudt.org/vocab/unit/KiloGM"
+    }
+  ],
+  "CQ-P2-05-pp-characterization.sparql": [
+    {
+      "process": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/ppContaminationCharacterization",
+      "batch": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/recycledPelletBatch",
+      "method": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/syntheticPPCharacterizationMethod",
+      "datum": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/ppContaminationDatum",
+      "contaminant": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/ppContaminantMaterial",
+      "basis": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/ppDryMassBasis",
+      "number": "0.8",
+      "unit": "http://qudt.org/vocab/unit/PERCENT"
+    }
+  ],
+  "CQ-P2-06-bottle-contributions.sparql": [
+    {
+      "batch": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/recycledPelletBatch",
+      "materialKind": "https://w3id.org/pmd/matsus/MATSUS_0000002",
+      "mass": "300",
+      "unit": "http://qudt.org/vocab/unit/KiloGM",
+      "cfResult": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/recycledPelletCFResult",
+      "provenance": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/compiledRecyclingInventory"
+    },
+    {
+      "batch": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/virginHDPEBatch",
+      "materialKind": "https://w3id.org/pmd/matsus/MATSUS_0000030",
+      "mass": "700",
+      "unit": "http://qudt.org/vocab/unit/KiloGM",
+      "cfResult": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/virginSupplierCFResult",
+      "provenance": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/virginSupplierDeclaration"
+    }
+  ],
+  "CQ-P2-07-sources-and-limitations.sparql": [
+    {
+      "item": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/gridElectricityEmissionFactorDatum",
+      "source": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/syntheticEmissionFactorSource",
+      "limitation": null
+    },
+    {
+      "item": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/pefCircularFootprintFormulaCandidate",
+      "source": "http://data.europa.eu/eli/reco/2021/2279/oj",
+      "limitation": "No CFF parameters or calculations are implemented, and no PEF compliance is claimed."
+    },
+    {
+      "item": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/virginSupplierDeclaration",
+      "source": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/syntheticSupplierPrimaryDataRecord",
+      "limitation": "The supplier model is not exposed; contributes-to asserts neither arithmetic aggregation nor methodological comparability."
+    }
+  ]
+}

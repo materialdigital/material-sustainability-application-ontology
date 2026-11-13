@@ -1,0 +1,9 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX p2: <https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+SELECT ?datum ?source ?number ?unit WHERE {
+  p2:washingInventoryRecord obo:BFO_0000051 ?datum .
+  ?datum dcterms:source ?source ; obo:OBI_0001938 ?value .
+  ?value qudt:numericValue ?number ; qudt:hasUnit ?unit .
+} ORDER BY ?datum

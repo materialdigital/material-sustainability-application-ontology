@@ -1,0 +1,16 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX matsus: <https://w3id.org/pmd/matsus/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX p2: <https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/>
+PREFIX pmd: <https://w3id.org/pmd/co/>
+SELECT ?declaration ?result WHERE {
+  VALUES (?declaration ?result ?supplierComputation ?bottleComputation) {
+    (p2:virginSupplierDeclaration p2:virginSupplierCFResult p2:virginSupplierCFQuantification p2:bottleCFQuantification)
+  }
+  FILTER NOT EXISTS {
+    ?supplierComputation a pmd:PMD_0000583 ; obo:OBI_0000293 ?source, ?specification ; obo:OBI_0000299 ?result .
+    ?specification a matsus:MATSUS_0000068 .
+    ?declaration a obo:IAO_0000310 ; dcterms:source ?source ; obo:IAO_0000136 ?supplierComputation, ?result, ?specification .
+    ?bottleComputation a pmd:PMD_0000583 ; obo:OBI_0000293 ?declaration ; obo:OBI_0000299 p2:finalBottleCFResult .
+  }
+} ORDER BY ?declaration ?result

@@ -1,0 +1,14 @@
+PREFIX matsus: <https://w3id.org/pmd/matsus/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX p2: <https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+SELECT ?batch ?materialKind ?mass ?unit ?cfResult ?provenance WHERE {
+  VALUES (?batch ?materialKind ?massDatum ?cfResult ?provenance) {
+    (p2:recycledPelletBatch matsus:MATSUS_0000002 p2:pelletMassDatum p2:recycledPelletCFResult p2:compiledRecyclingInventory)
+    (p2:virginHDPEBatch matsus:MATSUS_0000030 p2:virginMassDatum p2:virginSupplierCFResult p2:virginSupplierDeclaration)
+  }
+  p2:mixing obo:OBI_0000293 ?batch . ?batch a ?materialKind .
+  ?massDatum obo:IAO_0000136 ?batch ; obo:OBI_0001938 ?value .
+  ?value qudt:numericValue ?mass ; qudt:hasUnit ?unit .
+  ?cfResult matsus:MATSUS_0000077 p2:finalBottleCFResult .
+} ORDER BY ?batch

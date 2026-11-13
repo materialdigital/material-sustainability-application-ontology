@@ -1,0 +1,8 @@
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX p2: <https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/>
+SELECT ?process ?input ?output WHERE {
+  p2:mechanicalRecycling obo:OBI_0000293 ?start ; obo:OBI_0000299 ?end ; obo:BFO_0000117 ?process .
+  ?process obo:OBI_0000293 ?input ; obo:OBI_0000299 ?output .
+  ?start (^obo:OBI_0000293/obo:OBI_0000299)* ?input .
+  ?output (^obo:OBI_0000293/obo:OBI_0000299)* ?end .
+} ORDER BY ?process

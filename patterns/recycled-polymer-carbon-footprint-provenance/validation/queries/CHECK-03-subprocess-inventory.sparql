@@ -1,0 +1,15 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX p2: <https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/>
+PREFIX pmd: <https://w3id.org/pmd/co/>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+PREFIX unit: <http://qudt.org/vocab/unit/>
+SELECT ?step WHERE {
+  p2:mechanicalRecycling obo:BFO_0000117 ?step .
+  FILTER NOT EXISTS {
+    ?record a obo:IAO_0000310 ; obo:IAO_0000136 ?step ; obo:BFO_0000051 ?datum .
+    ?datum a obo:IAO_0000109 ; obo:IAO_0000136 ?step ; dcterms:source ?source ; obo:OBI_0001938 ?value .
+    ?value a pmd:PMD_0080205 ; qudt:numericValue ?number ; qudt:hasUnit unit:KiloW-HR .
+    FILTER(isIRI(?source) && isLiteral(?number))
+  }
+} ORDER BY ?step

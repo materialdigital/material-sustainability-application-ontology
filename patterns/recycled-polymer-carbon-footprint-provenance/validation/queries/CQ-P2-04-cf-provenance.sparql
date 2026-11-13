@@ -1,0 +1,13 @@
+PREFIX matsus: <https://w3id.org/pmd/matsus/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX p2: <https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/>
+PREFIX pmd: <https://w3id.org/pmd/co/>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+SELECT ?result ?specification ?reference ?boundary ?evidence ?number ?unit WHERE {
+  VALUES ?evidence { p2:compiledRecyclingInventory p2:virginSupplierDeclaration p2:mixingBatchRecord p2:blowMoldingBatchRecord }
+  p2:bottleCFQuantification a pmd:PMD_0000583 ; obo:OBI_0000299 ?result ; obo:OBI_0000293 ?specification, ?evidence .
+  FILTER(?result = p2:finalBottleCFResult)
+  ?specification a matsus:MATSUS_0000068 ; obo:BFO_0000051 ?reference, ?boundary .
+  ?reference a matsus:MATSUS_0000070 . ?boundary a matsus:MATSUS_0000071 .
+  ?result obo:OBI_0001938 ?value . ?value qudt:numericValue ?number ; qudt:hasUnit ?unit .
+} ORDER BY ?evidence
