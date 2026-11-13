@@ -32,7 +32,8 @@
 # │  Steps:                                                             │
 # │    1. make refresh-imports  — re-extract SLME modules               │
 # │    2. make all_assets       — generate OWL/TTL/JSON release files  │
-# │    3. Dispatch trigger-docs to start docs.yml                      │
+# │    3. Validate and upload generated distribution candidates        │
+# │    4. Dispatch trigger-docs for automatic builds only              │
 # └─────────────────────────────────────────────────────────────────────┘
 #
 # Execution chain:
@@ -305,6 +306,20 @@ jobs:
         with:
           fetch-depth: 0
 
+      # Preserve the committed distribution signatures before the build
+      # overwrites the root files. Automatic builds compare these signatures
+      # with the generated candidates before publishing documentation.
+      - name: Snapshot committed distribution signatures
+        if: github.event_name != 'workflow_dispatch'
+        run: |
+          set -euo pipefail
+          mkdir -p generated-validation
+          robot query \
+            --input matsus.owl \
+            --format tsv \
+            --query src/sparql/distribution-signature.sparql \
+            generated-validation/committed-distribution-signature.tsv
+
       # ── Full ODK build ─────────────────────────────────────────────────────
       # refresh-imports: re-download upstream ontologies and extract SLME modules
       # all_assets:         generate OWL/TTL/JSON release files + QC reports
@@ -321,8 +336,38 @@ jobs:
           make refresh-imports all_assets
           make copy_release_files
 
+      - name: Validate generated distributions
+        run: bash src/scripts/validate-generated-distributions.sh
+
+      # Manual runs produce review candidates without publishing documentation.
+      # Automatic builds block publication if signatures differ or any tracked
+      # generated distribution is not byte-reproducible from the current source.
+      - name: Guard automatic publication against stale distributions
+        if: github.event_name != 'workflow_dispatch'
+        run: |
+          diff -u generated-validation/committed-distribution-signature.tsv generated-validation/matsus-owl-signature.tsv
+          if ! git diff --quiet -- matsus.owl matsus.ttl matsus.json src/ontology/matsus.ttl; then
+            echo '::error::Generated distributions differ from the committed files; documentation dispatch is blocked.'
+            git diff --stat -- matsus.owl matsus.ttl matsus.json src/ontology/matsus.ttl
+            exit 1
+          fi
+
+      - name: Upload generated distributions and validation evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: matsus-generated-distributions-${{ github.sha }}
+          if-no-files-found: error
+          retention-days: 14
+          path: |
+            matsus.owl
+            matsus.ttl
+            matsus.json
+            src/ontology/matsus.ttl
+            generated-validation/
+
       # ── Trigger documentation workflow ─────────────────────────────────────
       - name: Trigger Documentation Workflow
+        if: github.event_name != 'workflow_dispatch'
         uses: peter-evans/repository-dispatch@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
