@@ -1,0 +1,15 @@
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT DISTINCT ?entity ?type
+WHERE {
+  VALUES ?type {
+    owl:Class
+    owl:ObjectProperty
+    owl:DatatypeProperty
+    owl:AnnotationProperty
+    owl:NamedIndividual
+  }
+  ?entity a ?type .
+  FILTER isIRI(?entity)
+}
+ORDER BY ?type ?entity
