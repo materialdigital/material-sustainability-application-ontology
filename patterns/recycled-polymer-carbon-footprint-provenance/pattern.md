@@ -18,7 +18,7 @@ Essential interpretation limits for the diagram are:
 
 - Device labels provide illustrative context; they do not denote additional asserted equipment individuals.
 - Intermediate material batches are visually summarized; the RDF retains the full material genealogy.
-- Sorting is the CF-provenance illustration, while the recycling LCI compilation and CF computation cover all six subprocesses.
+- Sorting is the exemplary CF-provenance visualization. Washing remains the detailed multi-input inventory example in the RDF and discussion below, while the recycling LCI compilation and CF computation cover all six subprocesses.
 - The supplier CF declaration and supplier CF result are distinct information entities.
 - Qualitative `contributes to` relations do not assert arithmetic summation, direct computation inputs or validated allocation.
 
