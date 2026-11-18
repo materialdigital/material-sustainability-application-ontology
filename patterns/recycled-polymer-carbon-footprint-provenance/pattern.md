@@ -6,7 +6,21 @@ This asserted-RDF pattern connects an executed polymer-recycling process, physic
 
 It is an interoperability and provenance example, not a full LCA, mass-balance certification, industrial dataset, CF calculator, validated laboratory method, PEF study, product-category rule, or compliance claim. Numerical values exercise graph structure and queries only. Successful RDF, SPARQL, term-audit, or reasoner checks do not establish scientific correctness.
 
-![Material genealogy and process composition](diagrams/01-material-genealogy.svg)
+![Combined recycling genealogy and carbon-footprint provenance](diagrams/03-recycling-and-cf-provenance.svg)
+
+The combined diagram has three panels:
+
+- **a. Recycling:** the six asserted recycling subprocesses, material batches, mixing and bottle production.
+- **b. Sorting CF provenance:** an exemplary provenance view for sorting, including sourced electricity consumption, the sorting inventory and batch-mass evidence.
+- **c. Final bottle CF provenance:** the upstream CF results, supplier declaration, computing activity and final bottle CF result are shown as distinct elements.
+
+Essential interpretation limits for the diagram are:
+
+- Device labels provide illustrative context; they do not denote additional asserted equipment individuals.
+- Intermediate material batches are visually summarized; the RDF retains the full material genealogy.
+- Sorting is the CF-provenance illustration, while the recycling LCI compilation and CF computation cover all six subprocesses.
+- The supplier CF declaration and supplier CF result are distinct information entities.
+- Qualitative `contributes to` relations do not assert arithmetic summation, direct computation inputs or validated allocation.
 
 ## Physical material and process model
 
@@ -38,8 +52,6 @@ Every recycling subprocess has an inventory document about that occurrence, at l
 The PP example uses `chemical composition analyzing process (PMD_0000552)`, an explicit non-validated plan specification, the recovered pellet batch as evaluand, and a measurement datum about a local material individual typed as `polypropylene (PMD_0050009)`, a `mass fraction (PMD_0020102)` quality, and a dry-mass basis specification. This avoids using the PMDco polypropylene class itself as an `IAO:is about` individual target. The illustrative result is 0.8 %. The constituent individual does not assert a validated identification method, physical parthood, or a laboratory claim.
 
 ## Carbon-footprint provenance pattern
-
-![Inventory and CF result provenance](diagrams/02-cf-provenance.svg)
 
 Each CF result is `MATSUS_0000076`, is about its assessed material/product/process subject, `climate change (MATSUS_0000078)` and `GWP100 (MATSUS_0000079)`, and has a QUDT scalar value. The value is typed as `qudt scalar quantity value (PMD_0080205)`, whose pinned equivalence combines the OBI scalar-value and QUDT quantity-value patterns and requires `qudt:hasUnit`; the graph also provides a literal `qudt:numericValue`. The numeric result unit is kilogram, while CO2-equivalent meaning is supplied jointly by the CF-result type, climate-change/GWP100 targets and governing specification rather than by asserting that kilogram itself means CO2e.
 

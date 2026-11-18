@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1600" height="1130" viewBox="0 0 1600 1130" role="img" aria-labelledby="t d">
+<title id="t">Recycled high-density polyethylene (HDPE): physical genealogy and carbon-footprint provenance</title><desc id="d">Three sections show six recycling subprocesses and bottle production; a sorting carbon-footprint evidence example; and the provenance of the final bottle carbon-footprint result. Orange denotes processes, blue material entities and equipment, violet information entities. All values are illustrative.</desc>
+<defs><style>text{font-family:Arial,Helvetica,sans-serif;fill:#17223a}.banner{font-size:33px;font-weight:700;fill:#fff}.section{font-size:25px;font-weight:700;fill:#21123e}.boxtext{font-size:17px;font-weight:700}.small{font-size:15px}.micro{font-size:14px;font-weight:600}.tiny{font-size:13px;fill:#4c5268}.legend{font-size:17px;font-weight:600}.panel{fill:#fff;stroke:#65388e;stroke-width:2}.material{fill:#dff2ff;stroke:#0284c7;stroke-width:2}.aux{fill:#eef8ff;stroke:#70beec;stroke-width:2}.process{fill:#ffeac9;stroke:#e77c00;stroke-width:2}.info{fill:#f3e6fc;stroke:#8336b5;stroke-width:2}.edge{stroke:#203957;stroke-width:2.7;fill:none;marker-end:url(#arrow)}.thin{stroke:#6b95b0;stroke-width:1.7;fill:none;marker-end:url(#lightarrow)}.dashed{stroke:#7e4db1;stroke-width:2.6;stroke-dasharray:7 5;fill:none;marker-end:url(#purparrow)}.bracket{stroke:#dd8100;stroke-width:2.2;fill:none}</style><marker id="arrow" markerWidth="10" markerHeight="9" refX="9" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#203957"/></marker><marker id="lightarrow" markerWidth="10" markerHeight="9" refX="9" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#6b95b0"/></marker><marker id="purparrow" markerWidth="10" markerHeight="9" refX="9" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9Z" fill="#7e4db1"/></marker></defs>
+<rect width="1600" height="1130" fill="#fbfaff"/>
+<rect x="10" y="10" width="1580" height="57" rx="18" class="purpleheader"/>
+<rect x="10" y="10" width="1580" height="57" rx="18" fill="#652584"/>
+<text x="800" y="48" class="banner" text-anchor="middle">Recycled high-density polyethylene (HDPE): physical genealogy and carbon-footprint provenance</text>
+<rect x="10" y="80" width="1580" height="415" rx="18" class="panel"/>
+<path d="M28 81H1572Q1589 81 1589 99V128H11V99Q11 81 28 81Z" fill="#eee4fb"/>
+<text x="33" y="114" class="section" text-anchor="start">a. Recycling: six asserted subprocesses</text>
+<rect x="25" y="220" width="203" height="76" rx="12" class="material"/>
+<text x="126.5" y="252.5" class="boxtext" text-anchor="middle">Post-consumer HDPE</text>
+<text x="126.5" y="275.5" class="boxtext" text-anchor="middle">350 kg batch</text>
+<rect x="260" y="225" width="147" height="70" rx="12" class="process"/>
+<text x="333.5" y="266" class="boxtext" text-anchor="middle">Sorting</text>
+<rect x="445" y="225" width="147" height="70" rx="12" class="process"/>
+<text x="518.5" y="266" class="boxtext" text-anchor="middle">Shredding</text>
+<rect x="630" y="225" width="147" height="70" rx="12" class="process"/>
+<text x="703.5" y="266" class="boxtext" text-anchor="middle">Washing</text>
+<rect x="815" y="225" width="147" height="70" rx="12" class="process"/>
+<text x="888.5" y="266" class="boxtext" text-anchor="middle">Drying</text>
+<rect x="1000" y="225" width="147" height="70" rx="12" class="process"/>
+<text x="1073.5" y="254.5" class="boxtext" text-anchor="middle">Extrusion +</text>
+<text x="1073.5" y="277.5" class="boxtext" text-anchor="middle">melt filtration</text>
+<rect x="1185" y="225" width="147" height="70" rx="12" class="process"/>
+<text x="1258.5" y="266" class="boxtext" text-anchor="middle">Pelletizing</text>
+<rect x="1370" y="220" width="204" height="76" rx="12" class="material"/>
+<text x="1472" y="252.5" class="boxtext" text-anchor="middle">Recycled HDPE</text>
+<text x="1472" y="275.5" class="boxtext" text-anchor="middle">pellets — 300 kg</text>
+<path d="M228 258H260" class="edge"/>
+<path d="M407 258H445" class="edge"/>
+<path d="M592 258H630" class="edge"/>
+<path d="M777 258H815" class="edge"/>
+<path d="M962 258H1000" class="edge"/>
+<path d="M1147 258H1185" class="edge"/>
+<path d="M1332 258H1370" class="edge"/>
+<rect x="270" y="169" width="126" height="48" rx="12" class="aux"/>
+<text x="333" y="199" class="micro" text-anchor="middle">sorting device</text>
+<path d="M333 217V225" class="thin"/>
+<rect x="456" y="169" width="126" height="48" rx="12" class="aux"/>
+<text x="519" y="199" class="micro" text-anchor="middle">shredder</text>
+<path d="M519 217V225" class="thin"/>
+<rect x="588" y="169" width="108" height="48" rx="12" class="aux"/>
+<text x="642" y="199" class="micro" text-anchor="middle">washing device</text>
+<path d="M642 217L660 225" class="thin"/>
+<rect x="700" y="169" width="70" height="48" rx="12" class="aux"/>
+<text x="735" y="199" class="micro" text-anchor="middle">water</text>
+<path d="M735 217L690 225" class="thin"/>
+<rect x="774" y="169" width="90" height="48" rx="12" class="aux"/>
+<text x="819" y="199" class="micro" text-anchor="middle">detergent</text>
+<path d="M819 217L721 225" class="thin"/>
+<rect x="830" y="118" width="126" height="48" rx="12" class="aux"/>
+<text x="893" y="148" class="micro" text-anchor="middle">drying device</text>
+<path d="M893 166V225" class="thin"/>
+<rect x="1010" y="168" width="128" height="48" rx="12" class="aux"/>
+<text x="1074" y="198" class="micro" text-anchor="middle">extruder + filter</text>
+<path d="M1074 216V225" class="thin"/>
+<rect x="1197" y="168" width="126" height="48" rx="12" class="aux"/>
+<text x="1260" y="198" class="micro" text-anchor="middle">pelletizer</text>
+<path d="M1260 216V225" class="thin"/>
+<rect x="90" y="370" width="215" height="53" rx="12" class="material"/>
+<text x="197.5" y="402.5" class="small" text-anchor="middle">Recycled HDPE 300 kg</text>
+<rect x="90" y="434" width="215" height="51" rx="12" class="material"/>
+<text x="197.5" y="465.5" class="small" text-anchor="middle">Virgin HDPE 700 kg</text>
+<rect x="412" y="386" width="160" height="70" rx="12" class="process"/>
+<text x="492" y="427" class="boxtext" text-anchor="middle">Mixing</text>
+<rect x="670" y="386" width="200" height="70" rx="12" class="material"/>
+<text x="770" y="415.5" class="boxtext" text-anchor="middle">HDPE blend</text>
+<text x="770" y="438.5" class="boxtext" text-anchor="middle">1000 kg; 30% recycled</text>
+<rect x="966" y="386" width="220" height="70" rx="12" class="process"/>
+<text x="1076" y="415.5" class="boxtext" text-anchor="middle">Extrusion blow</text>
+<text x="1076" y="438.5" class="boxtext" text-anchor="middle">moulding</text>
+<rect x="1255" y="386" width="314" height="70" rx="12" class="material"/>
+<text x="1412" y="415.5" class="boxtext" text-anchor="middle">Non-food bottle batch</text>
+<text x="1412" y="438.5" class="boxtext" text-anchor="middle">1000 kg</text>
+<path d="M1470 296V363H198V370" class="thin"/>
+<path d="M305 397H358V412H412" class="edge"/>
+<path d="M305 461H358V430H412" class="edge"/>
+<path d="M572 421H670" class="edge"/>
+<path d="M870 421H966" class="edge"/>
+<path d="M1186 421H1255" class="edge"/>
+<rect x="10" y="508" width="1580" height="273" rx="18" class="panel"/>
+<path d="M28 509H1572Q1589 509 1589 527V556H11V527Q11 509 28 509Z" fill="#eee4fb"/>
+<text x="33" y="542" class="section" text-anchor="start">b. Example CF provenance for one recycling subprocess: sorting</text>
+<rect x="28" y="600" width="195" height="72" rx="12" class="material"/>
+<text x="125.5" y="630.5" class="boxtext" text-anchor="middle">Post-consumer HDPE</text>
+<text x="125.5" y="653.5" class="boxtext" text-anchor="middle">350 kg</text>
+<rect x="262" y="601" width="150" height="70" rx="12" class="process"/>
+<text x="337" y="630.5" class="boxtext" text-anchor="middle">Sorting</text>
+<text x="337" y="653.5" class="boxtext" text-anchor="middle">process</text>
+<rect x="252" y="702" width="170" height="63" rx="12" class="material"/>
+<text x="337" y="728" class="boxtext" text-anchor="middle">Sorted HDPE</text>
+<text x="337" y="751" class="boxtext" text-anchor="middle">340 kg</text>
+<path d="M223 636H262" class="edge"/>
+<path d="M337 671V702" class="edge"/>
+<rect x="486" y="558" width="255" height="52" rx="12" class="info"/>
+<text x="613.5" y="580.5" class="small" text-anchor="middle">Electricity meter record</text>
+<text x="613.5" y="599.5" class="small" text-anchor="middle">4.0 kWh datum</text>
+<rect x="486" y="620" width="255" height="52" rx="12" class="info"/>
+<text x="613.5" y="642.5" class="small" text-anchor="middle">Sorting inventory record</text>
+<text x="613.5" y="661.5" class="small" text-anchor="middle">contains electricity datum</text>
+<rect x="486" y="682" width="255" height="52" rx="12" class="info"/>
+<text x="613.5" y="704.5" class="small" text-anchor="middle">Batch weighing record</text>
+<text x="613.5" y="723.5" class="small" text-anchor="middle">350 kg in / 340 kg out</text>
+<path d="M412 636H451V646H486" class="edge"/>
+<path d="M613 610V620" class="thin"/>
+<path d="M741 646H814" class="edge"/>
+<path d="M741 708H775V665H814" class="thin"/>
+<rect x="814" y="606" width="201" height="78" rx="12" class="process"/>
+<text x="914.5" y="639.5" class="boxtext" text-anchor="middle">Recycling LCI</text>
+<text x="914.5" y="662.5" class="boxtext" text-anchor="middle">compilation</text>
+<rect x="1080" y="606" width="195" height="78" rx="12" class="process"/>
+<text x="1177.5" y="639.5" class="boxtext" text-anchor="middle">Recycling CF</text>
+<text x="1177.5" y="662.5" class="boxtext" text-anchor="middle">computation</text>
+<rect x="1360" y="606" width="215" height="78" rx="12" class="info"/>
+<text x="1467.5" y="639.5" class="boxtext" text-anchor="middle">Sorting CF result</text>
+<text x="1467.5" y="662.5" class="boxtext" text-anchor="middle">1.8 kg CO₂e</text>
+<path d="M1015 646H1080" class="edge"/>
+<path d="M1275 646H1360" class="edge"/>
+<rect x="1072" y="559" width="207" height="36" rx="12" class="info"/>
+<text x="1175.5" y="583" class="micro" text-anchor="middle">CF specification + factor</text>
+<path d="M1175 595V606" class="thin"/>
+<text x="802" y="759" class="tiny" text-anchor="middle">The compilation and computation cover all six recycling subprocesses; sorting is shown as one evidence example.</text>
+<rect x="10" y="793" width="1580" height="270" rx="18" class="panel"/>
+<path d="M28 794H1572Q1589 794 1589 812V841H11V812Q11 794 28 794Z" fill="#eee4fb"/>
+<text x="33" y="827" class="section" text-anchor="start">c. Final bottle CF provenance (upstream contribution logic)</text>
+<rect x="50" y="840" width="315" height="44" rx="12" class="info"/>
+<text x="207.5" y="858.5" class="small" text-anchor="middle">Recycled pellet CF result</text>
+<text x="207.5" y="877.5" class="small" text-anchor="middle">49.0 kg CO₂e</text>
+<rect x="50" y="891" width="315" height="44" rx="12" class="info"/>
+<text x="207.5" y="909.5" class="small" text-anchor="middle">Virgin supplier CF result</text>
+<text x="207.5" y="928.5" class="small" text-anchor="middle">1260.0 kg CO₂e</text>
+<rect x="50" y="942" width="315" height="44" rx="12" class="info"/>
+<text x="207.5" y="960.5" class="small" text-anchor="middle">Mixing CF result</text>
+<text x="207.5" y="979.5" class="small" text-anchor="middle">3.0 kg CO₂e</text>
+<rect x="50" y="993" width="315" height="44" rx="12" class="info"/>
+<text x="207.5" y="1011.5" class="small" text-anchor="middle">Blow moulding CF result</text>
+<text x="207.5" y="1030.5" class="small" text-anchor="middle">88.0 kg CO₂e</text>
+<rect x="660" y="845" width="270" height="58" rx="12" class="info"/>
+<text x="795" y="870" class="small" text-anchor="middle">Bottle inventory + supplier</text>
+<text x="795" y="890" class="small" text-anchor="middle">declaration + model/spec</text>
+<rect x="672" y="936" width="244" height="65" rx="12" class="process"/>
+<text x="794" y="963" class="boxtext" text-anchor="middle">Bottle CF</text>
+<text x="794" y="986" class="boxtext" text-anchor="middle">computation</text>
+<rect x="1250" y="901" width="290" height="84" rx="12" class="info"/>
+<text x="1395" y="937.5" class="boxtext" text-anchor="middle">Final bottle CF result</text>
+<text x="1395" y="960.5" class="boxtext" text-anchor="middle">1400.0 kg CO₂e</text>
+<path d="M795 903V936" class="edge"/>
+<path d="M916 968H1250" class="edge"/>
+<path d="M365 862H511" class="dashed"/>
+<path d="M365 913H511" class="dashed"/>
+<path d="M365 964H511" class="dashed"/>
+<path d="M365 1015H511" class="dashed"/>
+<path d="M511 862V1034H1390V985" class="dashed"/>
+<text x="882" y="1054" class="tiny" text-anchor="middle">Dashed arrows: qualitative CF contribution, not an arithmetic input or allocation rule</text>
+<rect x="14" y="1076" width="1572" height="44" rx="10" class="aux"/>
+<text x="38" y="1104" class="legend" text-anchor="start">Legend</text>
+<rect x="160" y="1085" width="52" height="25" rx="6" class="process"/>
+<text x="225" y="1104" class="small" text-anchor="start">orange = process</text>
+<rect x="410" y="1085" width="52" height="25" rx="6" class="material"/>
+<text x="475" y="1104" class="small" text-anchor="start">blue = material / object</text>
+<rect x="764" y="1085" width="52" height="25" rx="6" class="aux"/>
+<text x="829" y="1104" class="small" text-anchor="start">light blue = devices / auxiliary inputs</text>
+<rect x="1230" y="1085" width="52" height="25" rx="6" class="info"/>
+<text x="1296" y="1104" class="small" text-anchor="start">purple = information / results</text>
+</svg>
