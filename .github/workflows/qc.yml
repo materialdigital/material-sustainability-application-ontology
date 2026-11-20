@@ -155,8 +155,10 @@ jobs:
       - name: Validate Pattern 2 recycling process vocabulary
         if: steps.scaffold.outputs.present == 'true'
         run: |
-          python3 -m pip install --disable-pip-version-check "rdflib==7.5.0"
-          python3 patterns/recycled-polymer-carbon-footprint-provenance/validation/run_queries.py
+          python3 -m pip install --disable-pip-version-check \
+            --target /tmp/matsus-p2-python "rdflib==7.5.0"
+          PYTHONPATH=/tmp/matsus-p2-python python3 \
+            patterns/recycled-polymer-carbon-footprint-provenance/validation/run_queries.py
 
       - name: Validate OWL DL profile
         if: steps.scaffold.outputs.present == 'true'
