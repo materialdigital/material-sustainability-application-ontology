@@ -25,7 +25,7 @@
         "val" : "Material Sustainability Application Ontology (Mat.Sus)"
       }, {
         "pred" : "http://www.w3.org/2002/07/owl#versionInfo",
-        "val" : "2026-11-13"
+        "val" : "2026-11-20"
       } ],
       "version" : "https://w3id.org/pmd/matsus/dev/"
     },
@@ -366,8 +366,14 @@
           "val" : "An independent continuant that is spatially extended whose identity is independent of that of other entities and can be maintained through time."
         },
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "material entity"
+        }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
           "val" : "Elucidation: An independent continuant that is spatially extended whose identity is independent of that of other entities and can be maintained through time."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000412",
+          "val" : "http://purl.obolibrary.org/obo/ido.owl"
         }, {
           "pred" : "http://www.w3.org/2004/02/skos/core#definition",
           "val" : "(Elucidation) A material entity is an independent continuant has some portion of matter as continuant part"
@@ -1262,6 +1268,19 @@
         }
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/COB_0000026",
+      "lbl" : "processed material entity",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A material entity processed by human activity with an intent to produce it."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "In the COB 2024 workshop there was much disagreement about this label."
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/COB_0000035",
       "lbl" : "completely executed planned process",
       "type" : "CLASS"
@@ -1278,6 +1297,24 @@
       "id" : "http://purl.obolibrary.org/obo/COB_0000083",
       "lbl" : "failed planned process",
       "type" : "CLASS"
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/COB_0000110",
+      "lbl" : "material processing",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A completely executed planned process that intends to output material entities from input material entities"
+        }
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/COB_0001300",
+      "lbl" : "device",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A processed material entity which is designed to be capable of a process."
+        }
+      }
     }, {
       "id" : "http://purl.obolibrary.org/obo/ENVO_01000665",
       "lbl" : "waste role",
@@ -1499,6 +1536,34 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000078",
+      "lbl" : "curation status specification",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "The curation status of the term. The allowed values come from an enumerated list of predefined terms. See the specification of these instances for more detailed definitions of each enumerated value."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "curation status specification"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000125"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "Better to represent curation as a process with parts and then relate labels to that process (in IAO meeting)"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "PERSON:Bill Bug"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "OBI_0000266"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/IAO_0000098",
       "lbl" : "data format specification",
       "type" : "CLASS",
@@ -1613,6 +1678,31 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000225",
+      "lbl" : "obsolescence reason specification",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "The reason for which a term has been deprecated. The allowed values come from an enumerated list of predefined terms. See the specification of these instances for more detailed definitions of each enumerated value."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "obsolescence reason specification"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000125"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "The creation of this class has been inspired in part by Werner Ceusters' paper, Applying evolutionary terminology auditing to the Gene Ontology."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "PERSON: Alan Ruttenberg"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "PERSON: Melanie Courtot"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/IAO_0000300",
       "lbl" : "textual entity",
       "type" : "CLASS",
@@ -1659,6 +1749,28 @@
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000233",
           "val" : "https://github.com/information-artifact-ontology/IAO/issues/232"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000409",
+      "lbl" : "denotator type",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A denotator type indicates how a term should be interpreted from an ontological perspective."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "denotator type"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "The Basic Formal Ontology ontology makes a distinction between Universals and defined classes, where the formal are \"natural kinds\" and the latter arbitrary collections of entities."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Alan Ruttenberg"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Barry Smith, Werner Ceusters"
         } ]
       }
     }, {
@@ -1841,6 +1953,68 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/OBI_0000112",
+      "lbl" : "specimen role",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A role borne by a material entity that is obtained during a specimen collection process and that can be realized by performing measurements or observations on the specimen."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "specimen role"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "liver section; a portion of a culture of cells; a nemotode or other animal once no longer a subject (generally killed); portion of blood from a patient."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000122"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "22Jun09.  The definition includes whole organisms, and can include a human.  The link between specimen role and study subject role has been removed.  A specimen taken as part of a case study is not considered to be a population representative, while a specimen taken as representing a population, e.g. person taken from a cohort, blood specimen taken from an animal) would be considered a population representative and would also bear material sample role."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "Note: definition is in specimen creation objective which is defined as an objective to obtain and store a material entity for potential use as an input during an investigation."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "blood taken from animal: animal continues in study, whereas blood has role specimen.\nsomething taken from study subject, leaves the study and becomes the specimen."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "parasite example\n- when parasite in people we study people, people are subjects and parasites are specimen\n- when parasite extracted, they become subject in the following study\nspecimen can later be subject."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "GROUP:  Role Branch"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "OBI"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000233",
+          "val" : "https://github.com/obi-ontology/obi/issues/1013"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/OBI_0000151",
+      "lbl" : "filter paper",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A device manufacture with the intent to provide a porous unsized paper used for filtering."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "filter paper"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000120"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Frank Gibson"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "sep:00107"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/OBI_0000202",
       "lbl" : "investigation agent role",
       "type" : "CLASS",
@@ -1932,6 +2106,53 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/OBI_0000372",
+      "lbl" : "material separation function",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A material separation function is a function that increases the resolution between two or more material entities. The  to distinction between the entities is usually based on some associated physical quality."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "material separation function"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000122"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Bill Bug"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Daniel Schober"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Frank Gibson"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Melanie Courtot"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/OBI_0000378",
+      "lbl" : "filter function",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A filter function is a function to prevent the flow of certain entities based on a quality or qualities of the entity while allowing entities which have different qualities to pass through"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "filter function"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000122"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Frank Gibson"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/OBI_0000379",
       "lbl" : "mechanical function",
       "type" : "CLASS",
@@ -1960,6 +2181,46 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/OBI_0000456",
+      "lbl" : "material transformation objective",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "an objective specifiction that creates an specific output object from input materials."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "material transformation objective"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "The objective to create a mouse infected with LCM virus. The objective to create a defined solution of PBS."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000122"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "PERSON: Bjoern Peters"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "PERSON: Frank Gibson"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "PERSON: Jennifer Fostel"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "PERSON: Melanie Courtot"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "PERSON: Philippe Rocca-Serra"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
+          "val" : "artifact  creation objective"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "GROUP: OBI PlanAndPlannedProcess Branch"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/OBI_0000571",
       "lbl" : "manufacturer role",
       "type" : "CLASS",
@@ -1982,6 +2243,146 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/OBI_0000639",
+      "lbl" : "material separation objective",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "is an objective to transform a material entity into spatially separated components."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "material separation objective"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "The objective to obtain multiple aliquots of an enzyme preparation. The objective to obtain cells contained in a sample of blood."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000122"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "PPPB branch"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "PPPB branch"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/OBI_0000659",
+      "lbl" : "specimen collection process",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A planned process with the objective to obtain a material entity for potential use as an input upon which measurements or observations are performed."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "specimen collection process"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "drawing blood from a patient for analysis, collecting a piece of a plant for depositing in a herbarium, buying meat from a butcher in order to measure its protein content in an investigation, collecting a stone from a site"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000122"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "Definition updated following discussion on 2024-10-07 OBI dev call."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "Note: definition is in specimen creation objective which is defined as an objective to obtain and store a material entity for potential use as an input during an investigation."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "Philly2013: A specimen collection can have as part a material entity acquisition, such as ordering from a bank. The distinction is that specimen collection necessarily involves the creation of a specimen role. However ordering cell lines cells from ATCC for use in an investigation is NOT a specimen collection, because the cell lines already have a specimen role."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "Philly2013: The specimen_role for the specimen is created during the specimen collection process."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "label  changed to 'specimen collection process' on 10/27/2014, details see tracker:\nhttp://sourceforge.net/p/obi/obi-terms/716/"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Bjoern Peters"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000118",
+          "val" : "specimen collection"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000232",
+          "val" : "5/31/2012: This process is not necessarily an acquisition, as specimens may be collected from materials already in posession"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000232",
+          "val" : "6/9/09: used at workshop"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/OBI_0000678",
+      "lbl" : "portioning objective",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A material separation objective aiming to separate material into multiple portions, each of which contains a similar composition of the input material."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "portioning objective"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "The objective to obtain multiple aliquots of an enzyme preparation."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000123"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/OBI_0000681",
+      "lbl" : "separation into different composition objective",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A material separation objective aiming to separate a material entity that has parts of different types, and end with at least one output that is a material with parts of fewer types (modulo impurities)."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "separation into different composition objective"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "The objective to obtain cells contained in a sample of blood."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000120"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "We should be using has the grain relations or concentrations to distinguish the portioning and other sub-objectives"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/OBI_0000684",
+      "lbl" : "specimen collection objective",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A objective specification that is fulfilled by obtaining a material entity for potential use as an input upon which measurements or observations are performed."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "specimen collection objective"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "The objective to collect bits of excrement in the rainforest. The objective to obtain a blood sample from a patient."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000122"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "OBI recommends against subclassing this term in order to avoid further parallel hierarchies between this term and specimen collection process."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Bjoern Peters"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Bjoern Peters"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/OBI_0000835",
       "lbl" : "manufacturer",
       "type" : "CLASS",
@@ -1992,6 +2393,50 @@
         "basicPropertyValues" : [ {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
           "val" : "http://purl.obolibrary.org/obo/IAO_0000123"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/OBI_0000932",
+      "lbl" : "material separation device",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A device with a separation function realized in a planed process"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "material separation device"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "flow cytometer"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000123"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/OBI_0000953",
+      "lbl" : "processed specimen",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A specimen that has been intentionally physically modified."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "processed specimen"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000122"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "A tissue sample that has been sliced and stained for a histology study."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Bjoern Peters"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "Bjoern Peters"
         } ]
       }
     }, {
@@ -2049,6 +2494,37 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/OBI_0002076",
+      "lbl" : "collection of specimens",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A material entity that has two or more specimens as its parts."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "collection of specimens"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "Blood cells collected from multiple donors over the course of a study."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000125"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "Details see tracker: https://sourceforge.net/p/obi/obi-terms/778/"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Person: Chris Stoeckert, Jie Zheng"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "OBIB, OBI"
+        }, {
+          "pred" : "http://purl.org/dc/elements/1.1/source",
+          "val" : "Biobank"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/OBI_0002201",
       "lbl" : "determination if assay will provide reliable results",
       "type" : "CLASS",
@@ -2087,6 +2563,87 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/OBI_0100051",
+      "lbl" : "specimen",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "A material entity that is collected for potential use as an input upon which measurements or observations are performed."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "specimen"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "Biobanking of blood taken and stored in a freezer for potential future investigations stores specimen; collecting a stone from a site."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000122"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "PERSON: James Malone"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "PERSON: Philippe Rocca-Serra"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "GROUP: OBI Biomaterial Branch"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000233",
+          "val" : "https://github.com/obi-ontology/obi/issues/1013"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/OBI_0302885",
+      "lbl" : "filtration",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "filtration is a process which separates components suspended in a fluid based on granularity properties relying on a filter device"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "filtration"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "PMID: 18524968.Filtration of CSF improves isolation of Mycobacteria.J Clin Microbiol. 2008 Jun 4."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000120"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Philippe Rocca-Serra"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "OBI-Branch: adapted from wikipedia and wordnet"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/OBI_0302888",
+      "lbl" : "washing",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "washing is a process by which a material entity acting as  contaminant (e.g. excess staining reagent) is removed by application of one or more cycles of solution in flow."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "washing"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "PMID: 6874122. Dialysis leucopenia--no correction after prolonged washing of the membrane. Int J Artif Organs. 1983 May;6(3):113-4."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000120"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Philippe Rocca-Serra"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "OBI-Branch"
+        } ]
+      }
+    }, {
       "id" : "http://purl.obolibrary.org/obo/OBI_0302911",
       "lbl" : "validation",
       "type" : "CLASS",
@@ -2106,6 +2663,31 @@
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
           "val" : "adapted from wordnet (wkipedia)"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/OBI_0600014",
+      "lbl" : "material component separation",
+      "type" : "CLASS",
+      "meta" : {
+        "definition" : {
+          "val" : "a material processing in which components of an input material become segregated in space"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "material component separation"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
+          "val" : "Using a cell sorter to separate a mixture of T cells into two fractions; one with surface receptor CD8 and the other lacking the receptor, or purification"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000122"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Bjoern Peters"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "IEDB"
         } ]
       }
     }, {
@@ -28759,6 +29341,94 @@
         } ]
       }
     }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000093",
+      "lbl" : "shredding process",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "https://www.basel.int/Portals/4/download.aspx?d=UNEP-CHW-WAST-GUID-ESM-PlasticWastes-20230512.English.pdf"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "A dividing process in which solid material is mechanically cut, torn, or broken into smaller pieces."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "This primitive specialization is not equivalent to PMDco dividing or separating. Its parent is PMD_0000614 because that class explicitly covers shear cutting, splitting, tearing, and breaking; no sorting, stream-separation, recycling-context, or product-shape restriction is asserted."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local primitive specialization of PMDco dividing; no equivalence or additional logical restriction asserted"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000094",
+      "lbl" : "melt filtration process",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "http://purl.obolibrary.org/obo/OBI_0302885"
+        }, {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "https://www.basel.int/Portals/4/download.aspx?d=UNEP-CHW.16-CRP.31.English.pdf"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "A filtration process in which solid particulate contaminants are separated from a flowing molten material by means of a filter device."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "This generic class is not restricted to polymers, recycling, a particular filter geometry, or a particular manufacturing operation. It is distinct from extrusion even when both occur within one integrated operation."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local primitive specialization of OBI filtration from pinned OBI v2026-07-27; no equivalence or polymer/recycling restriction asserted"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000095",
+      "lbl" : "drying process",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "http://purl.obolibrary.org/obo/FOODON_03000614"
+        }, {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "A material component separation process in which the liquid content of a material is reduced by removing water or another liquid."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "FoodOn drying FOODON_03000614 in the FoodOn 2026-09-20 artifact is conceptual inspiration for this materials-oriented definition. No equivalence, mapping, or FoodOn import is asserted. The class is not restricted to polymers, food, recycling, or a particular drying mechanism."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local primitive specialization of OBI material component separation; FoodOn used as non-normative conceptual inspiration only"
+        } ]
+      }
+    }, {
+      "id" : "https://w3id.org/pmd/matsus/MATSUS_0000096",
+      "lbl" : "pelletizing process",
+      "type" : "CLASS",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "https://publications.jrc.ec.europa.eu/repository/bitstream/JRC91637/2014-jrc91637%20.pdf"
+        }, {
+          "pred" : "http://purl.org/dc/terms/source",
+          "val" : "https://www.basel.int/Portals/4/download.aspx?d=UNEP-CHW-WAST-GUID-ESM-PlasticWastes-20230512.English.pdf"
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#definition",
+          "val" : "A manufacturing process in which material is formed into discrete pellets."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#editorialNote",
+          "val" : "This generic class is not restricted to polymers, recycling, a particular pelletizing method, or particular machinery. Regranulation is not an alternative label or equivalent class; its process boundary remains unresolved. PMDco manufacturing process is the minimal parent because cutting or dividing is not common to every pelletizing method."
+        }, {
+          "pred" : "http://www.w3.org/2004/02/skos/core#example",
+          "val" : "Methods may include strand pelletizing, die-face pelletizing, compaction, or agglomeration, depending on the material and application."
+        }, {
+          "pred" : "https://w3id.org/pmd/matsus/integrationMethod",
+          "val" : "MatSus-local primitive specialization of PMDco manufacturing process; no equivalence or method-specific restriction asserted"
+        } ]
+      }
+    }, {
       "id" : "https://w3id.org/pmd/matsus/RecycledContentInformation",
       "lbl" : "recycled content information",
       "type" : "CLASS",
@@ -29380,6 +30050,9 @@
           "val" : "The inverse property of is specified input of"
         },
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "has specified input"
+        }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "see is_input_of example_of_usage"
         }, {
@@ -29412,6 +30085,9 @@
           "val" : "A relation between a completely executed planned process and a continuant participating in that process that is not created during the process. The presence of the continuant during the process is explicitly specified in the plan specification which the process realizes the concretization of."
         },
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "is specified input of"
+        }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "some Autologous EBV(Epstein-Barr virus)-transformed B-LCL (B lymphocyte cell line) is_input_for instance of Chromum Release Assay described at https://wiki.cbil.upenn.edu/obiwiki/index.php/Chromium_Release_assay"
         }, {
@@ -29435,6 +30111,9 @@
           "val" : "The inverse property of is specified output of"
         },
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "has specified output"
+        }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
           "val" : "http://purl.obolibrary.org/obo/IAO_0000122"
         }, {
@@ -29484,6 +30163,9 @@
           "val" : "A relation between a completely executed planned process and a continuant participating in that process. The presence of the continuant at the end of the process is explicitly specified in the objective specification which the process realizes the concretization of."
         },
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "is specified output of"
+        }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
           "val" : "http://purl.obolibrary.org/obo/IAO_0000122"
         }, {
@@ -29504,6 +30186,9 @@
           "val" : "This relation obtains between a planned process and a objective specification when the criteria specified in the objective specification are met at the end of the planned process."
         },
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "achieves_planned_objective"
+        }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "A cell sorting process achieves the objective specification 'material separation objective'"
         }, {
@@ -29521,6 +30206,29 @@
         }, {
           "pred" : "https://w3id.org/pmd/co/PMD_0000064",
           "val" : "https://github.com/search?q=repo%3Amaterialdigital%2Fcore-ontology+path%3A%2F%5Epatterns%5C%2F%2F+OBI_0000417&type=code"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/OBI_0000833",
+      "lbl" : "objective_achieved_by",
+      "type" : "PROPERTY",
+      "propertyType" : "OBJECT",
+      "meta" : {
+        "definition" : {
+          "val" : "This relation obtains between an objective specification and a planned process when the criteria specified in the objective specification are met at the end of the planned process."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "objective_achieved_by"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000114",
+          "val" : "http://purl.obolibrary.org/obo/IAO_0000122"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "OBI"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "OBI"
         } ]
       }
     }, {
@@ -29739,11 +30447,17 @@
           "val" : "a relation between an independent continuant (the bearer) and a function, in which the function specifically depends on the bearer for its existence"
         },
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "has function"
+        }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "this enzyme has function this catalysis function (more colloquially: this enzyme has this catalysis function)"
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
           "val" : "A bearer can have many functions, and its functions can exist for different periods of time, but none of its functions can exist when the bearer does not exist. A function need not be realized at all the times that the function exists."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000412",
+          "val" : "http://purl.obolibrary.org/obo/ro.owl"
         } ]
       }
     }, {
@@ -29773,11 +30487,17 @@
           "val" : "a relation between an independent continuant (the bearer) and a role, in which the role specifically depends on the bearer for its existence"
         },
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "has role"
+        }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000112",
           "val" : "this person has role this investigator role (more colloquially: this person has this role of investigator)"
         }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
           "val" : "A bearer can have many roles, and its roles can exist for different periods of time, but none of its roles can exist when the bearer does not exist. A role need not be realized at all the times that the role exists."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000412",
+          "val" : "http://purl.obolibrary.org/obo/ro.owl"
         } ]
       }
     }, {
@@ -30060,8 +30780,14 @@
           "val" : "has member is a mereological relation between a collection and an item."
         },
         "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "has member"
+        }, {
           "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
           "val" : "SIO"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000412",
+          "val" : "http://purl.obolibrary.org/obo/ro.owl"
         } ]
       }
     }, {
@@ -31320,6 +32046,333 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000002",
+      "lbl" : "example to be eventually removed",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "example to be eventually removed"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000103",
+      "lbl" : "failed exploratory term",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "definition" : {
+          "val" : "The term was initially used in an attempt to structure part of the ontology, but in retrospect failed to do a good job."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "failed exploratory term"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "Terms created as placeholders with the expectation of being permanent should instead be deprecated using the \"placeholder removed\" (obo:IAO_0000226) justification."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Person:Alan Ruttenberg"
+        }, {
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
+          "val" : "https://orcid.org/0000-0001-6875-5360"
+        }, {
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
+          "val" : "https://orcid.org/0000-0002-7356-1779"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000120",
+      "lbl" : "metadata complete",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "definition" : {
+          "val" : "Class has all its metadata, but is either not guaranteed to be in its final location in the asserted IS_A hierarchy or refers to another class that is not complete."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "metadata complete"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000121",
+      "lbl" : "organizational term",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "definition" : {
+          "val" : "The term was created to ease viewing/sorting terms for development purposes, but will not be included in a release."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "organizational term"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "PERSON:Alan Ruttenberg"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000122",
+      "lbl" : "ready for release",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "definition" : {
+          "val" : "Class has undergone final review, is ready for use, and will be included in the next release. Any class lacking \"ready_for_release\" should be considered likely to change place in hierarchy, have its definition refined, or be obsoleted in the next release.  Those classes deemed \"ready_for_release\" will also derived from a chain of ancestor classes that are also \"ready_for_release.\""
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "ready for release"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000123",
+      "lbl" : "metadata incomplete",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "definition" : {
+          "val" : "Class is being worked on; however, the metadata (including definition) are not complete or sufficiently clear to the branch editors."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "metadata incomplete"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000124",
+      "lbl" : "uncurated",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "definition" : {
+          "val" : "Nothing done yet beyond assigning a unique class ID and proposing a preferred term."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "uncurated"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000125",
+      "lbl" : "pending final vetting",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "definition" : {
+          "val" : "All definitions, placement in the asserted IS_A hierarchy and required minimal metadata are complete. The class is awaiting a final review by someone other than the term editor."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "pending final vetting"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000226",
+      "lbl" : "placeholder removed",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "definition" : {
+          "val" : "The term was created to temporarily stand in for a semantic purpose, but is no longer needed, typically due to another permanent term being defined."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "placeholder removed"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "This reason is appropriate for a temporary term even if no permanent term is defined; for example if the need for the term no longer exists. If a permanent (replacement) term is defined, the deprecated term should reference the replacement with IAO:0100001. If no replacement is defined, it may be appropriate to reference alternative terms with oboInOwl:consider."
+        }, {
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
+          "val" : "https://orcid.org/0000-0001-6875-5360"
+        }, {
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
+          "val" : "https://orcid.org/0000-0002-7356-1779"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000227",
+      "lbl" : "terms merged",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "definition" : {
+          "val" : "The term has been combined with one or more other terms to create a more encompassing (merged) term."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "terms merged"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "The deprecated term should reference the merged term with obo:IAO_0100001. The replacement term should reference the original terms as sources using obo:RO_0001000 (derives_from). An editor note should explain what were the merged terms and the reason for the merge."
+        }, {
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
+          "val" : "https://orcid.org/0000-0001-6875-5360"
+        }, {
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
+          "val" : "https://orcid.org/0000-0002-7356-1779"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000228",
+      "lbl" : "term imported",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "definition" : {
+          "val" : "The term has been replaced by a term imported from another ontology."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "term imported"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "This is to be used when the original term has been replaced by a term imported from an other ontology. The deprecated term should reference the imported term with obo:IAO_0100001."
+        }, {
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
+          "val" : "https://orcid.org/0000-0001-6875-5360"
+        }, {
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
+          "val" : "https://orcid.org/0000-0002-7356-1779"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000229",
+      "lbl" : "term split",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "definition" : {
+          "val" : "The term has been split into two or more new terms."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "term split"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "This is to be used when a term has been split in two or more new terms. An editor note should indicate the reason for the split. The deprecated term should reference the replacement terms with obo:IAO_0100001."
+        }, {
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
+          "val" : "https://orcid.org/0000-0001-6875-5360"
+        }, {
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
+          "val" : "https://orcid.org/0000-0002-7356-1779"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000410",
+      "lbl" : "universal",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "universal"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "Hard to give a definition for. Intuitively a \"natural kind\" rather than a collection of any old things, which a class is able to be, formally. At the meta level, universals are defined as positives, are disjoint with their siblings, have single asserted parents."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Alan Ruttenberg"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "A Formal Theory of Substances, Qualities, and Universals, http://ontology.buffalo.edu/bfo/SQU.pdf"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000420",
+      "lbl" : "defined class",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "definition" : {
+          "val" : "A defined class is a class that is defined by a set of logically necessary and sufficient conditions but is not a universal"
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "defined class"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "\"definitions\", in some readings, always are given by necessary and sufficient conditions. So one must be careful (and this is difficult sometimes) to distinguish between defined classes and universal."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Alan Ruttenberg"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000421",
+      "lbl" : "named class expression",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "definition" : {
+          "val" : "A named class expression is a logical expression that is given a name. The name can be used in place of the expression."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "named class expression"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "named class expressions are used in order to have more concise logical definition but their extensions may not be interesting classes on their own. In languages such as OWL, with no provisions for macros, these show up as actuall classes. Tools may with to not show them as such, and to replace uses of the macros with their expansions"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Alan Ruttenberg"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000423",
+      "lbl" : "to be replaced with external ontology term",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "definition" : {
+          "val" : "Terms with this status should eventually replaced with a term from another ontology."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "to be replaced with external ontology term"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Alan Ruttenberg"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "group:OBI"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000428",
+      "lbl" : "requires discussion",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "definition" : {
+          "val" : "A term that is metadata complete, has been reviewed, and problems have been identified that require discussion before release. Such a term requires editor note(s) to identify the outstanding issues."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000111",
+          "val" : "requires discussion"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "Alan Ruttenberg"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
+          "val" : "group:OBI"
+        } ]
+      }
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/OMO_0001000",
+      "lbl" : "out of scope",
+      "type" : "INDIVIDUAL",
+      "meta" : {
+        "definition" : {
+          "val" : "The term was added to the ontology on the assumption it was in scope, but it turned out later that it was not."
+        },
+        "basicPropertyValues" : [ {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
+          "val" : "This obsolesence reason should be used conservatively. Typical valid examples in disease ontologies are: unnecessary class grouping; mistaked creation of a disease associated to a phenotype."
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000117",
+          "val" : "http://orcid.org/0000-0001-5208-3432"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000233",
+          "val" : "https://github.com/information-artifact-ontology/ontology-metadata/issues/77"
+        }, {
+          "pred" : "http://purl.obolibrary.org/obo/IAO_0000234",
+          "val" : "https://orcid.org/0000-0001-5208-3432"
+        }, {
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
+          "val" : "https://orcid.org/0000-0001-6875-5360"
+        }, {
+          "pred" : "http://purl.org/dc/elements/1.1/contributor",
+          "val" : "https://orcid.org/0000-0002-7356-1779"
+        } ]
+      }
+    }, {
       "id" : "http://qudt.org/vocab/unit/MOL",
       "type" : "INDIVIDUAL"
     }, {
@@ -31938,6 +32991,10 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000111",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
+    }, {
       "id" : "http://purl.obolibrary.org/obo/IAO_0000112",
       "lbl" : "example of usage",
       "type" : "PROPERTY",
@@ -32044,6 +33101,10 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000118",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
+    }, {
       "id" : "http://purl.obolibrary.org/obo/IAO_0000119",
       "lbl" : "definition source",
       "type" : "PROPERTY",
@@ -32111,6 +33172,14 @@
         } ]
       }
     }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000234",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
+    }, {
+      "id" : "http://purl.obolibrary.org/obo/IAO_0000412",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
+    }, {
       "id" : "http://purl.obolibrary.org/obo/IAO_0100001",
       "lbl" : "term replaced by",
       "type" : "PROPERTY",
@@ -32131,6 +33200,10 @@
           "val" : "Person:Alan Ruttenberg"
         } ]
       }
+    }, {
+      "id" : "http://purl.org/dc/elements/1.1/contributor",
+      "type" : "PROPERTY",
+      "propertyType" : "ANNOTATION"
     }, {
       "id" : "http://purl.org/dc/elements/1.1/source",
       "lbl" : "Source",
@@ -32388,192 +33461,6 @@
       "lbl" : "mapped to",
       "type" : "PROPERTY",
       "propertyType" : "ANNOTATION"
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/IAO_0000002",
-      "lbl" : "example to be eventually removed"
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/IAO_0000103",
-      "lbl" : "failed exploratory term",
-      "meta" : {
-        "definition" : {
-          "val" : "The term was initially used in an attempt to structure part of the ontology, but in retrospect failed to do a good job."
-        },
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
-          "val" : "Terms created as placeholders with the expectation of being permanent should instead be deprecated using the \"placeholder removed\" (obo:IAO_0000226) justification."
-        } ]
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/IAO_0000120",
-      "lbl" : "metadata complete",
-      "meta" : {
-        "definition" : {
-          "val" : "Class has all its metadata, but is either not guaranteed to be in its final location in the asserted IS_A hierarchy or refers to another class that is not complete."
-        }
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/IAO_0000121",
-      "lbl" : "organizational term",
-      "meta" : {
-        "definition" : {
-          "val" : "The term was created to ease viewing/sorting terms for development purposes, but will not be included in a release."
-        }
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/IAO_0000122",
-      "lbl" : "ready for release",
-      "meta" : {
-        "definition" : {
-          "val" : "Class has undergone final review, is ready for use, and will be included in the next release. Any class lacking \"ready_for_release\" should be considered likely to change place in hierarchy, have its definition refined, or be obsoleted in the next release.  Those classes deemed \"ready_for_release\" will also derived from a chain of ancestor classes that are also \"ready_for_release.\""
-        }
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/IAO_0000123",
-      "lbl" : "metadata incomplete",
-      "meta" : {
-        "definition" : {
-          "val" : "Class is being worked on; however, the metadata (including definition) are not complete or sufficiently clear to the branch editors."
-        }
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/IAO_0000124",
-      "lbl" : "uncurated",
-      "meta" : {
-        "definition" : {
-          "val" : "Nothing done yet beyond assigning a unique class ID and proposing a preferred term."
-        }
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/IAO_0000125",
-      "lbl" : "pending final vetting",
-      "meta" : {
-        "definition" : {
-          "val" : "All definitions, placement in the asserted IS_A hierarchy and required minimal metadata are complete. The class is awaiting a final review by someone other than the term editor."
-        }
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/IAO_0000226",
-      "lbl" : "placeholder removed",
-      "meta" : {
-        "definition" : {
-          "val" : "The term was created to temporarily stand in for a semantic purpose, but is no longer needed, typically due to another permanent term being defined."
-        },
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
-          "val" : "This reason is appropriate for a temporary term even if no permanent term is defined; for example if the need for the term no longer exists. If a permanent (replacement) term is defined, the deprecated term should reference the replacement with IAO:0100001. If no replacement is defined, it may be appropriate to reference alternative terms with oboInOwl:consider."
-        } ]
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/IAO_0000227",
-      "lbl" : "terms merged",
-      "meta" : {
-        "definition" : {
-          "val" : "The term has been combined with one or more other terms to create a more encompassing (merged) term."
-        },
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
-          "val" : "The deprecated term should reference the merged term with obo:IAO_0100001. The replacement term should reference the original terms as sources using obo:RO_0001000 (derives_from). An editor note should explain what were the merged terms and the reason for the merge."
-        } ]
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/IAO_0000228",
-      "lbl" : "term imported",
-      "meta" : {
-        "definition" : {
-          "val" : "The term has been replaced by a term imported from another ontology."
-        },
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
-          "val" : "This is to be used when the original term has been replaced by a term imported from an other ontology. The deprecated term should reference the imported term with obo:IAO_0100001."
-        } ]
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/IAO_0000229",
-      "lbl" : "term split",
-      "meta" : {
-        "definition" : {
-          "val" : "The term has been split into two or more new terms."
-        },
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
-          "val" : "This is to be used when a term has been split in two or more new terms. An editor note should indicate the reason for the split. The deprecated term should reference the replacement terms with obo:IAO_0100001."
-        } ]
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/IAO_0000410",
-      "lbl" : "universal",
-      "meta" : {
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
-          "val" : "Hard to give a definition for. Intuitively a \"natural kind\" rather than a collection of any old things, which a class is able to be, formally. At the meta level, universals are defined as positives, are disjoint with their siblings, have single asserted parents."
-        }, {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
-          "val" : "A Formal Theory of Substances, Qualities, and Universals, http://ontology.buffalo.edu/bfo/SQU.pdf"
-        } ]
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/IAO_0000420",
-      "lbl" : "defined class",
-      "meta" : {
-        "definition" : {
-          "val" : "A defined class is a class that is defined by a set of logically necessary and sufficient conditions but is not a universal"
-        },
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
-          "val" : "\"definitions\", in some readings, always are given by necessary and sufficient conditions. So one must be careful (and this is difficult sometimes) to distinguish between defined classes and universal."
-        } ]
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/IAO_0000421",
-      "lbl" : "named class expression",
-      "meta" : {
-        "definition" : {
-          "val" : "A named class expression is a logical expression that is given a name. The name can be used in place of the expression."
-        },
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
-          "val" : "named class expressions are used in order to have more concise logical definition but their extensions may not be interesting classes on their own. In languages such as OWL, with no provisions for macros, these show up as actuall classes. Tools may with to not show them as such, and to replace uses of the macros with their expansions"
-        } ]
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/IAO_0000423",
-      "lbl" : "to be replaced with external ontology term",
-      "meta" : {
-        "definition" : {
-          "val" : "Terms with this status should eventually replaced with a term from another ontology."
-        },
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
-          "val" : "group:OBI"
-        } ]
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/IAO_0000428",
-      "lbl" : "requires discussion",
-      "meta" : {
-        "definition" : {
-          "val" : "A term that is metadata complete, has been reviewed, and problems have been identified that require discussion before release. Such a term requires editor note(s) to identify the outstanding issues."
-        },
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000119",
-          "val" : "group:OBI"
-        } ]
-      }
-    }, {
-      "id" : "http://purl.obolibrary.org/obo/OMO_0001000",
-      "lbl" : "out of scope",
-      "meta" : {
-        "definition" : {
-          "val" : "The term was added to the ontology on the assumption it was in scope, but it turned out later that it was not."
-        },
-        "basicPropertyValues" : [ {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000116",
-          "val" : "This obsolesence reason should be used conservatively. Typical valid examples in disease ontologies are: unnecessary class grouping; mistaked creation of a disease associated to a phenotype."
-        }, {
-          "pred" : "http://purl.obolibrary.org/obo/IAO_0000233",
-          "val" : "https://github.com/information-artifact-ontology/ontology-metadata/issues/77"
-        } ]
-      }
     }, {
       "id" : "http://purl.org/dc/elements/1.1/license",
       "lbl" : "dc:license"
@@ -33420,6 +34307,14 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/CHEBI_23367"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/COB_0000026",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000040"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/COB_0000026",
+      "pred" : "http://purl.obolibrary.org/obo/OBI_0000312",
+      "obj" : "http://purl.obolibrary.org/obo/COB_0000110"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/COB_0000035",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/COB_0000082"
@@ -33435,6 +34330,14 @@
       "sub" : "http://purl.obolibrary.org/obo/COB_0000083",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/COB_0000082"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/COB_0000110",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/COB_0000035"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/COB_0001300",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/COB_0000026"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/ENVO_01000665",
       "pred" : "is_a",
@@ -33592,6 +34495,14 @@
       "pred" : "http://purl.obolibrary.org/obo/OBI_0000417",
       "obj" : "http://purl.obolibrary.org/obo/IAO_0000005"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0000151",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/OBI_0000932"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0000151",
+      "pred" : "http://purl.obolibrary.org/obo/RO_0000085",
+      "obj" : "http://purl.obolibrary.org/obo/OBI_0000378"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/OBI_0000202",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/BFO_0000023"
@@ -33608,6 +34519,10 @@
       "pred" : "http://purl.obolibrary.org/obo/RO_0000059",
       "obj" : "http://purl.obolibrary.org/obo/IAO_0000104"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0000378",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/OBI_0000372"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/OBI_0000379",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/BFO_0000034"
@@ -33620,6 +34535,34 @@
       "pred" : "http://purl.obolibrary.org/obo/RO_0000052",
       "obj" : "http://purl.obolibrary.org/obo/BFO_0000040"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0000639",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/OBI_0000456"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0000659",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/COB_0000035"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0000659",
+      "pred" : "http://purl.obolibrary.org/obo/OBI_0000293",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000040"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0000659",
+      "pred" : "http://purl.obolibrary.org/obo/OBI_0000299",
+      "obj" : "http://purl.obolibrary.org/obo/OBI_0100051"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0000659",
+      "pred" : "http://purl.obolibrary.org/obo/OBI_0000417",
+      "obj" : "http://purl.obolibrary.org/obo/OBI_0000684"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0000678",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/OBI_0000639"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0000681",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/OBI_0000639"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/OBI_0000835",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/BFO_0000040"
@@ -33627,6 +34570,22 @@
       "sub" : "http://purl.obolibrary.org/obo/OBI_0000835",
       "pred" : "http://purl.obolibrary.org/obo/RO_0000087",
       "obj" : "http://purl.obolibrary.org/obo/OBI_0000571"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0000932",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/COB_0001300"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0000932",
+      "pred" : "http://purl.obolibrary.org/obo/RO_0000085",
+      "obj" : "http://purl.obolibrary.org/obo/OBI_0000372"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0000953",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/COB_0000026"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0000953",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/OBI_0100051"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/OBI_0001930",
       "pred" : "is_a",
@@ -33640,6 +34599,10 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/IAO_0000030"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0002076",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000040"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/OBI_0002201",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/COB_0000082"
@@ -33648,9 +34611,53 @@
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/BFO_0000023"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0100051",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000040"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0100051",
+      "pred" : "http://purl.obolibrary.org/obo/RO_0000087",
+      "obj" : "http://purl.obolibrary.org/obo/OBI_0000112"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0302885",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/OBI_0600014"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0302885",
+      "pred" : "http://purl.obolibrary.org/obo/OBI_0000417",
+      "obj" : "http://purl.obolibrary.org/obo/OBI_0000681"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0302885",
+      "pred" : "http://purl.obolibrary.org/obo/RO_0000057",
+      "obj" : "http://purl.obolibrary.org/obo/OBI_0000151"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0302888",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/COB_0000035"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0302888",
+      "pred" : "http://purl.obolibrary.org/obo/OBI_0000293",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000040"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0302888",
+      "pred" : "http://purl.obolibrary.org/obo/OBI_0000299",
+      "obj" : "http://purl.obolibrary.org/obo/BFO_0000040"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0302888",
+      "pred" : "http://purl.obolibrary.org/obo/OBI_0000417",
+      "obj" : "http://purl.obolibrary.org/obo/OBI_0000456"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/OBI_0302911",
       "pred" : "is_a",
       "obj" : "http://purl.obolibrary.org/obo/COB_0000035"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0600014",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/COB_0000110"
+    }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0600014",
+      "pred" : "http://purl.obolibrary.org/obo/OBI_0000417",
+      "obj" : "http://purl.obolibrary.org/obo/OBI_0000639"
     }, {
       "sub" : "http://purl.obolibrary.org/obo/UO_0000000",
       "pred" : "is_a",
@@ -41102,6 +42109,22 @@
       "pred" : "is_a",
       "obj" : "https://w3id.org/pmd/matsus/MATSUS_0000057"
     }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000093",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/co/PMD_0000614"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000094",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/OBI_0302885"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000095",
+      "pred" : "is_a",
+      "obj" : "http://purl.obolibrary.org/obo/OBI_0600014"
+    }, {
+      "sub" : "https://w3id.org/pmd/matsus/MATSUS_0000096",
+      "pred" : "is_a",
+      "obj" : "https://w3id.org/pmd/co/PMD_0000833"
+    }, {
       "sub" : "https://w3id.org/pmd/matsus/RecycledContentInformation",
       "pred" : "is_a",
       "obj" : "http://w3id.org/dppo/ontology/dpp-info/DPPInformation"
@@ -41500,6 +42523,10 @@
       "pred" : "inverseOf",
       "obj" : "http://purl.obolibrary.org/obo/OBI_0000312"
     }, {
+      "sub" : "http://purl.obolibrary.org/obo/OBI_0000417",
+      "pred" : "inverseOf",
+      "obj" : "http://purl.obolibrary.org/obo/OBI_0000833"
+    }, {
       "sub" : "http://purl.obolibrary.org/obo/OBI_0001927",
       "pred" : "inverseOf",
       "obj" : "https://w3id.org/pmd/co/PMD_0000077"
@@ -41624,6 +42651,27 @@
       "restrictions" : [ {
         "propertyId" : "http://purl.obolibrary.org/obo/OBI_0000299",
         "fillerId" : "http://purl.obolibrary.org/obo/IAO_0020000"
+      } ]
+    }, {
+      "definedClassId" : "http://purl.obolibrary.org/obo/OBI_0000659",
+      "genusIds" : [ "http://purl.obolibrary.org/obo/COB_0000035" ],
+      "restrictions" : [ {
+        "propertyId" : "http://purl.obolibrary.org/obo/OBI_0000417",
+        "fillerId" : "http://purl.obolibrary.org/obo/OBI_0000684"
+      } ]
+    }, {
+      "definedClassId" : "http://purl.obolibrary.org/obo/OBI_0000932",
+      "genusIds" : [ "http://purl.obolibrary.org/obo/COB_0001300" ],
+      "restrictions" : [ {
+        "propertyId" : "http://purl.obolibrary.org/obo/RO_0000085",
+        "fillerId" : "http://purl.obolibrary.org/obo/OBI_0000372"
+      } ]
+    }, {
+      "definedClassId" : "http://purl.obolibrary.org/obo/OBI_0100051",
+      "genusIds" : [ "http://purl.obolibrary.org/obo/BFO_0000040" ],
+      "restrictions" : [ {
+        "propertyId" : "http://purl.obolibrary.org/obo/RO_0000087",
+        "fillerId" : "http://purl.obolibrary.org/obo/OBI_0000112"
       } ]
     }, {
       "definedClassId" : "https://w3id.org/pmd/co/PMD_0000002",
@@ -42531,6 +43579,9 @@
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/COB_0000035" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/OBI_0000312",
+      "rangeClassIds" : [ "http://purl.obolibrary.org/obo/COB_0000035" ]
+    }, {
+      "predicateId" : "http://purl.obolibrary.org/obo/OBI_0000833",
       "rangeClassIds" : [ "http://purl.obolibrary.org/obo/COB_0000035" ]
     }, {
       "predicateId" : "http://purl.obolibrary.org/obo/RO_0000053",
