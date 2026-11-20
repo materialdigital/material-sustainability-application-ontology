@@ -8,6 +8,8 @@
     <uri name="https://w3id.org/pmd/matsus/components/matsus-log-stageA.ttl" uri="components/matsus-log-stageA.ttl" />
     <uri name="https://w3id.org/pmd/matsus/components/matsus-dppo.ttl" uri="components/matsus-dppo.ttl" />
     <uri name="https://w3id.org/pmd/matsus/components/matsus-ceon.ttl" uri="components/matsus-ceon.ttl" />
+    <uri name='https://w3id.org/pmd/matsus/imports/obi_recycling_import.owl' uri='imports/obi_recycling_import.owl' />
+    <uri name='https://w3id.org/pmd/matsus/imports/obi_recycling_import/2026-07-27' uri='imports/obi_recycling_import.owl' />
   </group>
   <uri id="Imports Wizard Entry" name="https://w3id.org/pmd/co/3.1.2" uri="imports/pmdco_import.owl" />
   <rewriteURI rewritePrefix="imports/" uriStartString="https://w3id.org/pmd/matsus/imports/" />

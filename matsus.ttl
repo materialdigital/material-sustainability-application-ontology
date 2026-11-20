@@ -29,11 +29,15 @@
                                 dcterms:publisher <https://materialdigital.de/> ;
                                 dcterms:source <https://github.com/materialdigital/material-sustainability-application-ontology> ;
                                 dcterms:title "Material Sustainability Application Ontology (Mat.Sus)" ;
-                                owl:versionInfo "2026-11-13" .
+                                owl:versionInfo "2026-11-20" .
 
 #################################################################
 #    Annotation properties
 #################################################################
+
+###  http://purl.obolibrary.org/obo/IAO_0000111
+obo:IAO_0000111 rdf:type owl:AnnotationProperty .
+
 
 ###  http://purl.obolibrary.org/obo/IAO_0000112
 obo:IAO_0000112 rdf:type owl:AnnotationProperty ;
@@ -127,6 +131,10 @@ obo:IAO_0000117 rdf:type owl:AnnotationProperty ;
                 rdfs:label "term editor"@en .
 
 
+###  http://purl.obolibrary.org/obo/IAO_0000118
+obo:IAO_0000118 rdf:type owl:AnnotationProperty .
+
+
 ###  http://purl.obolibrary.org/obo/IAO_0000119
 obo:IAO_0000119 rdf:type owl:AnnotationProperty ;
                 obo:IAO_0000114 obo:IAO_0000122 ;
@@ -158,6 +166,14 @@ obo:IAO_0000233 rdf:type owl:AnnotationProperty ;
                 rdfs:range xsd:anyURI .
 
 
+###  http://purl.obolibrary.org/obo/IAO_0000234
+obo:IAO_0000234 rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000412
+obo:IAO_0000412 rdf:type owl:AnnotationProperty .
+
+
 ###  http://purl.obolibrary.org/obo/IAO_0100001
 obo:IAO_0100001 rdf:type owl:AnnotationProperty ;
                 obo:IAO_0000114 obo:IAO_0000125 ;
@@ -166,6 +182,10 @@ obo:IAO_0100001 rdf:type owl:AnnotationProperty ;
                 obo:IAO_0000119 "Person:Alan Ruttenberg"@en ;
                 rdfs:comment "Add as annotation triples in the granting ontology"@en ;
                 rdfs:label "term replaced by"@en .
+
+
+###  http://purl.org/dc/elements/1.1/contributor
+dc:contributor rdf:type owl:AnnotationProperty .
 
 
 ###  http://purl.org/dc/elements/1.1/source
@@ -829,6 +849,7 @@ obo:OBI_0000293 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf obo:RO_0000057 ;
                 owl:inverseOf obo:OBI_0000295 ;
                 rdfs:domain obo:COB_0000035 ;
+                obo:IAO_0000111 "has specified input" ;
                 obo:IAO_0000112 "see is_input_of example_of_usage"@en ;
                 obo:IAO_0000114 obo:IAO_0000122 ;
                 obo:IAO_0000115 "The inverse property of is specified input of" ;
@@ -844,6 +865,7 @@ obo:OBI_0000293 rdf:type owl:ObjectProperty ;
 obo:OBI_0000295 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf obo:RO_0000056 ;
                 rdfs:range obo:COB_0000035 ;
+                obo:IAO_0000111 "is specified input of" ;
                 obo:IAO_0000112 "some Autologous EBV(Epstein-Barr virus)-transformed B-LCL (B lymphocyte cell line) is_input_for instance of Chromum Release Assay described at https://wiki.cbil.upenn.edu/obiwiki/index.php/Chromium_Release_assay"@en ;
                 obo:IAO_0000114 obo:IAO_0000122 ;
                 obo:IAO_0000115 "A relation between a completely executed planned process and a continuant participating in that process that is not created during the process. The presence of the continuant during the process is explicitly specified in the plan specification which the process realizes the concretization of." ;
@@ -857,6 +879,7 @@ obo:OBI_0000299 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf obo:RO_0000057 ;
                 owl:inverseOf obo:OBI_0000312 ;
                 rdfs:domain obo:COB_0000035 ;
+                obo:IAO_0000111 "has specified output" ;
                 obo:IAO_0000114 obo:IAO_0000122 ;
                 obo:IAO_0000115 "The inverse property of is specified output of" ;
                 obo:IAO_0000117 "PERSON: Alan Ruttenberg"@en ,
@@ -882,6 +905,7 @@ obo:OBI_0000304 rdf:type owl:ObjectProperty ;
 obo:OBI_0000312 rdf:type owl:ObjectProperty ;
                 rdfs:subPropertyOf obo:RO_0000056 ;
                 rdfs:range obo:COB_0000035 ;
+                obo:IAO_0000111 "is specified output of" ;
                 obo:IAO_0000114 obo:IAO_0000122 ;
                 obo:IAO_0000115 "A relation between a completely executed planned process and a continuant participating in that process. The presence of the continuant at the end of the process is explicitly specified in the objective specification which the process realizes the concretization of."@en ;
                 obo:IAO_0000117 "Alan Ruttenberg"@en ,
@@ -891,8 +915,10 @@ obo:OBI_0000312 rdf:type owl:ObjectProperty ;
 
 ###  http://purl.obolibrary.org/obo/OBI_0000417
 obo:OBI_0000417 rdf:type owl:ObjectProperty ;
+                owl:inverseOf obo:OBI_0000833 ;
                 rdfs:domain obo:COB_0000035 ;
                 rdfs:range obo:IAO_0000005 ;
+                obo:IAO_0000111 "achieves_planned_objective" ;
                 obo:IAO_0000112 "A cell sorting process achieves the objective specification 'material separation objective'" ;
                 obo:IAO_0000114 obo:IAO_0000120 ;
                 obo:IAO_0000115 "This relation obtains between a planned process and a objective specification when the criteria specified in the objective specification are met at the end of the planned process."@en ;
@@ -901,6 +927,17 @@ obo:OBI_0000417 rdf:type owl:ObjectProperty ;
                 obo:IAO_0000232 "modified according to email thread from 1/23/09 in accordince with DT and PPPB branch" ;
                 rdfs:label "achieves_planned_objective" ;
                 co:PMD_0000064 "https://github.com/search?q=repo%3Amaterialdigital%2Fcore-ontology+path%3A%2F%5Epatterns%5C%2F%2F+OBI_0000417&type=code" .
+
+
+###  http://purl.obolibrary.org/obo/OBI_0000833
+obo:OBI_0000833 rdf:type owl:ObjectProperty ;
+                rdfs:range obo:COB_0000035 ;
+                obo:IAO_0000111 "objective_achieved_by" ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
+                obo:IAO_0000115 "This relation obtains between an objective specification and a planned process when the criteria specified in the objective specification are met at the end of the planned process."@en ;
+                obo:IAO_0000117 "OBI" ;
+                obo:IAO_0000119 "OBI" ;
+                rdfs:label "objective_achieved_by" .
 
 
 ###  http://purl.obolibrary.org/obo/OBI_0001927
@@ -1052,9 +1089,11 @@ obo:RO_0000085 rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf obo:RO_0000053 ;
                rdfs:domain obo:BFO_0000004 ;
                rdfs:range obo:BFO_0000034 ;
+               obo:IAO_0000111 "has function"@en ;
                obo:IAO_0000112 "this enzyme has function this catalysis function (more colloquially: this enzyme has this catalysis function)"@en ;
                obo:IAO_0000115 "a relation between an independent continuant (the bearer) and a function, in which the function specifically depends on the bearer for its existence"@en ;
                obo:IAO_0000116 "A bearer can have many functions, and its functions can exist for different periods of time, but none of its functions can exist when the bearer does not exist. A function need not be realized at all the times that the function exists."@en ;
+               obo:IAO_0000412 obo:ro.owl ;
                rdfs:label "has function"@en .
 
 
@@ -1073,9 +1112,11 @@ obo:RO_0000087 rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf obo:RO_0000053 ;
                rdfs:domain obo:BFO_0000004 ;
                rdfs:range obo:BFO_0000023 ;
+               obo:IAO_0000111 "has role"@en ;
                obo:IAO_0000112 "this person has role this investigator role (more colloquially: this person has this role of investigator)"@en ;
                obo:IAO_0000115 "a relation between an independent continuant (the bearer) and a role, in which the role specifically depends on the bearer for its existence"@en ;
                obo:IAO_0000116 "A bearer can have many roles, and its roles can exist for different periods of time, but none of its roles can exist when the bearer does not exist. A role need not be realized at all the times that the role exists."@en ;
+               obo:IAO_0000412 obo:ro.owl ;
                rdfs:label "has role"@en .
 
 
@@ -1278,8 +1319,10 @@ obo:RO_0002350 rdf:type owl:ObjectProperty ;
 obo:RO_0002351 rdf:type owl:ObjectProperty ;
                rdfs:subPropertyOf obo:BFO_0000051 ;
                rdf:type owl:IrreflexiveProperty ;
+               obo:IAO_0000111 "has member"@en ;
                obo:IAO_0000115 "has member is a mereological relation between a collection and an item." ;
                obo:IAO_0000119 "SIO" ;
+               obo:IAO_0000412 obo:ro.owl ;
                rdfs:label "has member"@en .
 
 
@@ -2404,8 +2447,10 @@ obo:BFO_0000038 rdf:type owl:Class ;
 obo:BFO_0000040 rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000004 ;
                 owl:disjointWith obo:BFO_0000141 ;
+                obo:IAO_0000111 "material entity"@en ;
                 obo:IAO_0000115 "An independent continuant that is spatially extended whose identity is independent of that of other entities and can be maintained through time."@en ;
                 obo:IAO_0000116 "Elucidation: An independent continuant that is spatially extended whose identity is independent of that of other entities and can be maintained through time."@en ;
+                obo:IAO_0000412 obo:ido.owl ;
                 rdfs:label "material entity"@en ;
                 skos:definition "(Elucidation) A material entity is an independent continuant has some portion of matter as continuant part"@en ;
                 skos:example "A human being; the undetached arm of a human being; an aggregate of human beings"@en .
@@ -3416,6 +3461,18 @@ obo:CHEBI_81045 rdf:type owl:Class ;
                 rdfs:label "lead oxide" .
 
 
+###  http://purl.obolibrary.org/obo/COB_0000026
+obo:COB_0000026 rdf:type owl:Class ;
+                rdfs:subClassOf obo:BFO_0000040 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:OBI_0000312 ;
+                                  owl:someValuesFrom obo:COB_0000110
+                                ] ;
+                obo:IAO_0000115 "A material entity processed by human activity with an intent to produce it."@en ;
+                obo:IAO_0000116 "In the COB 2024 workshop there was much disagreement about this label."@en ;
+                rdfs:label "processed material entity"@en .
+
+
 ###  http://purl.obolibrary.org/obo/COB_0000035
 obo:COB_0000035 rdf:type owl:Class ;
                 rdfs:subClassOf obo:COB_0000082 ,
@@ -3440,6 +3497,31 @@ obo:COB_0000082 rdf:type owl:Class ;
 obo:COB_0000083 rdf:type owl:Class ;
                 rdfs:subClassOf obo:COB_0000082 ;
                 rdfs:label "failed planned process"@en .
+
+
+###  http://purl.obolibrary.org/obo/COB_0000110
+obo:COB_0000110 rdf:type owl:Class ;
+                rdfs:subClassOf obo:COB_0000035 ,
+                                [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                         owl:onProperty obo:OBI_0000293 ;
+                                                         owl:someValuesFrom obo:BFO_0000040
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty obo:OBI_0000299 ;
+                                                         owl:someValuesFrom obo:BFO_0000040
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] ;
+                obo:IAO_0000115 "A completely executed planned process that intends to output material entities from input material entities"@en ;
+                rdfs:label "material processing"@en .
+
+
+###  http://purl.obolibrary.org/obo/COB_0001300
+obo:COB_0001300 rdf:type owl:Class ;
+                rdfs:subClassOf obo:COB_0000026 ;
+                obo:IAO_0000115 "A processed material entity which is designed to be capable of a process."@en ;
+                rdfs:label "device"@en .
 
 
 ###  http://purl.obolibrary.org/obo/ENVO_01000665
@@ -3589,6 +3671,30 @@ obo:IAO_0000033 rdf:type owl:Class ;
                 rdfs:label "directive information entity"@en .
 
 
+###  http://purl.obolibrary.org/obo/IAO_0000078
+obo:IAO_0000078 rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Class ;
+                                      owl:oneOf ( obo:IAO_0000002
+                                                  obo:IAO_0000120
+                                                  obo:IAO_0000121
+                                                  obo:IAO_0000122
+                                                  obo:IAO_0000123
+                                                  obo:IAO_0000124
+                                                  obo:IAO_0000125
+                                                  obo:IAO_0000423
+                                                  obo:IAO_0000428
+                                                )
+                                    ] ;
+                obo:IAO_0000111 "curation status specification"@en ;
+                obo:IAO_0000114 obo:IAO_0000125 ;
+                obo:IAO_0000115 "The curation status of the term. The allowed values come from an enumerated list of predefined terms. See the specification of these instances for more detailed definitions of each enumerated value."@en ;
+                obo:IAO_0000116 "Better to represent curation as a process with parts and then relate labels to that process (in IAO meeting)"@en ;
+                obo:IAO_0000117 "PERSON:Bill Bug"@en ;
+                obo:IAO_0000119 "GROUP:OBI:<http://purl.obolibrary.org/obo/obi>"@en ,
+                                "OBI_0000266"@en ;
+                rdfs:label "curation status specification"@en .
+
+
 ###  http://purl.obolibrary.org/obo/IAO_0000098
 obo:IAO_0000098 rdf:type owl:Class ;
                 rdfs:subClassOf obo:IAO_0000033 ;
@@ -3667,6 +3773,26 @@ obo:IAO_0000129 rdf:type owl:Class ;
                 rdfs:label "version number"@en .
 
 
+###  http://purl.obolibrary.org/obo/IAO_0000225
+obo:IAO_0000225 rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Class ;
+                                      owl:oneOf ( obo:IAO_0000103
+                                                  obo:IAO_0000226
+                                                  obo:IAO_0000227
+                                                  obo:IAO_0000228
+                                                  obo:IAO_0000229
+                                                  obo:OMO_0001000
+                                                )
+                                    ] ;
+                obo:IAO_0000111 "obsolescence reason specification"@en ;
+                obo:IAO_0000114 obo:IAO_0000125 ;
+                obo:IAO_0000115 "The reason for which a term has been deprecated. The allowed values come from an enumerated list of predefined terms. See the specification of these instances for more detailed definitions of each enumerated value."@en ;
+                obo:IAO_0000116 "The creation of this class has been inspired in part by Werner Ceusters' paper, Applying evolutionary terminology auditing to the Gene Ontology."@en ;
+                obo:IAO_0000117 "PERSON: Alan Ruttenberg"@en ,
+                                "PERSON: Melanie Courtot"@en ;
+                rdfs:label "obsolescence reason specification"@en .
+
+
 ###  http://purl.obolibrary.org/obo/IAO_0000300
 obo:IAO_0000300 rdf:type owl:Class ;
                 rdfs:subClassOf obo:IAO_0000030 ;
@@ -3701,6 +3827,22 @@ obo:IAO_0000311 rdf:type owl:Class ;
                 obo:IAO_0000233 <https://github.com/information-artifact-ontology/IAO/issues/232> ;
                 rdfs:comment "Revisit the term in Octorber 2020. Improve the defintion."@en ;
                 rdfs:label "publication"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000409
+obo:IAO_0000409 rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Class ;
+                                      owl:oneOf ( obo:IAO_0000410
+                                                  obo:IAO_0000420
+                                                  obo:IAO_0000421
+                                                )
+                                    ] ;
+                obo:IAO_0000111 "denotator type"@en ;
+                obo:IAO_0000112 "The Basic Formal Ontology ontology makes a distinction between Universals and defined classes, where the formal are \"natural kinds\" and the latter arbitrary collections of entities."@en ;
+                obo:IAO_0000115 "A denotator type indicates how a term should be interpreted from an ontological perspective."@en ;
+                obo:IAO_0000117 "Alan Ruttenberg"@en ;
+                obo:IAO_0000119 "Barry Smith, Werner Ceusters"@en ;
+                rdfs:label "denotator type"@en .
 
 
 ###  http://purl.obolibrary.org/obo/IAO_0000444
@@ -3894,6 +4036,52 @@ obo:OBI_0000070 rdf:type owl:Class ;
                 rdfs:label "assay"@en .
 
 
+###  http://purl.obolibrary.org/obo/OBI_0000112
+obo:OBI_0000112 rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:RO_0000052 ;
+                                  owl:someValuesFrom [ owl:intersectionOf ( obo:BFO_0000040
+                                                                            [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty obo:OBI_0000312 ;
+                                                                              owl:someValuesFrom obo:OBI_0000659
+                                                                            ]
+                                                                          ) ;
+                                                       rdf:type owl:Class
+                                                     ]
+                                ] ;
+                obo:IAO_0000111 "specimen role" ;
+                obo:IAO_0000112 "liver section; a portion of a culture of cells; a nemotode or other animal once no longer a subject (generally killed); portion of blood from a patient." ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
+                obo:IAO_0000115 "A role borne by a material entity that is obtained during a specimen collection process and that can be realized by performing measurements or observations on the specimen."@en ;
+                obo:IAO_0000116 "22Jun09.  The definition includes whole organisms, and can include a human.  The link between specimen role and study subject role has been removed.  A specimen taken as part of a case study is not considered to be a population representative, while a specimen taken as representing a population, e.g. person taken from a cohort, blood specimen taken from an animal) would be considered a population representative and would also bear material sample role." ,
+                                "Note: definition is in specimen creation objective which is defined as an objective to obtain and store a material entity for potential use as an input during an investigation." ,
+                                """blood taken from animal: animal continues in study, whereas blood has role specimen.
+something taken from study subject, leaves the study and becomes the specimen."""@en ,
+                                """parasite example
+- when parasite in people we study people, people are subjects and parasites are specimen
+- when parasite extracted, they become subject in the following study
+specimen can later be subject."""@en ;
+                obo:IAO_0000117 "GROUP:  Role Branch" ;
+                obo:IAO_0000119 "OBI" ;
+                obo:IAO_0000233 <https://github.com/obi-ontology/obi/issues/1013> ;
+                rdfs:label "specimen role"@en .
+
+
+###  http://purl.obolibrary.org/obo/OBI_0000151
+obo:OBI_0000151 rdf:type owl:Class ;
+                rdfs:subClassOf obo:OBI_0000932 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:RO_0000085 ;
+                                  owl:someValuesFrom obo:OBI_0000378
+                                ] ;
+                obo:IAO_0000111 "filter paper" ;
+                obo:IAO_0000114 obo:IAO_0000120 ;
+                obo:IAO_0000115 "A device manufacture with the intent to provide a porous unsized paper used for filtering."@en ;
+                obo:IAO_0000117 "Frank Gibson" ;
+                obo:IAO_0000119 "sep:00107" ;
+                rdfs:label "filter paper" .
+
+
 ###  http://purl.obolibrary.org/obo/OBI_0000202
 obo:OBI_0000202 rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000023 ;
@@ -3966,6 +4154,28 @@ obo:OBI_0000260 rdf:type owl:Class ;
                 rdfs:label "plan"@en .
 
 
+###  http://purl.obolibrary.org/obo/OBI_0000372
+obo:OBI_0000372 rdf:type owl:Class ;
+                obo:IAO_0000111 "material separation function"@en ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
+                obo:IAO_0000115 "A material separation function is a function that increases the resolution between two or more material entities. The  to distinction between the entities is usually based on some associated physical quality."@en ;
+                obo:IAO_0000117 "Bill Bug" ,
+                                "Daniel Schober" ,
+                                "Frank Gibson" ,
+                                "Melanie Courtot" ;
+                rdfs:label "material separation function"@en .
+
+
+###  http://purl.obolibrary.org/obo/OBI_0000378
+obo:OBI_0000378 rdf:type owl:Class ;
+                rdfs:subClassOf obo:OBI_0000372 ;
+                obo:IAO_0000111 "filter function"@en ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
+                obo:IAO_0000115 "A filter function is a function to prevent the flow of certain entities based on a quality or qualities of the entity while allowing entities which have different qualities to pass through"@en ;
+                obo:IAO_0000117 "Frank Gibson" ;
+                rdfs:label "filter function"@en .
+
+
 ###  http://purl.obolibrary.org/obo/OBI_0000379
 obo:OBI_0000379 rdf:type owl:Class ;
                 rdfs:subClassOf obo:BFO_0000034 ;
@@ -3977,6 +4187,22 @@ obo:OBI_0000379 rdf:type owl:Class ;
                                 "Melanie Courtot" ;
                 obo:IAO_0000119 "http://en.wikipedia.org/wiki/Mechanical_work"@en ;
                 rdfs:label "mechanical function"@en .
+
+
+###  http://purl.obolibrary.org/obo/OBI_0000456
+obo:OBI_0000456 rdf:type owl:Class ;
+                obo:IAO_0000111 "material transformation objective" ;
+                obo:IAO_0000112 "The objective to create a mouse infected with LCM virus. The objective to create a defined solution of PBS." ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
+                obo:IAO_0000115 "an objective specifiction that creates an specific output object from input materials."@en ;
+                obo:IAO_0000117 "PERSON: Bjoern Peters" ,
+                                "PERSON: Frank Gibson" ,
+                                "PERSON: Jennifer Fostel" ,
+                                "PERSON: Melanie Courtot" ,
+                                "PERSON: Philippe Rocca-Serra" ;
+                obo:IAO_0000118 "artifact  creation objective"@en ;
+                obo:IAO_0000119 "GROUP: OBI PlanAndPlannedProcess Branch" ;
+                rdfs:label "material transformation objective"@en .
 
 
 ###  http://purl.obolibrary.org/obo/OBI_0000571
@@ -4002,6 +4228,97 @@ obo:OBI_0000571 rdf:type owl:Class ;
                 rdfs:label "manufacturer role" .
 
 
+###  http://purl.obolibrary.org/obo/OBI_0000639
+obo:OBI_0000639 rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Class ;
+                                      owl:unionOf ( obo:OBI_0000678
+                                                    obo:OBI_0000681
+                                                  )
+                                    ] ;
+                rdfs:subClassOf obo:OBI_0000456 ;
+                obo:IAO_0000111 "material separation objective" ;
+                obo:IAO_0000112 "The objective to obtain multiple aliquots of an enzyme preparation. The objective to obtain cells contained in a sample of blood." ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
+                obo:IAO_0000115 "is an objective to transform a material entity into spatially separated components."@en ;
+                obo:IAO_0000117 "PPPB branch" ;
+                obo:IAO_0000119 "PPPB branch" ;
+                rdfs:label "material separation objective" .
+
+
+###  http://purl.obolibrary.org/obo/OBI_0000659
+obo:OBI_0000659 rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( obo:COB_0000035
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty obo:OBI_0000417 ;
+                                                             owl:someValuesFrom obo:OBI_0000684
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf obo:COB_0000035 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:OBI_0000293 ;
+                                  owl:someValuesFrom obo:BFO_0000040
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:OBI_0000299 ;
+                                  owl:someValuesFrom obo:OBI_0100051
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:OBI_0000417 ;
+                                  owl:someValuesFrom obo:OBI_0000684
+                                ] ;
+                obo:IAO_0000111 "specimen collection process" ;
+                obo:IAO_0000112 "drawing blood from a patient for analysis, collecting a piece of a plant for depositing in a herbarium, buying meat from a butcher in order to measure its protein content in an investigation, collecting a stone from a site" ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
+                obo:IAO_0000115 "A planned process with the objective to obtain a material entity for potential use as an input upon which measurements or observations are performed."@en ;
+                obo:IAO_0000116 "Definition updated following discussion on 2024-10-07 OBI dev call." ,
+                                "Note: definition is in specimen creation objective which is defined as an objective to obtain and store a material entity for potential use as an input during an investigation." ,
+                                "Philly2013: A specimen collection can have as part a material entity acquisition, such as ordering from a bank. The distinction is that specimen collection necessarily involves the creation of a specimen role. However ordering cell lines cells from ATCC for use in an investigation is NOT a specimen collection, because the cell lines already have a specimen role." ,
+                                "Philly2013: The specimen_role for the specimen is created during the specimen collection process." ,
+                                """label  changed to 'specimen collection process' on 10/27/2014, details see tracker:
+http://sourceforge.net/p/obi/obi-terms/716/""" ;
+                obo:IAO_0000117 "Bjoern Peters" ;
+                obo:IAO_0000118 "specimen collection" ;
+                obo:IAO_0000232 "5/31/2012: This process is not necessarily an acquisition, as specimens may be collected from materials already in posession" ,
+                                "6/9/09: used at workshop" ;
+                rdfs:label "specimen collection process" .
+
+
+###  http://purl.obolibrary.org/obo/OBI_0000678
+obo:OBI_0000678 rdf:type owl:Class ;
+                rdfs:subClassOf obo:OBI_0000639 ;
+                owl:disjointWith obo:OBI_0000681 ;
+                obo:IAO_0000111 "portioning objective" ;
+                obo:IAO_0000112 "The objective to obtain multiple aliquots of an enzyme preparation." ;
+                obo:IAO_0000114 obo:IAO_0000123 ;
+                obo:IAO_0000115 "A material separation objective aiming to separate material into multiple portions, each of which contains a similar composition of the input material."@en ;
+                rdfs:label "portioning objective" .
+
+
+###  http://purl.obolibrary.org/obo/OBI_0000681
+obo:OBI_0000681 rdf:type owl:Class ;
+                rdfs:subClassOf obo:OBI_0000639 ;
+                obo:IAO_0000111 "separation into different composition objective" ;
+                obo:IAO_0000112 "The objective to obtain cells contained in a sample of blood." ;
+                obo:IAO_0000114 obo:IAO_0000120 ;
+                obo:IAO_0000115 "A material separation objective aiming to separate a material entity that has parts of different types, and end with at least one output that is a material with parts of fewer types (modulo impurities)."@en ;
+                obo:IAO_0000116 "We should be using has the grain relations or concentrations to distinguish the portioning and other sub-objectives" ;
+                rdfs:label "separation into different composition objective" .
+
+
+###  http://purl.obolibrary.org/obo/OBI_0000684
+obo:OBI_0000684 rdf:type owl:Class ;
+                obo:IAO_0000111 "specimen collection objective" ;
+                obo:IAO_0000112 "The objective to collect bits of excrement in the rainforest. The objective to obtain a blood sample from a patient." ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
+                obo:IAO_0000115 "A objective specification that is fulfilled by obtaining a material entity for potential use as an input upon which measurements or observations are performed."@en ;
+                obo:IAO_0000116 "OBI recommends against subclassing this term in order to avoid further parallel hierarchies between this term and specimen collection process."@en ;
+                obo:IAO_0000117 "Bjoern Peters" ;
+                obo:IAO_0000119 "Bjoern Peters" ;
+                rdfs:label "specimen collection objective" .
+
+
 ###  http://purl.obolibrary.org/obo/OBI_0000835
 obo:OBI_0000835 rdf:type owl:Class ;
                 owl:equivalentClass [ owl:intersectionOf ( [ rdf:type owl:Class ;
@@ -4024,6 +4341,50 @@ obo:OBI_0000835 rdf:type owl:Class ;
                 obo:IAO_0000114 obo:IAO_0000123 ;
                 obo:IAO_0000115 "A person or organization that has a manufacturer role."@en ;
                 rdfs:label "manufacturer" .
+
+
+###  http://purl.obolibrary.org/obo/OBI_0000932
+obo:OBI_0000932 rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( obo:COB_0001300
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty obo:RO_0000085 ;
+                                                             owl:someValuesFrom obo:OBI_0000372
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf obo:COB_0001300 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:RO_0000085 ;
+                                  owl:someValuesFrom obo:OBI_0000372
+                                ] ;
+                obo:IAO_0000111 "material separation device" ;
+                obo:IAO_0000112 "flow cytometer" ;
+                obo:IAO_0000114 obo:IAO_0000123 ;
+                obo:IAO_0000115 "A device with a separation function realized in a planed process"@en ;
+                rdfs:label "material separation device" .
+
+
+###  http://purl.obolibrary.org/obo/OBI_0000953
+obo:OBI_0000953 rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( obo:OBI_0100051
+                                                           [ owl:intersectionOf ( obo:COB_0000026
+                                                                                  obo:OBI_0100051
+                                                                                ) ;
+                                                             rdf:type owl:Class
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf obo:COB_0000026 ,
+                                obo:OBI_0100051 ;
+                obo:IAO_0000111 "processed specimen" ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
+                obo:IAO_0000115 "A specimen that has been intentionally physically modified."@en ;
+                obo:IAO_0000116 "A tissue sample that has been sliced and stained for a histology study." ;
+                obo:IAO_0000117 "Bjoern Peters" ;
+                obo:IAO_0000119 "Bjoern Peters" ;
+                rdfs:label "processed specimen" .
 
 
 ###  http://purl.obolibrary.org/obo/OBI_0001930
@@ -4059,6 +4420,28 @@ obo:OBI_0001933 rdf:type owl:Class ;
                 rdfs:label "value specification" .
 
 
+###  http://purl.obolibrary.org/obo/OBI_0002076
+obo:OBI_0002076 rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000040
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty obo:RO_0002351 ;
+                                                             owl:allValuesFrom obo:OBI_0100051
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf obo:BFO_0000040 ;
+                obo:IAO_0000111 "collection of specimens"@en ;
+                obo:IAO_0000112 "Blood cells collected from multiple donors over the course of a study."@en ;
+                obo:IAO_0000114 obo:IAO_0000125 ;
+                obo:IAO_0000115 "A material entity that has two or more specimens as its parts."@en ;
+                obo:IAO_0000116 "Details see tracker: https://sourceforge.net/p/obi/obi-terms/778/" ;
+                obo:IAO_0000117 "Person: Chris Stoeckert, Jie Zheng"@en ;
+                obo:IAO_0000119 "OBIB, OBI" ;
+                dc:source "Biobank" ;
+                rdfs:label "collection of specimens"@en .
+
+
 ###  http://purl.obolibrary.org/obo/OBI_0002201
 obo:OBI_0002201 rdf:type owl:Class ;
                 rdfs:subClassOf obo:COB_0000082 ;
@@ -4079,6 +4462,76 @@ obo:OBI_0003611 rdf:type owl:Class ;
                 rdfs:label "precursor role"@en .
 
 
+###  http://purl.obolibrary.org/obo/OBI_0100051
+obo:OBI_0100051 rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( obo:BFO_0000040
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty obo:RO_0000087 ;
+                                                             owl:someValuesFrom obo:OBI_0000112
+                                                           ]
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] ;
+                rdfs:subClassOf obo:BFO_0000040 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:RO_0000087 ;
+                                  owl:someValuesFrom obo:OBI_0000112
+                                ] ;
+                obo:IAO_0000111 "specimen"@en ;
+                obo:IAO_0000112 "Biobanking of blood taken and stored in a freezer for potential future investigations stores specimen; collecting a stone from a site."@en ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
+                obo:IAO_0000115 "A material entity that is collected for potential use as an input upon which measurements or observations are performed."@en ;
+                obo:IAO_0000117 "PERSON: James Malone" ,
+                                "PERSON: Philippe Rocca-Serra" ;
+                obo:IAO_0000119 "GROUP: OBI Biomaterial Branch"@en ;
+                obo:IAO_0000233 <https://github.com/obi-ontology/obi/issues/1013> ;
+                rdfs:label "specimen"@en .
+
+
+###  http://purl.obolibrary.org/obo/OBI_0302885
+obo:OBI_0302885 rdf:type owl:Class ;
+                rdfs:subClassOf obo:OBI_0600014 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:OBI_0000417 ;
+                                  owl:someValuesFrom obo:OBI_0000681
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:RO_0000057 ;
+                                  owl:someValuesFrom obo:OBI_0000151
+                                ] ;
+                obo:IAO_0000111 "filtration" ;
+                obo:IAO_0000112 "PMID: 18524968.Filtration of CSF improves isolation of Mycobacteria.J Clin Microbiol. 2008 Jun 4."@en ;
+                obo:IAO_0000114 obo:IAO_0000120 ;
+                obo:IAO_0000115 "filtration is a process which separates components suspended in a fluid based on granularity properties relying on a filter device"@en ;
+                obo:IAO_0000117 "Philippe Rocca-Serra" ;
+                obo:IAO_0000119 "OBI-Branch: adapted from wikipedia and wordnet" ;
+                rdfs:label "filtration"@en .
+
+
+###  http://purl.obolibrary.org/obo/OBI_0302888
+obo:OBI_0302888 rdf:type owl:Class ;
+                rdfs:subClassOf obo:COB_0000035 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:OBI_0000293 ;
+                                  owl:someValuesFrom obo:BFO_0000040
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:OBI_0000299 ;
+                                  owl:someValuesFrom obo:BFO_0000040
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:OBI_0000417 ;
+                                  owl:someValuesFrom obo:OBI_0000456
+                                ] ;
+                obo:IAO_0000111 "washing" ;
+                obo:IAO_0000112 "PMID: 6874122. Dialysis leucopenia--no correction after prolonged washing of the membrane. Int J Artif Organs. 1983 May;6(3):113-4."@en ;
+                obo:IAO_0000114 obo:IAO_0000120 ;
+                obo:IAO_0000115 "washing is a process by which a material entity acting as  contaminant (e.g. excess staining reagent) is removed by application of one or more cycles of solution in flow."@en ;
+                obo:IAO_0000117 "Philippe Rocca-Serra" ;
+                obo:IAO_0000119 "OBI-Branch" ;
+                rdfs:label "washing"@en .
+
+
 ###  http://purl.obolibrary.org/obo/OBI_0302911
 obo:OBI_0302911 rdf:type owl:Class ;
                 rdfs:subClassOf obo:COB_0000035 ;
@@ -4088,6 +4541,26 @@ obo:OBI_0302911 rdf:type owl:Class ;
                 obo:IAO_0000117 "Philippe Rocca-Serra" ;
                 obo:IAO_0000119 "adapted from wordnet (wkipedia)" ;
                 rdfs:label "validation"@en .
+
+
+###  http://purl.obolibrary.org/obo/OBI_0600014
+obo:OBI_0600014 rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                      owl:onProperty obo:OBI_0000417 ;
+                                      owl:someValuesFrom obo:OBI_0000639
+                                    ] ;
+                rdfs:subClassOf obo:COB_0000110 ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty obo:OBI_0000417 ;
+                                  owl:someValuesFrom obo:OBI_0000639
+                                ] ;
+                obo:IAO_0000111 "material component separation"@en ;
+                obo:IAO_0000112 "Using a cell sorter to separate a mixture of T cells into two fractions; one with surface receptor CD8 and the other lacking the receptor, or purification"@en ;
+                obo:IAO_0000114 obo:IAO_0000122 ;
+                obo:IAO_0000115 "a material processing in which components of an input material become segregated in space"@en ;
+                obo:IAO_0000117 "Bjoern Peters"@en ;
+                obo:IAO_0000119 "IEDB"@en ;
+                rdfs:label "material component separation"@en .
 
 
 ###  http://purl.obolibrary.org/obo/UO_0000000
@@ -4546,7 +5019,7 @@ co:PMD_0000002 rdf:type owl:Class ;
 co:PMD_0000005 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0020353 ,
                                co:PMD_0023004 ,
-                               _:genid197 ;
+                               _:genid267 ;
                obo:IAO_0000114 obo:IAO_0000122 ;
                obo:IAO_0000117 "PERSON: Joerg Waitelonis" ;
                rdfs:comment """A property is a material trait in terms of the kind and magnitude of response to a specific imposed stimulus. Generally, definitions of properties are made independent of material shape and size.
@@ -4562,7 +5035,7 @@ Extensive properties that depend on the object being tested rather than on the p
                skos:definition "a disposition of a portion of matter that is realized in a compatible process and whose realization is grounded in the portions intensive qualities"@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid197 rdf:type owl:Restriction ;
+_:genid267 rdf:type owl:Restriction ;
             owl:onProperty obo:RO_0000052 ;
             owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000001
                                                       [ rdf:type owl:Restriction ;
@@ -4576,7 +5049,7 @@ _:genid197 rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0000005 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid197 ;
+   owl:annotatedTarget _:genid267 ;
    rdfs:comment "Due to the duality of object and portion of matter this axiom can not be an equivalent class axiom."@en
  ] .
 
@@ -5244,21 +5717,21 @@ co:PMD_0000142 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/co/PMD_0000143
 co:PMD_0000143 rdf:type owl:Class ;
                rdfs:subClassOf obo:OBI_0001933 ,
-                               _:genid331 ;
+                               _:genid401 ;
                obo:IAO_0000114 obo:IAO_0000122 ;
                obo:IAO_0000117 "PERSON: Joerg Waitelonis" ;
                rdfs:label "duration"@en ;
                skos:altLabel "temporal interval specification"@en ;
                skos:definition "a value specification that represents the temporal extent of an occurrent, corresponding to the interval between its beginning and its end; specified in units of time."@en .
 
-_:genid331 rdf:type owl:Restriction ;
+_:genid401 rdf:type owl:Restriction ;
             owl:onProperty obo:IAO_0000136 ;
             owl:someValuesFrom obo:BFO_0000202 .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0000143 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid331 ;
+   owl:annotatedTarget _:genid401 ;
    rdfs:comment "could be equivalent class"
  ] .
 
@@ -14421,7 +14894,7 @@ co:PMD_0020275 rdf:type owl:Class ;
                                                         ]
                                    ] ;
                rdfs:subClassOf co:PMD_0020274 ,
-                               _:genid1502 ,
+                               _:genid1572 ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty co:PMD_0000009 ;
                                  owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020277
@@ -14447,7 +14920,7 @@ co:PMD_0020275 rdf:type owl:Class ;
                skos:definition "a process which has a thermodyanamic system as participant where entropy remains constant, ΔS=0"@en ;
                skos:example "perfectly elastic spring-mass oscillator, adiabatic expansion or compression of an ideal gas"@en .
 
-_:genid1502 rdf:type owl:Restriction ;
+_:genid1572 rdf:type owl:Restriction ;
              owl:onProperty obo:RO_0000057 ;
              owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000068
                                                        [ rdf:type owl:Restriction ;
@@ -14461,7 +14934,7 @@ _:genid1502 rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0020275 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid1502 ;
+   owl:annotatedTarget _:genid1572 ;
    rdfs:comment "Could add a SWRL rule that the difference in entropy between the TQCs is zero"@en
  ] .
 
@@ -14469,7 +14942,7 @@ _:genid1502 rdf:type owl:Restriction ;
 ###  https://w3id.org/pmd/co/PMD_0020276
 co:PMD_0020276 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0020274 ,
-                               _:genid1517 ;
+                               _:genid1587 ;
                obo:IAO_0000114 obo:IAO_0000122 ;
                obo:IAO_0000117 "PERSON: Philipp von Hartrott" ;
                rdfs:label "dissipative process"@en ;
@@ -14477,7 +14950,7 @@ co:PMD_0020276 rdf:type owl:Class ;
                skos:definition "a process which has a thermodyanamic system as participant where entropy increases, ΔS>0"@en ;
                skos:example "plastic deformation of a metal, frictional sliding, Joule expansion"@en .
 
-_:genid1517 rdf:type owl:Restriction ;
+_:genid1587 rdf:type owl:Restriction ;
              owl:onProperty obo:RO_0000057 ;
              owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0000068
                                                        [ rdf:type owl:Restriction ;
@@ -14491,7 +14964,7 @@ _:genid1517 rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0020276 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid1517 ;
+   owl:annotatedTarget _:genid1587 ;
    rdfs:comment "Could add a SWRL rule that the difference in entropy between the TQCs is larger than zero"@en
  ] .
 
@@ -15423,7 +15896,7 @@ co:PMD_0020404 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/co/PMD_0020415
 co:PMD_0020415 rdf:type owl:Class ;
                rdfs:subClassOf obo:OBI_0001933 ,
-                               _:genid1745 ;
+                               _:genid1815 ;
                obo:IAO_0000114 obo:IAO_0000122 ;
                obo:IAO_0000117 "PERSON: Philipp von Hartrott" ;
                rdfs:comment "Preferably expressed in UTC using time:inXSDDateTimeStamp." ;
@@ -15431,14 +15904,14 @@ co:PMD_0020415 rdf:type owl:Class ;
                rdfs:seeAlso "https://en.wikipedia.org/wiki/Coordinated_Universal_Time" ;
                skos:definition "a value specification of a point in time with respect to a reference time system, which defines the reference point."@en .
 
-_:genid1745 rdf:type owl:Restriction ;
+_:genid1815 rdf:type owl:Restriction ;
              owl:onProperty obo:IAO_0000136 ;
              owl:someValuesFrom obo:BFO_0000203 .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0020415 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid1745 ;
+   owl:annotatedTarget _:genid1815 ;
    rdfs:comment "Could be equivalent class"
  ] .
 
@@ -20442,8 +20915,8 @@ co:PMD_0080107 rdf:type owl:Class ;
 co:PMD_0080108 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0020311 ,
                                co:PMD_0023004 ,
-                               _:genid2537 ,
-                               _:genid2543 ,
+                               _:genid2607 ,
+                               _:genid2613 ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty obo:RO_0000052 ;
                                  owl:someValuesFrom co:PMD_0000001
@@ -20455,7 +20928,7 @@ co:PMD_0080108 rdf:type owl:Class ;
                skos:example "A cross-section of a loaded steel column bears a compressive stress of 150 MPa"@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid2537 owl:intersectionOf ( [ rdf:type owl:Restriction ;
+_:genid2607 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0002328 ;
                                     owl:someValuesFrom co:PMD_0020200
                                   ]
@@ -20466,7 +20939,7 @@ _:genid2537 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                 ) ;
              rdf:type owl:Class .
 
-_:genid2543 owl:intersectionOf ( [ rdf:type owl:Restriction ;
+_:genid2613 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0002328 ;
                                     owl:someValuesFrom co:PMD_0020352
                                   ]
@@ -20480,14 +20953,14 @@ _:genid2543 owl:intersectionOf ( [ rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0080108 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid2537 ;
+   owl:annotatedTarget _:genid2607 ;
    rdfs:comment "Mechanical view on stress"@en
  ] .
 
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0080108 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid2543 ;
+   owl:annotatedTarget _:genid2613 ;
    rdfs:comment "Thermodynamic view on stress"@en
  ] .
 
@@ -20536,14 +21009,14 @@ co:PMD_0080110 rdf:type owl:Class ;
 
 ###  https://w3id.org/pmd/co/PMD_0080111
 co:PMD_0080111 rdf:type owl:Class ;
-               rdfs:subClassOf _:genid2552 ;
+               rdfs:subClassOf _:genid2622 ;
                obo:IAO_0000117 "PERSON: Thomas Hanke" ;
                rdfs:label "Kriechspannung"@de ,
                           "creep stress"@en ;
                skos:definition "Creep stress is characterized by strain occurring with time when a constant force is applied to a physical body"@en ;
                skos:example "A polymer gasket under a creep stress of 5 MPa at 60 C relaxes significantly over 1000 hours"@en .
 
-_:genid2552 owl:intersectionOf ( co:PMD_0080108
+_:genid2622 owl:intersectionOf ( co:PMD_0080108
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0002328 ;
                                     owl:someValuesFrom [ owl:intersectionOf ( co:PMD_0020200
@@ -20561,7 +21034,7 @@ _:genid2552 owl:intersectionOf ( co:PMD_0080108
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0080111 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid2552 ;
+   owl:annotatedTarget _:genid2622 ;
    rdfs:comment "strictly speaking this is just stress sustained over time."@en
  ] .
 
@@ -20639,14 +21112,14 @@ co:PMD_0080115 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/co/PMD_0080116
 co:PMD_0080116 rdf:type owl:Class ;
                rdfs:subClassOf obo:BFO_0000019 ,
-                               _:genid2563 ;
+                               _:genid2633 ;
                obo:IAO_0000117 "Philipp von Hartrott" ;
                rdfs:comment "Every potential in physics is the same mathematical object — a partial derivative of energy with respect to its conjugate extensive quantity. The differences are only in which extensive quality you're considering."@en ;
                rdfs:label "potential"@en ;
                skos:definition "a partial derivative of energy with respect to its conjugate extensive quantity"@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid2563 owl:intersectionOf ( [ rdf:type owl:Restriction ;
+_:genid2633 owl:intersectionOf ( [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0002328 ;
                                     owl:someValuesFrom co:PMD_0020142
                                   ]
@@ -20660,7 +21133,7 @@ _:genid2563 owl:intersectionOf ( [ rdf:type owl:Restriction ;
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0080116 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid2563 ;
+   owl:annotatedTarget _:genid2633 ;
    rdfs:comment """In field theories (e.g., gravity, electrostatics), the potential becomes a field ϕ(r⃗), and the force is recovered via:
 F=−∇ϕ(r⃗)F
 This is the spatial analogue: instead of asking \"how does energy change per unit carrier added?\", you ask \"how does energy change per unit carrier moved in space?\""""@en
@@ -20972,7 +21445,7 @@ co:PMD_0080136 rdf:type owl:Class ;
 ###  https://w3id.org/pmd/co/PMD_0080137
 co:PMD_0080137 rdf:type owl:Class ;
                rdfs:subClassOf co:PMD_0023004 ,
-                               _:genid2595 ;
+                               _:genid2665 ;
                obo:IAO_0000117 "PERSON: Thomas Hanke" ;
                rdfs:label "Poissonzahl"@de ,
                           "poisson's ratio"@en ;
@@ -20980,7 +21453,7 @@ co:PMD_0080137 rdf:type owl:Class ;
                skos:example "Rubber has a Poisson's ratio close to 0.5, indicating nearly incompressible behavior under loading"@en ;
                co:PMD_0000060 "true"^^xsd:boolean .
 
-_:genid2595 owl:intersectionOf ( co:PMD_0020311
+_:genid2665 owl:intersectionOf ( co:PMD_0020311
                                   [ rdf:type owl:Restriction ;
                                     owl:onProperty obo:RO_0000052 ;
                                     owl:someValuesFrom co:PMD_0000000
@@ -20995,7 +21468,7 @@ _:genid2595 owl:intersectionOf ( co:PMD_0020311
 [ rdf:type owl:Axiom ;
    owl:annotatedSource co:PMD_0080137 ;
    owl:annotatedProperty rdfs:subClassOf ;
-   owl:annotatedTarget _:genid2595 ;
+   owl:annotatedTarget _:genid2665 ;
    rdfs:comment "The two strains should be perpendicular to each other"@en
  ] .
 
@@ -26236,6 +26709,50 @@ matsus:MATSUS_0000092 rdf:type owl:Class ;
                       matsus:integrationMethod "MatSus-local primitive specialization of indicator result using the inherited indicator-specification pattern"@en .
 
 
+###  https://w3id.org/pmd/matsus/MATSUS_0000093
+matsus:MATSUS_0000093 rdf:type owl:Class ;
+                      rdfs:subClassOf co:PMD_0000614 ;
+                      dcterms:source <https://www.basel.int/Portals/4/download.aspx?d=UNEP-CHW-WAST-GUID-ESM-PlasticWastes-20230512.English.pdf> ;
+                      rdfs:label "shredding process"@en ;
+                      skos:definition "A dividing process in which solid material is mechanically cut, torn, or broken into smaller pieces."@en ;
+                      skos:editorialNote "This primitive specialization is not equivalent to PMDco dividing or separating. Its parent is PMD_0000614 because that class explicitly covers shear cutting, splitting, tearing, and breaking; no sorting, stream-separation, recycling-context, or product-shape restriction is asserted."@en ;
+                      matsus:integrationMethod "MatSus-local primitive specialization of PMDco dividing; no equivalence or additional logical restriction asserted"@en .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000094
+matsus:MATSUS_0000094 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:OBI_0302885 ;
+                      dcterms:source obo:OBI_0302885 ,
+                                     <https://www.basel.int/Portals/4/download.aspx?d=UNEP-CHW.16-CRP.31.English.pdf> ;
+                      rdfs:label "melt filtration process"@en ;
+                      skos:definition "A filtration process in which solid particulate contaminants are separated from a flowing molten material by means of a filter device."@en ;
+                      skos:editorialNote "This generic class is not restricted to polymers, recycling, a particular filter geometry, or a particular manufacturing operation. It is distinct from extrusion even when both occur within one integrated operation."@en ;
+                      matsus:integrationMethod "MatSus-local primitive specialization of OBI filtration from pinned OBI v2026-07-27; no equivalence or polymer/recycling restriction asserted"@en .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000095
+matsus:MATSUS_0000095 rdf:type owl:Class ;
+                      rdfs:subClassOf obo:OBI_0600014 ;
+                      dcterms:source obo:FOODON_03000614 ,
+                                     <http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl> ;
+                      rdfs:label "drying process"@en ;
+                      skos:definition "A material component separation process in which the liquid content of a material is reduced by removing water or another liquid."@en ;
+                      skos:editorialNote "FoodOn drying FOODON_03000614 in the FoodOn 2026-09-20 artifact is conceptual inspiration for this materials-oriented definition. No equivalence, mapping, or FoodOn import is asserted. The class is not restricted to polymers, food, recycling, or a particular drying mechanism."@en ;
+                      matsus:integrationMethod "MatSus-local primitive specialization of OBI material component separation; FoodOn used as non-normative conceptual inspiration only"@en .
+
+
+###  https://w3id.org/pmd/matsus/MATSUS_0000096
+matsus:MATSUS_0000096 rdf:type owl:Class ;
+                      rdfs:subClassOf co:PMD_0000833 ;
+                      dcterms:source <https://publications.jrc.ec.europa.eu/repository/bitstream/JRC91637/2014-jrc91637%20.pdf> ,
+                                     <https://www.basel.int/Portals/4/download.aspx?d=UNEP-CHW-WAST-GUID-ESM-PlasticWastes-20230512.English.pdf> ;
+                      rdfs:label "pelletizing process"@en ;
+                      skos:definition "A manufacturing process in which material is formed into discrete pellets."@en ;
+                      skos:editorialNote "This generic class is not restricted to polymers, recycling, a particular pelletizing method, or particular machinery. Regranulation is not an alternative label or equivalent class; its process boundary remains unresolved. PMDco manufacturing process is the minimal parent because cutting or dividing is not common to every pelletizing method."@en ;
+                      skos:example "Methods may include strand pelletizing, die-face pelletizing, compaction, or agglomeration, depending on the material and application."@en ;
+                      matsus:integrationMethod "MatSus-local primitive specialization of PMDco manufacturing process; no equivalence or method-specific restriction asserted"@en .
+
+
 ###  https://w3id.org/pmd/matsus/RecycledContentInformation
 matsus:RecycledContentInformation rdf:type owl:Class ;
                                   rdfs:subClassOf <http://w3id.org/dppo/ontology/dpp-info/DPPInformation> ,
@@ -26272,6 +26789,163 @@ matsus:TestReport rdf:type owl:Class ;
 #################################################################
 #    Individuals
 #################################################################
+
+###  http://purl.obolibrary.org/obo/IAO_0000002
+obo:IAO_0000002 rdf:type owl:NamedIndividual ;
+                obo:IAO_0000111 "example to be eventually removed"@en ;
+                rdfs:label "example to be eventually removed"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000103
+obo:IAO_0000103 rdf:type owl:NamedIndividual ;
+                obo:IAO_0000111 "failed exploratory term"@en ;
+                obo:IAO_0000115 "The term was initially used in an attempt to structure part of the ontology, but in retrospect failed to do a good job."@en ;
+                obo:IAO_0000116 "Terms created as placeholders with the expectation of being permanent should instead be deprecated using the \"placeholder removed\" (obo:IAO_0000226) justification."@en ;
+                obo:IAO_0000117 "Person:Alan Ruttenberg"@en ;
+                dc:contributor <https://orcid.org/0000-0001-6875-5360> ,
+                               <https://orcid.org/0000-0002-7356-1779> ;
+                rdfs:label "failed exploratory term"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000120
+obo:IAO_0000120 rdf:type owl:NamedIndividual ;
+                obo:IAO_0000111 "metadata complete"@en ;
+                obo:IAO_0000115 "Class has all its metadata, but is either not guaranteed to be in its final location in the asserted IS_A hierarchy or refers to another class that is not complete."@en ;
+                rdfs:label "metadata complete"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000121
+obo:IAO_0000121 rdf:type owl:NamedIndividual ;
+                obo:IAO_0000111 "organizational term"@en ;
+                obo:IAO_0000115 "The term was created to ease viewing/sorting terms for development purposes, but will not be included in a release."@en ;
+                obo:IAO_0000117 "PERSON:Alan Ruttenberg" ;
+                rdfs:label "organizational term"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000122
+obo:IAO_0000122 rdf:type owl:NamedIndividual ;
+                obo:IAO_0000111 "ready for release"@en ;
+                obo:IAO_0000115 "Class has undergone final review, is ready for use, and will be included in the next release. Any class lacking \"ready_for_release\" should be considered likely to change place in hierarchy, have its definition refined, or be obsoleted in the next release.  Those classes deemed \"ready_for_release\" will also derived from a chain of ancestor classes that are also \"ready_for_release.\""@en ;
+                rdfs:label "ready for release"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000123
+obo:IAO_0000123 rdf:type owl:NamedIndividual ;
+                obo:IAO_0000111 "metadata incomplete"@en ;
+                obo:IAO_0000115 "Class is being worked on; however, the metadata (including definition) are not complete or sufficiently clear to the branch editors."@en ;
+                rdfs:label "metadata incomplete"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000124
+obo:IAO_0000124 rdf:type owl:NamedIndividual ;
+                obo:IAO_0000111 "uncurated"@en ;
+                obo:IAO_0000115 "Nothing done yet beyond assigning a unique class ID and proposing a preferred term."@en ;
+                rdfs:label "uncurated"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000125
+obo:IAO_0000125 rdf:type owl:NamedIndividual ;
+                obo:IAO_0000111 "pending final vetting"@en ;
+                obo:IAO_0000115 "All definitions, placement in the asserted IS_A hierarchy and required minimal metadata are complete. The class is awaiting a final review by someone other than the term editor."@en ;
+                rdfs:label "pending final vetting"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000226
+obo:IAO_0000226 rdf:type owl:NamedIndividual ;
+                obo:IAO_0000111 "placeholder removed"@en ;
+                obo:IAO_0000115 "The term was created to temporarily stand in for a semantic purpose, but is no longer needed, typically due to another permanent term being defined."@en ;
+                obo:IAO_0000116 "This reason is appropriate for a temporary term even if no permanent term is defined; for example if the need for the term no longer exists. If a permanent (replacement) term is defined, the deprecated term should reference the replacement with IAO:0100001. If no replacement is defined, it may be appropriate to reference alternative terms with oboInOwl:consider."@en ;
+                dc:contributor <https://orcid.org/0000-0001-6875-5360> ,
+                               <https://orcid.org/0000-0002-7356-1779> ;
+                rdfs:label "placeholder removed"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000227
+obo:IAO_0000227 rdf:type owl:NamedIndividual ;
+                obo:IAO_0000111 "terms merged"@en ;
+                obo:IAO_0000115 "The term has been combined with one or more other terms to create a more encompassing (merged) term."@en ;
+                obo:IAO_0000116 "The deprecated term should reference the merged term with obo:IAO_0100001. The replacement term should reference the original terms as sources using obo:RO_0001000 (derives_from). An editor note should explain what were the merged terms and the reason for the merge."@en ;
+                dc:contributor <https://orcid.org/0000-0001-6875-5360> ,
+                               <https://orcid.org/0000-0002-7356-1779> ;
+                rdfs:label "terms merged"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000228
+obo:IAO_0000228 rdf:type owl:NamedIndividual ;
+                obo:IAO_0000111 "term imported"@en ;
+                obo:IAO_0000115 "The term has been replaced by a term imported from another ontology."@en ;
+                obo:IAO_0000116 "This is to be used when the original term has been replaced by a term imported from an other ontology. The deprecated term should reference the imported term with obo:IAO_0100001."@en ;
+                dc:contributor <https://orcid.org/0000-0001-6875-5360> ,
+                               <https://orcid.org/0000-0002-7356-1779> ;
+                rdfs:label "term imported"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000229
+obo:IAO_0000229 rdf:type owl:NamedIndividual ;
+                obo:IAO_0000111 "term split"@en ;
+                obo:IAO_0000115 "The term has been split into two or more new terms."@en ;
+                obo:IAO_0000116 "This is to be used when a term has been split in two or more new terms. An editor note should indicate the reason for the split. The deprecated term should reference the replacement terms with obo:IAO_0100001."@en ;
+                dc:contributor <https://orcid.org/0000-0001-6875-5360> ,
+                               <https://orcid.org/0000-0002-7356-1779> ;
+                rdfs:label "term split"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000410
+obo:IAO_0000410 rdf:type owl:NamedIndividual ;
+                obo:IAO_0000111 "universal"@en ;
+                obo:IAO_0000116 "Hard to give a definition for. Intuitively a \"natural kind\" rather than a collection of any old things, which a class is able to be, formally. At the meta level, universals are defined as positives, are disjoint with their siblings, have single asserted parents."@en ;
+                obo:IAO_0000117 "Alan Ruttenberg"@en ;
+                obo:IAO_0000119 "A Formal Theory of Substances, Qualities, and Universals, http://ontology.buffalo.edu/bfo/SQU.pdf"@en ;
+                rdfs:label "universal"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000420
+obo:IAO_0000420 rdf:type owl:NamedIndividual ;
+                obo:IAO_0000111 "defined class"@en ;
+                obo:IAO_0000115 "A defined class is a class that is defined by a set of logically necessary and sufficient conditions but is not a universal"@en ;
+                obo:IAO_0000116 "\"definitions\", in some readings, always are given by necessary and sufficient conditions. So one must be careful (and this is difficult sometimes) to distinguish between defined classes and universal."@en ;
+                obo:IAO_0000117 "Alan Ruttenberg"@en ;
+                rdfs:label "defined class"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000421
+obo:IAO_0000421 rdf:type owl:NamedIndividual ;
+                obo:IAO_0000111 "named class expression"@en ;
+                obo:IAO_0000115 "A named class expression is a logical expression that is given a name. The name can be used in place of the expression."@en ;
+                obo:IAO_0000116 "named class expressions are used in order to have more concise logical definition but their extensions may not be interesting classes on their own. In languages such as OWL, with no provisions for macros, these show up as actuall classes. Tools may with to not show them as such, and to replace uses of the macros with their expansions"@en ;
+                obo:IAO_0000117 "Alan Ruttenberg"@en ;
+                rdfs:label "named class expression"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000423
+obo:IAO_0000423 rdf:type owl:NamedIndividual ;
+                obo:IAO_0000111 "to be replaced with external ontology term"@en ;
+                obo:IAO_0000115 "Terms with this status should eventually replaced with a term from another ontology."@en ;
+                obo:IAO_0000117 "Alan Ruttenberg"@en ;
+                obo:IAO_0000119 "group:OBI"@en ;
+                rdfs:label "to be replaced with external ontology term"@en .
+
+
+###  http://purl.obolibrary.org/obo/IAO_0000428
+obo:IAO_0000428 rdf:type owl:NamedIndividual ;
+                obo:IAO_0000111 "requires discussion"@en ;
+                obo:IAO_0000115 "A term that is metadata complete, has been reviewed, and problems have been identified that require discussion before release. Such a term requires editor note(s) to identify the outstanding issues."@en ;
+                obo:IAO_0000117 "Alan Ruttenberg"@en ;
+                obo:IAO_0000119 "group:OBI"@en ;
+                rdfs:label "requires discussion"@en .
+
+
+###  http://purl.obolibrary.org/obo/OMO_0001000
+obo:OMO_0001000 rdf:type owl:NamedIndividual ;
+                obo:IAO_0000115 "The term was added to the ontology on the assumption it was in scope, but it turned out later that it was not."@en ;
+                obo:IAO_0000116 "This obsolesence reason should be used conservatively. Typical valid examples in disease ontologies are: unnecessary class grouping; mistaked creation of a disease associated to a phenotype."@en ;
+                obo:IAO_0000117 <http://orcid.org/0000-0001-5208-3432> ;
+                obo:IAO_0000233 "https://github.com/information-artifact-ontology/ontology-metadata/issues/77" ;
+                obo:IAO_0000234 "https://orcid.org/0000-0001-5208-3432" ;
+                dc:contributor <https://orcid.org/0000-0001-6875-5360> ,
+                               <https://orcid.org/0000-0002-7356-1779> ;
+                rdfs:label "out of scope" .
+
 
 ###  http://purl.obolibrary.org/obo/UO_0000076
 obo:UO_0000076 rdf:type owl:NamedIndividual .
@@ -26675,89 +27349,6 @@ matsus:MATSUS_0000079 rdf:type owl:NamedIndividual ,
 #################################################################
 #    Annotations
 #################################################################
-
-obo:IAO_0000002 rdfs:label "example to be eventually removed"@en .
-
-
-obo:IAO_0000103 obo:IAO_0000115 "The term was initially used in an attempt to structure part of the ontology, but in retrospect failed to do a good job."@en ;
-                obo:IAO_0000116 "Terms created as placeholders with the expectation of being permanent should instead be deprecated using the \"placeholder removed\" (obo:IAO_0000226) justification."@en ;
-                rdfs:label "failed exploratory term"@en .
-
-
-obo:IAO_0000120 obo:IAO_0000115 "Class has all its metadata, but is either not guaranteed to be in its final location in the asserted IS_A hierarchy or refers to another class that is not complete."@en ;
-                rdfs:label "metadata complete"@en .
-
-
-obo:IAO_0000121 obo:IAO_0000115 "The term was created to ease viewing/sorting terms for development purposes, but will not be included in a release."@en ;
-                rdfs:label "organizational term"@en .
-
-
-obo:IAO_0000122 obo:IAO_0000115 "Class has undergone final review, is ready for use, and will be included in the next release. Any class lacking \"ready_for_release\" should be considered likely to change place in hierarchy, have its definition refined, or be obsoleted in the next release.  Those classes deemed \"ready_for_release\" will also derived from a chain of ancestor classes that are also \"ready_for_release.\""@en ;
-                rdfs:label "ready for release"@en .
-
-
-obo:IAO_0000123 obo:IAO_0000115 "Class is being worked on; however, the metadata (including definition) are not complete or sufficiently clear to the branch editors."@en ;
-                rdfs:label "metadata incomplete"@en .
-
-
-obo:IAO_0000124 obo:IAO_0000115 "Nothing done yet beyond assigning a unique class ID and proposing a preferred term."@en ;
-                rdfs:label "uncurated"@en .
-
-
-obo:IAO_0000125 obo:IAO_0000115 "All definitions, placement in the asserted IS_A hierarchy and required minimal metadata are complete. The class is awaiting a final review by someone other than the term editor."@en ;
-                rdfs:label "pending final vetting"@en .
-
-
-obo:IAO_0000226 obo:IAO_0000115 "The term was created to temporarily stand in for a semantic purpose, but is no longer needed, typically due to another permanent term being defined."@en ;
-                obo:IAO_0000116 "This reason is appropriate for a temporary term even if no permanent term is defined; for example if the need for the term no longer exists. If a permanent (replacement) term is defined, the deprecated term should reference the replacement with IAO:0100001. If no replacement is defined, it may be appropriate to reference alternative terms with oboInOwl:consider."@en ;
-                rdfs:label "placeholder removed"@en .
-
-
-obo:IAO_0000227 obo:IAO_0000115 "The term has been combined with one or more other terms to create a more encompassing (merged) term."@en ;
-                obo:IAO_0000116 "The deprecated term should reference the merged term with obo:IAO_0100001. The replacement term should reference the original terms as sources using obo:RO_0001000 (derives_from). An editor note should explain what were the merged terms and the reason for the merge."@en ;
-                rdfs:label "terms merged"@en .
-
-
-obo:IAO_0000228 obo:IAO_0000115 "The term has been replaced by a term imported from another ontology."@en ;
-                obo:IAO_0000116 "This is to be used when the original term has been replaced by a term imported from an other ontology. The deprecated term should reference the imported term with obo:IAO_0100001."@en ;
-                rdfs:label "term imported"@en .
-
-
-obo:IAO_0000229 obo:IAO_0000115 "The term has been split into two or more new terms."@en ;
-                obo:IAO_0000116 "This is to be used when a term has been split in two or more new terms. An editor note should indicate the reason for the split. The deprecated term should reference the replacement terms with obo:IAO_0100001."@en ;
-                rdfs:label "term split"@en .
-
-
-obo:IAO_0000410 obo:IAO_0000116 "Hard to give a definition for. Intuitively a \"natural kind\" rather than a collection of any old things, which a class is able to be, formally. At the meta level, universals are defined as positives, are disjoint with their siblings, have single asserted parents."@en ;
-                obo:IAO_0000119 "A Formal Theory of Substances, Qualities, and Universals, http://ontology.buffalo.edu/bfo/SQU.pdf"@en ;
-                rdfs:label "universal"@en .
-
-
-obo:IAO_0000420 obo:IAO_0000115 "A defined class is a class that is defined by a set of logically necessary and sufficient conditions but is not a universal"@en ;
-                obo:IAO_0000116 "\"definitions\", in some readings, always are given by necessary and sufficient conditions. So one must be careful (and this is difficult sometimes) to distinguish between defined classes and universal."@en ;
-                rdfs:label "defined class"@en .
-
-
-obo:IAO_0000421 obo:IAO_0000115 "A named class expression is a logical expression that is given a name. The name can be used in place of the expression."@en ;
-                obo:IAO_0000116 "named class expressions are used in order to have more concise logical definition but their extensions may not be interesting classes on their own. In languages such as OWL, with no provisions for macros, these show up as actuall classes. Tools may with to not show them as such, and to replace uses of the macros with their expansions"@en ;
-                rdfs:label "named class expression"@en .
-
-
-obo:IAO_0000423 obo:IAO_0000115 "Terms with this status should eventually replaced with a term from another ontology."@en ;
-                obo:IAO_0000119 "group:OBI"@en ;
-                rdfs:label "to be replaced with external ontology term"@en .
-
-
-obo:IAO_0000428 obo:IAO_0000115 "A term that is metadata complete, has been reviewed, and problems have been identified that require discussion before release. Such a term requires editor note(s) to identify the outstanding issues."@en ;
-                obo:IAO_0000119 "group:OBI"@en ;
-                rdfs:label "requires discussion"@en .
-
-
-obo:OMO_0001000 obo:IAO_0000115 "The term was added to the ontology on the assumption it was in scope, but it turned out later that it was not."@en ;
-                obo:IAO_0000116 "This obsolesence reason should be used conservatively. Typical valid examples in disease ontologies are: unnecessary class grouping; mistaked creation of a disease associated to a phenotype."@en ;
-                obo:IAO_0000233 "https://github.com/information-artifact-ontology/ontology-metadata/issues/77" ;
-                rdfs:label "out of scope" .
-
 
 obo:UO_0000076 obo:IAO_0000115 "A concentration unit which denotes the number of moles of solute as a proportion of the total number of moles in a solution." ;
                oboInOwl:hasExactSynonym "(x)" ,

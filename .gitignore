@@ -92,7 +92,7 @@ src/patterns/all_pattern_terms.txt
 /src/ontology/matsus-edit-before-local-merge.owl.bak
 /src/ontology/matsus-edit-merged.owl
 /src/ontology/matsus-edit-no-imports-temp.owl
-# P1 R3 example allowance - narrowly scoped, not ODK-generated files
+# P1/P2 example allowances - narrowly scoped, not ODK-generated files
 !/patterns/
 /patterns/*
 !/patterns/component-end-of-use-provenance/
@@ -109,3 +109,17 @@ src/patterns/all_pattern_terms.txt
 !/patterns/component-end-of-use-provenance/validation/queries/
 /patterns/component-end-of-use-provenance/validation/queries/*
 !/patterns/component-end-of-use-provenance/validation/queries/*.sparql
+!/patterns/recycled-polymer-carbon-footprint-provenance/
+/patterns/recycled-polymer-carbon-footprint-provenance/*
+!/patterns/recycled-polymer-carbon-footprint-provenance/shape-data.ttl
+!/patterns/recycled-polymer-carbon-footprint-provenance/pattern.md
+!/patterns/recycled-polymer-carbon-footprint-provenance/diagrams/
+/patterns/recycled-polymer-carbon-footprint-provenance/diagrams/*
+!/patterns/recycled-polymer-carbon-footprint-provenance/diagrams/*.svg
+!/patterns/recycled-polymer-carbon-footprint-provenance/validation/
+/patterns/recycled-polymer-carbon-footprint-provenance/validation/*
+!/patterns/recycled-polymer-carbon-footprint-provenance/validation/run_queries.py
+!/patterns/recycled-polymer-carbon-footprint-provenance/validation/expected_rows.json
+!/patterns/recycled-polymer-carbon-footprint-provenance/validation/queries/
+/patterns/recycled-polymer-carbon-footprint-provenance/validation/queries/*
+!/patterns/recycled-polymer-carbon-footprint-provenance/validation/queries/*.sparql

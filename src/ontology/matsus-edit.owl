@@ -14,6 +14,7 @@ Import(<https://w3id.org/pmd/matsus/components/matsus-dppo.ttl>)
 Import(<https://w3id.org/pmd/matsus/components/matsus-log-stageA.ttl>)
 Import(<https://w3id.org/pmd/matsus/components/matsus-shared.owl>)
 Import(<https://w3id.org/pmd/matsus/imports/pmdco_import.owl>)
+Import(<https://w3id.org/pmd/matsus/imports/obi_recycling_import.owl>)
 Annotation(<http://purl.org/dc/terms/contributor> <https://github.com/materialdigital>)
 Annotation(<http://purl.org/dc/terms/creator> "Khashayar Razghandi")
 Annotation(<http://purl.org/dc/terms/description> "An application ontology for representing material sustainability concepts and their relations to the Platform MaterialDigital Core Ontology.")
@@ -1298,5 +1299,57 @@ AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000092 <https://w
 AnnotationAssertion(:integrationBasis :MATSUS_0000092 "Hunkeler, Lichtenvort and Rebitzer (eds.), Environmental Life Cycle Costing (2008); Swarr et al., Environmental Life Cycle Costing: A Code of Practice (2011); approved MatSus LCC modelling decision."@en)
 AnnotationAssertion(:integrationMethod :MATSUS_0000092 "MatSus-local primitive specialization of indicator result using the inherited indicator-specification pattern"@en)
 SubClassOf(:MATSUS_0000092 :MATSUS_0000057)
+
+# ============================================
+# RECYCLING PROCESS VOCABULARY INCREMENT
+# ============================================
+
+Declaration(Class(:MATSUS_0000093))
+
+# Class: :MATSUS_0000093 (shredding process)
+
+AnnotationAssertion(rdfs:label :MATSUS_0000093 "shredding process"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000093 "A dividing process in which solid material is mechanically cut, torn, or broken into smaller pieces."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000093 "This primitive specialization is not equivalent to PMDco dividing or separating. Its parent is PMD_0000614 because that class explicitly covers shear cutting, splitting, tearing, and breaking; no sorting, stream-separation, recycling-context, or product-shape restriction is asserted."@en)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000093 <https://www.basel.int/Portals/4/download.aspx?d=UNEP-CHW-WAST-GUID-ESM-PlasticWastes-20230512.English.pdf>)
+AnnotationAssertion(:integrationMethod :MATSUS_0000093 "MatSus-local primitive specialization of PMDco dividing; no equivalence or additional logical restriction asserted"@en)
+SubClassOf(:MATSUS_0000093 <https://w3id.org/pmd/co/PMD_0000614>)
+
+Declaration(Class(:MATSUS_0000094))
+
+# Class: :MATSUS_0000094 (melt filtration process)
+
+AnnotationAssertion(rdfs:label :MATSUS_0000094 "melt filtration process"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000094 "A filtration process in which solid particulate contaminants are separated from a flowing molten material by means of a filter device."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000094 "This generic class is not restricted to polymers, recycling, a particular filter geometry, or a particular manufacturing operation. It is distinct from extrusion even when both occur within one integrated operation."@en)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000094 <http://purl.obolibrary.org/obo/OBI_0302885>)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000094 <https://www.basel.int/Portals/4/download.aspx?d=UNEP-CHW.16-CRP.31.English.pdf>)
+AnnotationAssertion(:integrationMethod :MATSUS_0000094 "MatSus-local primitive specialization of OBI filtration from pinned OBI v2026-07-27; no equivalence or polymer/recycling restriction asserted"@en)
+SubClassOf(:MATSUS_0000094 <http://purl.obolibrary.org/obo/OBI_0302885>)
+
+Declaration(Class(:MATSUS_0000095))
+
+# Class: :MATSUS_0000095 (drying process)
+
+AnnotationAssertion(rdfs:label :MATSUS_0000095 "drying process"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000095 "A material component separation process in which the liquid content of a material is reduced by removing water or another liquid."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000095 "FoodOn drying FOODON_03000614 in the FoodOn 2026-09-20 artifact is conceptual inspiration for this materials-oriented definition. No equivalence, mapping, or FoodOn import is asserted. The class is not restricted to polymers, food, recycling, or a particular drying mechanism."@en)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000095 <http://purl.obolibrary.org/obo/FOODON_03000614>)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000095 <http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl>)
+AnnotationAssertion(:integrationMethod :MATSUS_0000095 "MatSus-local primitive specialization of OBI material component separation; FoodOn used as non-normative conceptual inspiration only"@en)
+SubClassOf(:MATSUS_0000095 <http://purl.obolibrary.org/obo/OBI_0600014>)
+
+Declaration(Class(:MATSUS_0000096))
+
+# Class: :MATSUS_0000096 (pelletizing process)
+
+AnnotationAssertion(rdfs:label :MATSUS_0000096 "pelletizing process"@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#definition> :MATSUS_0000096 "A manufacturing process in which material is formed into discrete pellets."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#example> :MATSUS_0000096 "Methods may include strand pelletizing, die-face pelletizing, compaction, or agglomeration, depending on the material and application."@en)
+AnnotationAssertion(<http://www.w3.org/2004/02/skos/core#editorialNote> :MATSUS_0000096 "This generic class is not restricted to polymers, recycling, a particular pelletizing method, or particular machinery. Regranulation is not an alternative label or equivalent class; its process boundary remains unresolved. PMDco manufacturing process is the minimal parent because cutting or dividing is not common to every pelletizing method."@en)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000096 <https://www.basel.int/Portals/4/download.aspx?d=UNEP-CHW-WAST-GUID-ESM-PlasticWastes-20230512.English.pdf>)
+AnnotationAssertion(<http://purl.org/dc/terms/source> :MATSUS_0000096 <https://publications.jrc.ec.europa.eu/repository/bitstream/JRC91637/2014-jrc91637%20.pdf>)
+AnnotationAssertion(:integrationMethod :MATSUS_0000096 "MatSus-local primitive specialization of PMDco manufacturing process; no equivalence or method-specific restriction asserted"@en)
+SubClassOf(:MATSUS_0000096 <https://w3id.org/pmd/co/PMD_0000833>)
 
 )
