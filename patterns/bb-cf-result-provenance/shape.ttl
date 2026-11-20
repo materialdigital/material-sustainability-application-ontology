@@ -1,0 +1,18 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix matsus: <https://w3id.org/pmd/matsus/> .
+@prefix pmd: <https://w3id.org/pmd/co/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix profile: <https://w3id.org/pmd/matsus/pattern/bb/cf-result-provenance/shapes/> .
+profile:CFResult a sh:NodeShape ;
+ sh:targetClass matsus:MATSUS_0000076 ;
+ sh:property [ sh:path obo:IAO_0000136 ; sh:minCount 1 ; sh:nodeKind sh:IRI ] ;
+ sh:property [ sh:path obo:OBI_0001938 ; sh:minCount 1 ; sh:maxCount 1 ;
+    sh:class pmd:PMD_0080205 ; sh:node profile:Scalar ] .
+profile:Scalar a sh:NodeShape ;
+ sh:property [ sh:path qudt:numericValue ; sh:minCount 1 ; sh:maxCount 1 ;
+    sh:nodeKind sh:Literal ; sh:or ( [ sh:datatype xsd:decimal ]
+    [ sh:datatype xsd:integer ] [ sh:datatype xsd:float ] [ sh:datatype xsd:double ] ) ] ;
+ sh:property [ sh:path qudt:hasUnit ; sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ] .
