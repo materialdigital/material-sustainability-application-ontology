@@ -25,11 +25,13 @@ p2:washWastewater a pmd:PMD_0000000 ; rdfs:label "Mat. synthetic washing wastewa
 
 p2:mechanicalRecycling a ceon-process:RecycleProcess, matsus:MATSUS_0000000 ; rdfs:label "Proc. executed composite mechanical recycling process"@en ; obo:OBI_0000293 p2:postConsumerHDPEBatch ; obo:OBI_0000299 p2:recycledPelletBatch ; obo:BFO_0000117 p2:sorting, p2:shredding, p2:washing, p2:drying, p2:extrusionMeltFiltration, p2:pelletizing .
 p2:sorting a matsus:MATSUS_0000016 ; rdfs:label "Proc. executed polymer sorting"@en ; obo:OBI_0000293 p2:postConsumerHDPEBatch ; obo:OBI_0000299 p2:sortedHDPEBatch .
-p2:shredding a pmd:PMD_0000927 ; rdfs:label "Proc. executed shredding (PMDco separating)"@en ; obo:OBI_0000293 p2:sortedHDPEBatch ; obo:OBI_0000299 p2:shreddedHDPEFlakeBatch .
-p2:washing a pmd:PMD_0000560 ; rdfs:label "Proc. executed flake washing"@en ; obo:OBI_0000293 p2:shreddedHDPEFlakeBatch, p2:washWater, p2:washDetergent ; obo:OBI_0000299 p2:washedHDPEFlakeBatch, p2:washWastewater .
-p2:drying a pmd:PMD_0000833 ; rdfs:label "Proc. executed flake drying (PMDco manufacturing process)"@en ; obo:OBI_0000293 p2:washedHDPEFlakeBatch ; obo:OBI_0000299 p2:driedHDPEFlakeBatch .
-p2:extrusionMeltFiltration a pmd:PMD_0200004 ; rdfs:label "Proc. executed extrusion with integrated melt filtration"@en ; obo:OBI_0000293 p2:driedHDPEFlakeBatch ; obo:OBI_0000299 p2:filteredHDPEExtrudateBatch .
-p2:pelletizing a pmd:PMD_0000833 ; rdfs:label "Proc. executed pelletizing/regranulation (PMDco manufacturing process)"@en ; obo:OBI_0000293 p2:filteredHDPEExtrudateBatch ; obo:OBI_0000299 p2:recycledPelletBatch .
+p2:shredding a matsus:MATSUS_0000093 ; rdfs:label "Proc. executed shredding"@en ; obo:OBI_0000293 p2:sortedHDPEBatch ; obo:OBI_0000299 p2:shreddedHDPEFlakeBatch .
+p2:washing a obo:OBI_0302888 ; rdfs:label "Proc. executed flake washing"@en ; obo:OBI_0000293 p2:shreddedHDPEFlakeBatch, p2:washWater, p2:washDetergent ; obo:OBI_0000299 p2:washedHDPEFlakeBatch, p2:washWastewater .
+p2:drying a matsus:MATSUS_0000095 ; rdfs:label "Proc. executed flake drying"@en ; obo:OBI_0000293 p2:washedHDPEFlakeBatch ; obo:OBI_0000299 p2:driedHDPEFlakeBatch .
+p2:extrusionMeltFiltration a pmd:PMD_0000833 ; rdfs:label "Proc. executed integrated extrusion and melt-filtration operation"@en ; obo:OBI_0000293 p2:driedHDPEFlakeBatch ; obo:OBI_0000299 p2:filteredHDPEExtrudateBatch ; obo:BFO_0000117 p2:extrusion, p2:meltFiltration .
+p2:extrusion a pmd:PMD_0200004 ; rdfs:label "Proc. executed extrusion constituent"@en .
+p2:meltFiltration a matsus:MATSUS_0000094 ; rdfs:label "Proc. executed melt-filtration constituent"@en .
+p2:pelletizing a matsus:MATSUS_0000096 ; rdfs:label "Proc. executed pelletizing"@en ; obo:OBI_0000293 p2:filteredHDPEExtrudateBatch ; obo:OBI_0000299 p2:recycledPelletBatch .
 
 # Batch quantities
 p2:batchWeighingRecord a obo:IAO_0000310 ; rdfs:label "Inf. synthetic recycling-batch weighing record"@en ; obo:IAO_0000136 p2:mechanicalRecycling ; obo:BFO_0000051 p2:postConsumerMassDatum, p2:sortedMassDatum, p2:shreddedMassDatum, p2:washedMassDatum, p2:driedMassDatum, p2:extrudateMassDatum, p2:pelletMassDatum .
@@ -178,11 +180,7 @@ p2:finalBottleCFValue a pmd:PMD_0080205 ; qudt:numericValue "1400.0"^^xsd:decima
 
 # Candidate method source and explicit limitations
 p2:pefCircularFootprintFormulaCandidate a obo:IAO_0000104 ; rdfs:label "Spec. EU PEF Circular Footprint Formula candidate allocation method (not applied)"@en ; dcterms:source <http://data.europa.eu/eli/reco/2021/2279/oj> ; obo:IAO_0000136 p2:recyclingCFSpecification, p2:bottleCFSpecification .
-p2:knownLimitationsRecord a obo:IAO_0000310 ; rdfs:label "Inf. known semantic and evidence limitations"@en ; obo:BFO_0000051 p2:shreddingTypeGap, p2:dryingTypeGap, p2:meltFiltrationTypeGap, p2:pelletizingTypeGap, p2:cffNotAppliedLimitation, p2:supplierComparabilityLimitation, p2:syntheticEvidenceLimitation, p2:cfMethodCompletenessLimitation .
-p2:shreddingTypeGap a obo:IAO_0000030 ; rdfs:label "Limitation. no exact pinned shredding class"@en ; rdfs:comment "Shredding uses the verified PMDco separating superclass."@en ; obo:IAO_0000136 p2:shredding .
-p2:dryingTypeGap a obo:IAO_0000030 ; rdfs:label "Limitation. no exact pinned polymer-drying class"@en ; rdfs:comment "Drying uses the verified PMDco manufacturing-process superclass."@en ; obo:IAO_0000136 p2:drying .
-p2:meltFiltrationTypeGap a obo:IAO_0000030 ; rdfs:label "Limitation. no exact pinned melt-filtration class"@en ; rdfs:comment "The integrated operation is typed only as PMDco extrusion."@en ; obo:IAO_0000136 p2:extrusionMeltFiltration .
-p2:pelletizingTypeGap a obo:IAO_0000030 ; rdfs:label "Limitation. no exact pinned pelletizing/regranulation class"@en ; rdfs:comment "Pelletizing uses the verified PMDco manufacturing-process superclass."@en ; obo:IAO_0000136 p2:pelletizing .
+p2:knownLimitationsRecord a obo:IAO_0000310 ; rdfs:label "Inf. known semantic and evidence limitations"@en ; obo:BFO_0000051 p2:cffNotAppliedLimitation, p2:supplierComparabilityLimitation, p2:syntheticEvidenceLimitation, p2:cfMethodCompletenessLimitation .
 p2:cffNotAppliedLimitation a obo:IAO_0000030 ; rdfs:label "Limitation. PEF CFF is only a candidate method"@en ; rdfs:comment "No CFF parameters or calculations are implemented, and no PEF compliance is claimed."@en ; obo:IAO_0000136 p2:pefCircularFootprintFormulaCandidate .
 p2:supplierComparabilityLimitation a obo:IAO_0000030 ; rdfs:label "Limitation. supplier CF comparability is not established"@en ; rdfs:comment "The supplier model is not exposed; contributes-to asserts neither arithmetic aggregation nor methodological comparability."@en ; obo:IAO_0000136 p2:virginSupplierDeclaration, p2:virginSupplierCFResult, p2:finalBottleCFResult .
 p2:syntheticEvidenceLimitation a obo:IAO_0000030 ; rdfs:label "Limitation. all values and source records are synthetic"@en ; rdfs:comment "Numbers exercise the graph only; they are not measured data, validated methods, certified mass balance, or verified CF results."@en ; obo:IAO_0000136 p2:compiledRecyclingInventory, p2:compiledBottleInventory, p2:ppContaminationDatum .

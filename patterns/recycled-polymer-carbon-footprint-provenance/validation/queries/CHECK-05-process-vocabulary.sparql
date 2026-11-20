@@ -1,0 +1,18 @@
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX p2: <https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/>
+SELECT ?process ?requiredType ?container WHERE {
+  VALUES (?process ?requiredType ?container) {
+    (p2:sorting <https://w3id.org/pmd/matsus/MATSUS_0000016> p2:mechanicalRecycling)
+    (p2:shredding <https://w3id.org/pmd/matsus/MATSUS_0000093> p2:mechanicalRecycling)
+    (p2:washing <http://purl.obolibrary.org/obo/OBI_0302888> p2:mechanicalRecycling)
+    (p2:drying <https://w3id.org/pmd/matsus/MATSUS_0000095> p2:mechanicalRecycling)
+    (p2:extrusionMeltFiltration <https://w3id.org/pmd/co/PMD_0000833> p2:mechanicalRecycling)
+    (p2:pelletizing <https://w3id.org/pmd/matsus/MATSUS_0000096> p2:mechanicalRecycling)
+    (p2:extrusion <https://w3id.org/pmd/co/PMD_0200004> p2:extrusionMeltFiltration)
+    (p2:meltFiltration <https://w3id.org/pmd/matsus/MATSUS_0000094> p2:extrusionMeltFiltration)
+  }
+  FILTER NOT EXISTS {
+    ?container obo:BFO_0000117 ?process .
+    ?process a ?requiredType .
+  }
+} ORDER BY ?container ?process

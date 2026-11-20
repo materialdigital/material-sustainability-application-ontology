@@ -3,22 +3,23 @@
   "CHECK-02-no-local-tbox.sparql": [],
   "CHECK-03-subprocess-inventory.sparql": [],
   "CHECK-04-supplier-result-traceability.sparql": [],
+  "CHECK-05-process-vocabulary.sparql": [],
   "CQ-P2-01-recycling-composition.sparql": [
     {
       "step": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/drying",
-      "stepType": "https://w3id.org/pmd/co/PMD_0000833"
+      "stepType": "https://w3id.org/pmd/matsus/MATSUS_0000095"
     },
     {
       "step": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/extrusionMeltFiltration",
-      "stepType": "https://w3id.org/pmd/co/PMD_0200004"
-    },
-    {
-      "step": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/pelletizing",
       "stepType": "https://w3id.org/pmd/co/PMD_0000833"
     },
     {
+      "step": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/pelletizing",
+      "stepType": "https://w3id.org/pmd/matsus/MATSUS_0000096"
+    },
+    {
       "step": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/shredding",
-      "stepType": "https://w3id.org/pmd/co/PMD_0000927"
+      "stepType": "https://w3id.org/pmd/matsus/MATSUS_0000093"
     },
     {
       "step": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/sorting",
@@ -26,7 +27,7 @@
     },
     {
       "step": "https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/hdpe/washing",
-      "stepType": "https://w3id.org/pmd/co/PMD_0000560"
+      "stepType": "http://purl.obolibrary.org/obo/OBI_0302888"
     }
   ],
   "CQ-P2-02-material-genealogy.sparql": [
