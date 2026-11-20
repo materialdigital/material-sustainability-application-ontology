@@ -1,0 +1,91 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix matsus: <https://w3id.org/pmd/matsus/> .
+@prefix pmd: <https://w3id.org/pmd/co/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix profile: <https://w3id.org/pmd/matsus/pattern/recycled-polymer-carbon-footprint-provenance/shapes/> .
+
+# Data-completeness profile for the integrated P2 case, not a full LCA validator.
+# The shapes do not validate numeric derivation, allocation, emissions accuracy,
+# method comparability, process ordering or claimed material identity.
+profile:CFResult a sh:NodeShape ;
+    sh:targetClass matsus:MATSUS_0000076 ;
+    sh:property [
+        sh:path [ sh:inversePath obo:OBI_0000299 ] ;
+        sh:minCount 1 ; sh:class pmd:PMD_0000583 ;
+        sh:message "In P2, each CF result must be an explicit specified output of a typed computing process."@en
+    ] ;
+    sh:property [
+        sh:path obo:IAO_0000136 ; sh:minCount 1 ; sh:nodeKind sh:IRI ;
+        sh:message "Record the subject of the carbon-footprint result."@en
+    ] ;
+    sh:property [
+        sh:path obo:OBI_0001938 ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:class pmd:PMD_0080205 ; sh:node profile:QUDTScalar ;
+        sh:message "Supply one well-formed scalar value specification for a CF result."@en
+    ] .
+
+profile:QUDTScalar a sh:NodeShape ;
+    sh:targetClass pmd:PMD_0080205 ;
+    sh:property [
+        sh:path qudt:numericValue ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:nodeKind sh:Literal ;
+        sh:or ( [ sh:datatype xsd:decimal ] [ sh:datatype xsd:integer ]
+                [ sh:datatype xsd:double ] [ sh:datatype xsd:float ] )
+    ] ;
+    sh:property [
+        sh:path qudt:hasUnit ; sh:minCount 1 ; sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "QUDT unit is a URI; this profile does not assume the QUDT unit taxonomy is loaded."@en
+    ] .
+
+# Note: MATSUS_0000068 is formally 'life cycle assessment specification'.
+# It is currently used by P2 for scoped CF computations. Its generic reuse as
+# a standalone CF-computation specification requires a separate ontology review.
+profile:P2LCASpecificationRecord a sh:NodeShape ;
+    sh:targetClass matsus:MATSUS_0000068 ;
+    sh:description "Structural profile for records currently typed as life cycle assessment specifications in P2; this does not approve MATSUS_0000068 as a generic CF-computation specification."@en ;
+    sh:property [ sh:path obo:BFO_0000051 ;
+       sh:qualifiedValueShape [ sh:class matsus:MATSUS_0000069 ] ; sh:qualifiedMinCount 1 ] ;
+    sh:property [ sh:path obo:BFO_0000051 ;
+       sh:qualifiedValueShape [ sh:class matsus:MATSUS_0000070 ] ; sh:qualifiedMinCount 1 ] ;
+    sh:property [ sh:path obo:BFO_0000051 ;
+       sh:qualifiedValueShape [ sh:class matsus:MATSUS_0000071 ] ; sh:qualifiedMinCount 1 ] .
+
+profile:LCICompilationRecord a sh:NodeShape ;
+    sh:targetClass matsus:MATSUS_0000066 ;
+    sh:property [ sh:path obo:OBI_0000293 ; sh:minCount 1 ; sh:nodeKind sh:IRI ] ;
+    sh:property [ sh:path obo:OBI_0000299 ; sh:minCount 1 ; sh:nodeKind sh:IRI ] .
+
+# A computing-process record with input/output evidence.  This generic shape
+# does not assume every computing process is a CF calculation.
+profile:P2ComputingInputOutput a sh:NodeShape ;
+    sh:targetClass pmd:PMD_0000583 ;
+    sh:description "Explicit input/output record profile for computing processes in the integrated P2 data graph."@en ;
+    sh:property [ sh:path obo:OBI_0000293 ; sh:minCount 1 ; sh:nodeKind sh:IRI ] ;
+    sh:property [ sh:path obo:OBI_0000299 ; sh:minCount 1 ; sh:nodeKind sh:IRI ] .
+
+# This is a lighter source-supported datum profile, NOT equivalence to the
+# PMDco measurement-datum/shape.ttl contract. In particular, it neither
+# requires nor fabricates a generating assay or 'quality measured' relation.
+profile:SourcedMeasurementDatum a sh:NodeShape ;
+    sh:targetClass obo:IAO_0000109 ;
+    sh:description "P2-local source-and-value completeness profile; it is not the PMDco measurement-datum pattern."@en ;
+    sh:property [ sh:path obo:IAO_0000136 ; sh:minCount 1 ; sh:nodeKind sh:IRI ] ;
+    sh:property [ sh:path dcterms:source ; sh:minCount 1 ; sh:nodeKind sh:IRI ] ;
+    sh:property [ sh:path obo:OBI_0001938 ; sh:minCount 1 ; sh:maxCount 1 ;
+                  sh:class pmd:PMD_0080205 ; sh:node profile:QUDTScalar ] .
+
+# SHACL checks the range of a qualitative contribution assertion, not
+# arithmetic summation, completeness, allocation or double-counting.
+profile:CFContributionLink a sh:NodeShape ;
+    sh:targetSubjectsOf matsus:MATSUS_0000077 ;
+    sh:class matsus:MATSUS_0000076 ;
+    sh:property [
+       sh:path matsus:MATSUS_0000077 ;
+       sh:class matsus:MATSUS_0000076 ;
+       sh:nodeKind sh:IRI ;
+       sh:message "The represented contribution targets carbon-footprint result information."@en
+    ] .

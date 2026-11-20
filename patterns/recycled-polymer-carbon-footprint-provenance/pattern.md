@@ -2,9 +2,11 @@
 
 ## Purpose and scope
 
-This asserted-RDF pattern connects an executed polymer-recycling process, physical batch genealogy, unit-process inventory evidence, one material characterization, black-box carbon-footprint (CF) quantification, supplier-provided CF information, and downstream product CF traceability. The scenario is a wholly **synthetic HDPE bottle-to-bottle example** ending in non-food detergent/shampoo bottles.
+**Role:** P2 is an **integrated application-level modelling demonstration**, not a minimal, directly reusable ontology building block. Its purpose is to show how existing PMDco patterns and Mat.Sus sustainability concepts can be composed in one traceable materials-processing scenario. Building blocks should be consulted and adapted independently, not copied wholesale from this application story.
 
-It is an interoperability and provenance example, not a full LCA, mass-balance certification, industrial dataset, CF calculator, validated laboratory method, PEF study, product-category rule, or compliance claim. Numerical values exercise graph structure and queries only. Successful RDF, SPARQL, term-audit, or reasoner checks do not establish scientific correctness.
+This synthetic HDPE bottle-to-bottle scenario connects distinct physical batches and executed recycling processes, sourced process-inventory data, LCI compilation, black-box CF computations and results, supplier-provided CF information, and downstream product provenance. It illustrates the difference between physical flows, observed data, specifications, computational activities and reported results.
+
+**Evidence boundary:** This is an interoperability and provenance demonstration, **not** a validated carbon-footprint calculator, certified mass balance, full LCA, PEF-compliant study, verified supplier assessment or empirical industrial dataset. All quantities, records and results are synthetic. RDF, SHACL, SPARQL or reasoner success does not establish scientific or numerical correctness.
 
 ![Combined recycling genealogy and carbon-footprint provenance](diagrams/03-recycling-and-cf-provenance.svg)
 
@@ -21,6 +23,44 @@ Essential interpretation limits for the diagram are:
 - Sorting is the exemplary CF-provenance visualization. Washing remains the detailed multi-input inventory example in the RDF and discussion below, while the recycling LCI compilation and CF computation cover all six subprocesses.
 - The supplier CF declaration and supplier CF result are distinct information entities.
 - Qualitative `contributes to` relations do not assert arithmetic summation, direct computation inputs or validated allocation.
+
+## Reusable modelling building blocks illustrated by P2
+
+The following are **small explanatory sketches**, not additional asserted ABox nodes or TBox classes. The PMDco sketches reference patterns already available in the [PMDco patterns library](https://github.com/materialdigital/core-ontology/tree/main/patterns). They reproduce the modelling choices relevant to this case; they do not assert that P2 is an exact instantiation of every upstream SHACL constraint. The Mat.Sus sketches illustrate sustainability-specific composition candidates. Inspect the RDF and pinned imports before reusing them.
+
+### PMDco building blocks (reused concepts)
+
+**Process input/output** — material individuals are specified inputs/outputs of process occurrences. This is asserted in P2; the directed RDF properties originate at the process.
+
+![PMDco process input and output building block](diagrams/bb-pmdco-process-input-output.svg)
+
+**Process chain** — `has occurrent part` represents decomposition, while `precedes`, `starts with` and `ends with` represent additional temporal claims. **P2 currently asserts the six occurrent parts and specified input/output links, but not temporal ordering.** Before adding ordering, determine whether the full subprocess occurrences really do not overlap, particularly in production-line operation. Do not infer strict `precedes` merely from material-flow genealogy.
+
+![PMDco process-chain building block, not fully asserted in P2](diagrams/bb-pmdco-process-chain.svg)
+
+**QUDT scalar value specification** — P2 already uses `PMD_0080205` with `qudt:numericValue` and `qudt:hasUnit` to represent values. This models a number/unit pair, not the derivation or validity of the number. Whether the unit IRI has the expected `qudt:Unit` type depends on available unit vocabulary; see the SHACL profile notes.
+
+![PMDco QUDT value specification building block](diagrams/bb-pmdco-value-specification.svg)
+
+**Measurement datum** — P2 types sourced electricity/mass data as `IAO_0000109` with a numeric value and source record, but it does **not** satisfy PMDco's current closed measurement-datum SHACL. In particular, most P2 data have no `is specified output of (OBI_0000312)` link, and their `rdfs:label` and `dcterms:source` predicates are not allowed by that closed upstream shape. The PMDco shape checks measured-quality/value-target alignment when those optional links are present; it does not currently require a measured-quality link. This is an **open alignment issue**, not a validated equivalence between the profiles. Do not invent an assay or quality merely to satisfy the upstream shape; resolve the intended evidence semantics first.
+
+![PMDco measurement-datum building block requiring further P2 alignment review](diagrams/bb-pmdco-measurement-datum.svg)
+
+### Mat.Sus-specific building blocks (candidates and reusable examples)
+
+**Unresolved specification issue** — P2 currently links records typed as `MATSUS_0000068`, computing processes, and CF results. Because `MATSUS_0000068` is formally a **life cycle assessment specification** while P2 explicitly does not claim a complete LCA, this composition is not published here as a reusable building block. Human review should either justify the LCA-specification typing for these scoped calculations or introduce a correctly scoped specification class before extracting a generic pattern.
+
+**Qualitative upstream CF contribution** — `MATSUS_0000077` connects assessment-result information; it does not prove numerical aggregation, allocation, exhaustive coverage or methodological comparability.
+
+![Mat.Sus qualitative CF contribution building block](diagrams/bb-matsus-upstream-cf-contribution.svg)
+
+Minimal Mat.Sus reuse candidates are documented separately in [CF result provenance](../bb-cf-result-provenance/pattern.md) and [qualitative CF contribution](../bb-cf-contribution/pattern.md). They remain independent of the full HDPE scenario.
+
+### SHACL profile for the integrated demonstration
+
+[Application-level SHACL shapes](shape.ttl) document **selected complete-record requirements** for this story (sourced measurement values, records currently typed as LCA specifications, computations, CF results and contribution links). They are examples of *how to define scoped constraints*, not universal rules for every possible PMDco/Mat.Sus dataset and not approval of `MATSUS_0000068` as a generic CF-computation specification. They do not validate chronological claims, material identity, quantitative mass balance, numerical CF derivation, scientific validity or supplier comparability.
+
+Use them alongside competency questions. SHACL validation against the exact current asserted RDF and separately against the pinned import closure, with positive/negative tests, is a required verification step before release. The upstream PMDco measurement-datum shape is **not yet established as compatible** with the P2 data representation.
 
 ## Physical material and process model
 
@@ -94,11 +134,14 @@ The MKB3 reports named in the task were **not consulted**, because institutional
 From this pattern directory:
 
 ```powershell
-python -m pip install "rdflib==7.5.0"
+python -m pip install "rdflib==7.5.0" "pyshacl>=0.30,<1"
 python validation/run_queries.py
+python -m pyshacl -s shape.ttl -i none -f human shape-data.ttl
 ```
 
 The runner parses Turtle, executes seven competency questions and four structural checks, compares exact sorted rows with `validation/expected_rows.json`, reports the asserted triple count, and audits 27 selected reused term identifiers against pinned local sources. The CF check binds every expected result to its correct material/product/process subject, actual `PMD_0000583` computation, governing specification, functional unit, reference flow, boundary, literal number and unit. The inventory check requires a sourced electricity datum with a typed QUDT scalar, numeric literal and kWh unit for every recycling subprocess. The supplier traceability check requires the declaration-to-result/source/specification chain and use of that declaration by the bottle computation.
+
+The 721-triple asserted graph and the same graph with the committed Mat.Sus/pinned-PMDco closure both conform to the local application profile. Positive examples and adversarial mutations were checked independently with pySHACL. The same P2 graph intentionally does **not** conform to PMDco's closed measurement-datum profile or its QUDT profile when the QUDT unit vocabulary is absent; these are documented compatibility boundaries, not local-profile successes.
 
 Five deterministic mutation tests remove, one at a time, the final-bottle result subject, its scalar number, its scalar unit, the washing-electricity source and the supplier declaration-to-CF-result `IAO:is about` assertion. Each mutation must produce exactly the expected structural violation. `CQ-P2-02` discovers the main intermediate-batch path by traversing specified-input/output edges between the composite feed and pellet output rather than enumerating every tuple with `VALUES`.
 

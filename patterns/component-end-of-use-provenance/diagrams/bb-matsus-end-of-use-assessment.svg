@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="370" viewBox="0 0 1500 370" role="img">
+<title>Mat.Sus building block · end-of-use assessment and recommendation</title><desc>Assessment, finding and recommendation remain distinct from execution</desc>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#1e293b} .title{font-size:27px;font-weight:700}.subtitle{font-size:16px;fill:#475569}.head{font-size:19px;font-weight:700}.small{font-size:15px;fill:#334155}.fine{font-size:14px;fill:#64748b}.pmdbox{fill:#e0f2fe;stroke:#0284c7;stroke-width:2}.matbox{fill:#f3e8ff;stroke:#870cfb;stroke-width:2}.process{fill:#fff3cf;stroke:#d97706;stroke-width:2}.note{fill:#f8fafc;stroke:#94a3b8;stroke-width:1.5}.edge{stroke:#475569;stroke-width:2.3;fill:none;marker-end:url(#arr)}.dashed{stroke-dasharray:8 6}.legend{font-size:13px;fill:#64748b}</style>
+<defs><marker id="arr" markerWidth="11" markerHeight="8" refX="10" refY="4" orient="auto"><polygon points="0,0 11,4 0,8" fill="#475569"/></marker></defs>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text class="title" x="32" y="47">Mat.Sus building block · end-of-use assessment and recommendation</text>
+<text class="subtitle" x="32" y="78">Assessment, finding and recommendation remain distinct from execution</text>
+<rect x="40" y="149" rx="12" width="230" height="105" class="pmdbox"/>
+<text x="155.0" y="196.0" text-anchor="middle" font-size="16" font-weight="700">Material entity</text>
+<text x="155.0" y="219.0" text-anchor="middle" font-size="16" font-weight="400">evaluand</text>
+<rect x="390" y="149" rx="12" width="260" height="105" class="process"/>
+<text x="520.0" y="196.0" text-anchor="middle" font-size="16" font-weight="700">Disposition assessment</text>
+<text x="520.0" y="219.0" text-anchor="middle" font-size="16" font-weight="400">MATSUS_0000062</text>
+<rect x="810" y="118" rx="12" width="240" height="80" class="matbox"/>
+<text x="930.0" y="152.5" text-anchor="middle" font-size="16" font-weight="700">Condition finding</text>
+<text x="930.0" y="175.5" text-anchor="middle" font-size="16" font-weight="400">MATSUS_0000055</text>
+<rect x="810" y="222" rx="12" width="240" height="80" class="matbox"/>
+<text x="930.0" y="256.5" text-anchor="middle" font-size="16" font-weight="700">Recommendation</text>
+<text x="930.0" y="279.5" text-anchor="middle" font-size="16" font-weight="400">MATSUS_0000063</text>
+<rect x="1230" y="222" rx="12" width="220" height="80" class="process"/>
+<text x="1340.0" y="256.5" text-anchor="middle" font-size="16" font-weight="700">Represented process</text>
+<text x="1340.0" y="279.5" text-anchor="middle" font-size="16" font-weight="400">optional actual occurrence</text>
+<path d="M 650 171 L 810 158" class="edge"/>
+<text x="730.0" y="157.5" text-anchor="middle" class="fine">specified output</text>
+<path d="M 650 209 L 810 259" class="edge"/>
+<text x="730.0" y="227.0" text-anchor="middle" class="fine">specified output</text>
+<path d="M 1050 262 L 1230 262" class="edge dashed"/>
+<text x="1140.0" y="253" text-anchor="middle" class="fine">recommends</text>
+<path d="M 390 200 L 270 200" class="edge"/><text x="330" y="182" text-anchor="middle" class="fine">evaluates</text>
+<text class="fine" x="32" y="350">Dashed link is OPTIONAL: use only if a management-process occurrence is independently modelled. The minimal ABox omits it.</text>
+</svg>

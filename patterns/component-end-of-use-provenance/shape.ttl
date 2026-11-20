@@ -1,0 +1,85 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix matsus: <https://w3id.org/pmd/matsus/> .
+@prefix pmd: <https://w3id.org/pmd/co/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ceon-process: <http://w3id.org/CEON/ontology/process/> .
+@prefix profile: <https://w3id.org/pmd/matsus/pattern/component-end-of-use-provenance/shapes/> .
+
+# Application-data profile, NOT universal ontological constraints.
+# Importing this shape validates complete end-of-use assessment records under
+# this profile; the corresponding OWL classes permit less complete instances.
+profile:AssessmentRecord a sh:NodeShape ;
+    sh:targetClass matsus:MATSUS_0000062 ;
+    sh:description "Complete end-of-use disposition assessment profile, including evaluated entity and documented result."@en ;
+    sh:property [
+       sh:path matsus:MATSUS_0000060 ; sh:minCount 1 ; sh:nodeKind sh:IRI ;
+       sh:message "Record the evaluated material entity for this complete assessment profile."@en
+    ] ;
+    sh:property [
+       sh:path obo:OBI_0000299 ;
+       sh:qualifiedValueShape [
+          sh:class matsus:MATSUS_0000055 ;
+          sh:not [ sh:class matsus:MATSUS_0000063 ]
+       ] ;
+       sh:qualifiedMinCount 1 ;
+       sh:message "The assessment should have a non-recommendation condition finding as a specified output."@en
+    ] ;
+    sh:property [
+       sh:path obo:OBI_0000299 ;
+       sh:qualifiedValueShape [ sh:class matsus:MATSUS_0000063 ] ;
+       sh:qualifiedMinCount 1 ;
+       sh:message "The assessment should have a disposition recommendation as a specified output."@en
+    ] ;
+    sh:sparql [
+      sh:message "The non-recommendation finding output must be about at least one entity evaluated by the assessment."@en ;
+      sh:select """
+        PREFIX matsus: <https://w3id.org/pmd/matsus/>
+        PREFIX obo: <http://purl.obolibrary.org/obo/>
+        SELECT $this ?finding WHERE {
+          $this obo:OBI_0000299 ?finding .
+          ?finding a matsus:MATSUS_0000055 .
+          FILTER NOT EXISTS { ?finding a matsus:MATSUS_0000063 . }
+          FILTER NOT EXISTS {
+            $this matsus:MATSUS_0000060 ?evaluand .
+            ?finding obo:IAO_0000136 ?evaluand .
+          }
+        }
+      """
+    ] ;
+    sh:sparql [
+      sh:message "The recommendation output must be about at least one entity evaluated by the assessment."@en ;
+      sh:select """
+        PREFIX matsus: <https://w3id.org/pmd/matsus/>
+        PREFIX obo: <http://purl.obolibrary.org/obo/>
+        SELECT $this ?rec WHERE {
+          $this obo:OBI_0000299 ?rec .
+          ?rec a matsus:MATSUS_0000063 .
+          FILTER NOT EXISTS {
+            $this matsus:MATSUS_0000060 ?evaluand .
+            ?rec obo:IAO_0000136 ?evaluand .
+          }
+        }
+      """
+    ] .
+
+profile:DispositionRecommendation a sh:NodeShape ;
+    sh:targetClass matsus:MATSUS_0000063 ;
+    sh:description "A complete recommendation record identifies its subject; recommends-process is optional because a process need not be individually represented."@en ;
+    sh:property [
+      sh:path obo:IAO_0000136 ; sh:minCount 1 ; sh:nodeKind sh:IRI ;
+      sh:message "Identify the material entity to which this recommendation applies."@en
+    ] ;
+    sh:property [
+      sh:path matsus:MATSUS_0000064 ; sh:nodeKind sh:IRI ;
+      sh:class matsus:MATSUS_0000000 ;
+      sh:message "If an explicit recommended management-process individual is linked, its type must be supported."@en
+    ] .
+
+profile:RecyclingWithSpecifiedFlows a sh:NodeShape ;
+    sh:targetClass ceon-process:RecycleProcess ;
+    sh:description "Input/output-complete recycling provenance profile only; not a universally mandatory representation."@en ;
+    sh:property [ sh:path obo:OBI_0000293 ; sh:minCount 1 ; sh:nodeKind sh:IRI ] ;
+    sh:property [ sh:path obo:OBI_0000299 ; sh:minCount 1 ; sh:nodeKind sh:IRI ] .
