@@ -19,7 +19,7 @@ The combined diagram has three panels:
 Essential interpretation limits for the diagram are:
 
 - Device labels provide illustrative context; they do not denote additional asserted equipment individuals.
-- Intermediate material batches are visually summarized; the RDF retains the full material genealogy.
+- Intermediate material batches are visually summarized; the RDF retains the full material genealogy. The integrated extrusion-and-melt-filtration box represents one top-level operation with distinct extrusion and melt-filtration constituent occurrences.
 - Sorting is the exemplary CF-provenance visualization. Washing remains the detailed multi-input inventory example in the RDF and discussion below, while the recycling LCI compilation and CF computation cover all six subprocesses.
 - The supplier CF declaration and supplier CF result are distinct information entities.
 - Qualitative `contributes to` relations do not assert arithmetic summation, direct computation inputs or validated allocation.
@@ -32,9 +32,11 @@ The following are **small explanatory sketches**, not additional asserted ABox n
 
 **Process input/output** — material individuals are specified inputs/outputs of process occurrences. This is asserted in P2; the directed RDF properties originate at the process.
 
+At the six top-level recycling occurrences this pattern is present. The nested `extrusion` and `meltFiltration` constituents intentionally have no asserted inputs or outputs because the example provides no evidence for a defensible intermediate stream or for projecting the integrated operation's complete boundary onto either constituent. Consequently, under the pinned type closure the `PMD_0200004` extrusion constituent does **not** conform to PMDco's manufacturing-process input/output SHACL, which requires at least one specified input and output. This is an explicit compatibility boundary: resolve the constituent process boundaries from evidence before reusing that upstream profile; do not add duplicate or invented flow assertions merely to obtain conformance.
+
 ![PMDco process input and output building block](diagrams/bb-pmdco-process-input-output.svg)
 
-**Process chain** — `has occurrent part` represents decomposition, while `precedes`, `starts with` and `ends with` represent additional temporal claims. **P2 currently asserts the six occurrent parts and specified input/output links, but not temporal ordering.** Before adding ordering, determine whether the full subprocess occurrences really do not overlap, particularly in production-line operation. Do not infer strict `precedes` merely from material-flow genealogy.
+**Process chain** — `has occurrent part` represents decomposition, while `precedes`, `starts with` and `ends with` represent additional temporal claims. **P2 currently asserts six top-level occurrent parts, two constituent occurrences within the integrated extrusion-and-melt-filtration operation, and specified input/output links, but no temporal ordering.** Before adding ordering, determine whether the full subprocess occurrences really do not overlap, particularly in production-line operation. Do not infer strict `precedes` merely from material-flow genealogy.
 
 ![PMDco process-chain building block, not fully asserted in P2](diagrams/bb-pmdco-process-chain.svg)
 
@@ -64,7 +66,7 @@ Use them alongside competency questions. SHACL validation against the exact curr
 
 ## Physical material and process model
 
-The one `mechanicalRecycling` occurrence has six actual occurrent parts through `has occurrent part (BFO_0000117)`: sorting, shredding, washing, drying, extrusion with integrated melt filtration, and pelletizing/regranulation. Chronology is shown only by each occurrence's `has specified input/output (OBI_0000293/OBI_0000299)` links. No subclass assertion represents a stage, sequence, or part.
+The one `mechanicalRecycling` occurrence has six actual top-level occurrent parts through `has occurrent part (BFO_0000117)`: sorting, shredding, washing, drying, an integrated extrusion-and-melt-filtration operation, and pelletizing. The integrated operation in turn has distinct `extrusion` and `meltFiltration` constituent occurrences. Chronology is shown only by the six top-level occurrences' `has specified input/output (OBI_0000293/OBI_0000299)` links. No subclass assertion represents a stage, sequence, or part, and no unsupported intermediate stream or allocation is introduced between the two constituents.
 
 Successive batches are distinct physical individuals: 350 kg post-consumer packaging, 340 kg sorted stream, 335 kg flake, 320 kg washed flake, 315 kg dried flake, 310 kg filtered extrudate, and 300 kg recovered pellets. The graph records qualitative transformation genealogy without pretending that one physical individual persists unchanged. The quantities resemble a mass ledger but are not a certified balance; losses and their destinations are not modelled.
 
@@ -73,15 +75,17 @@ The batch pattern uses `high-density polyethylene (PMD_0050007)` plus `disconnec
 | Occurrence | Asserted type | Decision |
 | --- | --- | --- |
 | sorting | `MATSUS_0000016` sorting process | Exact Mat.Sus process class. |
-| shredding | `PMD_0000927` separating | No exact pinned shredding class; least-committal verified superclass. |
-| washing | `PMD_0000560` cleaning | Definition explicitly includes washing. |
-| drying | `PMD_0000833` manufacturing process | No exact pinned polymer-drying class. |
-| extrusion + melt filtration | `PMD_0200004` extrusion | Exact extrusion class; integrated filtration remains an evidence gap. |
-| pelletizing | `PMD_0000833` manufacturing process | No exact pinned pelletizing/regranulation class. |
+| shredding | `MATSUS_0000093` shredding process | Exact local process class under PMDco dividing. |
+| washing | `OBI_0302888` washing | Exact OBI class for contaminant removal through cycles of solution in flow; the asserted water, detergent and wastewater context is compatible. |
+| drying | `MATSUS_0000095` drying process | Exact materials-oriented local process class under OBI material component separation. |
+| integrated extrusion + melt filtration | `PMD_0000833` manufacturing process | Broad type for the integrated occurrence that retains the existing inventory and CF provenance. |
+| extrusion constituent | `PMD_0200004` extrusion | Exact PMDco class; a distinct occurrent part of the integrated operation. |
+| melt-filtration constituent | `MATSUS_0000094` melt filtration process | Exact generic local class under OBI filtration; a distinct occurrent part of the integrated operation. |
+| pelletizing | `MATSUS_0000096` pelletizing process | Exact generic local process class under PMDco manufacturing process. |
 | mixing | `PMD_0000778` mixing | Exact process class. |
 | extrusion blow molding | `PMD_0200007` blow molding | Definition gives HDPE bottle extrusion blow molding as an example. |
 
-No local TBox class or property is introduced. The four process-coverage gaps are information individuals in `knownLimitationsRecord`, not invented classes.
+Four primitive Mat.Sus classes close the verified vocabulary gaps without equivalence mappings or method-specific restrictions. Regranulation remains distinct and is not used as a synonym or Pattern occurrence.
 
 ## Inventory and characterization evidence
 
@@ -107,10 +111,12 @@ A synthetic electricity factor (0.4 kg CO2e/kWh) has a named synthetic source, a
 
 ## Ontology sources and evidence boundary
 
-Implementation used repository revision `b6b03fd21fbf1f7fcc8041da6264e5ed8f02bec4` and was checked against:
+The Phase 2 vocabulary integration starts from repository revision `35ea2c47bb557b0d27102c40bc18fa5604c29e68` and was checked against:
 
 - authoritative Mat.Sus development sources (`matsus-edit.owl`, `matsus.ttl`), version IRI `https://w3id.org/pmd/matsus/dev/`, source version info `2026-09-23`;
 - pinned PMDco 3.1.2 (`https://w3id.org/pmd/co/3.1.2`, created 2026-10-21);
+- pinned OBI v2026-07-27 (`http://purl.obolibrary.org/obo/obi/2026-07-27/obi.owl`) through the generated selected-term module for filtration and washing;
+- FoodOn drying `FOODON_03000614` and FoodOn version IRI `http://purl.obolibrary.org/obo/foodon/releases/2026-09-20/foodon.owl` as conceptual inspiration only, without import, equivalence or mapping;
 - Mat.Sus CEON integration of CEON v1.0.0 / process source 0.5;
 - the Mat.Sus LOG Stage A component for the supplier class;
 - completed Pattern 1 conventions in `patterns/component-end-of-use-provenance/`;
@@ -120,7 +126,7 @@ The MKB3 reports named in the task were **not consulted**, because institutional
 
 ## Known limitations
 
-- Exact pinned classes are absent for shredding, polymer drying, melt filtration and pelletizing/regranulation.
+- Regranulation is not represented as a synonym, class or occurrence because its process boundary remains unresolved.
 - Batch identity uses physical aggregate/material typing and labels; no new batch class or full lot ontology is introduced.
 - The post-consumer input's waste-role acquisition/loss interval is not represented.
 - Times, explicit ordering, transport, collection, rejects, detailed emissions, uncertainty, data quality, allocation parameters and final-bottle end of life are outside scope.
@@ -139,11 +145,11 @@ python validation/run_queries.py
 python -m pyshacl -s shape.ttl -i none -f human shape-data.ttl
 ```
 
-The runner parses Turtle, executes seven competency questions and four structural checks, compares exact sorted rows with `validation/expected_rows.json`, reports the asserted triple count, and audits 27 selected reused term identifiers against pinned local sources. The CF check binds every expected result to its correct material/product/process subject, actual `PMD_0000583` computation, governing specification, functional unit, reference flow, boundary, literal number and unit. The inventory check requires a sourced electricity datum with a typed QUDT scalar, numeric literal and kWh unit for every recycling subprocess. The supplier traceability check requires the declaration-to-result/source/specification chain and use of that declaration by the bottle computation.
+The runner parses Turtle, executes seven competency questions and five structural checks, compares exact sorted rows with `validation/expected_rows.json`, reports the asserted triple count, and audits 33 selected reused and local term identifiers against pinned repository sources. The CF check binds every expected result to its correct material/product/process subject, actual `PMD_0000583` computation, governing specification, functional unit, reference flow, boundary, literal number and unit. The inventory check requires a sourced electricity datum with a typed QUDT scalar, numeric literal and kWh unit for every recycling subprocess. The supplier traceability check requires the declaration-to-result/source/specification chain and use of that declaration by the bottle computation. The process-vocabulary checks require exact asserted types, top-level and nested containment, the four approved direct superclass axioms, the imported OBI hierarchy, absence of local equivalence axioms, and absence of a regranulation label synonym.
 
-The 721-triple asserted graph and the same graph with the committed Mat.Sus/pinned-PMDco closure both conform to the local application profile. Positive examples and adversarial mutations were checked independently with pySHACL. The same P2 graph intentionally does **not** conform to PMDco's closed measurement-datum profile or its QUDT profile when the QUDT unit vocabulary is absent; these are documented compatibility boundaries, not local-profile successes.
+The asserted graph and the same graph with the committed Mat.Sus/pinned-import closure both conform to the local application profile. Positive examples and adversarial mutations were checked independently with pySHACL. The same P2 graph intentionally does **not** conform to PMDco's closed measurement-datum profile, its QUDT profile when the QUDT unit vocabulary is absent, or—under the pinned type closure—its manufacturing-process input/output profile for the boundary-free nested extrusion constituent. These are documented compatibility boundaries, not local-profile successes.
 
-Five deterministic mutation tests remove, one at a time, the final-bottle result subject, its scalar number, its scalar unit, the washing-electricity source and the supplier declaration-to-CF-result `IAO:is about` assertion. Each mutation must produce exactly the expected structural violation. `CQ-P2-02` discovers the main intermediate-batch path by traversing specified-input/output edges between the composite feed and pellet output rather than enumerating every tuple with `VALUES`.
+Seven deterministic query mutations remove, one at a time, the final-bottle result subject, its scalar number, its scalar unit, the washing-electricity source, the supplier declaration-to-CF-result `IAO:is about` assertion, the shredding exact type, and the nested melt-filtration parthood assertion. Each mutation must produce exactly the expected structural violation. Additional SHACL mutation tests exercise the local application profile independently. `CQ-P2-02` discovers the main intermediate-batch path by traversing specified-input/output edges between the composite feed and pellet output rather than enumerating every tuple with `VALUES`.
 
 Optional repository-level reasoning, when ROBOT is available, should merge `shape-data.ttl` with the catalog-resolved authoritative Mat.Sus ontology and run the repository's established HermiT reasoning/coherence commands. Reasoner success still does not validate values, boundaries, allocation or scientific correctness.
 

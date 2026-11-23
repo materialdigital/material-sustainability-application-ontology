@@ -7,7 +7,7 @@
 <text x="800" y="48" class="banner" text-anchor="middle">Recycled high-density polyethylene (HDPE): physical genealogy and carbon-footprint provenance</text>
 <rect x="10" y="80" width="1580" height="415" rx="18" class="panel"/>
 <path d="M28 81H1572Q1589 81 1589 99V128H11V99Q11 81 28 81Z" fill="#eee4fb"/>
-<text x="33" y="114" class="section" text-anchor="start">a. Recycling: six asserted subprocesses</text>
+<text x="33" y="114" class="section" text-anchor="start">a. Recycling: six asserted top-level subprocesses</text>
 <rect x="25" y="220" width="203" height="76" rx="12" class="material"/>
 <text x="126.5" y="252.5" class="boxtext" text-anchor="middle">Post-consumer HDPE</text>
 <text x="126.5" y="275.5" class="boxtext" text-anchor="middle">350 kg batch</text>
@@ -20,8 +20,8 @@
 <rect x="815" y="225" width="147" height="70" rx="12" class="process"/>
 <text x="888.5" y="266" class="boxtext" text-anchor="middle">Drying</text>
 <rect x="1000" y="225" width="147" height="70" rx="12" class="process"/>
-<text x="1073.5" y="254.5" class="boxtext" text-anchor="middle">Extrusion +</text>
-<text x="1073.5" y="277.5" class="boxtext" text-anchor="middle">melt filtration</text>
+<text x="1073.5" y="254.5" class="boxtext" text-anchor="middle">Integrated</text>
+<text x="1073.5" y="277.5" class="boxtext" text-anchor="middle">extrusion + filtration</text>
 <rect x="1185" y="225" width="147" height="70" rx="12" class="process"/>
 <text x="1258.5" y="266" class="boxtext" text-anchor="middle">Pelletizing</text>
 <rect x="1370" y="220" width="204" height="76" rx="12" class="material"/>
@@ -52,8 +52,9 @@
 <rect x="830" y="118" width="126" height="48" rx="12" class="aux"/>
 <text x="893" y="148" class="micro" text-anchor="middle">drying device</text>
 <path d="M893 166V225" class="thin"/>
-<rect x="1010" y="168" width="128" height="48" rx="12" class="aux"/>
-<text x="1074" y="198" class="micro" text-anchor="middle">extruder + filter</text>
+<rect x="979" y="168" width="190" height="48" rx="12" class="aux"/>
+<text x="1074" y="188" class="micro" text-anchor="middle">constituent: extrusion</text>
+<text x="1074" y="204" class="micro" text-anchor="middle">constituent: melt filtration</text>
 <path d="M1074 216V225" class="thin"/>
 <rect x="1197" y="168" width="126" height="48" rx="12" class="aux"/>
 <text x="1260" y="198" class="micro" text-anchor="middle">pelletizer</text>

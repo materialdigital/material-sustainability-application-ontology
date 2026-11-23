@@ -92,7 +92,7 @@ src/patterns/all_pattern_terms.txt
 /src/ontology/matsus-edit-before-local-merge.owl.bak
 /src/ontology/matsus-edit-merged.owl
 /src/ontology/matsus-edit-no-imports-temp.owl
-# P1 R3 example allowance - narrowly scoped, not ODK-generated files
+# P1/P2 example allowances - narrowly scoped, not ODK-generated files
 !/patterns/
 /patterns/*
 !/patterns/component-end-of-use-provenance/
@@ -110,27 +110,43 @@ src/patterns/all_pattern_terms.txt
 !/patterns/component-end-of-use-provenance/validation/queries/
 /patterns/component-end-of-use-provenance/validation/queries/*
 !/patterns/component-end-of-use-provenance/validation/queries/*.sparql
-
 # Reviewed P1/P2 application profiles and standalone Mat.Sus building blocks.
 !/patterns/recycled-polymer-carbon-footprint-provenance/
+/patterns/recycled-polymer-carbon-footprint-provenance/*
+!/patterns/recycled-polymer-carbon-footprint-provenance/shape-data.ttl
 !/patterns/recycled-polymer-carbon-footprint-provenance/shape.ttl
+!/patterns/recycled-polymer-carbon-footprint-provenance/pattern.md
 !/patterns/recycled-polymer-carbon-footprint-provenance/diagrams/
-!/patterns/recycled-polymer-carbon-footprint-provenance/diagrams/bb-*.svg
+/patterns/recycled-polymer-carbon-footprint-provenance/diagrams/*
+!/patterns/recycled-polymer-carbon-footprint-provenance/diagrams/*.svg
+!/patterns/recycled-polymer-carbon-footprint-provenance/validation/
+/patterns/recycled-polymer-carbon-footprint-provenance/validation/*
+!/patterns/recycled-polymer-carbon-footprint-provenance/validation/run_queries.py
+!/patterns/recycled-polymer-carbon-footprint-provenance/validation/expected_rows.json
+!/patterns/recycled-polymer-carbon-footprint-provenance/validation/queries/
+/patterns/recycled-polymer-carbon-footprint-provenance/validation/queries/*
+!/patterns/recycled-polymer-carbon-footprint-provenance/validation/queries/*.sparql
 !/patterns/bb-end-of-use-assessment/
+/patterns/bb-end-of-use-assessment/*
 !/patterns/bb-end-of-use-assessment/pattern.md
 !/patterns/bb-end-of-use-assessment/shape-data.ttl
 !/patterns/bb-end-of-use-assessment/shape.ttl
 !/patterns/bb-end-of-use-assessment/diagrams/
+/patterns/bb-end-of-use-assessment/diagrams/*
 !/patterns/bb-end-of-use-assessment/diagrams/*.svg
 !/patterns/bb-cf-result-provenance/
+/patterns/bb-cf-result-provenance/*
 !/patterns/bb-cf-result-provenance/pattern.md
 !/patterns/bb-cf-result-provenance/shape-data.ttl
 !/patterns/bb-cf-result-provenance/shape.ttl
 !/patterns/bb-cf-result-provenance/diagrams/
+/patterns/bb-cf-result-provenance/diagrams/*
 !/patterns/bb-cf-result-provenance/diagrams/*.svg
 !/patterns/bb-cf-contribution/
+/patterns/bb-cf-contribution/*
 !/patterns/bb-cf-contribution/pattern.md
 !/patterns/bb-cf-contribution/shape-data.ttl
 !/patterns/bb-cf-contribution/shape.ttl
 !/patterns/bb-cf-contribution/diagrams/
+/patterns/bb-cf-contribution/diagrams/*
 !/patterns/bb-cf-contribution/diagrams/*.svg
