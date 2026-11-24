@@ -34,11 +34,20 @@ The housing and additional **primary aluminium raw material** are inputs to recy
 
 The input–output links establish **qualitative provenance**, not a mass balance, recycled-content percentage, verified alloy grade or certified chain of custody. The additional charge is typed as **primary raw material**; a **virgin material** classification is not asserted.
 
+## Reusable building block and SHACL profile
+
+This gearbox story is an integrated application demonstration, **not** a generic atomic PMDco pattern. A smaller Mat.Sus [end-of-use assessment and recommendation building block](../bb-end-of-use-assessment/pattern.md) extracts the distinction between evaluated material, condition finding, recommendation, and proposed (not necessarily executed) management process.
+
+![Mat.Sus assessment and recommendation building block](diagrams/bb-matsus-end-of-use-assessment.svg)
+
+The [P1 SHACL profile](shape.ttl) illustrates carefully scoped data requirements for complete disposition assessments, recommendations and executed recycling provenance. Its conditions are **application-profile rules**, not additional universal OWL restrictions. In particular, P1's gear-reuse recommendation must remain distinct from an executed reuse process. SHACL is not evidence of scientific validity or execution.
+
 ## Appendix — example, reuse and validation
 
 - **Example ABox:** [`shape-data.ttl`](shape-data.ttl) — 98 asserted triples in a synthetic scenario; component identity is preserved across disassembly, sorting and assessment.
 - **Executable checks:** [eight competency questions and two structural checks](validation/queries/); [runner](validation/run_queries.py) and [expected answers](validation/expected_rows.json). From this directory run `python validation/run_queries.py`.
-- **Evidence:** The original 94-triple example was accepted in evaluation rounds R1–R3. **For this 98-triple revision, all ten asserted-RDF checks passed locally using RDFLib 7.5.0. Fresh import-closure resolution and ROBOT/HermiT consistency and coherence checks also passed against pinned PMDco v3.1.2.** P1-specific SHACL conformance has not been run; the ten queries are not part of standard repository CI.
+- **SHACL:** Install `pyshacl>=0.30,<1` and run `python -m pyshacl -s shape.ttl -i none -f human shape-data.ttl` from this directory.
+- **Evidence:** The original 94-triple example was accepted in evaluation rounds R1–R3. **For this 98-triple revision, all ten asserted-RDF checks, asserted-data SHACL, pinned-closure SHACL, adversarial mutation checks, and ROBOT ELK/HermiT consistency and coherence checks passed locally against pinned PMDco v3.1.2.** The competency queries and SHACL profiles are not part of standard repository CI.
 - **Semantic boundary:** PMDco's crack-site/defect-role parthood interpretation remains unresolved. No crack–housing parthood edge is asserted. Recommendations do not themselves imply execution. No explicit temporal interval or sequence assertion is included.
 
 ### Key predicates for adaptation

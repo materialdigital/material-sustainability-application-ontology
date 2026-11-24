@@ -1,0 +1,16 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix matsus: <https://w3id.org/pmd/matsus/> .
+@prefix pmd: <https://w3id.org/pmd/co/> .
+@prefix obo: <http://purl.obolibrary.org/obo/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix profile: <https://w3id.org/pmd/matsus/pattern/bb/cf-contribution/shapes/> .
+profile:ContributionLink a sh:NodeShape ;
+ sh:targetSubjectsOf matsus:MATSUS_0000077 ;
+ sh:class matsus:MATSUS_0000076 ;
+ sh:property [
+  sh:path matsus:MATSUS_0000077 ; sh:nodeKind sh:IRI ;
+  sh:class matsus:MATSUS_0000076 ;
+  sh:message "A contribution target must be carbon-footprint result information, not a process or a material."@en
+ ] .
