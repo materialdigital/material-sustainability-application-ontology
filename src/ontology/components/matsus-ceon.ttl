@@ -61,42 +61,33 @@ ceon-process:DeconstructionProcess a owl:Class ;
 
 matsus:MATSUS_0000000 a owl:Class ;
     rdfs:label "end of use management process"@en ;
-    dcterms:source "Mat.Sus CEON Phase 12 approved modelling decision; MKB2 end-of-use architecture refinement, 2026-09-20" ;
     rdfs:comment "Examples include reuse, refurbishment, remanufacturing, repurposing, and, where applicable, repair, recycling, dismantling, disassembly, deconstruction, take-back, or waste collection. Generic process classes that can also occur outside an end-of-use context (e.g., repair) are not thereby subclasses of end of use management process."@en ;
     rdfs:subClassOf obo:COB_0000082 ;
     skos:definition "A planned process that handles a material entity following a use phase."@en ;
-    matsus:integrationBasis "MatSus application-level end-of-use process branch grounded under the PMDco-imported planned process hierarchy" ;
-    matsus:integrationMethod "MatSus-local class with selected CEON and MatSus process subclasses" .
+    skos:editorialNote "This branch is grounded in planned process because it covers planned handling following a use phase. Generic process classes can apply in other contexts and do not automatically fall under end-of-use management."@en .
 
-ceon-process:ReuseProcess rdfs:subClassOf matsus:MATSUS_0000000 ;
-    matsus:integrationMethod "MatSus-authored subclassing under end of use management process" .
+ceon-process:ReuseProcess rdfs:subClassOf matsus:MATSUS_0000000 .
 
 ceon-process:RefurbishmentProcess rdfs:subClassOf matsus:MATSUS_0000000 ;
     skos:altLabel "reconditioning"@en ;
-    skos:editorialNote "The alternative label reconditioning is a MatSus application-level terminology decision, not an asserted synonym from the CEON source."@en ;
-    matsus:integrationMethod "MatSus-authored subclassing under end of use management process" .
+    skos:editorialNote "The alternative label reconditioning is a MatSus application-level terminology decision, not an asserted synonym from the CEON source."@en .
 
 ceon-process:RepairProcess rdfs:subClassOf obo:COB_0000082 ;
     rdfs:comment "In MatSus, a repair process may be an end of use management process when it is performed after a use phase to enable further use."@en ;
-    skos:editorialNote "The generic repair class is not placed under end of use management process because repair may also occur during ordinary use, maintenance, or other non-end-of-use contexts."@en ;
-    matsus:integrationMethod "MatSus-authored grounding under COB planned process; end-of-use status is contextual" .
+    skos:editorialNote "The generic repair class is not placed under end of use management process because repair may also occur during ordinary use, maintenance, or other non-end-of-use contexts."@en .
 
 ceon-process:RecycleProcess rdfs:subClassOf obo:COB_0000082 ;
     rdfs:comment "In MatSus, a recycle process may be an end of use management process when it treats material arising after a use phase."@en ;
-    skos:editorialNote "The generic recycle class is not placed under end of use management process because recycling may also concern pre-consumer, production, or other material streams that are not end-of-use."@en ;
-    matsus:integrationMethod "MatSus-authored grounding under COB planned process; end-of-use status is contextual" .
+    skos:editorialNote "The generic recycle class is not placed under end of use management process because recycling may also concern pre-consumer, production, or other material streams that are not end-of-use."@en .
 
 
 pmd:PMD_0000612 rdfs:comment "In MatSus, a disassembling process may be an end of use management process when it is performed as part of a post-use pathway."@en ;
-    skos:editorialNote "The generic PMDco disassembling class remains outside the end of use management hierarchy because disassembling can also occur in manufacturing, maintenance, inspection, reconfiguration, or other non-end-of-use contexts. MatSus reuses PMDco PMD_0000612 instead of retaining the overlapping CEON DisassemblingProcess and DismantleProcess terms."@en ;
-    matsus:integrationMethod "PMDco class reused as the authoritative MSE disassembling concept; end-of-use status is contextual" .
+    skos:editorialNote "The generic PMDco disassembling class remains outside the end of use management hierarchy because disassembling can also occur in manufacturing, maintenance, inspection, reconfiguration, or other non-end-of-use contexts. MatSus reuses PMDco PMD_0000612 instead of retaining the overlapping CEON DisassemblingProcess and DismantleProcess terms."@en .
 
 ceon-process:DeconstructionProcess rdfs:subClassOf obo:COB_0000082 ;
     rdfs:comment "In MatSus, a deconstruction process may be an end of use management process when it is performed as part of a post-use pathway."@en ;
-    skos:editorialNote "The generic deconstruction class is not placed under end of use management process because deconstruction can also occur in other technical or operational contexts."@en ;
-    matsus:integrationMethod "MatSus-authored grounding under COB planned process; end-of-use status is contextual" .
+    skos:editorialNote "The generic deconstruction class is not placed under end of use management process because deconstruction can also occur in other technical or operational contexts."@en .
 
 ceon-process:TakeBackProcess rdfs:subClassOf obo:COB_0000082 ;
     rdfs:comment "In MatSus, a take-back process may support an end of use management pathway by returning a material entity to an actor or system for subsequent handling."@en ;
-    skos:editorialNote "The generic take-back class remains outside the end of use management hierarchy because take-back denotes a return or logistics activity and does not by itself determine the subsequent disposition."@en ;
-    matsus:integrationMethod "MatSus-authored grounding under COB planned process; end-of-use status is contextual" .
+    skos:editorialNote "The generic take-back class remains outside the end of use management hierarchy because take-back denotes a return or logistics activity and does not by itself determine the subsequent disposition."@en .
