@@ -21,7 +21,7 @@ dpp-comp:aboutPart a owl:ObjectProperty ;
     rdfs:domain dpp-info:CompositionInformation ;
     rdfs:range obo:BFO_0000040 ;
     rdfs:subPropertyOf obo:IAO_0000136 ;
-    matsus:integrationMethod "selective reuse with corrected unversioned dpp-info reference" .
+    skos:editorialNote "The domain uses the unversioned DPPO CompositionInformation IRI defined in dpp-info."@en .
 
 dpp-core:ComponentDPP a owl:Class ;
     rdfs:label "Component DPP"@en ;
@@ -32,8 +32,8 @@ dpp-core:ComponentDPP a owl:Class ;
             owl:someValuesFrom log:LOG_1000028 ],
         dpp-odp:DPP ;
     matsus:alignmentRelation "narrow DPP subtype linked by IAO is about; no class equivalence" ;
-    matsus:integrationMethod "selective reuse with weakened source axiom" ;
-    matsus:mappedTo log:LOG_1000028 .
+    matsus:mappedTo log:LOG_1000028 ;
+    skos:editorialNote "MatSus uses a necessary IAO aboutness restriction to the LOG Component anchor. Aboutness does not make every DPP record mentioning a component an instance of this subtype."@en .
 
 dpp-core:ConsumerProductDPP a owl:Class ;
     rdfs:label "Consumer Product DPP"@en ;
@@ -44,10 +44,9 @@ dpp-core:ConsumerProductDPP a owl:Class ;
             owl:someValuesFrom log:LOG_1000029 ],
         dpp-odp:DPP ;
     skos:altLabel "Comsumer Product DPP"@en ;
-    skos:editorialNote "The source preferred label contains the spelling 'Comsumer'; the corrected label is used and the source spelling is retained as an alternative label." ;
     matsus:alignmentRelation "consumer-product-specific subtype mapped to the broader LOG material product anchor" ;
-    matsus:integrationMethod "selective reuse with weakened source axiom" ;
-    matsus:mappedTo log:LOG_1000029 .
+    matsus:mappedTo log:LOG_1000029 ;
+    skos:editorialNote "The IAO aboutness restriction to the broader LOG material-product anchor is necessary only. A passport about a material product is not thereby a consumer-product passport. The source spelling 'Comsumer' is retained as an alternative label."@en .
 
 dpp-core:MaterialDPP a owl:Class ;
     rdfs:label "Material DPP"@en ;
@@ -58,8 +57,8 @@ dpp-core:MaterialDPP a owl:Class ;
             owl:someValuesFrom pmd:PMD_0000000 ],
         dpp-odp:DPP ;
     matsus:alignmentRelation "DPP subtype linked to authoritative PMDco Material by IAO is about; no class equivalence" ;
-    matsus:integrationMethod "selective reuse with weakened source axiom" ;
-    matsus:mappedTo pmd:PMD_0000000 .
+    matsus:mappedTo pmd:PMD_0000000 ;
+    skos:editorialNote "MatSus uses a necessary IAO aboutness restriction to the PMDco material anchor. Aboutness alone does not establish membership in this passport subtype."@en .
 
 dpp-core:SubstanceDPP a owl:Class ;
     rdfs:label "Substance DPP"@en ;
@@ -70,24 +69,22 @@ dpp-core:SubstanceDPP a owl:Class ;
             owl:someValuesFrom obo:CHEBI_59999 ],
         dpp-odp:DPP ;
     matsus:alignmentRelation "DPP subtype linked cautiously to the PMDco-imported chemical substance anchor; no class equivalence" ;
-    matsus:integrationMethod "selective reuse with weakened source axiom" ;
-    matsus:mappedTo obo:CHEBI_59999 .
+    matsus:mappedTo obo:CHEBI_59999 ;
+    skos:editorialNote "MatSus uses a necessary IAO aboutness restriction to the PMDco-imported chemical substance anchor. Aboutness alone does not establish membership in this passport subtype."@en .
 
 dpp-info:ProductCharacteristic a owl:Class ;
     rdfs:label "Product characteristic"@en ;
     dcterms:source dpp-info: ;
     rdfs:comment "A piece of DPP information describing a characteristic of a product."@en ;
     rdfs:subClassOf dpp-info:DPPInformation ;
-    matsus:integrationMethod "selective direct reuse" ;
-    matsus:integrationNote "This is an information content entity, not the physical characteristic or its value." .
+    skos:editorialNote "This information content entity describes a physical characteristic. The characteristic and its value are separate entities."@en .
 
 dpp-info:ProductQuality a owl:Class ;
     rdfs:label "Product quality"@en ;
     dcterms:source dpp-info: ;
     rdfs:comment "A piece of DPP information about a quality of a product."@en ;
     rdfs:subClassOf dpp-info:DPPInformation ;
-    matsus:integrationMethod "selective direct reuse" ;
-    matsus:integrationNote "This is an information content entity and is not subclassed under BFO quality." .
+    skos:editorialNote "This class covers information about a quality. The described quality is a separate entity in the BFO quality branch."@en .
 
 dpp-info:certificateDocument a owl:ObjectProperty ;
     rdfs:label "certificate document"@en ;
@@ -102,8 +99,7 @@ dpp-info:containsInformation a owl:ObjectProperty ;
     dcterms:source dpp-info: ;
     rdfs:comment "Relates a Digital Product Passport to a DPP information item it contains."@en ;
     rdfs:domain dpp-odp:DPP ;
-    rdfs:range dpp-info:DPPInformation ;
-    matsus:integrationMethod "selective direct reuse" .
+    rdfs:range dpp-info:DPPInformation .
 
 dpp-info:directlySupersededBy a owl:ObjectProperty ;
     rdfs:label "directly superseded by"@en ;
@@ -150,8 +146,7 @@ dpp-prov:ValueChainActor a owl:Class ;
     rdfs:label "Value chain actor"@en ;
     dcterms:source dpp-prov: ;
     rdfs:comment "A DPP actor that actively participates in a product value chain, such as a manufacturer, supplier, or recycler."@en ;
-    rdfs:subClassOf dpp-prov:Actor ;
-    matsus:integrationMethod "selective direct reuse aligned through DPPO Actor to LOG agent" .
+    rdfs:subClassOf dpp-prov:Actor .
 
 dpp-prov:creationTimeStamp a owl:DatatypeProperty ;
     rdfs:label "creation time stamp"@en ;
@@ -193,10 +188,10 @@ dpp-prov:responsibleActor a owl:ObjectProperty ;
         "Huanyu Li",
         "Robin Keskisärkkä" ;
     dcterms:creator "Maike Jansen" ;
-    dcterms:description "Mat.Sus selected and modified/adapted content from five DPPO 0.1 modules. Existing DPPO entity IRIs are retained; local integration annotations and selected axioms document the Mat.Sus adaptation." ;
+    dcterms:description "Mat.Sus selected and modified/adapted content from five DPPO 0.1 modules. The Mat.Sus adaptation retains the DPPO entity IRIs. Selected axioms and editorial notes describe the adaptation." ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
     dcterms:modified "2026-08-05"^^xsd:date ;
-    dcterms:rights "DPPO 0.1 content is reused under CC BY 4.0. Mat.Sus selected and modified/adapted that content and identifies the changes through integration annotations." ;
+    dcterms:rights "DPPO 0.1 content is reused under CC BY 4.0. Mat.Sus selected and modified/adapted that content and records the adaptation in the repository's decision archive." ;
     dcterms:source <https://github.com/LiUSemWeb/DPPO/tree/dd39101cdf2bde6d1749123b6fb250c13644ddbd/ontology/dpp-comp/0.1>,
         <https://github.com/LiUSemWeb/DPPO/tree/dd39101cdf2bde6d1749123b6fb250c13644ddbd/ontology/dpp-core/0.1>,
         <https://github.com/LiUSemWeb/DPPO/tree/dd39101cdf2bde6d1749123b6fb250c13644ddbd/ontology/dpp-info/0.1>,
@@ -214,30 +209,27 @@ dpp-comp:aboutWhole a owl:ObjectProperty ;
     rdfs:range obo:BFO_0000040 ;
     rdfs:subPropertyOf obo:IAO_0000136 ;
     owl:inverseOf dpp-info:hasCompositionInformation ;
-    matsus:integrationMethod "selective reuse with corrected unversioned dpp-info reference" .
+    skos:editorialNote "The domain uses the unversioned DPPO CompositionInformation IRI defined in dpp-info."@en .
 
 dpp-info:CertificateInformation a owl:Class ;
     rdfs:label "Certificate information"@en ;
     dcterms:source dpp-info: ;
     rdfs:comment "A piece of DPP information about a certificate concerning a product."@en ;
     rdfs:subClassOf dpp-info:DPPInformation ;
-    matsus:integrationMethod "selective direct reuse" ;
-    matsus:integrationNote "Kept distinct from the certificate document and from a compliance result." .
+    skos:editorialNote "This is information about a certificate. The certificate document and a compliance result are separate entities."@en .
 
 dpp-info:DisassemblyInformation a owl:Class ;
     rdfs:label "Disassembly information"@en ;
     dcterms:source dpp-info: ;
     rdfs:comment "A piece of DPP information about how to disassemble a product, including links to disassembly instructions."@en ;
-    rdfs:subClassOf dpp-info:DPPInformation ;
-    matsus:integrationMethod "selective direct reuse" .
+    rdfs:subClassOf dpp-info:DPPInformation .
 
 dpp-info:RepairInstruction a owl:Class ;
     rdfs:label "Repair instruction"@en ;
     dcterms:source dpp-info: ;
     rdfs:comment "A piece of DPP information about how to repair a product."@en ;
     rdfs:subClassOf dpp-info:DPPInformation ;
-    matsus:integrationMethod "selective direct reuse" ;
-    matsus:integrationNote "Not classified as a repair process or a repairability disposition. A stricter directive-information-entity placement is deferred." .
+    skos:editorialNote "This term denotes information about how to repair and belongs to the DPP information branch. Repair occurrences and repairability dispositions are separate entities. No narrower directive-information placement is asserted."@en .
 
 dpp-info:directlySupersedes a owl:ObjectProperty ;
     rdfs:label "directly supersedes"@en ;
@@ -252,8 +244,7 @@ dpp-info:hasCompositionInformation a owl:ObjectProperty ;
     rdfs:comment "Relates a material entity to DPP information describing its composition."@en ;
     rdfs:range dpp-info:CompositionInformation ;
     owl:inverseOf dpp-comp:aboutWhole ;
-    skos:editorialNote "The source dpp-comp versioned reference dpp-info/0.1/hasCompositionInformation is mapped to this unversioned IRI." ;
-    matsus:integrationMethod "selective direct reuse with PMDco-aligned interpretation" .
+    skos:editorialNote "The source dpp-comp versioned reference dpp-info/0.1/hasCompositionInformation is mapped to this unversioned IRI." .
 
 dpp-info:supersededBy a owl:ObjectProperty,
         owl:TransitiveProperty ;
@@ -267,8 +258,7 @@ dpp-info:LegalGuarantee a owl:Class ;
     rdfs:label "Legal guarantee"@en ;
     dcterms:source dpp-info: ;
     rdfs:comment "A piece of DPP information describing the legal guarantee of a product and its period of validity."@en ;
-    rdfs:subClassOf dpp-info:DPPInformation ;
-    matsus:integrationMethod "selective direct reuse" .
+    rdfs:subClassOf dpp-info:DPPInformation .
 
 dpp-prov:actor a owl:ObjectProperty ;
     rdfs:label "DPP actor"@en ;
@@ -287,15 +277,13 @@ dpp-info:CompositionInformation a owl:Class ;
     dcterms:source dpp-info: ;
     rdfs:comment "A piece of DPP information about the composition of a product, including relations between a whole and its material or component parts."@en ;
     rdfs:subClassOf dpp-info:DPPInformation ;
-    skos:editorialNote "The unversioned IRI defined in dpp-info is authoritative in this materialization; versioned dpp-info/0.1 references in dpp-comp are mapped to it." ;
-    matsus:integrationMethod "selective direct reuse" .
+    skos:editorialNote "The unversioned IRI defined in dpp-info is authoritative in this materialization; versioned dpp-info/0.1 references in dpp-comp are mapped to it." .
 
 dpp-info:externalDocument a owl:ObjectProperty ;
     rdfs:label "external document"@en ;
     dcterms:source dpp-info: ;
     rdfs:comment "Relates DPP information to an external document containing related instructions, evidence, certificates, or further information."@en ;
-    rdfs:range obo:IAO_0000310 ;
-    matsus:integrationMethod "selective direct reuse with IAO-aligned range" .
+    rdfs:range obo:IAO_0000310 .
 
 dpp-prov:Actor a owl:Class ;
     rdfs:label "DPP actor"@en ;
@@ -304,7 +292,6 @@ dpp-prov:Actor a owl:Class ;
     rdfs:subClassOf log:LOG_1000011 ;
     skos:altLabel "Actor"@en ;
     matsus:alignmentRelation "narrower provenance-specific agent class" ;
-    matsus:integrationMethod "subclassing under the authoritative LOG agent branch" ;
     matsus:mappedTo log:LOG_1000011 .
 
 dpp-odp:DPP a owl:Class ;
@@ -312,15 +299,12 @@ dpp-odp:DPP a owl:Class ;
     dcterms:source dpp-odp: ;
     rdfs:comment "A Digital Product Passport containing information about a product and potentially containing subordinate DPP information."@en ;
     rdfs:subClassOf obo:IAO_0000030 ;
-    matsus:integrationBasis "DPPO ontology-level semantic source aligned to the PMDco/IAO backbone" ;
-    matsus:integrationMethod "selective direct reuse" ;
-    matsus:integrationNote "Placed under IAO information content entity. The source all-values-from hasPart restriction was intentionally omitted, and DPP is not yet classified as a document." .
+    skos:editorialNote "A DPP is an IAO information content entity, with no commitment that every passport is a document. Its information can include subordinate DPP information. The omitted source all-values-from restriction on hasPart leaves the types of parts open."@en .
 
 dpp-info:DPPInformation a owl:Class ;
     rdfs:label "DPP information"@en ;
     dcterms:source dpp-info: ;
     rdfs:comment "A piece of information contained in a Digital Product Passport."@en ;
     rdfs:subClassOf obo:IAO_0000030 ;
-    matsus:integrationMethod "selective direct reuse" ;
-    matsus:integrationNote "The source restriction to DPPO Product was omitted. Instances use IAO is about to refer to authoritative PMDco/LOG entities." .
+    skos:editorialNote "The class is an IAO information content entity. Its subject is represented by IAO is about using the appropriate PMDco or LOG entity, without the source restriction to DPPO Product."@en .
 
